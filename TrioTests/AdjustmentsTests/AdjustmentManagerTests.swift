@@ -313,6 +313,146 @@ import Testing
 
     // MARK: - Fixtures
 
+    @Test("An expired finite override no longer blocks a later activity episode") func expiredActivityOverride() async throws {
+        await makeOverride(name: "Expired", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, indefinite: false)
+        await makeOverride(name: "Exercise", enabled: false, date: Date(), duration: 45, indefinite: false)
+        let outcome = try await manager.activateActivityPreset(.presetName("Exercise"), kind: .override)
+        #expect(outcome.started?.name == "Exercise")
+        let rows = try await overrides()
+        #expect(rows.first(where: { $0.name == "Expired" })?.enabled == false)
+        let runs = try await overrideRuns()
+        #expect(runs.first?.name == "Expired")
+    }
+
+    @Test("An expired temporary target no longer blocks an activity override") func expiredActivityTarget() async throws {
+        await makeTempTarget(name: "Expired", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, target: 140)
+        await makeOverride(name: "Exercise", enabled: false, date: Date())
+        let outcome = try await manager.activateActivityPreset(.presetName("Exercise"), kind: .override)
+        #expect(outcome.started?.name == "Exercise")
+    }
+
+    @Test("An expired override no longer blocks an activity temporary target") func expiredCrossTypeOverride() async throws {
+        await makeOverride(name: "Expired", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, indefinite: false)
+        await makeTempTarget(name: "Exercise", enabled: false, date: Date(), duration: 30, target: 140)
+        let outcome = try await manager.activateActivityPreset(.presetName("Exercise"), kind: .tempTarget)
+        #expect(outcome.started?.name == "Exercise")
+    }
+
+    @Test("An old indefinite override remains protected") func indefiniteOverrideIsProtected() async throws {
+        await makeOverride(name: "Indefinite", enabled: true, date: Date().addingTimeInterval(-7 * 86400), duration: 30)
+        await makeTempTarget(name: "Exercise", enabled: false, date: Date(), duration: 30, target: 140)
+        await #expect(throws: AdjustmentError.activeAdjustmentPresent) {
+            try await manager.activateActivityPreset(.presetName("Exercise"), kind: .tempTarget)
+        }
+    }
+
+    @Test("A missing start date is not assumed to mean an adjustment has expired") func unknownExpiryIsProtected() async throws {
+        let id = await makeTempTarget(name: "Unknown", enabled: true, date: Date(), duration: 30, target: 140)
+        try await testContext.perform {
+            let row = try self.testContext.existingObject(with: id) as! TempTargetStored
+            row.date = nil
+            try self.testContext.save()
+        }
+        await makeOverride(name: "Exercise", enabled: false, date: Date())
+        await #expect(throws: AdjustmentError.activeAdjustmentPresent) {
+            try await manager.activateActivityPreset(.presetName("Exercise"), kind: .override)
+        }
+    }
+
+    @Test("Expired requests are rejected by the adjustment transaction without a sensor callback")
+    func expiredActivityRequest() async throws {
+        await makeOverride(name: "Exercise override", enabled: false, date: Date())
+        await makeTempTarget(name: "Exercise target", enabled: false, date: Date(), duration: 60, target: 140)
+        let request = ActivityActivationRequest(expiresAt: Date().addingTimeInterval(-1))
+        await #expect(throws: AdjustmentError.activityRequestCancelled) {
+            try await manager.activateActivityPreset(.presetName("Exercise override"), kind: .override, request: request)
+        }
+        await #expect(throws: AdjustmentError.activityRequestCancelled) {
+            try await manager.activateActivityPreset(.presetName("Exercise target"), kind: .tempTarget, request: request)
+        }
+        #expect(try await overrides().allSatisfy { !$0.enabled })
+        #expect(try await tempTargets().allSatisfy { !$0.enabled })
+    }
+
+    @Test("Manual cancellation announces intent before clearing the running row or uploading")
+    @MainActor func manualIntentPrecedesCancellation() async throws {
+        let id = await makeOverride(name: "Manual", enabled: true, date: Date())
+        await makeOverride(name: "Exercise", enabled: false, date: Date())
+        let request = ActivityActivationRequest()
+        let context = testContext!
+        let observer = Foundation.NotificationCenter.default.addObserver(
+            forName: .activityAdjustmentRequested, object: nil, queue: nil
+        ) { _ in
+            let stillEnabled = context.performAndWait {
+                (try? context.existingObject(with: id) as? OverrideStored)?.enabled == true
+            }
+            if stillEnabled { request.cancel() }
+        }
+        defer { Foundation.NotificationCenter.default.removeObserver(observer) }
+        _ = try await manager.cancelOverride(source: .shortcut, waitForUpload: true)
+        #expect(request.isCancelled)
+        await #expect(throws: AdjustmentError.activityRequestCancelled) {
+            try await manager.activateActivityPreset(.presetName("Exercise"), kind: .override, request: request)
+        }
+    }
+
+    @Test("Automatic expiry does not announce a manual interruption") @MainActor func expiryIsNotManual() async throws {
+        await makeOverride(name: "Expired", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, indefinite: false)
+        let request = ActivityActivationRequest()
+        let observer = Foundation.NotificationCenter.default.addObserver(
+            forName: .activityAdjustmentRequested, object: nil, queue: nil
+        ) { _ in request.cancel() }
+        defer { Foundation.NotificationCenter.default.removeObserver(observer) }
+        _ = try await manager.cancelOverride(source: .expiry)
+        #expect(!request.isCancelled)
+    }
+
+    @Test("A queued expiry task cannot cancel a restarted override") func expiryAfterOverrideRestart() async throws {
+        let id = await makeOverride(
+            name: "Exercise", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, indefinite: false
+        )
+        let started = try await manager.activateActivityPreset(.objectID(id), kind: .override)
+        let expired = try await manager.expireAdjustment(.objectID(id), kind: .override)
+        #expect(!expired)
+        let rows = try await overrides()
+        #expect(rows.first?.enabled == true)
+        #expect(rows.first?.date == started.started?.startDate)
+        #expect(try await overrideRuns().count == 1)
+    }
+
+    @Test("A queued expiry task cannot cancel a restarted temporary target") func expiryAfterTargetRestart() async throws {
+        let id = await makeTempTarget(
+            name: "Exercise", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, target: 140
+        )
+        let started = try await manager.activateActivityPreset(.objectID(id), kind: .tempTarget)
+        let expired = try await manager.expireAdjustment(.objectID(id), kind: .tempTarget)
+        #expect(!expired)
+        let rows = try await tempTargets()
+        #expect(rows.first?.enabled == true)
+        #expect(rows.first?.date == started.started?.startDate)
+    }
+
+    @Test("Expiry refuses to cancel a different running temporary target") func expiryPreservesNewTarget() async throws {
+        let id = await makeTempTarget(name: "Expired", enabled: true, date: Date().addingTimeInterval(-7200), duration: 30, target: 140)
+        await makeTempTarget(name: "Running", enabled: true, date: Date(), duration: 60, target: 120)
+        let expired = try await manager.expireAdjustment(.objectID(id), kind: .tempTarget)
+        #expect(!expired)
+        let rows = try await tempTargets()
+        #expect(rows.first(where: { $0.name == "Running" })?.enabled == true)
+        #expect(try await tempTargetRuns().isEmpty)
+    }
+
+    @Test("Serialized expiry records the actual end of the finite adjustment") func serializedExpiry() async throws {
+        let start = Date().addingTimeInterval(-7200)
+        let id = await makeOverride(name: "Expired", enabled: true, date: start, duration: 30, indefinite: false)
+        let expired = try await manager.expireAdjustment(.objectID(id), kind: .override)
+        #expect(expired)
+        let rows = try await overrides()
+        #expect(rows.first?.enabled == false)
+        let runs = try await overrideRuns()
+        #expect(runs.first?.endDate == start.addingTimeInterval(1800))
+    }
+
     @Test("Cancelled queued activity requests cannot activate either preset type")  func cancelledActivityRequest() async throws {
         await makeOverride(name: "Exercise override", enabled: false, date: Date())
         await makeTempTarget(name: "Exercise target", enabled: false, date: Date(), duration: 60, target: 140)

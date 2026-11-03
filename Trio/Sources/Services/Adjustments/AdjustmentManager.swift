@@ -17,6 +17,7 @@ enum AdjustmentSource: String {
     case shortcut
     case watch
     case activity
+    case expiry
 }
 
 struct AdjustmentSummary: Equatable {
@@ -72,6 +73,8 @@ enum AdjustmentError: LocalizedError, Equatable {
 /// cleared in the same transaction, which is what the Nightscout upload controllers key on
 /// (`BaseNightscoutManager.wireUploadControllers`).
 protocol AdjustmentManager {
+    /// UI expiry tasks must recheck current state in the activation serializer before cancelling.
+    @discardableResult func expireAdjustment(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> Bool
     /// Activity automation may start a saved preset only if neither adjustment type is enabled.
     @discardableResult func activateActivityPreset(
         _ preset: AdjustmentRef, kind: ActivityPresetKind, request: ActivityActivationRequest?
@@ -150,6 +153,22 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
 
     // MARK: Overrides
 
+    @discardableResult func expireAdjustment(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> Bool {
+        try await serializer.run {
+            switch kind {
+            case .override:
+                let outcome = try await self.commitOverride(activating: nil, expiring: preset)
+                guard !outcome.ended.isEmpty else { return false }
+                await self.applyOverrideSideEffects(source: .expiry, waitForUpload: false)
+            case .tempTarget:
+                let (outcome, target) = try await self.commitTempTarget(activating: nil, expiring: preset)
+                guard !outcome.ended.isEmpty else { return false }
+                await self.applyTempTargetSideEffects(orefTarget: target, source: .expiry, waitForUpload: false)
+            }
+            return true
+        }
+    }
+
     @discardableResult func activateActivityPreset(
         _ preset: AdjustmentRef, kind: ActivityPresetKind, request: ActivityActivationRequest?
     ) async throws -> AdjustmentOutcome {
@@ -174,6 +193,7 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
         source: AdjustmentSource,
         waitForUpload: Bool
     ) async throws -> AdjustmentOutcome {
+        await announceManualIntent(source: source)
         let outcome = try await serializer.run { try await self.commitOverride(activating: preset) }
         debug(.service, "Override activated from \(source.rawValue): \(outcome.logDescription)")
         await applyOverrideSideEffects(source: source, waitForUpload: waitForUpload)
@@ -181,6 +201,7 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     }
 
     @discardableResult func cancelOverride(source: AdjustmentSource, waitForUpload: Bool) async throws -> AdjustmentOutcome {
+        await announceManualIntent(source: source)
         let outcome = try await serializer.run { try await self.commitOverride(activating: nil) }
         debug(.service, "Override cancelled from \(source.rawValue): \(outcome.logDescription)")
         await applyOverrideSideEffects(source: source, waitForUpload: waitForUpload)
@@ -191,7 +212,8 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     /// requested one share one transaction, so no command can leave the app with nothing enabled
     /// or with two adjustments enabled at once.
     private func commitOverride(
-        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false, request: ActivityActivationRequest? = nil
+        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false, request: ActivityActivationRequest? = nil,
+        expiring: AdjustmentRef? = nil
     ) async throws -> AdjustmentOutcome {
         let context = makeContext()
         context.name = "commitOverride"
@@ -200,6 +222,15 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
             if request?.isCancelled == true { throw AdjustmentError.activityRequestCancelled }
             if preservingActiveAdjustments { try self.requireNoEnabledAdjustment(in: context) }
             let now = Date()
+            if let expiring {
+                let row = try self.fetchOverride(expiring, in: context)
+                let all = OverrideStored.fetchRequest()
+                all.predicate = NSPredicate(format: "enabled == YES")
+                guard row.enabled, !row.indefinite, !self.isUnexpired(startDate: row.date, duration: row.duration, now: now),
+                      try !context.fetch(all).contains(where: {
+                          $0.indefinite || self.isUnexpired(startDate: $0.date, duration: $0.duration, now: now)
+                      }) else { return AdjustmentOutcome(started: nil, ended: []) }
+            }
             let target = try preset.map { try self.fetchOverride($0, in: context) }
             if preservingActiveAdjustments, target?.isPreset != true {
                 throw AdjustmentError.presetNotFound("activity preset")
@@ -207,6 +238,7 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
             let active = try self.fetchActiveOverrides(in: context)
 
             if preset == nil, active.isEmpty {
+                if expiring != nil { return AdjustmentOutcome(started: nil, ended: []) }
                 throw AdjustmentError.nothingActive
             }
 
@@ -261,6 +293,7 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
         source: AdjustmentSource,
         waitForUpload: Bool
     ) async throws -> AdjustmentOutcome {
+        await announceManualIntent(source: source)
         let (outcome, orefTarget) = try await serializer.run { try await self.commitTempTarget(activating: preset) }
         debug(.service, "Temp target activated from \(source.rawValue): \(outcome.logDescription)")
         await applyTempTargetSideEffects(orefTarget: orefTarget, source: source, waitForUpload: waitForUpload)
@@ -268,6 +301,7 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     }
 
     @discardableResult func cancelTempTarget(source: AdjustmentSource, waitForUpload: Bool) async throws -> AdjustmentOutcome {
+        await announceManualIntent(source: source)
         let (outcome, orefTarget) = try await serializer.run { try await self.commitTempTarget(activating: nil) }
         debug(.service, "Temp target cancelled from \(source.rawValue): \(outcome.logDescription)")
         await applyTempTargetSideEffects(orefTarget: orefTarget, source: source, waitForUpload: waitForUpload)
@@ -277,7 +311,8 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     /// Returns the outcome plus the entry to hand oref, which has to be built inside the
     /// transaction while the row is still safe to read on this context.
     private func commitTempTarget(
-        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false, request: ActivityActivationRequest? = nil
+        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false, request: ActivityActivationRequest? = nil,
+        expiring: AdjustmentRef? = nil
     ) async throws -> (AdjustmentOutcome, TempTarget?) {
         let context = makeContext()
         context.name = "commitTempTarget"
@@ -286,6 +321,15 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
             if request?.isCancelled == true { throw AdjustmentError.activityRequestCancelled }
             if preservingActiveAdjustments { try self.requireNoEnabledAdjustment(in: context) }
             let now = Date()
+            if let expiring {
+                let row = try self.fetchTempTarget(expiring, in: context)
+                let all = TempTargetStored.fetchRequest()
+                all.predicate = NSPredicate(format: "enabled == YES")
+                guard row.enabled, !self.isUnexpired(startDate: row.date, duration: row.duration, now: now),
+                      try !context.fetch(all).contains(where: {
+                          self.isUnexpired(startDate: $0.date, duration: $0.duration, now: now)
+                      }) else { return (AdjustmentOutcome(started: nil, ended: []), nil) }
+            }
             let target = try preset.map { try self.fetchTempTarget($0, in: context) }
             if preservingActiveAdjustments, target?.isPreset != true {
                 throw AdjustmentError.presetNotFound("activity preset")
@@ -293,6 +337,7 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
             let active = try self.fetchActiveTempTargets(in: context)
 
             if preset == nil, active.isEmpty {
+                if expiring != nil { return (AdjustmentOutcome(started: nil, ended: []), nil) }
                 throw AdjustmentError.nothingActive
             }
 
@@ -368,15 +413,33 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
 
     // MARK: Shared
 
+    private func announceManualIntent(source: AdjustmentSource) async {
+        guard source != .activity, source != .expiry else { return }
+        await notifyActivityAdjustmentRequested()
+    }
+
     /// Called inside the same serialized transaction as activation; a preflight UI check would race.
     private func requireNoEnabledAdjustment(in context: NSManagedObjectContext) throws {
         let overrides = OverrideStored.fetchRequest()
         overrides.predicate = NSPredicate(format: "enabled == YES")
         let targets = TempTargetStored.fetchRequest()
         targets.predicate = NSPredicate(format: "enabled == YES")
-        if try context.count(for: overrides) > 0 || context.count(for: targets) > 0 {
+        let now = Date()
+        let runningOverride = try context.fetch(overrides).contains {
+            $0.indefinite || self.isUnexpired(startDate: $0.date, duration: $0.duration, now: now)
+        }
+        let runningTarget = try context.fetch(targets).contains {
+            self.isUnexpired(startDate: $0.date, duration: $0.duration, now: now)
+        }
+        if runningOverride || runningTarget {
             throw AdjustmentError.activeAdjustmentPresent
         }
+    }
+
+    private func isUnexpired(startDate: Date?, duration: NSDecimalNumber?, now: Date) -> Bool {
+        // Preserve unknown/malformed adjustments rather than assuming they have finished.
+        guard let startDate, let minutes = duration?.doubleValue, minutes.isFinite, minutes > 0 else { return true }
+        return startDate.addingTimeInterval(minutes * 60) > now
     }
 
     /// Refreshes the determination and the forecast in the background: a command's outcome does not

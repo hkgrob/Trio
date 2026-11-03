@@ -49,8 +49,13 @@ extension Home.StateModel {
 
     // MARK: - Temp Target Actions
 
-    @MainActor func cancelTempTarget(withID id: NSManagedObjectID) async {
+    @MainActor func cancelTempTarget(withID id: NSManagedObjectID, source: AdjustmentSource = .app) async {
+        if source != .expiry { notifyActivityAdjustmentRequested() }
         do {
+            if source == .expiry {
+                try await adjustmentManager.expireAdjustment(.objectID(id), kind: .tempTarget)
+                return
+            }
             guard let profileToCancel = try viewContext.existingObject(with: id) as? TempTargetStored else { return }
 
             profileToCancel.enabled = false
@@ -68,7 +73,7 @@ extension Home.StateModel {
 
             Foundation.NotificationCenter.default.post(
                 name: .didUpdateTempTargetConfiguration, object: nil,
-                userInfo: ["adjustmentSource": AdjustmentSource.app.rawValue]
+                userInfo: ["adjustmentSource": source.rawValue]
             )
         } catch let error as NSError {
             debugPrint("\(DebuggingIdentifiers.failed) \(#file) \(#function) Failed to cancel Temp Target with error: \(error)")

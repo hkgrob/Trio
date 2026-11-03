@@ -197,10 +197,108 @@ import Testing
         #expect(!engine.isLatched)
     }
 
-    @Test("Samples from before arming and future timestamps are ignored") func timeBounds() {
+    @Test("Pre-arming Watch context cannot qualify activity and future readings are ignored") func timeBounds() {
         var engine = detector()
         #expect(!process(&engine, 0, watch(-60), watch(600)))
-        #expect(engine.phase == .waitingForData)
+        #expect(!engine.isLatched)
+        #expect(!process(&engine, 60, watch(600)))
+        #expect(!engine.isLatched)
+    }
+
+    @Test("A fresh batch ending below threshold cannot request activation") func batchEndsBelowThreshold() {
+        var value = configuration
+        value.sustainedMinutes = 3
+        var engine = ActivityAutomationDetector(configuration: value, isLatched: false, armedAt: start)
+        _ = process(&engine, 0, watch(0))
+        _ = process(&engine, 60, watch(60))
+        _ = process(&engine, 120, watch(120))
+        #expect(!process(&engine, 190, watch(180), watch(190, bpm: 80)))
+        #expect(!engine.isLatched)
+        #expect(engine.phase == .waitingForActivity)
+    }
+
+    @Test("A qualifying batch still triggers when its final Watch evidence remains high") func batchEndsAboveThreshold() {
+        var engine = detector()
+        _ = process(&engine, 0, watch(0))
+        _ = process(&engine, 60, watch(60))
+        #expect(process(&engine, 130, watch(120), watch(130)))
+    }
+
+    @Test("Fresh Watch context on re-arming vetoes phone fallback without qualifying old activity")
+    func seededWatchPrecedence() {
+        var value = configuration
+        value.maximumGapMinutes = 5
+        value.sustainedMinutes = 1
+        var engine = ActivityAutomationDetector(
+            configuration: value, isLatched: false, armedAt: start, initialWatchReading: watch(-5, bpm: 80)
+        )
+        #expect(!process(&engine, 60, interval(60, count: 100)))
+        #expect(!process(&engine, 120, interval(120, count: 100)))
+        #expect(engine.source == .watch)
+        #expect(!engine.isLatched)
+    }
+
+    @Test("Pre-arming Watch context delivered after arming also vetoes fallback") func lateWatchContext() {
+        var value = configuration
+        value.maximumGapMinutes = 5
+        value.sustainedMinutes = 1
+        var engine = ActivityAutomationDetector(configuration: value, isLatched: false, armedAt: start)
+        #expect(!process(&engine, 60, interval(60, count: 100)))
+        #expect(!process(&engine, 70, watch(-5, bpm: 80)))
+        #expect(!process(&engine, 120, interval(120, count: 100)))
+        #expect(engine.source == .watch)
+    }
+
+    @Test("Seeded high Watch context cannot trigger until new measurements span the duration")
+    func highWatchContextIsNotQualification() {
+        var engine = ActivityAutomationDetector(
+            configuration: configuration, isLatched: false, armedAt: start, initialWatchReading: watch(-5)
+        )
+        #expect(!process(&engine, 0))
+        #expect(!process(&engine, 60, watch(60)))
+        #expect(process(&engine, 120, watch(120)))
+    }
+
+    @Test("Stale or untrusted Watch context does not veto phone fallback") func invalidSeedContext() {
+        for seed in [watch(-600, bpm: 80), watch(-5, bpm: 80, trusted: false)] {
+            var engine = ActivityAutomationDetector(
+                configuration: configuration, isLatched: false, armedAt: start, initialWatchReading: seed
+            )
+            #expect(!process(&engine, 60, interval(60, count: 100)))
+            #expect(!process(&engine, 120, interval(120, count: 100)))
+            #expect(process(&engine, 180, interval(180, count: 100)))
+        }
+    }
+
+    @Test("Pending activation is revoked by a newer below-threshold Watch reading") func pendingWatchVeto() {
+        var engine = detector()
+        _ = process(&engine, 0, watch(0))
+        _ = process(&engine, 60, watch(60))
+        #expect(process(&engine, 120, watch(120)))
+        let evidence = engine.activationEvidence(now: start.addingTimeInterval(120))!
+        let request = ActivityActivationRequest(expiresAt: evidence.expiresAt)
+        _ = process(&engine, 130, watch(130, bpm: 80))
+        engine.revalidate(request, expectedSource: .watch, now: start.addingTimeInterval(130))
+        #expect(!request.isValid(at: start.addingTimeInterval(130)))
+    }
+
+    @Test("Watch returning during a queued phone request requires a new source window") func pendingSourceSwitch() {
+        var engine = detector()
+        _ = process(&engine, 60, interval(60, count: 100))
+        _ = process(&engine, 120, interval(120, count: 100))
+        #expect(process(&engine, 180, interval(180, count: 100)))
+        let evidence = engine.activationEvidence(now: start.addingTimeInterval(180))!
+        let request = ActivityActivationRequest(expiresAt: evidence.expiresAt)
+        _ = process(&engine, 190, watch(190))
+        engine.revalidate(request, expectedSource: .phone, now: start.addingTimeInterval(190))
+        #expect(!request.isValid(at: start.addingTimeInterval(190)))
+    }
+
+    @Test("A request expires without a sensor callback and cannot be revived") func requestDeadline() {
+        let request = ActivityActivationRequest(expiresAt: start.addingTimeInterval(120))
+        #expect(request.isValid(at: start.addingTimeInterval(119)))
+        #expect(!request.isValid(at: start.addingTimeInterval(120)))
+        #expect(!request.isValid(at: start.addingTimeInterval(60)))
     }
 
     @Test("Manual or non-Watch heart rate cannot trigger or veto phone fallback") func trustedSources() {

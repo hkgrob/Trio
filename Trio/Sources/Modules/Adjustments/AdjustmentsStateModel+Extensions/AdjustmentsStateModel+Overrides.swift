@@ -35,6 +35,7 @@ extension Adjustments.StateModel {
         except overrideID: NSManagedObjectID? = nil,
         createOverrideRunEntry: Bool
     ) async {
+        notifyActivityAdjustmentRequested()
         do {
             // Get ALL NSManagedObject IDs of ALL active Override to cancel every single Override
             let ids = try await overrideStorage.loadLatestOverrideConfigurations(fetchLimit: 0)

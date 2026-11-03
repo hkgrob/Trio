@@ -297,6 +297,7 @@ extension Adjustments.StateModel {
         except id: NSManagedObjectID? = nil,
         createTempTargetRunEntry: Bool
     ) async {
+        notifyActivityAdjustmentRequested()
         do {
             // Get ALL NSManagedObject IDs of ALL active Temp Targets to cancel every single Temp Target
             let ids = try await tempTargetStorage.loadLatestTempTargetConfigurations(fetchLimit: 0) // 0 = no fetch limit

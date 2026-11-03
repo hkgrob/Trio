@@ -49,8 +49,13 @@ extension Home.StateModel {
     // MARK: - Override Actions
 
     /// Cancels the running Override, creates an entry in the OverrideRunStored Core Data entity and posts a custom notification so that the AdjustmentsView gets updated
-    @MainActor func cancelOverride(withID id: NSManagedObjectID) async {
+    @MainActor func cancelOverride(withID id: NSManagedObjectID, source: AdjustmentSource = .app) async {
+        if source != .expiry { notifyActivityAdjustmentRequested() }
         do {
+            if source == .expiry {
+                try await adjustmentManager.expireAdjustment(.objectID(id), kind: .override)
+                return
+            }
             guard let profileToCancel = try viewContext.existingObject(with: id) as? OverrideStored else { return }
 
             profileToCancel.enabled = false
@@ -61,7 +66,7 @@ extension Home.StateModel {
             await saveToOverrideRunStored(object: profileToCancel)
 
             Foundation.NotificationCenter.default.post(
-                name: .didUpdateOverrideConfiguration, object: nil, userInfo: ["adjustmentSource": AdjustmentSource.app.rawValue]
+                name: .didUpdateOverrideConfiguration, object: nil, userInfo: ["adjustmentSource": source.rawValue]
             )
         } catch let error as NSError {
             debugPrint("\(DebuggingIdentifiers.failed) \(#file) \(#function) Failed to cancel Profile with error: \(error)")

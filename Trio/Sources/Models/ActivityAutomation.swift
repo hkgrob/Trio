@@ -40,6 +40,11 @@ struct ActivityAutomationDetector {
         let value: Double
     }
 
+    struct ActivationEvidence {
+        let source: Source
+        let expiresAt: Date
+    }
+
     let configuration: ActivityAutomationConfiguration
     private(set) var isLatched: Bool
     private(set) var phase: Phase = .waitingForData
@@ -53,10 +58,14 @@ struct ActivityAutomationDetector {
     private var recoverySince: Date?
     private var lastEvaluation: Date?
 
-    init(configuration: ActivityAutomationConfiguration, isLatched: Bool, armedAt: Date) {
+    init(
+        configuration: ActivityAutomationConfiguration, isLatched: Bool, armedAt: Date,
+        initialWatchReading: ActivityObservation? = nil
+    ) {
         self.configuration = configuration
         self.isLatched = isLatched
         self.armedAt = armedAt
+        if let initialWatchReading { ingest(initialWatchReading, now: armedAt) }
     }
 
     mutating func suppressUntilRecovery() {
@@ -71,22 +80,23 @@ struct ActivityAutomationDetector {
         if let heartRate, ids.contains(heartRate.id) { self.heartRate = nil }
         if let movement, ids.contains(movement.id) { self.movement = nil }
         if let previousSteps, ids.contains(previousSteps.id) { self.previousSteps = nil }
-        var triggered = evaluate(now: now)
+        _ = evaluate(now: now, allowActivation: false)
         for observation in observations.sorted(by: { $0.endDate < $1.endDate }) where !ids.contains(observation.id) {
             ingest(observation, now: now)
-            triggered = evaluate(now: now) || triggered
+            _ = evaluate(now: now, allowActivation: false)
         }
-        return triggered
+        return evaluate(now: now)
     }
 
     private mutating func ingest(_ observation: ActivityObservation, now: Date) {
         guard configuration.isValid,
-              observation.endDate >= armedAt, observation.endDate <= now,
+              (observation.kind == .heartRate || observation.endDate >= armedAt), observation.endDate <= now,
               observation.startDate <= observation.endDate,
               let value = observation.value, value.isFinite else { return }
         switch observation.kind {
         case .heartRate:
-            guard observation.isWatchHeartRate == true, value > 0 else { return }
+            guard observation.isWatchHeartRate == true, value > 0,
+                  now.timeIntervalSince(observation.endDate) <= configuration.maximumGapMinutes! * 60 else { return }
             if let current = heartRate, observation.endDate <= current.date {
                 // A late low reading invalidates an in-progress claim of sustained activity.
                 if let since = candidateSince, observation.endDate >= since,
@@ -145,7 +155,36 @@ struct ActivityAutomationDetector {
         }
     }
 
-    @discardableResult mutating func evaluate(now: Date) -> Bool {
+    /// Current eligibility is independent of the episode latch, so queued requests can be revoked.
+    func activationEvidence(now: Date) -> ActivationEvidence? {
+        guard configuration.isEnabled, configuration.isValid else { return nil }
+        let maximumGap = configuration.maximumGapMinutes! * 60
+        let signal: Signal
+        let selectedSource: Source
+        let threshold: Double
+        if let heartRate, heartRate.date <= now, now.timeIntervalSince(heartRate.date) <= maximumGap {
+            signal = heartRate
+            selectedSource = .watch
+            threshold = configuration.heartRateBPM!
+        } else if let movement, movement.date <= now, now.timeIntervalSince(movement.date) <= maximumGap {
+            signal = movement
+            selectedSource = .phone
+            threshold = configuration.stepsPerMinute!
+        } else {
+            return nil
+        }
+        guard signal.value >= threshold else { return nil }
+        return ActivationEvidence(source: selectedSource, expiresAt: signal.date.addingTimeInterval(maximumGap))
+    }
+
+    func revalidate(_ request: ActivityActivationRequest, expectedSource: Source?, now: Date) {
+        guard request.isValid(at: now), let evidence = activationEvidence(now: now), evidence.source == expectedSource else {
+            request.cancel()
+            return
+        }
+    }
+
+    @discardableResult mutating func evaluate(now: Date, allowActivation: Bool = true) -> Bool {
         guard configuration.isEnabled, configuration.isValid else {
             candidateSince = nil
             recoverySince = nil
@@ -215,7 +254,7 @@ struct ActivityAutomationDetector {
         let evidenceDate = signal.date
         let elapsed = max(0, evidenceDate.timeIntervalSince(candidateSince!))
         phase = .qualifying(elapsed)
-        guard elapsed >= configuration.sustainedMinutes! * 60 else { return false }
+        guard allowActivation, elapsed >= configuration.sustainedMinutes! * 60 else { return false }
         suppressUntilRecovery()
         return true
     }

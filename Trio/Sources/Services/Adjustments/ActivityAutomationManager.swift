@@ -17,6 +17,7 @@ final class ActivityAutomationManager: ObservableObject {
     private var detector: ActivityAutomationDetector
     private var generation = UUID()
     private var activationRequest: ActivityActivationRequest?
+    private var activationSource: ActivityAutomationDetector.Source?
     private var subscriptions = Set<AnyCancellable>()
     private static let configurationKey = "ActivityAutomation.configuration"
     private static let latchKey = "ActivityAutomation.episodeLatched"
@@ -35,7 +36,8 @@ final class ActivityAutomationManager: ObservableObject {
         }
         configuration = saved
         detector = ActivityAutomationDetector(
-            configuration: saved, isLatched: defaults.bool(forKey: Self.latchKey), armedAt: Date()
+            configuration: saved, isLatched: defaults.bool(forKey: Self.latchKey), armedAt: Date(),
+            initialWatchReading: observations.history.observations.last { $0.kind == .heartRate && $0.isWatchHeartRate == true }
         )
         saveConfiguration()
 
@@ -54,25 +56,23 @@ final class ActivityAutomationManager: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.setEnabled(false) }
             .store(in: &subscriptions)
-        // Includes workout starts, manual activation/cancellation and remote changes.
+        // This event is emitted synchronously on the main actor, before manual commands mutate anything.
+        Foundation.NotificationCenter.default.publisher(for: .activityAdjustmentRequested)
+            .sink { [weak self] _ in self?.suppressForAdjustment() }
+            .store(in: &subscriptions)
+        // Successful workout/activity starts also suppress passive reactivation. Manual commands
+        // already announced their intent; upload completion and automatic expiry must not re-latch.
         let adjustmentNames: [Foundation.Notification.Name] = [
-            .willUpdateOverrideConfiguration, .willUpdateTempTargetConfiguration,
             .didUpdateOverrideConfiguration, .didUpdateTempTargetConfiguration
         ]
         let adjustmentPublishers = adjustmentNames.map { Foundation.NotificationCenter.default.publisher(for: $0) }
         Publishers.MergeMany(adjustmentPublishers)
             .filter { (notification: Foundation.Notification) -> Bool in
-                notification.name == .willUpdateOverrideConfiguration || notification
-                    .name == .willUpdateTempTargetConfiguration ||
-                    notification.userInfo?["adjustmentSource"] != nil
+                notification.userInfo?["adjustmentSource"] as? String == AdjustmentSource.activity.rawValue
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                guard let self, self.configuration.isEnabled else { return }
-                self.activationRequest?.cancel()
-                self.generation = UUID()
-                self.detector.suppressUntilRecovery()
-                self.publishState()
+                self?.suppressForAdjustment()
             }
             .store(in: &subscriptions)
         Timer.publish(every: 30, on: .main, in: .common).autoconnect()
@@ -106,9 +106,25 @@ final class ActivityAutomationManager: ObservableObject {
     private func resetDetector() {
         activationRequest?.cancel()
         generation = UUID()
-        detector = ActivityAutomationDetector(configuration: configuration, isLatched: detector.isLatched, armedAt: Date())
+        detector = ActivityAutomationDetector(
+            configuration: configuration, isLatched: detector.isLatched, armedAt: Date(),
+            initialWatchReading: observations.history.observations.last { $0.kind == .heartRate && $0.isWatchHeartRate == true }
+        )
         phase = detector.isLatched ? .latched : .waitingForData
         source = nil
+    }
+
+    private func suppressForAdjustment() {
+        guard configuration.isEnabled else { return }
+        activationRequest?.cancel()
+        generation = UUID()
+        detector.suppressUntilRecovery()
+        publishState()
+    }
+
+    private func validatePendingRequest(now: Date) {
+        guard let request = activationRequest else { return }
+        detector.revalidate(request, expectedSource: activationSource, now: now)
     }
 
     private func saveConfiguration() {
@@ -123,23 +139,28 @@ final class ActivityAutomationManager: ObservableObject {
 
     private func process(_ update: ActivityObservationManager.Update) {
         guard configuration.isEnabled, observations.isEnabled, observations.storageError.isEmpty else { return }
-        let triggered = detector.process(update.observations, deleting: update.deletedIDs, now: Date())
+        let now = Date()
+        let triggered = detector.process(update.observations, deleting: update.deletedIDs, now: now)
+        validatePendingRequest(now: now)
         publishState() // Persist the latch before queuing activation, including across app restarts.
         if triggered { activate() }
     }
 
     private func tick() {
         guard configuration.isEnabled else { return }
-        let triggered = detector.evaluate(now: Date())
+        let now = Date()
+        let triggered = detector.evaluate(now: now)
+        validatePendingRequest(now: now)
         publishState()
         if triggered { activate() }
     }
 
     private func activate() {
-        guard !isActivating else { return }
+        guard !isActivating, let evidence = detector.activationEvidence(now: Date()) else { return }
         let requestGeneration = generation
-        let request = ActivityActivationRequest()
+        let request = ActivityActivationRequest(expiresAt: evidence.expiresAt)
         activationRequest = request
+        activationSource = evidence.source
         Task { @MainActor [weak self] in
             guard let self, self.generation == requestGeneration, self.configuration.isEnabled,
                   self.observations.isEnabled, self.observations.storageError.isEmpty else { return }

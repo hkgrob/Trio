@@ -26,6 +26,7 @@ extension Home {
         @ObservationIgnored @Injected() var carbsStorage: CarbsStorage!
         @ObservationIgnored @Injected() var tempTargetStorage: TempTargetsStorage!
         @ObservationIgnored @Injected() var overrideStorage: OverrideStorage!
+        @ObservationIgnored @Injected() var adjustmentManager: AdjustmentManager!
         @ObservationIgnored @Injected() var bluetoothManager: BluetoothStateManager!
         @ObservationIgnored @Injected() var iobService: IOBService!
         @ObservationIgnored @Injected() var fileStorage: FileStorage!

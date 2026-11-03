@@ -108,7 +108,7 @@ extension Home.RootView {
                 /// Do not show the Override anymore
                 Task {
                     guard let objectID = self.latestOverride.first?.objectID else { return }
-                    await state.cancelOverride(withID: objectID)
+                    await state.cancelOverride(withID: objectID, source: .expiry)
                 }
             }
         }
@@ -187,7 +187,7 @@ extension Home.RootView {
             /// Do not show the Temp Target anymore
             Task {
                 guard let objectID = self.latestTempTarget.first?.objectID else { return }
-                await state.cancelTempTarget(withID: objectID)
+                await state.cancelTempTarget(withID: objectID, source: .expiry)
             }
         }
 
