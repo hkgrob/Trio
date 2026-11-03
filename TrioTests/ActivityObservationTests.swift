@@ -63,7 +63,7 @@ import Testing
     @Test("The count limit retains the most recent measurements") func countLimit() {
         var history = ActivityObservationHistory()
         let count = ActivityObservationHistory.maximumCount + 10
-        history.merge((0..<count).map { sample(id: String($0), secondsAgo: Double($0)) }, now: now)
+        history.merge((0 ..< count).map { sample(id: String($0), secondsAgo: Double($0)) }, now: now)
         #expect(history.observations.count == ActivityObservationHistory.maximumCount)
         #expect(history.observations.last?.id == "0")
         #expect(history.observations.contains(where: { $0.id == String(count - 1) }) == false)

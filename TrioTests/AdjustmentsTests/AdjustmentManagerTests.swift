@@ -234,8 +234,7 @@ import Testing
 
     // MARK: - Workout automation
 
-    @Test("Workout activation preserves an existing override instead of starting a target")
-    func workoutPreservesOverride() async throws {
+    @Test("Workout activation preserves an existing override instead of starting a target")  func workoutPreservesOverride() async throws {
         let start = Date().addingTimeInterval(-600)
         await makeOverride(name: "Existing", enabled: true, date: start)
         await makeTempTarget(name: "Exercise", enabled: false, date: Date(), duration: 60, target: 140)
@@ -249,8 +248,7 @@ import Testing
         #expect(rows.first?.date == start)
     }
 
-    @Test("Workout activation preserves an existing target instead of starting an override")
-    func workoutPreservesTarget() async throws {
+    @Test("Workout activation preserves an existing target instead of starting an override")  func workoutPreservesTarget() async throws {
         await makeTempTarget(name: "Existing", enabled: true, date: Date(), duration: 60, target: 120)
         await makeOverride(name: "Exercise", enabled: false, date: Date())
         await #expect(throws: AdjustmentError.activeAdjustmentPresent) {
@@ -262,8 +260,7 @@ import Testing
         #expect(rows.first?.enabled == true)
     }
 
-    @Test("Workout start activates a saved override and duplicate starts do not restart it")
-    func workoutStartIsNotRepeated() async throws {
+    @Test("Workout start activates a saved override and duplicate starts do not restart it")  func workoutStartIsNotRepeated() async throws {
         await makeOverride(name: "Exercise", enabled: false, date: Date(), duration: 45, indefinite: false)
         let first = try await manager.activateActivityPreset(.presetName("Exercise"), kind: .override)
         #expect(first.started?.name == "Exercise")
@@ -278,8 +275,7 @@ import Testing
         #expect(try await overrideRuns().isEmpty)
     }
 
-    @Test("Workout start activates a saved temporary target through the existing upload path")
-    func workoutStartsTarget() async throws {
+    @Test("Workout start activates a saved temporary target through the existing upload path")  func workoutStartsTarget() async throws {
         await makeTempTarget(name: "Exercise", enabled: false, date: Date(), duration: 60, target: 140)
         let outcome = try await manager.activateActivityPreset(.presetName("Exercise"), kind: .tempTarget)
         #expect(outcome.started?.name == "Exercise")
@@ -289,8 +285,7 @@ import Testing
         #expect(rows.first?.isUploadedToNS == false)
     }
 
-    @Test("Concurrent workout triggers cannot enable both adjustment types")
-    func concurrentWorkoutStarts() async throws {
+    @Test("Concurrent workout triggers cannot enable both adjustment types")  func concurrentWorkoutStarts() async throws {
         await makeOverride(name: "Exercise override", enabled: false, date: Date())
         await makeTempTarget(name: "Exercise target", enabled: false, date: Date(), duration: 60, target: 140)
         async let first = try? manager.activateActivityPreset(.presetName("Exercise override"), kind: .override)
@@ -302,8 +297,7 @@ import Testing
         #expect(enabledOverrides + enabledTargets == 1)
     }
 
-    @Test("Workout activation rejects an object that is not a user preset")
-    func workoutRejectsNonPreset() async throws {
+    @Test("Workout activation rejects an object that is not a user preset")  func workoutRejectsNonPreset() async throws {
         let id = await makeOverride(name: "One-off", enabled: false, date: Date())
         try await testContext.perform {
             let row = try self.testContext.existingObject(with: id) as! OverrideStored
@@ -319,8 +313,7 @@ import Testing
 
     // MARK: - Fixtures
 
-    @Test("Cancelled queued activity requests cannot activate either preset type")
-    func cancelledActivityRequest() async throws {
+    @Test("Cancelled queued activity requests cannot activate either preset type")  func cancelledActivityRequest() async throws {
         await makeOverride(name: "Exercise override", enabled: false, date: Date())
         await makeTempTarget(name: "Exercise target", enabled: false, date: Date(), duration: 60, target: 140)
         let request = ActivityActivationRequest()

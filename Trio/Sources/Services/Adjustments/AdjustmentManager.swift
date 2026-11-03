@@ -95,7 +95,10 @@ protocol AdjustmentManager {
 }
 
 extension AdjustmentManager {
-    @discardableResult func activateActivityPreset(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> AdjustmentOutcome {
+    @discardableResult func activateActivityPreset(
+        _ preset: AdjustmentRef,
+        kind: ActivityPresetKind
+    ) async throws -> AdjustmentOutcome {
         try await activateActivityPreset(preset, kind: kind, request: nil)
     }
 

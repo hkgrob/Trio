@@ -44,7 +44,11 @@ import Testing
         )
     }
 
-    private func process(_ detector: inout ActivityAutomationDetector, _ seconds: Double, _ observations: ActivityObservation...) -> Bool {
+    private func process(
+        _ detector: inout ActivityAutomationDetector,
+        _ seconds: Double,
+        _ observations: ActivityObservation...
+    ) -> Bool {
         detector.process(observations, now: start.addingTimeInterval(seconds))
     }
 

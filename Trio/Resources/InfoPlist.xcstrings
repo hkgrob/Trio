@@ -417,7 +417,7 @@
     },
     "NSAlarmKitUsageDescription" : {
       "comment" : "Privacy - Alarm Kit Usage Description",
-      "extractionState" : "stale",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
@@ -1788,6 +1788,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : ""
+          }
+        }
+      }
+    },
+    "NSMotionUsageDescription" : {
+      "comment" : "Privacy - Motion Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Trio uses iPhone movement and step counts for optional activity monitoring and user-configured activity preset automation."
           }
         }
       }

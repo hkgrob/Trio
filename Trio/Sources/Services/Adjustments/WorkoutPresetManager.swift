@@ -39,7 +39,9 @@ final class WorkoutPresetManager: ObservableObject {
 
     @MainActor func activateFromWorkout() async -> String {
         guard configuration.isEnabled, !configuration.presetID.isEmpty else {
-            return String(localized: "Workout preset activation is disabled. Enable it and select a preset in Trio’s Activity observations settings.")
+            return String(
+                localized: "Workout preset activation is disabled. Enable it and select a preset in Trio’s Activity observations settings."
+            )
         }
         return await activate(reason: String(localized: "Workout started."))
     }

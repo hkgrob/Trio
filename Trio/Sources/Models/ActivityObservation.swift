@@ -22,7 +22,7 @@ struct ActivityObservation: Codable, Identifiable, Equatable {
 
 struct ActivityObservationHistory: Codable {
     static let retention: TimeInterval = 7 * 24 * 60 * 60
-    static let maximumCount = 20_000
+    static let maximumCount = 20000
 
     private(set) var observations: [ActivityObservation] = []
 

@@ -15,10 +15,12 @@ struct ActivityObservationView: View {
                     get: { manager.isEnabled },
                     set: { manager.setEnabled($0) }
                 ))
-                .disabled(manager.isRequestingPermission || (!manager.storageError.isEmpty && !manager.isEnabled))
+                    .disabled(manager.isRequestingPermission || (!manager.storageError.isEmpty && !manager.isEnabled))
                 if manager.isRequestingPermission { ProgressView() }
             } footer: {
-                Text("Collects heart rate and iPhone movement without starting a workout. Preset activation requires the separate automation opt-in below.")
+                Text(
+                    "Collects heart rate and iPhone movement without starting a workout. Preset activation requires the separate automation opt-in below."
+                )
             }
 
             ActivityAutomationSection(manager: automationManager, observations: manager)
@@ -29,8 +31,10 @@ struct ActivityObservationView: View {
                 } else {
                     Text("No heart-rate samples received.").foregroundStyle(.secondary)
                 }
-                Text("Health samples may come from Apple Watch or another authorized source. Measurements and phone synchronization can be delayed; this is not a guaranteed live feed.")
-                    .font(.footnote).foregroundStyle(.secondary)
+                Text(
+                    "Health samples may come from Apple Watch or another authorized source. Measurements and phone synchronization can be delayed; this is not a guaranteed live feed."
+                )
+                .font(.footnote).foregroundStyle(.secondary)
                 if !manager.healthStatus.isEmpty { Text(manager.healthStatus).font(.footnote) }
             }
 
@@ -38,12 +42,16 @@ struct ActivityObservationView: View {
                 if let reading = manager.history.observations.last(where: { $0.kind == .phoneMotion }) {
                     observationRow(reading)
                 }
-                if let reading = manager.history.observations.last(where: { $0.kind == .phoneStepInterval || $0.kind == .phoneSteps }) {
+                if let reading = manager.history.observations
+                    .last(where: { $0.kind == .phoneStepInterval || $0.kind == .phoneSteps })
+                {
                     observationRow(reading)
                 }
                 if !manager.motionStatus.isEmpty { Text(manager.motionStatus).font(.footnote) }
-                Text("The phone must be carried for its movement to represent your activity. Motion callbacks pause while Trio is suspended. Live step readings are cumulative; queried interval readings cover their recorded start and end times. Do not add cumulative readings together.")
-                    .font(.footnote).foregroundStyle(.secondary)
+                Text(
+                    "The phone must be carried for its movement to represent your activity. Motion callbacks pause while Trio is suspended. Live step readings are cumulative; queried interval readings cover their recorded start and end times. Do not add cumulative readings together."
+                )
+                .font(.footnote).foregroundStyle(.secondary)
             }
 
             Section("Activity history") {
@@ -56,8 +64,10 @@ struct ActivityObservationView: View {
                 }
                 .disabled(manager.history.observations.isEmpty)
                 Button("Clear history and stop collection", role: .destructive) { confirmClear = true }
-                Text("Stored locally: up to 20,000 readings from the past seven days. Export includes measurement time, arrival time and source. Activity observations are not uploaded to Nightscout or sent to LoopFollow.")
-                    .font(.footnote).foregroundStyle(.secondary)
+                Text(
+                    "Stored locally: up to 20,000 readings from the past seven days. Export includes measurement time, arrival time and source. Activity observations are not uploaded to Nightscout or sent to LoopFollow."
+                )
+                .font(.footnote).foregroundStyle(.secondary)
                 if !manager.storageError.isEmpty { Text(manager.storageError).foregroundStyle(.red) }
             }
 
@@ -69,7 +79,11 @@ struct ActivityObservationView: View {
         }
         .navigationTitle("Activity observations")
         .onAppear { manager.refresh() }
-        .confirmationDialog("Clear the local activity history and stop collecting?", isPresented: $confirmClear, titleVisibility: .visible) {
+        .confirmationDialog(
+            "Clear the local activity history and stop collecting?",
+            isPresented: $confirmClear,
+            titleVisibility: .visible
+        ) {
             Button("Clear history and stop collection", role: .destructive) { manager.clearHistory() }
         }
     }

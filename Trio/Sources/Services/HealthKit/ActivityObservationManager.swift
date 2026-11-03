@@ -102,7 +102,8 @@ final class ActivityObservationManager: ObservableObject {
                 guard let self, self.generation == requestGeneration else { return }
                 self.isRequestingPermission = false
                 guard success, error == nil else {
-                    self.healthStatus = error?.localizedDescription ?? String(localized: "Health authorization could not be requested.")
+                    self.healthStatus = error?
+                        .localizedDescription ?? String(localized: "Health authorization could not be requested.")
                     return
                 }
                 // HealthKit deliberately does not disclose whether read access was granted.
@@ -147,7 +148,8 @@ final class ActivityObservationManager: ObservableObject {
             DispatchQueue.main.async {
                 guard let self, self.generation == currentGeneration, self.isEnabled else { return }
                 if !success {
-                    self.healthStatus = error?.localizedDescription ?? String(localized: "Background Health updates are unavailable.")
+                    self.healthStatus = error?
+                        .localizedDescription ?? String(localized: "Background Health updates are unavailable.")
                 }
             }
         }
@@ -198,9 +200,10 @@ final class ActivityObservationManager: ObservableObject {
                     )
                 )
             }
-            let deletedIDs = Set((deleted ?? []).map { $0.uuid.uuidString })
+            let deletedIDs = Set((deleted ?? []).map(\.uuid.uuidString))
             DispatchQueue.main.async {
-                guard let self else { completion(); return }
+                guard let self else { completion()
+                    return }
                 guard self.isEnabled, self.generation == currentGeneration else {
                     self.finishQuery()
                     if self.isEnabled { self.refresh() }
@@ -212,7 +215,11 @@ final class ActivityObservationManager: ObservableObject {
                     return
                 }
                 self.history.merge(readings, deleting: deletedIDs, now: receivedAt)
-                self.healthStatus = String(localized: "Reading available Health samples. No samples can mean no read permission or no recent measurements.")
+                self
+                    .healthStatus =
+                    String(
+                        localized: "Reading available Health samples. No samples can mean no read permission or no recent measurements."
+                    )
                 self.persist { saved in
                     guard saved, self.generation == currentGeneration, self.isEnabled else {
                         self.finishQuery()
@@ -254,7 +261,7 @@ final class ActivityObservationManager: ObservableObject {
                 let labels = [
                     (activity.walking, "walking"), (activity.running, "running"), (activity.cycling, "cycling"),
                     (activity.automotive, "automotive"), (activity.stationary, "stationary"), (activity.unknown, "unknown")
-                ].filter { $0.0 }.map { $0.1 }.joined(separator: ", ")
+                ].filter { $0.0 }.map(\.1).joined(separator: ", ")
                 let confidence: String
                 switch activity.confidence {
                 case .low: confidence = "low"
@@ -277,7 +284,8 @@ final class ActivityObservationManager: ObservableObject {
         pedometer.startUpdates(from: start) { [weak self] data, error in
             DispatchQueue.main.async {
                 guard let self, self.isEnabled, self.generation == currentGeneration else { return }
-                if let error { self.motionStatus = error.localizedDescription; return }
+                if let error { self.motionStatus = error.localizedDescription
+                    return }
                 guard let data,
                       data.endDate.timeIntervalSince(self.lastStepEnd ?? start) >= 60 else { return }
                 self.lastStepEnd = data.endDate
@@ -311,7 +319,8 @@ final class ActivityObservationManager: ObservableObject {
         pedometer.queryPedometerData(from: start, to: end) { [weak self] data, error in
             DispatchQueue.main.async {
                 guard let self, self.isEnabled, self.generation == currentGeneration else { return }
-                if let error { self.motionStatus = error.localizedDescription; return }
+                if let error { self.motionStatus = error.localizedDescription
+                    return }
                 guard let data else { return }
                 self.record(ActivityObservation(
                     id: UUID().uuidString, kind: .phoneStepInterval, startDate: data.startDate,
@@ -328,7 +337,8 @@ final class ActivityObservationManager: ObservableObject {
         persistenceQueue.async {
             do {
                 try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
-                try JSONEncoder().encode(snapshot).write(to: url, options: [.atomic, .completeFileProtectionUntilFirstUserAuthentication])
+                try JSONEncoder().encode(snapshot)
+                    .write(to: url, options: [.atomic, .completeFileProtectionUntilFirstUserAuthentication])
                 DispatchQueue.main.async { completion(true) }
             } catch {
                 DispatchQueue.main.async {

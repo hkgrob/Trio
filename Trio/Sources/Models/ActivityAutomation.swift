@@ -126,7 +126,8 @@ struct ActivityAutomationDetector {
             let rate = (value - baseline) * 60 / interval
             guard rate.isFinite else {
                 movement = nil
-                if source == .phone { candidateSince = nil; recoverySince = nil }
+                if source == .phone { candidateSince = nil
+                    recoverySince = nil }
                 return
             }
             movement = Signal(id: observation.id, date: observation.endDate, value: rate)

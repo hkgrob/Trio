@@ -28,7 +28,9 @@ final class ActivityAutomationManager: ObservableObject {
         var saved = defaults.data(forKey: Self.configurationKey)
             .flatMap { try? JSONDecoder().decode(ActivityAutomationConfiguration.self, from: $0) }
             ?? ActivityAutomationConfiguration()
-        if !saved.isValid || !observations.isEnabled || !observations.storageError.isEmpty || presets.configuration.presetID.isEmpty {
+        if !saved.isValid || !observations.isEnabled || !observations.storageError.isEmpty || presets.configuration.presetID
+            .isEmpty
+        {
             saved.isEnabled = false
         }
         configuration = saved
@@ -59,26 +61,28 @@ final class ActivityAutomationManager: ObservableObject {
         ]
         let adjustmentPublishers = adjustmentNames.map { Foundation.NotificationCenter.default.publisher(for: $0) }
         Publishers.MergeMany(adjustmentPublishers)
-        .filter { (notification: Foundation.Notification) -> Bool in
-            notification.name == .willUpdateOverrideConfiguration || notification.name == .willUpdateTempTargetConfiguration ||
-                notification.userInfo?["adjustmentSource"] != nil
-        }
-        .receive(on: DispatchQueue.main)
-        .sink { [weak self] _ in
-            guard let self, self.configuration.isEnabled else { return }
-            self.activationRequest?.cancel()
-            self.generation = UUID()
-            self.detector.suppressUntilRecovery()
-            self.publishState()
-        }
-        .store(in: &subscriptions)
+            .filter { (notification: Foundation.Notification) -> Bool in
+                notification.name == .willUpdateOverrideConfiguration || notification
+                    .name == .willUpdateTempTargetConfiguration ||
+                    notification.userInfo?["adjustmentSource"] != nil
+            }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self, self.configuration.isEnabled else { return }
+                self.activationRequest?.cancel()
+                self.generation = UUID()
+                self.detector.suppressUntilRecovery()
+                self.publishState()
+            }
+            .store(in: &subscriptions)
         Timer.publish(every: 30, on: .main, in: .common).autoconnect()
             .sink { [weak self] _ in self?.tick() }
             .store(in: &subscriptions)
     }
 
     var canEnable: Bool {
-        configuration.isValid && observations.isEnabled && observations.storageError.isEmpty && !presets.configuration.presetID.isEmpty
+        configuration.isValid && observations.isEnabled && observations.storageError.isEmpty && !presets.configuration.presetID
+            .isEmpty
     }
 
     func update(_ edit: (inout ActivityAutomationConfiguration) -> Void) {
