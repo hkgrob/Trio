@@ -39,6 +39,7 @@ enum AdjustmentError: LocalizedError, Equatable {
     case nothingActive
     case persistenceFailed(String)
     case activeAdjustmentPresent
+    case activityRequestCancelled
 
     var errorDescription: String? {
         switch self {
@@ -47,7 +48,9 @@ enum AdjustmentError: LocalizedError, Equatable {
         case .nothingActive:
             return String(localized: "Nothing is currently running.", comment: "No active adjustment to cancel")
         case .activeAdjustmentPresent:
-            return String(localized: "Workout preset skipped because an override or temporary target is already active.")
+            return String(localized: "Activity preset skipped because an override or temporary target is already active.")
+        case .activityRequestCancelled:
+            return String(localized: "Activity preset activation was cancelled before it started.")
         case .persistenceFailed:
             // The associated value carries the Core Data detail for the log, not for the reader.
             return String(localized: "Could not save the change.", comment: "Adjustment could not be saved")
@@ -70,7 +73,9 @@ enum AdjustmentError: LocalizedError, Equatable {
 /// (`BaseNightscoutManager.wireUploadControllers`).
 protocol AdjustmentManager {
     /// Activity automation may start a saved preset only if neither adjustment type is enabled.
-    @discardableResult func activateActivityPreset(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> AdjustmentOutcome
+    @discardableResult func activateActivityPreset(
+        _ preset: AdjustmentRef, kind: ActivityPresetKind, request: ActivityActivationRequest?
+    ) async throws -> AdjustmentOutcome
 
     @discardableResult func activateOverride(
         _ preset: AdjustmentRef,
@@ -90,6 +95,10 @@ protocol AdjustmentManager {
 }
 
 extension AdjustmentManager {
+    @discardableResult func activateActivityPreset(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> AdjustmentOutcome {
+        try await activateActivityPreset(preset, kind: kind, request: nil)
+    }
+
     @discardableResult func activateOverride(
         _ preset: AdjustmentRef,
         source: AdjustmentSource
@@ -138,17 +147,19 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
 
     // MARK: Overrides
 
-    @discardableResult func activateActivityPreset(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> AdjustmentOutcome {
+    @discardableResult func activateActivityPreset(
+        _ preset: AdjustmentRef, kind: ActivityPresetKind, request: ActivityActivationRequest?
+    ) async throws -> AdjustmentOutcome {
         switch kind {
         case .override:
             let outcome = try await serializer.run {
-                try await self.commitOverride(activating: preset, preservingActiveAdjustments: true)
+                try await self.commitOverride(activating: preset, preservingActiveAdjustments: true, request: request)
             }
             await applyOverrideSideEffects(source: .activity, waitForUpload: false)
             return outcome
         case .tempTarget:
             let (outcome, target) = try await serializer.run {
-                try await self.commitTempTarget(activating: preset, preservingActiveAdjustments: true)
+                try await self.commitTempTarget(activating: preset, preservingActiveAdjustments: true, request: request)
             }
             await applyTempTargetSideEffects(orefTarget: target, source: .activity, waitForUpload: false)
             return outcome
@@ -177,12 +188,13 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     /// requested one share one transaction, so no command can leave the app with nothing enabled
     /// or with two adjustments enabled at once.
     private func commitOverride(
-        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false
+        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false, request: ActivityActivationRequest? = nil
     ) async throws -> AdjustmentOutcome {
         let context = makeContext()
         context.name = "commitOverride"
 
         return try await context.perform {
+            if request?.isCancelled == true { throw AdjustmentError.activityRequestCancelled }
             if preservingActiveAdjustments { try self.requireNoEnabledAdjustment(in: context) }
             let now = Date()
             let target = try preset.map { try self.fetchOverride($0, in: context) }
@@ -233,7 +245,9 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
         } else {
             requestNightscoutUpload([.overrides], source: source.rawValue)
         }
-        Foundation.NotificationCenter.default.post(name: .didUpdateOverrideConfiguration, object: nil)
+        Foundation.NotificationCenter.default.post(
+            name: .didUpdateOverrideConfiguration, object: nil, userInfo: ["adjustmentSource": source.rawValue]
+        )
         recomputeDetermination()
     }
 
@@ -260,12 +274,13 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     /// Returns the outcome plus the entry to hand oref, which has to be built inside the
     /// transaction while the row is still safe to read on this context.
     private func commitTempTarget(
-        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false
+        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false, request: ActivityActivationRequest? = nil
     ) async throws -> (AdjustmentOutcome, TempTarget?) {
         let context = makeContext()
         context.name = "commitTempTarget"
 
         return try await context.perform {
+            if request?.isCancelled == true { throw AdjustmentError.activityRequestCancelled }
             if preservingActiveAdjustments { try self.requireNoEnabledAdjustment(in: context) }
             let now = Date()
             let target = try preset.map { try self.fetchTempTarget($0, in: context) }
@@ -325,7 +340,9 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
         } else {
             requestNightscoutUpload([.tempTargets], source: source.rawValue)
         }
-        Foundation.NotificationCenter.default.post(name: .didUpdateTempTargetConfiguration, object: nil)
+        Foundation.NotificationCenter.default.post(
+            name: .didUpdateTempTargetConfiguration, object: nil, userInfo: ["adjustmentSource": source.rawValue]
+        )
         recomputeDetermination()
     }
 

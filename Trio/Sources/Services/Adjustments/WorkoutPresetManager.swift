@@ -3,7 +3,7 @@ import Foundation
 import Swinject
 import UserNotifications
 
-/// Explicit workout events only. Passive observation never calls this service.
+/// Shared saved-preset activation for explicit workouts and opt-in passive activity detection.
 final class WorkoutPresetManager: ObservableObject {
     @Published private(set) var configuration: WorkoutPresetConfiguration
     @Published private(set) var lastResult: String
@@ -41,26 +41,37 @@ final class WorkoutPresetManager: ObservableObject {
         guard configuration.isEnabled, !configuration.presetID.isEmpty else {
             return String(localized: "Workout preset activation is disabled. Enable it and select a preset in Trio’s Activity observations settings.")
         }
+        return await activate(reason: String(localized: "Workout started."))
+    }
+
+    @MainActor func activateFromActivity(request: ActivityActivationRequest) async -> String {
+        guard !configuration.presetID.isEmpty else {
+            return String(localized: "No activity preset is selected.")
+        }
+        return await activate(reason: String(localized: "Sustained activity detected."), request: request)
+    }
+
+    @MainActor private func activate(reason: String, request: ActivityActivationRequest? = nil) async -> String {
         let result: String
         do {
             let outcome = try await resolver.resolve(AdjustmentManager.self)!.activateActivityPreset(
-                .presetID(configuration.presetID), kind: configuration.kind
+                .presetID(configuration.presetID), kind: configuration.kind, request: request
             )
             let name = outcome.started?.name ?? String(localized: "Activity preset")
             if let started = outcome.started, started.indefinite {
-                result = String(localized: "Workout started. ‘\(name)’ activated with its saved indefinite duration.")
+                result = reason + " " + String(localized: "‘\(name)’ activated with its saved indefinite duration.")
             } else {
                 let minutes = outcome.started?.duration.map { NSDecimalNumber(decimal: $0).stringValue } ?? "?"
-                result = String(localized: "Workout started. ‘\(name)’ activated for \(minutes) minutes.")
+                result = reason + " " + String(localized: "‘\(name)’ activated for \(minutes) minutes.")
             }
         } catch {
-            result = String(localized: "Workout preset was not activated: \(error.localizedDescription)")
+            result = reason + " " + String(localized: "Activity preset was not activated: \(error.localizedDescription)")
         }
         lastResult = Date().formatted(date: .abbreviated, time: .standard) + " — " + result
         defaults.set(lastResult, forKey: Self.resultKey)
 
         let content = UNMutableNotificationContent()
-        content.title = String(localized: "Trio workout preset")
+        content.title = String(localized: "Trio activity preset")
         content.body = result
         content.sound = .default
         do {

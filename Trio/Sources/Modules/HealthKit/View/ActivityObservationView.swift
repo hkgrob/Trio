@@ -4,6 +4,7 @@ import UniformTypeIdentifiers
 struct ActivityObservationView: View {
     @ObservedObject var manager: ActivityObservationManager
     @ObservedObject var workoutManager: WorkoutPresetManager
+    @ObservedObject var automationManager: ActivityAutomationManager
     @State private var confirmClear = false
 
     var body: some View {
@@ -17,8 +18,10 @@ struct ActivityObservationView: View {
                 .disabled(manager.isRequestingPermission || (!manager.storageError.isEmpty && !manager.isEnabled))
                 if manager.isRequestingPermission { ProgressView() }
             } footer: {
-                Text("Observation only. Activity data does not activate presets or change insulin delivery. No workout needs to be started.")
+                Text("Collects heart rate and iPhone movement without starting a workout. Preset activation requires the separate automation opt-in below.")
             }
+
+            ActivityAutomationSection(manager: automationManager, observations: manager)
 
             Section("Latest heart rate") {
                 if let reading = manager.history.observations.last(where: { $0.kind == .heartRate }) {
@@ -35,11 +38,11 @@ struct ActivityObservationView: View {
                 if let reading = manager.history.observations.last(where: { $0.kind == .phoneMotion }) {
                     observationRow(reading)
                 }
-                if let reading = manager.history.observations.last(where: { $0.kind == .phoneSteps }) {
+                if let reading = manager.history.observations.last(where: { $0.kind == .phoneStepInterval || $0.kind == .phoneSteps }) {
                     observationRow(reading)
                 }
                 if !manager.motionStatus.isEmpty { Text(manager.motionStatus).font(.footnote) }
-                Text("The phone must be carried for its movement to represent your activity. Motion callbacks pause while Trio is suspended. Step readings are cumulative within each collection session; do not add them together.")
+                Text("The phone must be carried for its movement to represent your activity. Motion callbacks pause while Trio is suspended. Live step readings are cumulative; queried interval readings cover their recorded start and end times. Do not add cumulative readings together.")
                     .font(.footnote).foregroundStyle(.secondary)
             }
 
@@ -78,6 +81,8 @@ struct ActivityObservationView: View {
                 Text("Heart rate: \(observation.value ?? 0, specifier: "%.0f") bpm")
             case .phoneSteps:
                 Text("iPhone steps: \(observation.value ?? 0, specifier: "%.0f")")
+            case .phoneStepInterval:
+                Text("iPhone interval steps: \(observation.value ?? 0, specifier: "%.0f")")
             case .phoneMotion:
                 Text("iPhone motion")
             }

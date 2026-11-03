@@ -60,7 +60,9 @@ extension Home.StateModel {
 
             await saveToOverrideRunStored(object: profileToCancel)
 
-            Foundation.NotificationCenter.default.post(name: .didUpdateOverrideConfiguration, object: nil)
+            Foundation.NotificationCenter.default.post(
+                name: .didUpdateOverrideConfiguration, object: nil, userInfo: ["adjustmentSource": AdjustmentSource.app.rawValue]
+            )
         } catch let error as NSError {
             debugPrint("\(DebuggingIdentifiers.failed) \(#file) \(#function) Failed to cancel Profile with error: \(error)")
         }

@@ -22,7 +22,8 @@ extension AppleHealthKit {
                     NavigationLink("Activity observations") {
                         ActivityObservationView(
                             manager: resolver.resolve(ActivityObservationManager.self)!,
-                            workoutManager: resolver.resolve(WorkoutPresetManager.self)!
+                            workoutManager: resolver.resolve(WorkoutPresetManager.self)!,
+                            automationManager: resolver.resolve(ActivityAutomationManager.self)!
                         )
                     }
                 }

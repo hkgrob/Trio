@@ -1,10 +1,11 @@
 import Foundation
 
-/// Sensor observations only. These values must not be used as dosing inputs.
+/// Sensor observations. Never passed directly to the dosing algorithm.
 struct ActivityObservation: Codable, Identifiable, Equatable {
     enum Kind: String, Codable {
         case heartRate
         case phoneSteps
+        case phoneStepInterval
         case phoneMotion
     }
 
@@ -16,6 +17,7 @@ struct ActivityObservation: Codable, Identifiable, Equatable {
     let value: Double?
     let source: String
     let detail: String
+    var isWatchHeartRate: Bool? = nil
 }
 
 struct ActivityObservationHistory: Codable {

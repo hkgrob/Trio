@@ -66,7 +66,9 @@ extension Home.StateModel {
             // We also need to update the storage for temp targets
             tempTargetStorage.saveTempTargetsToStorage([TempTarget.cancel(at: Date())])
 
-            Foundation.NotificationCenter.default.post(name: .didUpdateTempTargetConfiguration, object: nil)
+            Foundation.NotificationCenter.default.post(
+                name: .didUpdateTempTargetConfiguration, object: nil, userInfo: ["adjustmentSource": AdjustmentSource.app.rawValue]
+            )
         } catch let error as NSError {
             debugPrint("\(DebuggingIdentifiers.failed) \(#file) \(#function) Failed to cancel Temp Target with error: \(error)")
         }

@@ -42,6 +42,8 @@ final class ServiceAssembly: Assembly {
             .inObjectScope(.container)
         container.register(WorkoutPresetManager.self) { r in WorkoutPresetManager(resolver: r) }
             .inObjectScope(.container)
+        container.register(ActivityAutomationManager.self) { r in ActivityAutomationManager(resolver: r) }
+            .inObjectScope(.container)
         container.register(TrioRemoteControl.self) { r in TrioRemoteControl(resolver: r) }
             .inObjectScope(.container)
         container.register(TelemetryClient.self) { r in TelemetryClient(resolver: r) }

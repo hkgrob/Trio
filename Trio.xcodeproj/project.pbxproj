@@ -999,6 +999,10 @@
 		AC7100000000000000000006 /* ActivateWorkoutPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7100000000000000000016 /* ActivateWorkoutPresetIntent.swift */; };
 		AC7100000000000000000007 /* WorkoutPresetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7100000000000000000017 /* WorkoutPresetSection.swift */; };
 		AC7100000000000000000008 /* ActivityObservationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7100000000000000000018 /* ActivityObservationTests.swift */; };
+		AC7200000000000000000001 /* ActivityAutomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7200000000000000000011 /* ActivityAutomation.swift */; };
+		AC7200000000000000000002 /* ActivityAutomationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7200000000000000000012 /* ActivityAutomationManager.swift */; };
+		AC7200000000000000000003 /* ActivityAutomationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7200000000000000000013 /* ActivityAutomationSection.swift */; };
+		AC7200000000000000000004 /* ActivityAutomationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7200000000000000000014 /* ActivityAutomationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2090,6 +2094,10 @@
 		AC7100000000000000000016 /* ActivateWorkoutPresetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateWorkoutPresetIntent.swift; sourceTree = "<group>"; };
 		AC7100000000000000000017 /* WorkoutPresetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPresetSection.swift; sourceTree = "<group>"; };
 		AC7100000000000000000018 /* ActivityObservationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityObservationTests.swift; sourceTree = "<group>"; };
+		AC7200000000000000000011 /* ActivityAutomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAutomation.swift; sourceTree = "<group>"; };
+		AC7200000000000000000012 /* ActivityAutomationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAutomationManager.swift; sourceTree = "<group>"; };
+		AC7200000000000000000013 /* ActivityAutomationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAutomationSection.swift; sourceTree = "<group>"; };
+		AC7200000000000000000014 /* ActivityAutomationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAutomationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -3022,6 +3030,7 @@
 				BD432CA02D2F4E3300D1EB79 /* WatchMessageKeys.swift */,
 				AC7100000000000000000014 /* ActivityPresetKind.swift */,
 				AC7100000000000000000011 /* ActivityObservation.swift */,
+				AC7200000000000000000011 /* ActivityAutomation.swift */,
 				BDA25EFC2D261BF200035F34 /* WatchState.swift */,
 				DDFF204F2DB2C11900AB8A96 /* WatchStateSnapshot.swift */,
 			);
@@ -3258,6 +3267,7 @@
 				B3919BBB515547118D684CE2 /* DosingModeClampTests.swift */,
 				B3919BBB515547118D684CD2 /* LoopIndicatorTests.swift */,
 				AC7100000000000000000018 /* ActivityObservationTests.swift */,
+				AC7200000000000000000014 /* ActivityAutomationTests.swift */,
 				B3919BBB515547118D684CC2 /* MaxIOBSuggestionTests.swift */,
 				B3919BBB515547118D684CB2 /* DosingModeMigrationTests.swift */,
 				BD8FC0532D66186000B95AED /* TestError.swift */,
@@ -3621,6 +3631,7 @@
 			children = (
 				B015AFF12E600000000D7351 /* AdjustmentManager.swift */,
 				AC7100000000000000000015 /* WorkoutPresetManager.swift */,
+				AC7200000000000000000012 /* ActivityAutomationManager.swift */,
 			);
 			path = Adjustments;
 			sourceTree = "<group>";
@@ -4815,6 +4826,7 @@
 			children = (
 				F90692D2274B9A130037068D /* AppleHealthKitRootView.swift */,
 				AC7100000000000000000017 /* WorkoutPresetSection.swift */,
+				AC7200000000000000000013 /* ActivityAutomationSection.swift */,
 				AC7100000000000000000013 /* ActivityObservationView.swift */,
 			);
 			path = View;
@@ -5460,6 +5472,7 @@
 				BD432CA12D2F4E3600D1EB79 /* WatchMessageKeys.swift in Sources */,
 				AC7100000000000000000004 /* ActivityPresetKind.swift in Sources */,
 				AC7100000000000000000001 /* ActivityObservation.swift in Sources */,
+				AC7200000000000000000001 /* ActivityAutomation.swift in Sources */,
 				DD4C581F2D73C43D001BFF2C /* LoopStatsView.swift in Sources */,
 				58A3D53A2C96D4DE003F90FC /* AddTempTargetForm.swift in Sources */,
 				C21FE1E72DA59C6B007D550B /* GlucoseDailyDistributionChart.swift in Sources */,
@@ -5594,6 +5607,7 @@
 				190EBCC829FF13AA00BA767D /* UserInterfaceSettingsStateModel.swift in Sources */,
 				B015AFF32E600000000D7351 /* AdjustmentManager.swift in Sources */,
 				AC7100000000000000000005 /* WorkoutPresetManager.swift in Sources */,
+				AC7200000000000000000002 /* ActivityAutomationManager.swift in Sources */,
 				B015AFE32E500000000D7351 /* BolusSafetyValidator.swift in Sources */,
 				DDF847EA2C5DABAC0049BB3B /* WatchConfigGarminView.swift in Sources */,
 				38BF021F25E7F0DE00579895 /* DeviceDataManager.swift in Sources */,
@@ -5856,6 +5870,7 @@
 				BD4E1A7C2D3686D900D21626 /* StartEndMarkerSetup.swift in Sources */,
 				F90692D3274B9A130037068D /* AppleHealthKitRootView.swift in Sources */,
 				AC7100000000000000000007 /* WorkoutPresetSection.swift in Sources */,
+				AC7200000000000000000003 /* ActivityAutomationSection.swift in Sources */,
 				AC7100000000000000000003 /* ActivityObservationView.swift in Sources */,
 				3B5CD2A52D4AEA5D00CE213C /* Date+MinutesFromMidnight.swift in Sources */,
 				BDF34F852C10C62E00D51995 /* GlucoseData.swift in Sources */,
@@ -6082,6 +6097,7 @@
 				41740E936552456AAC0EDEC3 /* DosingModeClampTests.swift in Sources */,
 				41740E936552456AAC0EDDC3 /* LoopIndicatorTests.swift in Sources */,
 				AC7100000000000000000008 /* ActivityObservationTests.swift in Sources */,
+				AC7200000000000000000004 /* ActivityAutomationTests.swift in Sources */,
 				41740E936552456AAC0EDCC3 /* MaxIOBSuggestionTests.swift in Sources */,
 				41740E936552456AAC0EDBC3 /* DosingModeMigrationTests.swift in Sources */,
 				B015AFE52E500000000D7351 /* BolusSafetyValidatorTests.swift in Sources */,

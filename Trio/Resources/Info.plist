@@ -84,9 +84,9 @@
 	<key>NSFaceIDUsageDescription</key>
 	<string>For authorized access to bolus</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Trio reads heart rate for optional activity observations and stores blood glucose, carbs and insulin in Apple Health.</string>
+	<string>Trio reads heart rate for optional activity monitoring and user-configured preset automation, and stores blood glucose, carbs and insulin in Apple Health.</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Trio uses iPhone movement and step counts for optional activity observations. These observations do not change insulin delivery.</string>
+	<string>Trio uses iPhone movement and step counts for optional activity monitoring and user-configured activity preset automation.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Health App is used to store blood glucose, carbs and insulin</string>
 	<key>NSHumanReadableCopyright</key>

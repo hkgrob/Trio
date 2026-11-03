@@ -8,6 +8,12 @@ import UIKit
 /// Passive, local-only collection. Intentionally has no APS, pump or adjustment dependency.
 /// Mutable state is confined to the main queue; HealthKit and motion callbacks hop to it.
 final class ActivityObservationManager: ObservableObject {
+    struct Update {
+        let observations: [ActivityObservation]
+        let deletedIDs: Set<String>
+    }
+
+    let observationUpdates = PassthroughSubject<Update, Never>()
     @Published private(set) var isEnabled: Bool
     @Published private(set) var history = ActivityObservationHistory()
     @Published private(set) var healthStatus = ""
@@ -29,6 +35,7 @@ final class ActivityObservationManager: ObservableObject {
     private var generation = UUID()
     private var subscriptions = Set<AnyCancellable>()
     private var lastStepEnd: Date?
+    private var lastStepQueryEnd: Date?
     private var collectionStart: Date
 
     private static let enabledKey = "ActivityObservation.enabled"
@@ -64,6 +71,9 @@ final class ActivityObservationManager: ObservableObject {
         resolver.resolve(GlucoseStorage.self)!.updatePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.refresh() }
+            .store(in: &subscriptions)
+        Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+            .sink { [weak self] _ in self?.readStepInterval() }
             .store(in: &subscriptions)
 
         if historyWasPruned { persist() }
@@ -110,6 +120,7 @@ final class ActivityObservationManager: ObservableObject {
     func refresh() {
         guard isEnabled, storageError.isEmpty else { return }
         readHeartRate()
+        readStepInterval()
     }
 
     private func start() {
@@ -152,6 +163,7 @@ final class ActivityObservationManager: ObservableObject {
         motion.stopActivityUpdates()
         pedometer.stopUpdates()
         lastStepEnd = nil
+        lastStepQueryEnd = nil
         if let type = HKQuantityType.quantityType(forIdentifier: .heartRate) {
             healthStore.disableBackgroundDelivery(for: type) { _, _ in }
         }
@@ -179,7 +191,11 @@ final class ActivityObservationManager: ObservableObject {
                     endDate: sample.endDate, receivedAt: receivedAt,
                     value: sample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())),
                     source: sample.sourceRevision.source.name,
-                    detail: sample.device?.model ?? ""
+                    detail: sample.device?.model ?? "",
+                    isWatchHeartRate: sample.metadata?[HKMetadataKeyWasUserEntered] as? Bool != true && (
+                        sample.sourceRevision.productType?.hasPrefix("Watch") == true ||
+                            sample.device?.model?.localizedCaseInsensitiveContains("watch") == true
+                    )
                 )
             }
             let deletedIDs = Set((deleted ?? []).map { $0.uuid.uuidString })
@@ -208,6 +224,7 @@ final class ActivityObservationManager: ObservableObject {
                     {
                         self.defaults.set(data, forKey: Self.anchorKey)
                     }
+                    self.observationUpdates.send(Update(observations: readings, deletedIDs: deletedIDs))
                     self.finishQuery()
                 }
             }
@@ -275,8 +292,34 @@ final class ActivityObservationManager: ObservableObject {
     }
 
     private func record(_ observation: ActivityObservation) {
+        let currentGeneration = generation
         history.merge([observation])
-        persist()
+        persist { [weak self] saved in
+            guard let self, saved, self.isEnabled, self.generation == currentGeneration else { return }
+            self.observationUpdates.send(Update(observations: [observation], deletedIDs: []))
+        }
+    }
+
+    private func readStepInterval() {
+        guard isEnabled, storageError.isEmpty, CMPedometer.isStepCountingAvailable() else { return }
+        let end = Date()
+        if let lastStepQueryEnd, end.timeIntervalSince(lastStepQueryEnd) < 60 { return }
+        lastStepQueryEnd = end
+        let start = end.addingTimeInterval(-60)
+        let currentGeneration = generation
+        // Query actual counts, including zero. The live stream need not emit while stationary.
+        pedometer.queryPedometerData(from: start, to: end) { [weak self] data, error in
+            DispatchQueue.main.async {
+                guard let self, self.isEnabled, self.generation == currentGeneration else { return }
+                if let error { self.motionStatus = error.localizedDescription; return }
+                guard let data else { return }
+                self.record(ActivityObservation(
+                    id: UUID().uuidString, kind: .phoneStepInterval, startDate: data.startDate,
+                    endDate: data.endDate, receivedAt: Date(), value: data.numberOfSteps.doubleValue,
+                    source: "iPhone", detail: "steps in measured interval"
+                ))
+            }
+        }
     }
 
     private func persist(completion: @escaping (Bool) -> Void = { _ in }) {

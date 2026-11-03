@@ -20,7 +20,7 @@ struct WorkoutPresetSection: View {
     }
 
     var body: some View {
-        Section("Workout preset automation") {
+        Section("Activity preset and workout shortcut") {
             Picker("Preset type", selection: Binding(
                 get: { manager.configuration.kind },
                 set: { manager.select(kind: $0, id: "") }

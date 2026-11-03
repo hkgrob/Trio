@@ -319,6 +319,22 @@ import Testing
 
     // MARK: - Fixtures
 
+    @Test("Cancelled queued activity requests cannot activate either preset type")
+    func cancelledActivityRequest() async throws {
+        await makeOverride(name: "Exercise override", enabled: false, date: Date())
+        await makeTempTarget(name: "Exercise target", enabled: false, date: Date(), duration: 60, target: 140)
+        let request = ActivityActivationRequest()
+        request.cancel()
+        await #expect(throws: AdjustmentError.activityRequestCancelled) {
+            try await manager.activateActivityPreset(.presetName("Exercise override"), kind: .override, request: request)
+        }
+        await #expect(throws: AdjustmentError.activityRequestCancelled) {
+            try await manager.activateActivityPreset(.presetName("Exercise target"), kind: .tempTarget, request: request)
+        }
+        #expect(try await overrides().allSatisfy { !$0.enabled })
+        #expect(try await tempTargets().allSatisfy { !$0.enabled })
+    }
+
     @discardableResult private func makeOverride(
         name: String,
         enabled: Bool,
