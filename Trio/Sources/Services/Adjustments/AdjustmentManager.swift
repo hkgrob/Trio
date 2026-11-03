@@ -16,6 +16,7 @@ enum AdjustmentSource: String {
     case remote
     case shortcut
     case watch
+    case activity
 }
 
 struct AdjustmentSummary: Equatable {
@@ -37,6 +38,7 @@ enum AdjustmentError: LocalizedError, Equatable {
     case presetNotFound(String)
     case nothingActive
     case persistenceFailed(String)
+    case activeAdjustmentPresent
 
     var errorDescription: String? {
         switch self {
@@ -44,6 +46,8 @@ enum AdjustmentError: LocalizedError, Equatable {
             return String(localized: "Preset \"\(name)\" not found.", comment: "Adjustment preset not found")
         case .nothingActive:
             return String(localized: "Nothing is currently running.", comment: "No active adjustment to cancel")
+        case .activeAdjustmentPresent:
+            return String(localized: "Workout preset skipped because an override or temporary target is already active.")
         case .persistenceFailed:
             // The associated value carries the Core Data detail for the log, not for the reader.
             return String(localized: "Could not save the change.", comment: "Adjustment could not be saved")
@@ -65,6 +69,9 @@ enum AdjustmentError: LocalizedError, Equatable {
 /// cleared in the same transaction, which is what the Nightscout upload controllers key on
 /// (`BaseNightscoutManager.wireUploadControllers`).
 protocol AdjustmentManager {
+    /// Activity automation may start a saved preset only if neither adjustment type is enabled.
+    @discardableResult func activateActivityPreset(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> AdjustmentOutcome
+
     @discardableResult func activateOverride(
         _ preset: AdjustmentRef,
         source: AdjustmentSource,
@@ -131,6 +138,23 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
 
     // MARK: Overrides
 
+    @discardableResult func activateActivityPreset(_ preset: AdjustmentRef, kind: ActivityPresetKind) async throws -> AdjustmentOutcome {
+        switch kind {
+        case .override:
+            let outcome = try await serializer.run {
+                try await self.commitOverride(activating: preset, preservingActiveAdjustments: true)
+            }
+            await applyOverrideSideEffects(source: .activity, waitForUpload: false)
+            return outcome
+        case .tempTarget:
+            let (outcome, target) = try await serializer.run {
+                try await self.commitTempTarget(activating: preset, preservingActiveAdjustments: true)
+            }
+            await applyTempTargetSideEffects(orefTarget: target, source: .activity, waitForUpload: false)
+            return outcome
+        }
+    }
+
     @discardableResult func activateOverride(
         _ preset: AdjustmentRef,
         source: AdjustmentSource,
@@ -152,13 +176,19 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     /// `activating == nil` cancels whatever runs. Ending the active rows and enabling the
     /// requested one share one transaction, so no command can leave the app with nothing enabled
     /// or with two adjustments enabled at once.
-    private func commitOverride(activating preset: AdjustmentRef?) async throws -> AdjustmentOutcome {
+    private func commitOverride(
+        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false
+    ) async throws -> AdjustmentOutcome {
         let context = makeContext()
         context.name = "commitOverride"
 
         return try await context.perform {
+            if preservingActiveAdjustments { try self.requireNoEnabledAdjustment(in: context) }
             let now = Date()
             let target = try preset.map { try self.fetchOverride($0, in: context) }
+            if preservingActiveAdjustments, target?.isPreset != true {
+                throw AdjustmentError.presetNotFound("activity preset")
+            }
             let active = try self.fetchActiveOverrides(in: context)
 
             if preset == nil, active.isEmpty {
@@ -229,13 +259,19 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
 
     /// Returns the outcome plus the entry to hand oref, which has to be built inside the
     /// transaction while the row is still safe to read on this context.
-    private func commitTempTarget(activating preset: AdjustmentRef?) async throws -> (AdjustmentOutcome, TempTarget?) {
+    private func commitTempTarget(
+        activating preset: AdjustmentRef?, preservingActiveAdjustments: Bool = false
+    ) async throws -> (AdjustmentOutcome, TempTarget?) {
         let context = makeContext()
         context.name = "commitTempTarget"
 
         return try await context.perform {
+            if preservingActiveAdjustments { try self.requireNoEnabledAdjustment(in: context) }
             let now = Date()
             let target = try preset.map { try self.fetchTempTarget($0, in: context) }
+            if preservingActiveAdjustments, target?.isPreset != true {
+                throw AdjustmentError.presetNotFound("activity preset")
+            }
             let active = try self.fetchActiveTempTargets(in: context)
 
             if preset == nil, active.isEmpty {
@@ -311,6 +347,17 @@ final class BaseAdjustmentManager: AdjustmentManager, Injectable, @unchecked Sen
     }
 
     // MARK: Shared
+
+    /// Called inside the same serialized transaction as activation; a preflight UI check would race.
+    private func requireNoEnabledAdjustment(in context: NSManagedObjectContext) throws {
+        let overrides = OverrideStored.fetchRequest()
+        overrides.predicate = NSPredicate(format: "enabled == YES")
+        let targets = TempTargetStored.fetchRequest()
+        targets.predicate = NSPredicate(format: "enabled == YES")
+        if try context.count(for: overrides) > 0 || context.count(for: targets) > 0 {
+            throw AdjustmentError.activeAdjustmentPresent
+        }
+    }
 
     /// Refreshes the determination and the forecast in the background: a command's outcome does not
     /// depend on it, so callers acknowledge as soon as the transaction has committed. The

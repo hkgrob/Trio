@@ -17,6 +17,8 @@ final class ServiceAssembly: Assembly {
         container.register(CalendarManager.self) { r in BaseCalendarManager(resolver: r) }
         container.register(HKHealthStore.self) { _ in HKHealthStore() }
         container.register(HealthKitManager.self) { r in BaseHealthKitManager(resolver: r) }
+        container.register(ActivityObservationManager.self) { r in ActivityObservationManager(resolver: r) }
+            .inObjectScope(.container)
         container.register(TrioAlertManager.self) { r in BaseTrioAlertManager(resolver: r) }
             .inObjectScope(.container)
         container.register(GlucoseAlertCoordinator.self) { r in GlucoseAlertCoordinator(resolver: r) }
@@ -37,6 +39,8 @@ final class ServiceAssembly: Assembly {
         container.register(IOBService.self) { r in BaseIOBService(resolver: r) }
         container.register(BolusSafetyValidator.self) { r in BaseBolusSafetyValidator(resolver: r) }
         container.register(AdjustmentManager.self) { r in BaseAdjustmentManager(resolver: r) }
+            .inObjectScope(.container)
+        container.register(WorkoutPresetManager.self) { r in WorkoutPresetManager(resolver: r) }
             .inObjectScope(.container)
         container.register(TrioRemoteControl.self) { r in TrioRemoteControl(resolver: r) }
             .inObjectScope(.container)

@@ -18,6 +18,14 @@ extension AppleHealthKit {
 
         var body: some View {
             List {
+                Section {
+                    NavigationLink("Activity observations") {
+                        ActivityObservationView(
+                            manager: resolver.resolve(ActivityObservationManager.self)!,
+                            workoutManager: resolver.resolve(WorkoutPresetManager.self)!
+                        )
+                    }
+                }
                 SettingInputSection(
                     decimalValue: $decimalPlaceholder,
                     booleanValue: $state.useAppleHealth,

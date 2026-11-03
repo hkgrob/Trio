@@ -4,6 +4,12 @@ import Foundation
 struct AppShortcuts: AppShortcutsProvider {
     @AppShortcutsBuilder static var appShortcuts: [AppShortcut] {
         AppShortcut(
+            intent: ActivateWorkoutPresetIntent(),
+            phrases: ["Activate \(.applicationName) workout preset"],
+            shortTitle: "Workout Preset",
+            systemImageName: "figure.run"
+        )
+        AppShortcut(
             intent: BolusIntent(),
             phrases: [
                 "\(.applicationName) bolus",
