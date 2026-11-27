@@ -1,0 +1,1 @@
+Default: OFF Enabling this feature allows Trio to deliver insulin required using SMBs for 6 hours after any carb entry, regardless of whether there are active carbs on board (COB).   Tip Carbs do not digest at the same rate. Allowing SMBs for the 6 hours after entering a meal will help Trio counter those carbs faster.

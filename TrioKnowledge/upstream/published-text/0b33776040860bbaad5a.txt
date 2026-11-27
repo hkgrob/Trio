@@ -1,0 +1,1 @@
+Bar chart showing loop execution over time:  Green bars: Successful loops Red bars: Failed loops Hover/tap for detailed counts per time period Scrollable timeline  Use this to identify:  Times when loops frequently fail CGM connection issues Overall system reliability 

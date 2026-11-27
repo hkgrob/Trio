@@ -1,0 +1,1 @@
+ Launch the Finder  application Select Log Files: Hold Cmd and click log.txt  Hold Cmd and click log_prev.txt.     Compression  : Right-click the blue highlighted lines. Select Compress in the contextual menu.   Name Archive:   An Archive.zip file appears. Rename it to triologs.zip.   

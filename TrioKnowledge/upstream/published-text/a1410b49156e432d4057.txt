@@ -1,0 +1,1 @@
+There is more communication between your phone and the pod than the PDM/Controller, which increases the load on the pod's battery. Most people have no increase in pod failures. However, it does occasionally happen.

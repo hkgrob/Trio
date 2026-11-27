@@ -1,0 +1,19 @@
+--- upstream/configuration/settings/algorithm/autosens.md
++++ updated/configuration/settings/algorithm/autosens.md
+@@ -114,3 +114,16 @@
+ 
+     If you usually rewind your pump independently of site changes, you may want to keep this setting **OFF**.
+ 
++
++
++## Effective settings in constrained dosing modes
++
++In [Basal Testing](../closed-loop.md#basal-testing), the effective Autosens Min and Max are both 100%, and Dynamic ISF / sigmoid are disabled. These derived values preserve the saved preferences. Low Glucose Suspend derives Max IOB 0 but does not impose those additional sensitivity constraints. Read [Dosing Modes](../closed-loop.md) when interpreting displayed or exported settings.
++
++
++## 1.0.2 source references
++
++- **F02 — Mode overrides differ from the documented manual basal-testing recipe**
++    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)
++    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)
++    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)

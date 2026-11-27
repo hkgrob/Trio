@@ -1,0 +1,1 @@
+Same as insulin statistics:  Day (D), Week (W), Month (M), 3 Months (3M)  Note Meal statistics only include carbs, fat, and protein that you've logged in Trio. Accurate logging is essential for useful meal statistics.

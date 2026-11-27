@@ -1,0 +1,1 @@
+Highlights  Autosens Ratio has been renamed to Sensitivity Ratio Bias the calculated ISF/CR/Basal rates towards more or less aggressive values by increasing or decreasing the adjustment factor accordingly Autosens Max/Min limits sensitivity adjustments 

@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Notifications · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/notifications/trio-notifications.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/notifications/trio-notifications.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="notifications">Notifications</h1>
+<p>Notifications give you important Trio information without requiring you to open the app. It is essential that these are allowed in your iPhone system settings. You can tailor them to your needs in this section.</p>
+<p>You may notice a few different alerts and warnings in regards to notifications. Click on the tabs below to see what they are and how to remedy them.  </p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Notifications ON</label><label for="__tabbed_1_2">Notifications OFF</label><label for="__tabbed_1_3">Notifications Warning Popup</label><label for="__tabbed_1_4">Safety Notifications Warning</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>You are good to go! Your notifications are turned on. Proceed to the 3 notification options on the app screen to customize your app notifications.</p>
+<p align="center"><img alt="Notifications On" src="../../../../source/docs/configuration/settings/notifications/img/notifications-on.PNG" width="200px"/></p>
+</div>
+<div class="tabbed-block">
+<p>Your notifications are off. Open iOS Settings and enable them</p>
+<p align="center"><img alt="Notifications OFF" src="../../../../source/docs/configuration/settings/notifications/img/notifications-off.PNG" width="200px"/></p>
+</div>
+<div class="tabbed-block">
+<p>If notifications are off, this warning will pop up on the notifications screen. Follow the instructions to turn them on in iOS Settings.</p>
+<p align="center"><img alt="Notifications Warning Popup" src="../../../../source/docs/configuration/settings/notifications/img/notifications-warning.PNG" width="200px"/></p>
+</div>
+<div class="tabbed-block">
+<p>If you ignore the warnings, you will see this banner across the top of the main Trio screen. Tap the warning and follow the instructions to resolve the issue.</p>
+<p align="center"><img alt="Notifications OFF Warning" src="../../../../source/docs/configuration/settings/notifications/img/safety-notifications-off.png" width="200px"/></p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="play-alarm-sound">Play Alarm Sound</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>This will cause a sound to be triggered by Trio notifications for Carbs Required and Glucose Low/High Alarms.</p>
+<hr/>
+<h2 id="always-notify-pump">Always Notify Pump</h2>
+<p><strong>Default:</strong> <em>ON</em></p>
+<p>With iOS Trio Notifications enabled, you can let Trio display most Pump Notifications in iOS Notifications Center as a Banner, List, and/or on the Lock Screen. It allows you to refer to Trio Information at a glance and troubleshoot any informational issue. Setting iOS Notifications Banner Style to <em>Persistent</em> displays alert banners in the app until you dismiss them.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If iOS Trio Notifications are disabled, Trio will display these messages in-app as a banner only</p>
+</div>
+<hr/>
+<h2 id="always-notify-cgm">Always Notify CGM</h2>
+<p><strong>Default:</strong> <em>ON</em></p>
+<p>With iOS Trio Notifications enabled, you can let Trio display most CGM Notifications in iOS Notifications Center as a Banner, List, and/or on the Lock Screen. It allows you to refer to Trio Information at a glance and troubleshoot any informational issue. Setting iOS Notifications Banner Style to <em>Persistent</em> displays alert banners in the app until you dismiss them.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If iOS Trio Notifications are disabled, Trio will display these messages in-app as a banner only</p>
+</div>
+<hr/>
+<h2 id="always-notify-carb">Always Notify Carb</h2>
+<p><strong>Default:</strong> <em>ON</em></p>
+<p>With iOS Trio Notifications enabled, you can let Trio display most Carb Notifications in iOS Notifications Center as a Banner, List, and/or on the Lock Screen. It allows you to refer to Trio Information at a glance and troubleshoot any informational issue. Setting iOS Notifications Banner Style to <em>Persistent</em> displays alert banners in the app until you dismiss them.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If iOS Trio Notifications are disabled, Trio will display these messages in-app as a banner only</p>
+</div>
+<hr/>
+<h2 id="always-notify-algorithm">Always Notify Algorithm</h2>
+<p><strong>Default:</strong> <em>ON</em></p>
+<p>With iOS Trio Notifications enabled, you can let Trio display most Algorithm Notifications in iOS Notifications Center as a Banner, List, and/or on the Lock Screen. It allows you to refer to Trio Information at a glance and troubleshoot any informational issue. Setting iOS Notifications Banner Style to <em>Persistent</em> displays alert banners in the app until you dismiss them.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If iOS Trio Notifications are disabled, Trio will display these messages in-app as a banner only</p>
+</div>
+<hr/>
+<h2 id="show-glucose-app-badge">Show Glucose App Badge</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>This will add your current glucose readings on the top right of your Trio app icon as a red notification badge.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing this setting takes effect on the <em>next</em> glucose reading</p>
+</div>
+<hr/>
+<h2 id="glucose-notifications">Glucose Notifications</h2>
+<p><strong>Default:</strong> <em>DISABLED</em>
+Set the Glucose Notifications Option. Descriptions for each option found below:</p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Disabled</label><label for="__tabbed_2_2">Always</label><label for="__tabbed_2_3">Only Alarm Limits</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>No glucose notifications will be triggered</p>
+</div>
+<div class="tabbed-block">
+<p>A notification will be triggered every time your glucose is updated in Trio</p>
+</div>
+<div class="tabbed-block">
+<p>A notification will be triggered only when glucose levels are below the Low Limit or above the High Limit, as specified in <a href="#glucose-alarm-limits">Glucose Alarm Limits</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="glucose-alarm-limits">Glucose Alarm Limits</h2>
+<h3 id="low-glucose-alarm-limit">Low Glucose Alarm Limit</h3>
+<p><strong>Default:</strong> <em>70 mg/dL (3.9 mmol/L)</em><br/>
+<strong>Range:</strong> <em>40 - 100 mg/dL (2.2 - 5.5 mmol/L)</em> </p>
+<p>This setting determines the low value for your alert range. Set this to the low value in which you'd like to receive alerts.</p>
+<h3 id="high-glucose-alarm-limit">High Glucose Alarm Limit</h3>
+<p><strong>Default:</strong> <em>180 mg/dL</em><br/>
+<strong>Range:</strong> <em>100 - 400 mg/dL (5.5 - 22.2 mmol/L)</em> </p>
+<p>This setting determines the high value for your alert range. Set this to the high value in which you'd like to receive alerts.</p>
+<h3 id="add-glucose-source-to-alarm">Add Glucose Source to Alarm</h3>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>The source of your glucose reading will be added to the notification.</p></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

@@ -1,0 +1,14 @@
+{
+  "app_commit": "0b29cd53415e7f0e668677749cad8daf81c68c2f",
+  "docs_source_commit": "159649de635575ee3f732008dafcff25eb39181c",
+  "source_documents": 105,
+  "documentation_basis": "updated-docs/source/docs",
+  "published_pages": 101,
+  "pinned_code_files": 1180,
+  "settings": 117,
+  "ui_label_occurrences": 104,
+  "facts": 12,
+  "graph_nodes": 1416,
+  "graph_edges": 2088,
+  "search_chunks": 4330
+}

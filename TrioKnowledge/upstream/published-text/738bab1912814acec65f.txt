@@ -1,0 +1,1 @@
+Default: OFF Enabling this feature allows Trio to deliver insulin required using SMBs when your glucose reading is above the value set as your 'High Glucose Target'. This additional setting will appear when you enable this feature.  

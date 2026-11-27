@@ -1,0 +1,1 @@
+Same as glucose statistics:  Today, Day (D), Week (W), Month (M), 3 Months (3M)  Good Loop Performance You should typically see:  Loop interval: 5-6 minutes (Trio loops every 5 minutes normally) Success rate: > 95% Failures usually indicate CGM or pump connectivity issues 

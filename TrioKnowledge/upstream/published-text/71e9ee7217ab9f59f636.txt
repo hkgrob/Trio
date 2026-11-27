@@ -1,0 +1,1 @@
+ Open LoopFollow and tap the Remote Control button Select "Cancel Temp Target" from the options Tap "Send" to transmit the command 

@@ -1,0 +1,803 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coming from AAPS · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../index.html">All documents</a><a href="../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../source/docs/configuration/migration/aaps-migration.md">Updated Markdown</a><a href="../../../../upstream/source/docs/configuration/migration/aaps-migration.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="coming-from-aaps">Coming from AAPS</h1>
+<h2 id="what-to-expect-after-install">What to Expect After Install</h2>
+<ul>
+<li><strong>Onboarding Wizard</strong><br/>
+    Trio will walk you through the initial setup of the app. Learn more in the <a href="../new-user-setup.html">New User Setup Guide</a>.</li>
+<li><strong>User Interface</strong><br/>
+    You can find more about the Trio User Interface in <a href="../../usage/interface.html">this walk-through</a> of the app.</li>
+<li><strong>Remote Commands &amp; iOS Shortcuts</strong><br/>
+    Trigger actions like carb entry, bolus, overrides, or temporary targets <a href="../settings/features/remote-control.html">remotely</a> or through <a href="../settings/features/shortcuts.html">shortcut automation</a>.<ul>
+<li><strong>Use Loop Follow v4.0 or Later for remote commands</strong><br/>
+    More info at <a href="https://loopfollowdocs.org/remote/remote-control-trio/">LoopFollowDocs</a></li>
+</ul>
+</li>
+<li><strong>Bolus Calculator</strong><br/>
+    The <a href="../../usage/features/bolus-calculator.html">Bolus Calculator</a> in Trio offers simple dosing with clear breakdowns and safety logic.</li>
+<li><strong>In-App Statistics</strong><br/>
+    There are multiple statistics and graphs available in the Trio app. Click the link to learn more about the <a href="../../usage/features/statistics.html">Statistics</a> available in the app.</li>
+<li><strong>Important Re: Autotune</strong><br/>
+    Autotune has not performed as it was intended for years with the addition of Dynamic ISF and the change from a single ISF and CR in Therapy settings. For this reason, we have removed it until it can be rewritten to work with Trio or a new Autotune-like feature can be built.</li>
+</ul>
+<hr/>
+<h2 id="what-to-expect-in-your-first-3-hours">What to Expect in Your First 3 Hours</h2>
+<p>Here are some things to keep in mind after moving from AndroidAPS to Trio 0.5+ in the first 3 hours:</p>
+<ul>
+<li><strong>Onboarding Wizard</strong><br/>
+    Take this time to go through the Onboarding Wizard. Reference the <a href="../new-user-setup.html">New User Setup Guide</a> or ask questions on <a href="https://facebook.triodocs.org">Facebook</a> or <a href="https://discord.triodocs.org">Discord</a> if you have any questions.</li>
+<li><strong>Test Settings</strong><br/>
+    This is a great time to test your settings so you can start fresh on solid footing.</li>
+<li><strong>User Interface</strong><br/>
+    Use this time to learn the <a href="../../usage/interface.html">User Interface</a>.</li>
+<li><strong>Dynamic ISF</strong> <ul>
+<li>Dynamic ISF is disabled for the first <strong>7 days</strong>.  </li>
+<li>If you were using Dynamic ISF in AAPS, you will have to wait a week before enabling dynamic ISF in Trio. </li>
+<li>Data import from AAPS/Nightscout is not available.</li>
+</ul>
+</li>
+<li>
+<p><strong>Settings</strong>
+    When migrating from AAPS to Trio, many users will achieve similar results by using similar settings. The core algorithm is the same between AndroidAPS and Trio.</p>
+<div class="admonition warning">
+<p class="admonition-title">Dynamic ISF &amp; Closed Loop</p>
+<p>Trio must be in <strong>Closed Loop</strong> for 7 days in order to enable Dynamic ISF.</p>
+</div>
+</li>
+<li>
+<p><strong>Autosens</strong><br/>
+    Autosens will require <strong>8–24 hours</strong> of data before it starts making adjustments. <em>You may need to enter carbs and bolus during this time if you aren't already doing so.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Initial Limitation with Autosens</p>
+<p>There's a long standing issue with Autosens where it will likely be stuck at 1 for the first 24 hours when there are carb entries or SMBs.</p>
+<ul>
+<li>When carb entries or SMBs <strong>are not</strong> present, Autosens will kick in after 8 hours.</li>
+<li>When carb entries or SMBs <strong>are</strong> present, Autosens will kick in after 24 hours.</li>
+</ul>
+<p>Whether or not to enable SMBs or enter carbs is a personal choice based on what you prioritize in your first 24 hours.</p>
+</div>
+</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Do not use a pump or cgm simulator</p>
+<ul>
+<li>Doing so will result in false data being stored and you will have to delete the app with all the data and reinstall before you can use it on a live pump.</li>
+<li>This will also reset your 7-day waiting period for Dynamic ISF.</li>
+<li><a href="../settings/devices/pump.html#pump-simulator">More information on simulator use</a></li>
+</ul>
+</div>
+<hr/>
+<h2 id="what-to-expect-after-24-hours">What to Expect After 24 Hours</h2>
+<p>A full day on Trio! Congratulations! Here's what to look for:</p>
+<ul>
+<li><strong>Autosens</strong><br/>
+    Autosens now has enough data to make adjustments.</li>
+<li>
+<p><strong>Review &amp; Test Settings</strong><br/>
+    This is a good time to review your last 24 hours of results to see if your core settings performed as expected. If you had unexpected challenges with your settings, look at how to test them over the next 7 days:</p>
+<ul>
+<li><a href="../../usage/concepts/basal-rates.html">Basal Testing</a></li>
+<li><a href="../../usage/concepts/isf.html">ISF Testing</a></li>
+<li><a href="../../usage/concepts/carb-ratios.html">Carb Ratio Testing</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Review Dynamic ISF Documentation</strong><br/>
+    Review the documentation on <a href="../../usage/features/dynamic-isf.html">Using Dynamic ISF</a> in preparation for <a href="#what-to-expect-after-7-days">Day 7</a>.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="what-to-expect-after-7-days">What to Expect After 7 Days</h2>
+<p>You've completed a week on Trio! Here's what you should see:</p>
+<ul>
+<li><strong>Dynamic ISF</strong> <ul>
+<li>Dynamic ISF now has enough data. You now have the option to enable it.</li>
+<li>The Logarithmic formula in Trio is the most similar to AAPS dynamic ISF. The Sigmoid formula behaves very differently (informative links below). Which one you use is up to you.</li>
+<li>This is a great time to refresh <a href="../../usage/features/dynamic-isf.html">Using Dynamic ISF</a> and check your settings for <a href="../settings/algorithm/dynamic-settings.html#dynamic-isf-logarithmic">Logarithmic Dynamic ISF</a> or <a href="../settings/algorithm/dynamic-settings.html#dynamic-isf-sigmoid">Sigmoid Dynamic ISF</a>.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Can't Enable Dynamic ISF?</p>
+<p>If Dynamic ISF does not give you the option to enable, you may have experienced one or more of the following:</p>
+<ul>
+<li>You were not in closed loop for the full 7 days.<ul>
+<li><em>Trio needs 7 days of closed loop to safely enable Dynamic ISF</em></li>
+</ul>
+</li>
+<li>You had significant loss of connection with your CGM and/or pump. <ul>
+<li><em>Check your last week of Looping Statistics in the Stats tab in the Trio app. You need both <b>7 days</b> and an <b>85% success rate</b> to enable Dynamic ISF</em>. </li>
+</ul>
+</li>
+<li>You enabled a significant number of manual Temp Basals with long run times.<ul>
+<li><em>When a manual Temp Basal is set, Trio is unable to complete a loop cycle for the duration of the temp basal. This will cause a reduction in your success rate. If you do not have <b>85% success rate</b> for <b>7 days</b>, you cannot enable Dynamic ISF.</em></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr/>
+<h2 id="convert-aaps-settings-to-trio-settings">Convert AAPS Settings to Trio Settings</h2>
+<p>When you move your settings from AAPS to Trio, there are multiple settings that have similar names. We've created this chart to help you identify which settings are equivalent between the two apps and where to find them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Some Settings May Need Conversion</p>
+<ul>
+<li>To convert a value from a decimal to a percentage, multiply it by 100.  </li>
+<li>To convert from a percentage to a decimal, divide by 100.</li>
+</ul>
+</div>
+<h3 id="therapy-settings"><a href="../settings/therapy/index.html">Therapy Settings</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/glucose-targets.html#how-to-enter-your-glucose-targets-into-trio"><strong>Glucose Targets</strong></a></td>
+<td style="text-align: center;">decimal <br/> (100 mg/dL | 5.5 mmol/L)</td>
+<td style="text-align: center;">Settings → Therapy → Glucose Targets</td>
+<td style="text-align: center;"><strong>TARG</strong></td>
+<td style="text-align: center;">decimal range <br/> (100-120 mg/dL)</td>
+<td style="text-align: center;">LP → TARG</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/basal-rates.html#how-to-enter-your-basal-profiles-into-trio"><strong>Basal Rates</strong></a></td>
+<td style="text-align: center;">decimal <br/> (1.0 U/hr)</td>
+<td style="text-align: center;">Settings → Therapy → Basal Rates</td>
+<td style="text-align: center;"><strong>BAS</strong></td>
+<td style="text-align: center;">decimal <br/> (1.0 U/hr)</td>
+<td style="text-align: center;">LP → BAS</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/carb-ratios.html#how-to-enter-your-carb-ratios-cr-into-trio"><strong>Carb Ratios</strong></a></td>
+<td style="text-align: center;">decimal <br/> (10 g/U)</td>
+<td style="text-align: center;">Settings → Therapy → Carb Ratios</td>
+<td style="text-align: center;"><strong>IC</strong></td>
+<td style="text-align: center;">decimal <br/> (10 g/U)</td>
+<td style="text-align: center;">LP → IC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/isf.html#how-to-enter-your-isf-into-trio"><strong>Insulin Sensitivities</strong></a></td>
+<td style="text-align: center;">decimal <br/> (54 mg/dL/U | 3.0 mmol/L/U)</td>
+<td style="text-align: center;">Settings → Therapy → Insulin Sensitivities</td>
+<td style="text-align: center;"><strong>ISF</strong></td>
+<td style="text-align: center;">decimal <br/> (54)</td>
+<td style="text-align: center;">LP → ISF</td>
+</tr>
+</tbody>
+</table>
+<h4 id="units-and-limits"><a href="../settings/therapy/units-limits.html">Units and Limits</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#glucose-units"><strong>Glucose Units</strong></a></td>
+<td style="text-align: center;">selection <br/> (mg/dL or mmol/L)</td>
+<td style="text-align: center;">Settings → Therapy → Units and Limits</td>
+<td style="text-align: center;"><strong>Units</strong></td>
+<td style="text-align: center;">selection <br/> (mg/dL or mmol/L)</td>
+<td style="text-align: center;">Setup Wizard → Units</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-iob"><strong>Maximum Insulin On Board (IOB)</strong></a></td>
+<td style="text-align: center;">decimal <br/> (2 U)</td>
+<td style="text-align: center;">Settings → Therapy → Units and Limits → Maximum Insulin On Board (IOB)</td>
+<td style="text-align: center;"><strong>Maximum total IOB OpenAPS can't go over</strong></td>
+<td style="text-align: center;">decimal <br/> (2)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Maximum total IOB OpenAPS can't go over</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-bolus"><strong>Maximum Bolus</strong></a></td>
+<td style="text-align: center;">decimal <br/> (10 U)</td>
+<td style="text-align: center;">Settings → Therapy → Units and Limits → Maximum Bolus</td>
+<td style="text-align: center;"><strong>Max allowed bolus</strong></td>
+<td style="text-align: center;">decimal <br/> (10.0)</td>
+<td style="text-align: center;">Preferences → Treatments safety → Max allowed bolus</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-basal"><strong>Maximum Basal Rate</strong></a></td>
+<td style="text-align: center;">decimal <br/> (2 U/hr)</td>
+<td style="text-align: center;">Settings → Therapy → Units and Limits → Maximum Basal Rate</td>
+<td style="text-align: center;"><strong>Max U/h a Temp Basal can be set to</strong></td>
+<td style="text-align: center;">decimal <br/> (4.0)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-cob"><strong>Maximum Carbs on Board (COB)</strong></a></td>
+<td style="text-align: center;">decimal <br/> (120 g)</td>
+<td style="text-align: center;">Settings → Therapy → Units and Limits → Maximum Carbs on Board (COB)</td>
+<td style="text-align: center;"><strong>Max allowed carbs</strong></td>
+<td style="text-align: center;">decimal <br/> (120)</td>
+<td style="text-align: center;">Preferences → Treatments safety → Max allowed carbs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#minimum-safety-threshold"><strong>Minimum Safety Threshold</strong></a></td>
+<td style="text-align: center;">decimal <br/> (60 mg/dL)</td>
+<td style="text-align: center;">Settings → Therapy → Units and Limits → Minimum Safety Threshold</td>
+<td style="text-align: center;"><strong>BG level below which low glucose suspend occurs</strong></td>
+<td style="text-align: center;">decimal <br/> (65)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable dynamic sensitivity (ON) → BG level below which low glucose suspend occurs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="algorithm-settings"><a href="../settings/algorithm/index.html">Algorithm Settings</a></h3>
+<h4 id="autosens"><a href="../settings/algorithm/autosens.html">Autosens</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#autosens-min"><strong>Autosens Min</strong></a></td>
+<td style="text-align: center;">percentage <br/> (70%)</td>
+<td style="text-align: center;">Settings → Algorithm → Autosens → Autosens Min</td>
+<td style="text-align: center;"><strong>Min autosens ratio</strong></td>
+<td style="text-align: center;">decimal <br/> (0.7)</td>
+<td style="text-align: center;">Preferences → Absorption Settings → Advanced Settings Preferences → Min autosens ratio</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#autosens-max"><strong>Autosens Max</strong></a></td>
+<td style="text-align: center;">percentage <br/> (120%)</td>
+<td style="text-align: center;">Settings → Algorithm → Autosens → Autosens Max</td>
+<td style="text-align: center;"><strong>Max autosens ratio</strong></td>
+<td style="text-align: center;">decimal <br/> (1.2)</td>
+<td style="text-align: center;">Preferences → Absorption Settings → Advanced Settings → Max autosens ratio</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#rewind-resets-autosens">Rewind Resets Autosens</a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Autosens → Autosens Max</td>
+<td style="text-align: center;"><strong>Log a Pump Site Change</strong></td>
+<td style="text-align: center;"><em>Always On</em></td>
+<td style="text-align: center;"><em>Always On</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="smb-super-micro-bolus"><a href="../settings/algorithm/smb-settings.html">SMB (Super Micro Bolus)</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-always"><strong>Enable SMB Always</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB Always</td>
+<td style="text-align: center;"><strong>Enable SMB always</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → Enable SMB → Enable SMB always</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-with-cob">Enable SMB With COB</a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB Always(OFF) → Enable SMB With COB</td>
+<td style="text-align: center;"><strong>Enable SMB with COB</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → Enable SMB → Enable SMB with COB</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-with-temptarget">Enable SMB with Temptarget</a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB Always(OFF) → Enable SMB With TempTarget</td>
+<td style="text-align: center;"><strong>Enable SMB with temp targets</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → Enable SMB → Enable SMB with temp targets</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-after-carbs">Enable SMB After Carbs</a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB Always(OFF) → Enable SMB After Carbs</td>
+<td style="text-align: center;"><strong>Enable SMB after carbs</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → Enable SMB → Enable SMB after carbs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-with-high-glucose"><strong>Enable SMB With High Glucose</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB Always(OFF) → Enable SMB With High Glucose</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#high-glucose-target"><strong>High Glucose Target</strong></a></td>
+<td style="text-align: center;">decimal <br/> (110 mg/dL / 6.1 mmol/L)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB With High Glucose → High Glucose Target</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#allow-smb-with-high-temptarget"><strong>Allow SMB with High Temp Target</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Allow SMB With High Temptarget</td>
+<td style="text-align: center;"><strong>Enable SMB with high temp targets</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable SMB → Enable SMB with high temp targets</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-uam"><strong>Enable UAM</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Enable UAM</td>
+<td style="text-align: center;"><strong>Enable UAM</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable UAM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#max-smb-basal-minutes"><strong>Max SMB Basal Minutes</strong></a></td>
+<td style="text-align: center;">decimal <br/> (30 min)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Max SMB Basal Minutes</td>
+<td style="text-align: center;"><strong>Max minutes of basal to limit SMB to</strong></td>
+<td style="text-align: center;">decimal <br/> (30)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable SMB → Max minutes of basal to limit SMB to</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#max-uam-basal-minutes"><strong>Max UAM Basal Minutes</strong></a></td>
+<td style="text-align: center;">decimal <br/> (30 min)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Max UAM Basal Minutes</td>
+<td style="text-align: center;"><strong>Max minutes of basal to limit SMB to for UAM</strong></td>
+<td style="text-align: center;">decimal <br/> (30)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable UAM → Max minutes of basal to limit SMB to for UAM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#max-allowed-glucose-rise-for-smb"><strong>Max Allowed Glucose Rise for SMB</strong></a></td>
+<td style="text-align: center;">percentage <br/> (20%)</td>
+<td style="text-align: center;">Settings → Algorithm → Super Micro Bolus (SMB) → Max Allowed Glucose Rise for SMB</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dynamic-settings"><a href="../settings/algorithm/dynamic-settings.html">Dynamic Settings</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/dynamic-settings.html#dynamic-isf-logarithmic"><strong>Dynamic ISF</strong></a></td>
+<td style="text-align: center;">selection <br/> (Disabled / Logarithmic / Sigmoid)</td>
+<td style="text-align: center;">Settings → Algorithm → Dynamic Settings → Dynamic ISF</td>
+<td style="text-align: center;"><strong>Enable dynamic sensitivity</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable dynamic sensitivity</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/dynamic-settings.html#adjustment-factor-logarithmic"><strong>Adjustment Factor</strong></a></td>
+<td style="text-align: center;">percentage <br/> (80%)</td>
+<td style="text-align: center;">Settings → Algorithm → Dynamic Settings → Dynamic ISF (Logarithmic) → Adjustment Factor</td>
+<td style="text-align: center;"><strong>DynamicISF Adjustment Factor %</strong></td>
+<td style="text-align: center;">percentage <br/> (100)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable dynamic sensitivity (ON) → DynamicISF Adjustment Factor %</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/dynamic-settings.html#sigmoid-adjustment-factor"><strong>Sigmoid Adjustment Factor</strong></a></td>
+<td style="text-align: center;">percentage <br/> (50%)</td>
+<td style="text-align: center;">Settings → Algorithm → Dynamic Settings → Dynamic ISF (Sigmoid) → Sigmoid Adjustment Factor</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/dynamic-settings.html#weighted-average-of-tdd"><strong>Weighted Average of TDD</strong></a></td>
+<td style="text-align: center;">percentage <br/> (35%)</td>
+<td style="text-align: center;">Settings → Algorithm → Dynamic Settings → Dynamic ISF (Logarithmic/Sigmoid) → Weighted Average of TDD</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/dynamic-settings.html#weighted-average-of-tdd"><strong>Adjust Basal</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Dynamic Settings → Dynamic ISF (Logarithmic/Sigmoid) → Adjust Basal</td>
+<td style="text-align: center;"><strong>Enable TDD based sensitivity ratio for basal and glucose target modification</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Enable dynamic sensitivity (ON) → Enable TDD based sensitivity ratio for basal and glucose target modification</td>
+</tr>
+</tbody>
+</table>
+<h4 id="target-behavior"><a href="../settings/algorithm/target-behavior.html">Target Behavior</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#high-temp-target-raises-sensitivity"><strong>High Temp Target Raises Sensitivity</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Target Behavior → High Temp Target Raises Sensitivity</td>
+<td style="text-align: center;"><strong>High temp-target raises sensitivity</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → High temp-target raises sensitivity</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#low-temp-target-lowers-sensitivity"><strong>Low Temp Target Lowers Sensitivity</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Target Behavior → Low Temp Target Lowers Sensitivity</td>
+<td style="text-align: center;"><strong>Low temp-target lowers sensitivity</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Low temp-target lowers sensitivity</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#sensitivity-raises-target"><strong>Sensitivity Raises Target</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Target Behavior → Sensitivity Raises Target</td>
+<td style="text-align: center;"><strong>Sensitivity raises target</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Sensitivity raises target</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#resistance-lowers-target"><strong>Resistance Lowers Target</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Target Behavior → Resistance Lowers Target</td>
+<td style="text-align: center;"><strong>Resistance lowers target</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Resistance lowers target</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#half-basal-exercise-target"><strong>Half Basal Exercise Target</strong></a></td>
+<td style="text-align: center;">decimal <br/> (160 mg/dL | 8.9 mmol/L)</td>
+<td style="text-align: center;">Settings → Algorithm → Target Behavior → Half Basal Exercise Target</td>
+<td style="text-align: center;"><strong>Activity Target Value</strong></td>
+<td style="text-align: center;">decimal <br/> (160 mg/dL | 8.9 mmol/L)</td>
+<td style="text-align: center;">Preferences → Overview Default → Temp-targets → Activity target value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="additionals"><a href="../settings/algorithm/additionals.html">Additionals</a></h4>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>The settings in this section typically do not require any modifications.<br/>
+Do not alter them without a solid understanding of what you are changing and the full impact it will have on the algorithm.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#max-daily-safety-multiplier"><strong>Max Daily Safety Multiplier</strong></a></td>
+<td style="text-align: center;">percentage <br/> (300%)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Max Daily Safety Multiplier</td>
+<td style="text-align: center;"><strong>Max daily safety multiplier</strong></td>
+<td style="text-align: center;">decimal <br/> (3.0)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Advanced Settings → Max daily safety mulitiplier</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#current-basal-safety-multiplier"><strong>Current Basal Safety Multiplier</strong></a></td>
+<td style="text-align: center;">percentage <br/> (400%)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Current Basal Safety Multiplier</td>
+<td style="text-align: center;"><strong>Current basal safety multiplier</strong></td>
+<td style="text-align: center;">decimal <br/> (4.0)</td>
+<td style="text-align: center;">Preferences → OpenAPS SMB → Advanced Settings → Current basal safety multiplier</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#duration-of-insulin-action"><strong>Duration of Insulin Action</strong></a></td>
+<td style="text-align: center;">decimal <br/> (10 hr)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Duration of Insulin Action</td>
+<td style="text-align: center;"><strong>DIA</strong></td>
+<td style="text-align: center;">decimal <br/> (10)</td>
+<td style="text-align: center;">LP → DIA</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#use-custom-peak-time"><strong>Use Custom Peak Time</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Use Custom Peak Time</td>
+<td style="text-align: center;"><strong>Free-Peak Oref</strong></td>
+<td style="text-align: center;">selection <br/> (Free-Peak Oref)</td>
+<td style="text-align: center;">Config Builder → Profile → Insulin → Free-Peak Oref</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#insulin-peak-time"><strong>Insulin Peak Time</strong></a></td>
+<td style="text-align: center;">decimal <br/> (65 min)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Use Custom Peak Time (ON) → Insulin Peak Time</td>
+<td style="text-align: center;"><strong>Free-Peak Oref</strong></td>
+<td style="text-align: center;">decimal <br/> (45)</td>
+<td style="text-align: center;">Config Builder → Profile → Insulin → Free-Peak Oref → Peak Time</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#skip-neutral-temps"><strong>Skip Neutral Temps</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Skip Neutral Temps</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#unsuspend-if-no-temp"><strong>Unsuspend If No Temp</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Unsuspend If No Temp</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#smb-delivery-ratio"><strong>SMB Delivery Ratio</strong></a></td>
+<td style="text-align: center;">percentage <br/> (50%)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → SMB Delivery Ratio</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">Always 50%</td>
+<td style="text-align: center;">Always 50%</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#smb-interval"><strong>SMB Interval</strong></a></td>
+<td style="text-align: center;">decimal <br/> (3 min)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → SMB Interval</td>
+<td style="text-align: center;"><strong>How frequently SMBs will be given in min</strong></td>
+<td style="text-align: center;">decimal <br/> (3)</td>
+<td style="text-align: center;">Preferences → Enable SMB → How frequently SMBs will be given in min</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#min-5m-carb-impact"><strong>Min 5m Carb Impact</strong></a></td>
+<td style="text-align: center;">decimal <br/> (8 mg/dL)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Min 5m Carb Impact</td>
+<td style="text-align: center;"><strong>min_5m_carbimpact</strong></td>
+<td style="text-align: center;">decimal <br/> (8)</td>
+<td style="text-align: center;">Preferences → Absorption settings → Advanced → min_5m_carbimpact</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#remaining-carbs-percentage"><strong>Remaining Carbs Percentage</strong></a></td>
+<td style="text-align: center;">percentage <br/> (100%)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Remaining Carbs Percentage</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#remaining-carbs-cap"><strong>Remaining Carbs Cap</strong></a></td>
+<td style="text-align: center;">decimal <br/> (90g)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Remaining Carbs Cap</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#noisy-cgm-target-increase"><strong>Noisy CGM Target Increase</strong></a></td>
+<td style="text-align: center;">percentage <br/> (130%)</td>
+<td style="text-align: center;">Settings → Algorithm → Additionals → Noisy CGM Target Increase</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="features"><a href="../settings/features/index.html">Features</a></h3>
+<h4 id="bolus-calculator"><a href="../settings/features/bolus-calculator.html">Bolus Calculator</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#display-meal-presets"><strong>Display Meal Presets</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Display Meal Presets</td>
+<td style="text-align: center;"><strong>Quick Wizard</strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">Preferences → Overview → QuickWizard Settings → Add / edit Quick Wizard</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#recommended-bolus-percentage"><strong>Recommended Bolus Percentage</strong></a></td>
+<td style="text-align: center;">percentage <br/> (80%)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Recommended Bolus Percentage</td>
+<td style="text-align: center;"><strong>Deliver this part of bolus wizard result</strong></td>
+<td style="text-align: center;">percentage <br/> (100)</td>
+<td style="text-align: center;">Preferences → Overview → Deliver this part of bolus wizard result</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#enable-reduced-bolus-option"><strong>Enable Reduced Bolus</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Enable Reduced Bolus</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#reduced-bolus-percentage"><strong>Reduced Bolus Percentage</strong></a></td>
+<td style="text-align: center;">percentage <br/> (30%)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Enable Reduced Bolus (ON) → Reduced Bolus Percentage</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#enable-super-bolus-option"><strong>Enable Super Bolus</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Enable Super Bolus</td>
+<td style="text-align: center;"><strong>Enable super bolus functionality in wizard</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Preferences → Overview → Advanced → Enable super bolus functionality in wizard</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#super-bolus-percentage"><strong>Super Bolus Percentage</strong></a></td>
+<td style="text-align: center;">percentage <br/> (100%)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Enable Super Bolus (ON) → Super Bolus Percentage</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/bolus-calculator.html#very-low-glucose-warning"><strong>Very Low Glucose Warning</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Features → Bolus Calculator → Very Low Glucose Warning</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+</tbody>
+</table>
+<h4 id="meal-settings"><a href="../settings/features/meal-settings.html">Meal Settings</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#max-carbs"><strong>Max Carbs</strong></a></td>
+<td style="text-align: center;">decimal <br/> (250 g)</td>
+<td style="text-align: center;">Settings → Meal Settings → Max Carbs</td>
+<td style="text-align: center;"><strong>Max allowed carbs</strong></td>
+<td style="text-align: center;">decimal <br/> (100)</td>
+<td style="text-align: center;">Preferences → Treatments safety → Max allowed carbs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#max-protein"><strong>Max Protein</strong></a></td>
+<td style="text-align: center;">decimal <br/> (250 g)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries (ON) → Max Protein</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#max-fat"><strong>Max Fat</strong></a></td>
+<td style="text-align: center;">decimal <br/> (250 g)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries (ON) → Max Fat</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#max-meal-absorption-time"><strong>Max Meal Absorption Time</strong></a></td>
+<td style="text-align: center;">decimal <br/> (6 hr)</td>
+<td style="text-align: center;">Settings → Meal Settings → Max Meal Absorption Time</td>
+<td style="text-align: center;"><strong>Meal max absorption time</strong></td>
+<td style="text-align: center;">decimal <br/> (6)</td>
+<td style="text-align: center;">Preferences → Absorption Settings → Advanced → Meal max absorption time</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#enable-fat-and-protein-entries"><strong>Enable Fat and Protein Entries</strong></a></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#fat-and-protein-delay"><strong>Fat and Protein Delay</strong></a></td>
+<td style="text-align: center;">decimal <br/> (60 min)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries (ON) → Fat and Protein Delay</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#maximum-duration"><strong>Maximum Duration</strong></a></td>
+<td style="text-align: center;">decimal <br/> (8 hr)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries (ON) → Maximum Duration</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#spread-interval"><strong>Spread Interval</strong></a></td>
+<td style="text-align: center;">decimal <br/> (30 min)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries (ON) → Spread Interval</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/features/meal-settings.html#fat-and-protein-percentage"><strong>Fat and Protein Percentage</strong></a></td>
+<td style="text-align: center;">percentage <br/> (50%)</td>
+<td style="text-align: center;">Settings → Meal Settings → Enable Fat and Protein Entries (ON) → Fat and Protein Percentage</td>
+<td style="text-align: center;"><strong><em>No Equivalent Setting</em></strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-notable-settings">Other Notable Settings</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in Trio</th>
+<th style="text-align: center;">AAPS Name</th>
+<th style="text-align: center;">Setting Format <br/> (example)</th>
+<th style="text-align: center;">Location in AAPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Smooth Glucose Value</strong></td>
+<td style="text-align: center;">toggle <br/> (On/Off)</td>
+<td style="text-align: center;">Settings → Devices → CGM → Smooth Glucose Value</td>
+<td style="text-align: center;"><strong>Smoothing</strong></td>
+<td style="text-align: center;">selection <br/> (No smoothing / Exponential smoothing / Average smoothing)</td>
+<td style="text-align: center;">Config Builder → Smoothing</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Custom Automations</p>
+<p>Trio does not offer certain custom automations that are available in AAPS, such as automating a hypo temp target when glucose drops below a certain value.
+This can, however, be achieved one of two ways:</p>
+<ul>
+<li>Enable "Sensitivity Raises Target" which will automatically increase your target glucose when sensitivity ratio is below 100%.</li>
+<li>Enable "High Temp Target Raises Sensitivity" and save a custom temp target of &lt;100 mg/dL (5.5 mmol/L) under adjustments that you can manually enable when recovering from a low glucose.</li>
+</ul>
+</div></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

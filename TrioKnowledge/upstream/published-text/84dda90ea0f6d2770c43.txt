@@ -1,0 +1,1 @@
+ Algorithm settings, Dynamic ISF, and some integrations (like Nightscout) will reset. Treatment history older then 24 hours will not transfer Historical data used for Dynamic ISF and Statistics Override, Temp Target, and Meal Presets  Upgrading is a one-way street Once you upgrade to v0.5.0 (or higher), going back to v0.2.x is not supported.

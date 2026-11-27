@@ -1,0 +1,1 @@
+Autosensitivity, or Autosens, adjusts insulin delivery based on observed sensitivity or resistance.   Below you'll find more information on the Autosens settings:  Autosens Min  Autosens Max  

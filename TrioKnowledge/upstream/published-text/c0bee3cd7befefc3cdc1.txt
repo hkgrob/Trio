@@ -1,0 +1,1 @@
+Default: OFF Enabling this setting allows Trio to resume your pump after a manual zero temp basal was set. This feature ensures insulin delivery restarts if you forget to manually unsuspend, adding a safeguard for pump reconnections.

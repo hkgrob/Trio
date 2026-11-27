@@ -1,0 +1,31 @@
+--- upstream/configuration/settings/devices/smart-watch.md
++++ updated/configuration/settings/devices/smart-watch.md
+@@ -28,7 +28,7 @@
+ The watch face updates with Trio loop cycles.
+ 
+ ### Releases
+-As long as nothing is published in Garmin Connect IQ, every Garmin watch needs to be individually compiled. You can do this yourself using VS Code with the monkeyC plugin and a Garmin SDK. If not, see the link below for the released watches.
++The sideloading instructions below are retained from the upstream guide. Current Connect IQ distribution and model support were not verified in this code-alignment review; check the relevant project release before choosing an installation method.
+ 
+ ### How to do it
+ 1. Choose a folder on your Mac and get the latest release from [this GitHub repo](https://github.com/mountrcg/garminWatch).
+@@ -46,3 +46,19 @@
+ If your watch is not listed in the Release section, please ask about it in the Garmin channel on Discord.
+ 
+ - - -
++
++
++## Garmin configuration in Trio 1.0.2
++
++After adding the device, configure the supported **watchface** and **datafield** independently in Trio. The available watchface choices include a Complication mode for compatible faces with Connect IQ complication slots. Configure primary/secondary attribute choices as appropriate for the selected integration.
++
++Changing the selected watchface in Trio automatically disables watchface data transmission. Follow the displayed sequence: choose the configuration in Trio, change the face on the watch, then resume transmission when prompted. The **Disable watchface data transmission** control is inverted relative to the internal `isWatchfaceDataEnabled` value: turning Disable on makes the internal enabled flag false.
++
++This describes the verified configuration controls and transition behavior. It does not confirm every watch model, current app-store listing or connection state. Existing screenshots may predate these controls.
++
++
++## 1.0.2 source references
++
++- **F09 — Garmin guide omits configuration choices and transmission reset behavior**
++    - [Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift:18](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift#L18)
++    - [Trio/Sources/Models/GarminWatchSettings.swift:54](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/GarminWatchSettings.swift#L54)

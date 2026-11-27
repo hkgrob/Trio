@@ -1,0 +1,30 @@
+--- upstream/configuration/settings/algorithm/additionals.md
++++ updated/configuration/settings/algorithm/additionals.md
+@@ -129,7 +129,7 @@
+ **Default** _3 min_  
+ **Setting Limits:** _1-10 min_
+ 
+-The minimum minutes since the last SMB or manual bolus that an automated SMB will be permitted.  
++The elapsed-time eligibility gate after the last SMB or manual bolus. In 1.0.2, the engine clamps this setting to 1–10 minutes and, when the last bolus age is available, requires that age to be strictly greater than the interval. It does not schedule a dose or change the underlying loop cadence.  
+ 
+ !!! tip
+ 
+@@ -201,3 +201,18 @@
+         
+         Trio will increase his target glucose to **_143 mg/dL_** while a noisy CGM is indicated.
+         
++
++
++## Manual recommendation versus automated SMB percentage
++
++SMB Delivery Ratio scales automated SMB calculations. [Recommended Bolus Percentage](../features/bolus-calculator.md) separately scales positive calculator recommendations. The defaults are 50% and 80% respectively; these controls are not interchangeable.
++
++
++## 1.0.2 source references
++
++- **F11 — The meal bolus calculator already subtracts automated insulin represented in IOB**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400)
++- **F12 — UAM does not independently grant SMB permission; interval is not a delivery schedule**
++    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:18](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18)
++    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:840](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840)
++    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:720](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720)

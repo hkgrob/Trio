@@ -1,0 +1,1 @@
+The DASH Pods were launched in 2019 and use Bluetooth, so they don't require a RileyLink or similar device as they connect directly to the phone. DASH Pods are easy to identify with their blue tab instead of the clear tab used on Eros and Omnipod 5. 

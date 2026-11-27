@@ -1,0 +1,925 @@
+{
+  "retrieved_at_utc": "2026-11-27T19:57:28.765936+00:00",
+  "site": "https://triodocs.org/",
+  "docs_source_commit": "159649de635575ee3f732008dafcff25eb39181c",
+  "docs_source_branch": "dev",
+  "app_commit": "0b29cd53415e7f0e668677749cad8daf81c68c2f",
+  "app_branch": "main",
+  "app_tag": "v1.0.2",
+  "sitemap_count": 101,
+  "downloaded_count": 101,
+  "source_archive_sha256": "b83181265e4dfdaa06d4a918f32c8895617d1d763965cd0c9c97e816313ea559",
+  "pages": [
+    {
+      "url": "https://triodocs.org/",
+      "resolved_url": "https://triodocs.org/",
+      "path": "upstream/published/index.html",
+      "sha256": "709402c76028a5c2f3ff285adfa2753c15918c5b3fc40d057d28b48612c240b9",
+      "bytes": 28984,
+      "etag": "\"6b03d12a-7138\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/",
+      "resolved_url": "https://triodocs.org/configuration/",
+      "path": "upstream/published/configuration/index.html",
+      "sha256": "6de29ac531426ea7eaa1bb1f47867baec83df9f64970d1624a0e353b6ca92fb4",
+      "bytes": 31864,
+      "etag": "\"6b03d12a-7c78\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/migration/",
+      "resolved_url": "https://triodocs.org/configuration/migration/",
+      "path": "upstream/published/configuration/migration/index.html",
+      "sha256": "44804904e2ecafc0f87314d180239f842f1a3bca0e75311fad8cb930d7de0e44",
+      "bytes": 33630,
+      "etag": "\"6b03d12a-835e\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/migration/aaps-migration/",
+      "resolved_url": "https://triodocs.org/configuration/migration/aaps-migration/",
+      "path": "upstream/published/configuration/migration/aaps-migration/index.html",
+      "sha256": "af643bbcef8dc71f3ad1875362dc14b180de736f9b8cb5ccf8014980f2f026e1",
+      "bytes": 93128,
+      "etag": "\"6b03d12a-16bc8\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/migration/iaps-migration/",
+      "resolved_url": "https://triodocs.org/configuration/migration/iaps-migration/",
+      "path": "upstream/published/configuration/migration/iaps-migration/index.html",
+      "sha256": "f6032866729b4bc51337dbdaa0b1de2221faf58e2add855dbc3de8bf97eea23d",
+      "bytes": 95317,
+      "etag": "\"6b03d12a-17455\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/migration/loop-migration/",
+      "resolved_url": "https://triodocs.org/configuration/migration/loop-migration/",
+      "path": "upstream/published/configuration/migration/loop-migration/index.html",
+      "sha256": "5b6787af532501496b0f2b258122d6ff41fb926d39c4f6a69d671b3043ae03a6",
+      "bytes": 56465,
+      "etag": "\"6b03d12a-dc91\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/migration/trio-02x-migration/",
+      "resolved_url": "https://triodocs.org/configuration/migration/trio-02x-migration/",
+      "path": "upstream/published/configuration/migration/trio-02x-migration/index.html",
+      "sha256": "41d776497cb865da2a88fd192836eb98a6f66f0afb1ebc76d1ea6ad28ede86e1",
+      "bytes": 87916,
+      "etag": "\"6b03d12a-1576c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/new-user-setup/",
+      "resolved_url": "https://triodocs.org/configuration/new-user-setup/",
+      "path": "upstream/published/configuration/new-user-setup/index.html",
+      "sha256": "c43b894cb2216b989a3f739b0ca9530b8e0590fbe428d8101e6bedb085796747",
+      "bytes": 74871,
+      "etag": "\"6b03d12a-12477\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/",
+      "resolved_url": "https://triodocs.org/configuration/settings/",
+      "path": "upstream/published/configuration/settings/index.html",
+      "sha256": "2123d2daa4e1e595f7d1d68055acb5bc3d36cbadc637c59bb606756ed1fc8141",
+      "bytes": 32781,
+      "etag": "\"6b03d12a-800d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/algorithm/",
+      "resolved_url": "https://triodocs.org/configuration/settings/algorithm/",
+      "path": "upstream/published/configuration/settings/algorithm/index.html",
+      "sha256": "05ef97e58984dcc7b5ac96322162051f52ea2e719e6b9f7858783905ec0e9d55",
+      "bytes": 33534,
+      "etag": "\"6b03d12a-82fe\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/algorithm/additionals/",
+      "resolved_url": "https://triodocs.org/configuration/settings/algorithm/additionals/",
+      "path": "upstream/published/configuration/settings/algorithm/additionals/index.html",
+      "sha256": "51d6553458e5bab724e67c46b5eac26e7e7c6bf1fabd65064faf7c21d4cabe1c",
+      "bytes": 51282,
+      "etag": "\"6b03d12a-c852\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/algorithm/autosens/",
+      "resolved_url": "https://triodocs.org/configuration/settings/algorithm/autosens/",
+      "path": "upstream/published/configuration/settings/algorithm/autosens/index.html",
+      "sha256": "5395f3ab7ff48f5e8d3c7e00a890da3c67a0bc4a2a6750eb4ffdd9175def8771",
+      "bytes": 45470,
+      "etag": "\"6b03d12a-b19e\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/algorithm/dynamic-settings/",
+      "resolved_url": "https://triodocs.org/configuration/settings/algorithm/dynamic-settings/",
+      "path": "upstream/published/configuration/settings/algorithm/dynamic-settings/index.html",
+      "sha256": "09ea386d12990f606cc8965f4fa928d585fa2cf8a05533c111b7a76db992b479",
+      "bytes": 49541,
+      "etag": "\"6b03d12a-c185\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/algorithm/smb-settings/",
+      "resolved_url": "https://triodocs.org/configuration/settings/algorithm/smb-settings/",
+      "path": "upstream/published/configuration/settings/algorithm/smb-settings/index.html",
+      "sha256": "effff830627000ba7ec26a92f9e25073e9120e3035639ce1b8e17fe9d47f77a1",
+      "bytes": 53547,
+      "etag": "\"6b03d12a-d12b\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/algorithm/target-behavior/",
+      "resolved_url": "https://triodocs.org/configuration/settings/algorithm/target-behavior/",
+      "path": "upstream/published/configuration/settings/algorithm/target-behavior/index.html",
+      "sha256": "f8c1cec0e66e4ebff340cb764797d696c97e7e47db3ce318b4162d1ac5032e1a",
+      "bytes": 38531,
+      "etag": "\"6b03d12a-9683\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/closed-loop/",
+      "resolved_url": "https://triodocs.org/configuration/settings/closed-loop/",
+      "path": "upstream/published/configuration/settings/closed-loop/index.html",
+      "sha256": "a0ff2178878ee91269b385e368b076e1117a3d545988efad98603323dd034b3d",
+      "bytes": 37564,
+      "etag": "\"6b03d12a-92bc\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/devices/",
+      "resolved_url": "https://triodocs.org/configuration/settings/devices/",
+      "path": "upstream/published/configuration/settings/devices/index.html",
+      "sha256": "d48f62ad16a80c625ad1921ffed288ce32e731be799e9ce0a102095a2cb159a9",
+      "bytes": 34444,
+      "etag": "\"6b03d12a-868c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/devices/cgm/",
+      "resolved_url": "https://triodocs.org/configuration/settings/devices/cgm/",
+      "path": "upstream/published/configuration/settings/devices/cgm/index.html",
+      "sha256": "14e87c3f9e1178a18f745434192756380630646afe62f7fb1153faf6253ce627",
+      "bytes": 57898,
+      "etag": "\"6b03d12a-e22a\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/devices/pump/",
+      "resolved_url": "https://triodocs.org/configuration/settings/devices/pump/",
+      "path": "upstream/published/configuration/settings/devices/pump/index.html",
+      "sha256": "887f18073dcce736dcf23d29bc7fd5aa800bb6e043e64457efc1408c8c558c80",
+      "bytes": 49427,
+      "etag": "\"6b03d12a-c113\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/devices/smart-watch/",
+      "resolved_url": "https://triodocs.org/configuration/settings/devices/smart-watch/",
+      "path": "upstream/published/configuration/settings/devices/smart-watch/index.html",
+      "sha256": "afcdf148b64a8bb731e62f03734d99d0f71dce345f192a128ab6f0ca3f1d809e",
+      "bytes": 38327,
+      "etag": "\"6b03d12a-95b7\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/",
+      "path": "upstream/published/configuration/settings/features/index.html",
+      "sha256": "f85e3bcc719674cb536d94579f114f7f5f7295c0bd2ff766f389e648902cd5b2",
+      "bytes": 34021,
+      "etag": "\"6b03d12a-84e5\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/app-diagnostics/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/app-diagnostics/",
+      "path": "upstream/published/configuration/settings/features/app-diagnostics/index.html",
+      "sha256": "374b3f40f8c580a2f7a23f3ec4fa3bffe44d1095c7c2ac655badb535098e5b72",
+      "bytes": 33930,
+      "etag": "\"6b03d12a-848a\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/app-icons/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/app-icons/",
+      "path": "upstream/published/configuration/settings/features/app-icons/index.html",
+      "sha256": "42b9148a16c0878eec1e7977bc0e11106b4eea90521329f03138aecfd07fbb1e",
+      "bytes": 32155,
+      "etag": "\"6b03d12a-7d9b\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/bolus-calculator/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/bolus-calculator/",
+      "path": "upstream/published/configuration/settings/features/bolus-calculator/index.html",
+      "sha256": "dab66df00fc8883343615433606322fc055c84eb48a9e94f51b879b26e7b5deb",
+      "bytes": 44032,
+      "etag": "\"6b03d12a-ac00\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/meal-settings/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/meal-settings/",
+      "path": "upstream/published/configuration/settings/features/meal-settings/index.html",
+      "sha256": "b8fa3174192967dfecbc21497978d9b1eae39f7012afe19e1bc7d8d57d0421ed",
+      "bytes": 49542,
+      "etag": "\"6b03d12a-c186\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/remote-control/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/remote-control/",
+      "path": "upstream/published/configuration/settings/features/remote-control/index.html",
+      "sha256": "7d1c6302f89eb1254e0b87be5f84e13d60ab44f7d04d02e5791598ebb36ddde3",
+      "bytes": 80503,
+      "etag": "\"6b03d12a-13a77\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/shortcuts/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/shortcuts/",
+      "path": "upstream/published/configuration/settings/features/shortcuts/index.html",
+      "sha256": "0ac64772cb76f37047bf08db45cb084c8368c997c1682913129919da08d472bc",
+      "bytes": 40084,
+      "etag": "\"6b03d12a-9c94\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/features/user-interface/",
+      "resolved_url": "https://triodocs.org/configuration/settings/features/user-interface/",
+      "path": "upstream/published/configuration/settings/features/user-interface/index.html",
+      "sha256": "0c357b715d2e9560ce4c780f5dc0c4cae24066f15d194f500f0847c9c18904e9",
+      "bytes": 49437,
+      "etag": "\"6b03d12a-c11d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/notifications/",
+      "resolved_url": "https://triodocs.org/configuration/settings/notifications/",
+      "path": "upstream/published/configuration/settings/notifications/index.html",
+      "sha256": "a8297fe9678fa3fe66aa84fd21f80aa8bf4865f736b236ed454b0d585b65de60",
+      "bytes": 32988,
+      "etag": "\"6b03d12a-80dc\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/notifications/calendar-events/",
+      "resolved_url": "https://triodocs.org/configuration/settings/notifications/calendar-events/",
+      "path": "upstream/published/configuration/settings/notifications/calendar-events/index.html",
+      "sha256": "74b4fd05fc1388e95d4886c1831c65ad1ef957a25ff9dceef1e1c3a84b45bfe0",
+      "bytes": 38096,
+      "etag": "\"6b03d12a-94d0\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/notifications/live-activity/",
+      "resolved_url": "https://triodocs.org/configuration/settings/notifications/live-activity/",
+      "path": "upstream/published/configuration/settings/notifications/live-activity/index.html",
+      "sha256": "3b97037d1a6986a310a7830b5153aed5cae87fa68ed31c24647400f8cb846a39",
+      "bytes": 38068,
+      "etag": "\"6b03d12a-94b4\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/notifications/trio-notifications/",
+      "resolved_url": "https://triodocs.org/configuration/settings/notifications/trio-notifications/",
+      "path": "upstream/published/configuration/settings/notifications/trio-notifications/index.html",
+      "sha256": "f0a6843f43cd0ea946f954fad777c40f7946c7707476699a722da35dfee52d19",
+      "bytes": 47013,
+      "etag": "\"6b03d12a-b7a5\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/services/",
+      "resolved_url": "https://triodocs.org/configuration/settings/services/",
+      "path": "upstream/published/configuration/settings/services/index.html",
+      "sha256": "40d55e51f256b4aff986202a266adf1a7853d6efb4f6ed8275934c20184e97d2",
+      "bytes": 33155,
+      "etag": "\"6b03d12a-8183\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/services/apple-health/",
+      "resolved_url": "https://triodocs.org/configuration/settings/services/apple-health/",
+      "path": "upstream/published/configuration/settings/services/apple-health/index.html",
+      "sha256": "50586f35c45e175db5b8fc5d60ebdf43b67b485954a008af751e6b8c41edeebe",
+      "bytes": 31625,
+      "etag": "\"6b03d12a-7b89\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/services/nightscout/",
+      "resolved_url": "https://triodocs.org/configuration/settings/services/nightscout/",
+      "path": "upstream/published/configuration/settings/services/nightscout/index.html",
+      "sha256": "c49f6bf4d83dbe96271497b907c9a14b400a722a8ad58afc213c338c5780bd39",
+      "bytes": 36718,
+      "etag": "\"6b03d12a-8f6e\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/services/tidepool/",
+      "resolved_url": "https://triodocs.org/configuration/settings/services/tidepool/",
+      "path": "upstream/published/configuration/settings/services/tidepool/index.html",
+      "sha256": "a1a09c483f3cdcf51a7f2bef1b5412d7e1295dcce5ad8e8b660369fd7c329079",
+      "bytes": 31101,
+      "etag": "\"6b03d12a-797d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/therapy/",
+      "resolved_url": "https://triodocs.org/configuration/settings/therapy/",
+      "path": "upstream/published/configuration/settings/therapy/index.html",
+      "sha256": "dcebe1c249d183e24603cd0a2d29ca980eb8bbadbbf7979604a28f38b9c94503",
+      "bytes": 34082,
+      "etag": "\"6b03d12a-8522\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/therapy/basal-rates/",
+      "resolved_url": "https://triodocs.org/configuration/settings/therapy/basal-rates/",
+      "path": "upstream/published/configuration/settings/therapy/basal-rates/index.html",
+      "sha256": "b96671075995039f0fbfcefdd0ce1fcc1f4e66c3f10fa022d8d877afed7c3db4",
+      "bytes": 45023,
+      "etag": "\"6b03d12a-afdf\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/therapy/carb-ratios/",
+      "resolved_url": "https://triodocs.org/configuration/settings/therapy/carb-ratios/",
+      "path": "upstream/published/configuration/settings/therapy/carb-ratios/index.html",
+      "sha256": "ffe5d242420fce6ef9f18cba3fc7a99ce85f200101f415fe0d11ad453e277f7a",
+      "bytes": 45795,
+      "etag": "\"6b03d12a-b2e3\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/therapy/glucose-targets/",
+      "resolved_url": "https://triodocs.org/configuration/settings/therapy/glucose-targets/",
+      "path": "upstream/published/configuration/settings/therapy/glucose-targets/index.html",
+      "sha256": "f7d094a55d5a1ecb01f6fb458c72bfee694f361af17e9a1b11c22d6d30722be4",
+      "bytes": 39155,
+      "etag": "\"6b03d12a-98f3\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/therapy/isf/",
+      "resolved_url": "https://triodocs.org/configuration/settings/therapy/isf/",
+      "path": "upstream/published/configuration/settings/therapy/isf/index.html",
+      "sha256": "a29d48aa0f07bf7ece79d00a571a64a55facbe3867b5a9742cbfcf2a206631da",
+      "bytes": 47891,
+      "etag": "\"6b03d12a-bb13\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/settings/therapy/units-limits/",
+      "resolved_url": "https://triodocs.org/configuration/settings/therapy/units-limits/",
+      "path": "upstream/published/configuration/settings/therapy/units-limits/index.html",
+      "sha256": "9db09f1e663b08a09257db3d5e6afc53a72ac9012999f8ba8d248ce93079cd96",
+      "bytes": 42825,
+      "etag": "\"6b03d12a-a749\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/configuration/transition-qa/",
+      "resolved_url": "https://triodocs.org/configuration/transition-qa/",
+      "path": "upstream/published/configuration/transition-qa/index.html",
+      "sha256": "aef366f57d84bce8a614f5ae8ddd7e33c0bc8a741b364a1405b3314e792684e8",
+      "bytes": 49549,
+      "etag": "\"6b03d12a-c18d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/",
+      "resolved_url": "https://triodocs.org/help/",
+      "path": "upstream/published/help/index.html",
+      "sha256": "9ec1f8a3f191211c9ecbedcaf14031b9b026a51b24bcb736eb2164cbc94aef10",
+      "bytes": 31188,
+      "etag": "\"6b03d12a-79d4\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/faq/",
+      "resolved_url": "https://triodocs.org/help/faq/",
+      "path": "upstream/published/help/faq/index.html",
+      "sha256": "621cdbc86b12707244fa7f61694cebf676ef42e194c23e5f68e177999b257033",
+      "bytes": 77524,
+      "etag": "\"6b03d12a-12ed4\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/glossary/",
+      "resolved_url": "https://triodocs.org/help/glossary/",
+      "path": "upstream/published/help/glossary/index.html",
+      "sha256": "712561e6514ceecbe47046711b979e23e7afb68eee1c10c4d2e118bc1b4368dd",
+      "bytes": 52518,
+      "etag": "\"6b03d12a-cd26\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/safety/",
+      "resolved_url": "https://triodocs.org/help/safety/",
+      "path": "upstream/published/help/safety/index.html",
+      "sha256": "abfa6443479586ecb284ae3f3c24faec3b28dfe7c5ee708e1ae548a8eca43517",
+      "bytes": 28452,
+      "etag": "\"6b03d12a-6f24\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/share-logs/",
+      "resolved_url": "https://triodocs.org/help/share-logs/",
+      "path": "upstream/published/help/share-logs/index.html",
+      "sha256": "7929bab9675fc9c8e408ff01b09becd76d6c19b36c0861a7e4891e62eadb8f00",
+      "bytes": 44064,
+      "etag": "\"6b03d12a-ac20\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/translate/",
+      "resolved_url": "https://triodocs.org/help/translate/",
+      "path": "upstream/published/help/translate/index.html",
+      "sha256": "4a4b6b1860097243764daada8f6f7e1d461968df6e0e54c877542ce1e0a028f2",
+      "bytes": 33343,
+      "etag": "\"6b03d12a-823f\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/help/troubleshoot/",
+      "resolved_url": "https://triodocs.org/help/troubleshoot/",
+      "path": "upstream/published/help/troubleshoot/index.html",
+      "sha256": "1594c521dc966ecdc50ef49812dd7a03fa8ec2063d881c3f7711d108ad70d5b3",
+      "bytes": 41209,
+      "etag": "\"6b03d12a-a0f9\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/",
+      "resolved_url": "https://triodocs.org/install/",
+      "path": "upstream/published/install/index.html",
+      "sha256": "dfdef7c5ea308cb6a6982be763151f2586f031e03809d603e4f1c98faedf6fd5",
+      "bytes": 33085,
+      "etag": "\"6b03d12a-813d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/actions/add-identifiers/",
+      "resolved_url": "https://triodocs.org/install/build/browser/actions/add-identifiers/",
+      "path": "upstream/published/install/build/browser/actions/add-identifiers/index.html",
+      "sha256": "65a01add1a95cbeebb49627587549bf764c987470fce2337adf554238de4136c",
+      "bytes": 36395,
+      "etag": "\"6b03d12a-8e2b\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/actions/build-app/",
+      "resolved_url": "https://triodocs.org/install/build/browser/actions/build-app/",
+      "path": "upstream/published/install/build/browser/actions/build-app/index.html",
+      "sha256": "dd4b0aec12bd101742c6bc3806aab43ede802c7ee1e67c855eb66bd378cf4b30",
+      "bytes": 39171,
+      "etag": "\"6b03d12a-9903\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/actions/generate-certificates/",
+      "resolved_url": "https://triodocs.org/install/build/browser/actions/generate-certificates/",
+      "path": "upstream/published/install/build/browser/actions/generate-certificates/index.html",
+      "sha256": "25786af3cc1464e221af5331be2a5713656f19915f70cb522bbd28a441fcfc87",
+      "bytes": 37443,
+      "etag": "\"6b03d12a-9243\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/actions/prepare-app/",
+      "resolved_url": "https://triodocs.org/install/build/browser/actions/prepare-app/",
+      "path": "upstream/published/install/build/browser/actions/prepare-app/index.html",
+      "sha256": "60cfb80fb2ebfd1b8df48872809c8ff0633d60c9c22a663bdd10e109de716d5d",
+      "bytes": 46299,
+      "etag": "\"6b03d12a-b4db\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/actions/prepare-testflight/",
+      "resolved_url": "https://triodocs.org/install/build/browser/actions/prepare-testflight/",
+      "path": "upstream/published/install/build/browser/actions/prepare-testflight/index.html",
+      "sha256": "1de7ecb07b2ed7d03f9ad3c0d7d6cf6305a3ed004b37288aeaef46a3b9d286fd",
+      "bytes": 43529,
+      "etag": "\"6b03d12a-aa09\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/actions/validate-secrets/",
+      "resolved_url": "https://triodocs.org/install/build/browser/actions/validate-secrets/",
+      "path": "upstream/published/install/build/browser/actions/validate-secrets/index.html",
+      "sha256": "9de6f0e8580810f0ce0de7c30371b5d3914caffa8ff3d0fa19655720bbaf1d2c",
+      "bytes": 38066,
+      "etag": "\"6b03d12a-94b2\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/apple-secrets/",
+      "resolved_url": "https://triodocs.org/install/build/browser/apple-secrets/",
+      "path": "upstream/published/install/build/browser/apple-secrets/index.html",
+      "sha256": "34b8d261aeff2aff2a15a519219915a7e8e7f37abfbaaa7fb1b64568e0687a81",
+      "bytes": 54829,
+      "etag": "\"6b03d12a-d62d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/browser-build-errors/",
+      "resolved_url": "https://triodocs.org/install/build/browser/browser-build-errors/",
+      "path": "upstream/published/install/build/browser/browser-build-errors/index.html",
+      "sha256": "b32917336f86d21f9800c51cd6a3f265bc295fc96474d2295c69ae106fc345e5",
+      "bytes": 45583,
+      "etag": "\"6b03d12a-b20f\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/browser-build-overview/",
+      "resolved_url": "https://triodocs.org/install/build/browser/browser-build-overview/",
+      "path": "upstream/published/install/build/browser/browser-build-overview/index.html",
+      "sha256": "270932e43c1cdf6b6dbcd3d2bf644a2504cbc140f266804f5929ca5b8e552e63",
+      "bytes": 52939,
+      "etag": "\"6b03d12a-cecb\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/browser-customizations/",
+      "resolved_url": "https://triodocs.org/install/build/browser/browser-customizations/",
+      "path": "upstream/published/install/build/browser/browser-customizations/index.html",
+      "sha256": "99632a2dea4b3189338ae3602ffcb38c12860a69d8e1e3cf7cb23f1520535a67",
+      "bytes": 37828,
+      "etag": "\"6b03d12a-93c4\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/browser-update/",
+      "resolved_url": "https://triodocs.org/install/build/browser/browser-update/",
+      "path": "upstream/published/install/build/browser/browser-update/index.html",
+      "sha256": "7a5454416dcea570c3e738f3a4f4bb959e6a2a72b9d02fe2c31fd0c9d228c3c0",
+      "bytes": 33104,
+      "etag": "\"6b03d12a-8150\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/build-dev-with-browser/",
+      "resolved_url": "https://triodocs.org/install/build/browser/build-dev-with-browser/",
+      "path": "upstream/published/install/build/browser/build-dev-with-browser/index.html",
+      "sha256": "8a93f90ef26a881f3a3903f9bb5b94e404c4c3d0810f54003248a2ebfe5d5e24",
+      "bytes": 58882,
+      "etag": "\"6b03d12a-e602\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/create-github-account/",
+      "resolved_url": "https://triodocs.org/install/build/browser/create-github-account/",
+      "path": "upstream/published/install/build/browser/create-github-account/index.html",
+      "sha256": "30a60d572e7e96a10ed48830729cae15dbdf633fd13d419b0bbe0567067624ec",
+      "bytes": 50335,
+      "etag": "\"6b03d12a-c49f\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/fork-prepare-repo/",
+      "resolved_url": "https://triodocs.org/install/build/browser/fork-prepare-repo/",
+      "path": "upstream/published/install/build/browser/fork-prepare-repo/index.html",
+      "sha256": "486ecc90f847f23d10b887eecdff00c2d107acdba6fbbe77b06a14742ba1f088",
+      "bytes": 68978,
+      "etag": "\"6b03d12a-10d72\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/install-from-testflight/",
+      "resolved_url": "https://triodocs.org/install/build/browser/install-from-testflight/",
+      "path": "upstream/published/install/build/browser/install-from-testflight/index.html",
+      "sha256": "12764da4b9766e33295bbc492c81e4aa36a8bab71e8d2886c920e0699945d4ed",
+      "bytes": 56613,
+      "etag": "\"6b03d12a-dd25\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/browser/intro-secrets/",
+      "resolved_url": "https://triodocs.org/install/build/browser/intro-secrets/",
+      "path": "upstream/published/install/build/browser/intro-secrets/index.html",
+      "sha256": "3f84f079c28bd544ad987b80a4790c0a8006446ec4d3b45c6b03c5f6fdcb3ab8",
+      "bytes": 61430,
+      "etag": "\"6b03d12a-eff6\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/build-errors/",
+      "resolved_url": "https://triodocs.org/install/build/mac/build-errors/",
+      "path": "upstream/published/install/build/mac/build-errors/index.html",
+      "sha256": "3fda83e0de5ad8cabc7613f68392a085c8e29fa4b825b53a795a0b09f4be542a",
+      "bytes": 55055,
+      "etag": "\"6b03d12a-d70f\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/build/",
+      "resolved_url": "https://triodocs.org/install/build/mac/build/",
+      "path": "upstream/published/install/build/mac/build/index.html",
+      "sha256": "791791ec50f0f90a794eed45187d415afd335a4653253d47cde914b6153815ba",
+      "bytes": 64410,
+      "etag": "\"6b03d12a-fb9a\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/computer/",
+      "resolved_url": "https://triodocs.org/install/build/mac/computer/",
+      "path": "upstream/published/install/build/mac/computer/index.html",
+      "sha256": "991a4ca66e5f6228d57682601780be2b22748c32a1dee1df60ad9cc89adb6f5f",
+      "bytes": 41814,
+      "etag": "\"6b03d12b-a356\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:47 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/iphone/",
+      "resolved_url": "https://triodocs.org/install/build/mac/iphone/",
+      "path": "upstream/published/install/build/mac/iphone/index.html",
+      "sha256": "cad27a5e0b6fae0907037a8becdbd7b67cb7825de4dfdc4c421ab85cfe0811c1",
+      "bytes": 49553,
+      "etag": "\"6b03d12b-c191\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:47 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/overview/",
+      "resolved_url": "https://triodocs.org/install/build/mac/overview/",
+      "path": "upstream/published/install/build/mac/overview/index.html",
+      "sha256": "169a4e2a4e22d3a2a952091fb39b2e35ef2c3f1ad5ebb3cb23f54852796d43bc",
+      "bytes": 39376,
+      "etag": "\"6b03d12a-99d0\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/update/",
+      "resolved_url": "https://triodocs.org/install/build/mac/update/",
+      "path": "upstream/published/install/build/mac/update/index.html",
+      "sha256": "1543b9477cbd1ce312d0bc3c1d6053b47c81c57d64241fd37690281f69cccaf2",
+      "bytes": 56605,
+      "etag": "\"6b03d12a-dd1d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/mac/xcode-setup/",
+      "resolved_url": "https://triodocs.org/install/build/mac/xcode-setup/",
+      "path": "upstream/published/install/build/mac/xcode-setup/index.html",
+      "sha256": "d3777513331296ae9d9c15014eef9432a1e8137868bdaefc5b7f06aae16ced20",
+      "bytes": 52028,
+      "etag": "\"6b03d12b-cb3c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:47 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/apple-developer/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/apple-developer/",
+      "path": "upstream/published/install/build/requirements/apple-developer/index.html",
+      "sha256": "9fe3a50de21b4a456c6df965d90751a30fb615a5b8293e061624790e3b7451bd",
+      "bytes": 40155,
+      "etag": "\"6b03d12a-9cdb\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/devices/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/devices/",
+      "path": "upstream/published/install/build/requirements/devices/index.html",
+      "sha256": "e7a7f946d5114840172d057110131235df140dff2ba1c98868d59952fe020c9d",
+      "bytes": 34124,
+      "etag": "\"6b03d12a-854c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/devices/cgm/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/devices/cgm/",
+      "path": "upstream/published/install/build/requirements/devices/cgm/index.html",
+      "sha256": "6140ad84add8be0ddefd15cd8281f8608129b6df5ef33f9227a3267db4aade68",
+      "bytes": 51492,
+      "etag": "\"6b03d12a-c924\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/devices/compatibility-matrix/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/devices/compatibility-matrix/",
+      "path": "upstream/published/install/build/requirements/devices/compatibility-matrix/index.html",
+      "sha256": "4799889d58af9b400a0a588f49f395dfb24c7be903c76a958a6e0384aec33bdb",
+      "bytes": 36335,
+      "etag": "\"6b03d12a-8def\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/devices/iphone/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/devices/iphone/",
+      "path": "upstream/published/install/build/requirements/devices/iphone/index.html",
+      "sha256": "1656048cdfc349680a0ae8f3092782ddb40976247c886e8131a19c3f645b6cb5",
+      "bytes": 45288,
+      "etag": "\"6b03d12a-b0e8\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/devices/mac/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/devices/mac/",
+      "path": "upstream/published/install/build/requirements/devices/mac/index.html",
+      "sha256": "f160bfeaf5184c3fb0fe768a4ecadc3e6bcbf09e6f90259073a9c38c47d61a5e",
+      "bytes": 32496,
+      "etag": "\"6b03d12b-7ef0\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:47 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/build/requirements/devices/pump/",
+      "resolved_url": "https://triodocs.org/install/build/requirements/devices/pump/",
+      "path": "upstream/published/install/build/requirements/devices/pump/index.html",
+      "sha256": "336fc0d479eea1d24cf9df118e1d4d709297a1a22046deb872e1d86829d32f32",
+      "bytes": 57826,
+      "etag": "\"6b03d12b-e1e2\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:47 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/customize/",
+      "resolved_url": "https://triodocs.org/install/customize/",
+      "path": "upstream/published/install/customize/index.html",
+      "sha256": "8096c25ca18bc82d8ab7444a198251d5b0e94e81b363583228dd65db809ddd39",
+      "bytes": 39078,
+      "etag": "\"6b03d12a-98a6\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/ecosystem/",
+      "resolved_url": "https://triodocs.org/install/ecosystem/",
+      "path": "upstream/published/install/ecosystem/index.html",
+      "sha256": "d92cb3716c38e46e4cb3032aa5ca1c20317091e33919bb389b057220b232663e",
+      "bytes": 32230,
+      "etag": "\"6b03d12a-7de6\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/ecosystem/loop-follow/",
+      "resolved_url": "https://triodocs.org/install/ecosystem/loop-follow/",
+      "path": "upstream/published/install/ecosystem/loop-follow/index.html",
+      "sha256": "ed0c7b50270d661edd57b2344d36662daf3606f1cde8e3eca69c24ca573ef918",
+      "bytes": 31643,
+      "etag": "\"6b03d12a-7b9b\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/ecosystem/nightscout-app/",
+      "resolved_url": "https://triodocs.org/install/ecosystem/nightscout-app/",
+      "path": "upstream/published/install/ecosystem/nightscout-app/index.html",
+      "sha256": "048e1f5219699bd6210a5e70677de48e18eba0d5f05466869877a5ebfa5ecb29",
+      "bytes": 33018,
+      "etag": "\"6b03d12b-80fa\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:47 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/ecosystem/xdrip4ios/",
+      "resolved_url": "https://triodocs.org/install/ecosystem/xdrip4ios/",
+      "path": "upstream/published/install/ecosystem/xdrip4ios/index.html",
+      "sha256": "5911889ff00234465836a4f41de25a860ad74450a04c57a7d4ddaeaebb2c2e29",
+      "bytes": 31127,
+      "etag": "\"6b03d12a-7997\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/return-to-main/",
+      "resolved_url": "https://triodocs.org/install/return-to-main/",
+      "path": "upstream/published/install/return-to-main/index.html",
+      "sha256": "a0e074a8a2bd8759d656fecd4e29cb36abf6759f342973dbf5ff221c8c7df60f",
+      "bytes": 47411,
+      "etag": "\"6b03d12a-b933\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/install/upgrade/",
+      "resolved_url": "https://triodocs.org/install/upgrade/",
+      "path": "upstream/published/install/upgrade/index.html",
+      "sha256": "6456e38f44916da3cd099b5868d09f2a70b775aad6a3c7c8f2381904b0c6a2bb",
+      "bytes": 30953,
+      "etag": "\"6b03d12a-78e9\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/resources/citations/",
+      "resolved_url": "https://triodocs.org/resources/citations/",
+      "path": "upstream/published/resources/citations/index.html",
+      "sha256": "4de163cb8303162cfcf6705a97adcced42278a4abeab27033fee9886b589082a",
+      "bytes": 31333,
+      "etag": "\"6b03d12a-7a65\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/",
+      "resolved_url": "https://triodocs.org/usage/",
+      "path": "upstream/published/usage/index.html",
+      "sha256": "b95f84a855f276ed21784f9e53c5a9d2022043cad36b25283436e4696b2456cb",
+      "bytes": 31535,
+      "etag": "\"6b03d12a-7b2f\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/concepts/",
+      "resolved_url": "https://triodocs.org/usage/concepts/",
+      "path": "upstream/published/usage/concepts/index.html",
+      "sha256": "d9bc7de08eb9eea404813bd79c4fef4a4f42db56e14af7dbe20977a73eb4e3c2",
+      "bytes": 32381,
+      "etag": "\"6b03d12a-7e7d\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/concepts/basal-rates/",
+      "resolved_url": "https://triodocs.org/usage/concepts/basal-rates/",
+      "path": "upstream/published/usage/concepts/basal-rates/index.html",
+      "sha256": "cd53b36d5e2a80fd43fa7c10953168598d52b61fc6fcb8cfc79b71b39c8dd66a",
+      "bytes": 47756,
+      "etag": "\"6b03d12a-ba8c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/concepts/carb-ratios/",
+      "resolved_url": "https://triodocs.org/usage/concepts/carb-ratios/",
+      "path": "upstream/published/usage/concepts/carb-ratios/index.html",
+      "sha256": "d1ee57b2ec22b23cbea806e7e3bab4f316caf2733851dd79cbbe39e7c27ee79e",
+      "bytes": 61189,
+      "etag": "\"6b03d12a-ef05\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/concepts/isf/",
+      "resolved_url": "https://triodocs.org/usage/concepts/isf/",
+      "path": "upstream/published/usage/concepts/isf/index.html",
+      "sha256": "d28f14c5954b01530fa3602766726bf0a4ad610355b68d52c2fcec0e193a0cd1",
+      "bytes": 73002,
+      "etag": "\"6b03d12a-11d2a\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/features/",
+      "resolved_url": "https://triodocs.org/usage/features/",
+      "path": "upstream/published/usage/features/index.html",
+      "sha256": "6f9414b0cf7916370067b2a3d4dec896d4f1d7e85fd0268400211fe552c97ac2",
+      "bytes": 31852,
+      "etag": "\"6b03d12a-7c6c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/features/bolus-calculator/",
+      "resolved_url": "https://triodocs.org/usage/features/bolus-calculator/",
+      "path": "upstream/published/usage/features/bolus-calculator/index.html",
+      "sha256": "8101f87cee333463100d85b26c30d5d970d894446a57778a148b904f2ee3046e",
+      "bytes": 58700,
+      "etag": "\"6b03d12a-e54c\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/features/dynamic-isf/",
+      "resolved_url": "https://triodocs.org/usage/features/dynamic-isf/",
+      "path": "upstream/published/usage/features/dynamic-isf/index.html",
+      "sha256": "90b5060f810b901fca23513d2bcdd09e748c8b27390aaa2dd8487dd1de671e5b",
+      "bytes": 66148,
+      "etag": "\"6b03d12a-10264\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/features/overrides/",
+      "resolved_url": "https://triodocs.org/usage/features/overrides/",
+      "path": "upstream/published/usage/features/overrides/index.html",
+      "sha256": "fd9900a3f9816b66fcfcdbccb0ad9ed45dfb96ef77dcff7df4ff14a319bdff9f",
+      "bytes": 33326,
+      "etag": "\"6b03d12a-822e\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/features/statistics/",
+      "resolved_url": "https://triodocs.org/usage/features/statistics/",
+      "path": "upstream/published/usage/features/statistics/index.html",
+      "sha256": "a244fe0bee8faeb2b577e6b82b0cf07e7e5988cf485d25ac0633afc51864a359",
+      "bytes": 68554,
+      "etag": "\"6b03d12a-10bca\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/features/temp-targets/",
+      "resolved_url": "https://triodocs.org/usage/features/temp-targets/",
+      "path": "upstream/published/usage/features/temp-targets/index.html",
+      "sha256": "ba06f3e1f8a5ac10f4e57c6aae6aa825546ad5b1557de8f312151ec6034e6001",
+      "bytes": 38865,
+      "etag": "\"6b03d12a-97d1\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    },
+    {
+      "url": "https://triodocs.org/usage/interface/",
+      "resolved_url": "https://triodocs.org/usage/interface/",
+      "path": "upstream/published/usage/interface/index.html",
+      "sha256": "7f73fa5eb23c211eb070f5b87c47c4dc697e6d2d5d222a81a3dde011066bbf5d",
+      "bytes": 74117,
+      "etag": "\"6b03d12a-12185\"",
+      "last_modified": "Mon, 23 Nov 2026 05:37:46 GMT"
+    }
+  ],
+  "failures": [],
+  "scope": "Every sitemap page as HTML; full published search index; complete pinned source including images. HTML is an evidence snapshot, not a standalone offline website."
+}

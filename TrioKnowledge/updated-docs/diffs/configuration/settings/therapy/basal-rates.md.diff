@@ -1,0 +1,24 @@
+--- upstream/configuration/settings/therapy/basal-rates.md
++++ updated/configuration/settings/therapy/basal-rates.md
+@@ -30,8 +30,7 @@
+ 
+ ### Basal Testing
+ 
+-<!-- TODO: Update basal testing description -->
+-The standard method is to test your basal by having a relaxing 4-6 hours without eating at least two hours before you begin the test. Does your blood sugar stay steady? Or do you climb and need a correction? Or do you go low and need to eat? Setting accurate basal rates is crucial for Trio success. They determine how much of the insulin delivered (from basal and bolus) is counted as insulin on board (IOB).
++Trio 1.0.2 provides a dedicated [Basal Testing dosing mode](../closed-loop.md#basal-testing). It derives Max IOB 0, Autosens bounds 100%, Dynamic ISF and sigmoid off, and a threshold preference of at least 72 mg/dL, without overwriting your saved preferences. It permits low-glucose suspension rather than normal predictive adjustments. Entering the mode attempts to cancel an automatic temporary basal, subject to delivery-state checks. The mode is distinct from Low Glucose Suspend and from manually changing saved algorithm settings. Planning and interpreting a basal test also depends on food, activity and recent insulin; the mode alone does not establish that a test is appropriate.
+ 
+ ### Basal Adjustment
+ 
+@@ -91,3 +90,11 @@
+ ### Step 7
+ 
+ Proceed to [Carb Ratios](carb-ratios.md) or return to [New User Setup](../../new-user-setup.md)
++
++
++## 1.0.2 source references
++
++- **F02 — Mode overrides differ from the documented manual basal-testing recipe**
++    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)
++    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)
++    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)

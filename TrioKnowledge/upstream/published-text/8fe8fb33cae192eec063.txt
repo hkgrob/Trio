@@ -1,0 +1,1 @@
+While using Nightscout as a CGM is an option, it should be avoided if possible because it does not keep Trio running in the background like other CGM options. Step 2 Continue to Connect Watch OR return to New User Setup

@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Troubleshooting Common Issues ✏️ · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../index.html">All documents</a><a href="../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../source/docs/help/troubleshoot.md">Updated Markdown</a><a href="../../../upstream/source/docs/help/troubleshoot.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="troubleshooting-common-issues">Troubleshooting Common Issues ✏️</h1>
+<p><a href="https://loopkit.github.io/looptips/how-to/think-like-loop/">Adapted from looptips</a></p>
+<h2 id="site-change-and-site-failures">Site Change and Site Failures</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tips</p>
+<ul>
+<li>Pump site changes can temporarily impact control. </li>
+<li>Pump site failures can negatively impact control for hours.<br/>
+  Turn off closed loop when failure is discovered, and only turn it back on when a new pump is installed.</li>
+</ul>
+</div>
+<h3 id="site-change">Site Change</h3>
+<p>Pump site changes can negatively impact your immediate glycemic control.
+Different delivery sites' ability to absorb insulin varies, impacting your perceived insulin sensitivity.
+Trio should be able to accommodate this change by resetting its Autosens measurements <a href="../configuration/settings/algorithm/autosens.html#rewind-resets-autosens">(assuming "Rewind Resets Autosens" is on)</a> and adapting as needed.</p>
+<h3 id="site-failure">Site Failure</h3>
+<p>Pump failures can result from kinks or improper insertion of the cannula. As a result of a pump failure, Trio may assume that more insulin is on board the patient than what was delivered, leading to sustained highs even after the pump is replaced. </p>
+<p>When you find out your pump has failed, immediately open loop to prevent Trio from trying to deliver more insulin. Upon your next pump installation, you can then close loop and be patient. Trio will wait for the calculated insulin on board to drop before delivering insulin.</p>
+<h2 id="low-treatment">Low Treatment</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tips</p>
+<ul>
+<li>Enter carbs for treatment into Trio, but do not bolus for it</li>
+<li>Consider reducing your profile ISF or Adjustment Factor if Dynamic ISF is enabled</li>
+</ul>
+</div>
+<p>Low blood sugar events can happen from time to time, but you will typically not require as many carbs to treat your lows as opposed to MDI or using a pump. When you treat a low, you should enter the carbs consumed into the Trio system so its autotune functionality can make better choices on your ICR, ISF, and basal rates.</p>
+<p>If you experience a roller coaster pattern of highs and lows after treatment, your <a href="../configuration/settings/therapy/isf.html">insulin sensitivity factor (ISF)</a> is most likely to blame. Consider making your insulin sensitivity less aggressive by 10% or reducing your adjustment factor by 0.1 increments. </p>
+<h2 id="rebound-lows">Rebound Lows</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tips</p>
+<ul>
+<li>Treating lows with fast carbs can give a fast BG rise</li>
+<li>Under certain circumstances, Trio might react to the fast BG rise by giving insulin, leading to another low</li>
+</ul>
+</div>
+<p>To avoid a second low, you can instruct Trio not to give any SMBs for a while after a low, giving your BG time to stabilize. Set up a <a href="../usage/features/temp-targets.html">Temporary Target</a> preset that is a bit higher than your usual target (e.g., 7,5 mmol/L | 136 mg/dl). Ensure that <a href="../configuration/settings/algorithm/smb-settings.html#allow-smb-with-high-temptarget">Allow SMB With High Temptarget</a> is disabled. Make the temporary target last for a while (e.g., 30-45 min).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Setting a temporary target is not the same as disconnecting the pump.</strong> Trio will still be able to give you insulin during the temporary target, but only by adjusting basal rates, resulting in a less aggressive treatment.</p>
+</div>
+<h2 id="highs-after-meals">Highs after meals</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>It is <em>normal</em> for BG to rise after a meal. This happens to everyone, with or without diabetes. The key is to avoid very high BG levels and bring them back into range as soon as possible.</strong></p>
+</div>
+<h3 id="fast-rise">Fast Rise</h3>
+<p><strong>Scenario:</strong> <em>Your BG rises fast when eating and ends up too high.</em></p>
+<p>If your BG rises fast and ends up too high, it is usually because the carbs were absorbed before the insulin peaked. If we rule out site issues, illness, etc, the logical approach is to ensure you get enough insulin ahead of the carbs. You can achieve this by increasing your pre-bolus timing for the meal. This gives the insulin time to absorb before the carbs kick in. You can find more information on the <a href="../configuration/transition-qa.html#mealtime-strategy">mealtime strategy</a> page.</p>
+<h3 id="persistent-high-after-meals">Persistent High After Meals</h3>
+<p><strong>Scenario:</strong> <em>Your BG gets high after a meal and stays high for a long time. Trio gives you some SMBs, but not enough to bring you back down.</em></p>
+<p>Trio calculates the amount of insulin needed to bring blood glucose back into range. Additional insulin is needed when blood glucose remains high after a meal, but Trio needs the correct settings to make those adjustments. </p>
+<ul>
+<li>The first adjustment should be to reduce your CR. Reducing your carb ratio will result in <strong>more</strong> insulin for the carbs entered.</li>
+</ul>
+<h3 id="fast-rise-then-low">Fast Rise, Then Low</h3>
+<p><strong>Scenario:</strong> <em>Your BG rises and ends up too high after a meal, then falls and ends up too low.</em></p>
+<p>In this scenario, you are not getting enough insulin upfront to deal with the carb absorption, but the total amount of insulin you're getting is too much - causing a low. If this is a repeating scenario, you should look into <strong>all of</strong> the following:</p>
+<ol>
+<li>If all the delivered insulin is from one bolus, you should consider adjusting your CR setting so that the bolus calculator gives you less insulin. You could also consider pre-bolusing, giving the insulin some time to absorb before you start eating.</li>
+<li>If the delivered insulin is part bolus and part SMBs, you should consider adjusting your ISF setting so that the SMBs give you less insulin. It would help if you also considered pre-bolusing, giving the insulin more time to absorb before you start eating.</li>
+<li>In both (1) and (2), if you use the dynamic ISF feature, you should consider lowering the Adjustment Factor and adjusting the Autosens max/min settings.</li>
+</ol>
+<p>Please read through the chapters on <a href="../configuration/settings/algorithm/autosens.html">Autosens</a> and <a href="../configuration/settings/algorithm/dynamic-settings.html">Dynamic settings</a>.</p></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

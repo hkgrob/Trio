@@ -1,0 +1,1 @@
+ Overrides are powerful: They affect multiple settings simultaneously Test first: Test override presets locally before using remotely Monitor closely: Watch glucose trends closely when an override is active Duration: Consider setting automatic duration limits on override presets Communication: Ensure the user knows when an override is activated remotely 

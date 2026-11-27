@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Return to the Released Version · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../index.html">All documents</a><a href="../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../source/docs/install/return-to-main.md">Updated Markdown</a><a href="../../../upstream/source/docs/install/return-to-main.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="return-to-the-released-version">Return to the Released Version</h1>
+<p><em>Trio</em> keeps its released version on the <code>main</code> branch. Test versions live on the <code>dev</code> branch and on feature branches.</p>
+<p>If <em>Trio</em> shows you a warning at startup saying it was built from <code>dev</code> or from another branch, this page tells you how to get back to the released version.</p>
+<div class="admonition info">
+<p class="admonition-title">Why am I seeing a warning?</p>
+<p><em>Trio</em> checks which branch it was built from each time it starts, and warns you if that branch is not <code>main</code>. The warning appears once per start, so it comes back if you quit <em>Trio</em> and open it again.</p>
+<ul>
+<li>The <code>main</code> branch is the released version and is what almost everyone should run</li>
+<li>The <code>dev</code> branch is for expert testers — it changes often and contains features that have not been fully tested</li>
+<li>A feature branch contains work on a single change and is usually meant for the person developing it</li>
+</ul>
+<p>Seeing this warning does not mean something is broken. It means you are running a test version.</p>
+</div>
+<h2 id="before-you-switch">Before You Switch</h2>
+<h3 id="check-the-version-numbers">Check the Version Numbers</h3>
+<p>Moving from <code>dev</code> back to <code>main</code> is usually a <strong>downgrade</strong> — the version on <code>dev</code> is normally newer than the version on <code>main</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">An older Trio may not be able to open your existing data</p>
+<p><em>Trio</em> stores your history (glucose, pump events, carbs, and algorithm data) in a database on your phone. When a newer version of <em>Trio</em> changes the layout of that database, it upgrades your existing database to match. That upgrade only runs in one direction.</p>
+<p>Going back to an older version can therefore fail to open the database you already have. If it does, <em>Trio</em> stops on the loading screen at startup and does not continue.</p>
+<p>Before you switch:</p>
+<ul>
+<li>Find the version on <code>main</code> — see the <a href="https://github.com/nightscout/Trio/releases" target="_blank">Trio releases page</a></li>
+<li>Find the version you are running now — open <em>Trio</em> and go to Settings, where the version is shown at the bottom</li>
+<li>If the version on <code>main</code> is <strong>older</strong> than the version you are running, ask on <a href="https://facebook.triodocs.org" target="_blank">Facebook</a> or <a href="https://discord.triodocs.org" target="_blank">Discord</a> whether that particular downgrade is safe before you build</li>
+</ul>
+<p>If your build does end up stuck on the loading screen, you have not lost your settings — reinstalling the version you were on before will let <em>Trio</em> open normally again.</p>
+</div>
+<h3 id="plan-the-timing">Plan the Timing</h3>
+<ul>
+<li>Your pod or pump session continues normally as long as you build with the <strong>same</strong> <em>Apple</em> Developer Account you used last time</li>
+<li>If you are using a different Developer Account, you will get a second, separate <em>Trio</em> app on your phone, and your existing pod will not work with it — plan that change for when you are due for a pod change anyway</li>
+<li>Do not delete your existing <em>Trio</em> app first; building over it keeps your settings</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">This is not medical advice</p>
+<p>Changing app versions changes the software that automates your insulin delivery. If you are unsure whether or when to switch, discuss it with your diabetes care team.</p>
+</div>
+<h2 id="browser-build">Browser Build</h2>
+<p>These steps are for people who build <em>Trio</em> using <em>GitHub</em> Actions in a browser.</p>
+<h3 id="set-main-as-your-default-branch">Set <code>main</code> as Your Default Branch</h3>
+<p>If you previously followed <a href="build/browser/build-dev-with-browser.html#configure-the-dev-branch-as-default">Configure the <code>dev</code> branch as default</a>, you need to reverse it. If you never changed your default branch, skip to <a href="#update-your-fork">Update Your Fork</a>.</p>
+<p>Only the owner of the repository can do this, and you must be logged in — otherwise the Settings tab does not appear.</p>
+<ol>
+<li>
+<p>Click on the Settings icon near the top right of your <em>Trio</em> repository</p>
+<ul>
+<li>You may need to scroll down to see the <code>Default Branch</code></li>
+<li>Do not tap on the Branches tab on the left under Code and Automation, that is not the correct menu</li>
+</ul>
+<blockquote>
+<p><img alt="show default branch" src="../../source/docs/install/build/browser/img/gh-settings-branch-from-dev-01.svg" width="600"/></p>
+</blockquote>
+</li>
+<li>
+<p>To the right of the default branch name there is a pencil and a left-right arrow icon (⇄)</p>
+<ul>
+<li>Tap on the left-right arrow icon (⇄) to bring up the <code>Switch default branch to another branch</code> dialog</li>
+</ul>
+</li>
+<li>
+<p>Click on the dropdown next to the current default branch, in this case <code>dev</code></p>
+<blockquote>
+<p><img alt="modify default branch" src="../../source/docs/install/build/browser/img/gh-settings-branch-from-dev-02.svg" width="400"/></p>
+</blockquote>
+</li>
+<li>
+<p>Select <code>main</code></p>
+</li>
+<li>Click on the <code>Update</code> button</li>
+<li>You will be presented with an are-you-sure question<ul>
+<li>Click on the red <code>I understand, update the default branch.</code> button</li>
+</ul>
+</li>
+</ol>
+<p>Your default branch is now <code>main</code>, and your weekly automatic builds will follow <code>main</code> from here on.</p>
+<h3 id="update-your-fork">Update Your Fork</h3>
+<p>Tap the <code>Code</code> button (upper left) and make sure the <code>main</code> branch in your <code>fork</code> is up to date.</p>
+<ul>
+<li>Select <code>main</code> in the branch dropdown menu</li>
+<li>If the message says this branch is "behind", tap the sync <code>fork</code> button and then the <code>Update branch</code> button</li>
+</ul>
+<blockquote>
+<p align="center"><img alt="message displayed when your fork is behind the origin version" src="../../source/docs/install/build/browser/img/github-build-check-fork-status.svg" width="700"/></p>
+</blockquote>
+<h3 id="build-trio-from-main">Build Trio from <code>main</code></h3>
+<p>Run the <code>Build Trio</code> action, making sure <code>main</code> is selected in the branch dropdown menu.</p>
+<p>Follow the normal steps on <a href="build/browser/actions/build-app.html">Build the App</a>, and install the resulting build from <em>TestFlight</em> as usual.</p>
+<div class="admonition tip">
+<p class="admonition-title">Hit Refresh</p>
+<p>After you tap the green Run workflow button, <em>GitHub</em> can be slow to update.</p>
+<ul>
+<li>Refresh the browser if you are unsure if the action started</li>
+<li>Do not start a new action until the first one completes</li>
+</ul>
+</div>
+<h2 id="mac-build">Mac Build</h2>
+<p>These steps are for people who build <em>Trio</em> with <em>Xcode</em> on a <em>Mac</em>.</p>
+<p>The easiest way is to download a fresh copy of the released code rather than changing the copy you already have.</p>
+<ol>
+<li>Follow <a href="build/mac/build.html#open-terminal">Build Trio with Xcode</a> from the beginning</li>
+<li>When the Build Select Script asks you which branch to build, <strong>type 1 and press return to select <code>main</code></strong></li>
+<li>Continue with the normal build steps</li>
+</ol>
+<p>Your settings and pod session are preserved as long as you sign with the same <em>Apple</em> Developer Account as before.</p>
+<h2 id="after-you-switch">After You Switch</h2>
+<p>The startup warning stops appearing once you are running a build made from <code>main</code>.</p>
+<p>If you still see it:</p>
+<ul>
+<li>Check that the build you installed is actually the new one — open Settings in <em>Trio</em> and look at the version and branch shown at the top</li>
+<li>For a browser build, check that you selected <code>main</code> in the <code>Build Trio</code> action, not just as your default branch</li>
+<li>Remember that <em>TestFlight</em> may still be offering you the older build — make sure you installed the newest one</li>
+</ul>
+<h2 id="going-back-to-dev-later">Going Back to <code>dev</code> Later</h2>
+<p>If you want to test again in the future, follow <a href="build/browser/build-dev-with-browser.html">Build Dev with Browser</a> or select the <code>dev</code> branch in the Build Select Script when building with <em>Xcode</em>.</p></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

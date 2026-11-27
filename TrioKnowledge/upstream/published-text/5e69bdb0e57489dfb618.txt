@@ -1,0 +1,1 @@
+Under ordinary circumstances, you only have to update Trio once it expires (1 year for a paid account). However, we encourage regular updates when new versions are released because they often contain bug fixes or improvements, which may increase operational stability.

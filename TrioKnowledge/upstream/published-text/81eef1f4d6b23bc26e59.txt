@@ -1,0 +1,1 @@
+If you were previously running the Loop app:  Remove Nightscout from Loop Services Add Nightscout credentials to Trio You need the URL and the API_SECRET.    In addition to this step, you may need to force the profile (from Trio) to upload to Nightscout and overwrite the one stored as the default profile in Nightscout.

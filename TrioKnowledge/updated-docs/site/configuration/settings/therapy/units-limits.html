@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Units and Limits · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/therapy/units-limits.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/therapy/units-limits.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="units-and-limits">Units and Limits</h1>
+<div class="admonition tip">
+<p class="admonition-title">Highlights</p>
+<ul>
+<li>Max IOB = Increase above 0 <em>before closing the loop</em></li>
+<li>Max Bolus = Max bolus you give for a meal</li>
+<li>Max Basal = 4x highest hourly basal</li>
+<li>Max COB = Maximum carbs active at any given time</li>
+</ul>
+</div>
+<h2 id="glucose-units">Glucose Units</h2>
+<p>Select either mg/dL or mmol/L.<br/>
+All settings descriptions and screen information will be adjusted to match your selection here.</p>
+<hr/>
+<h2 id="max-iob">Max IOB</h2>
+<p><strong>Default:</strong> <em>0 units</em> </p>
+<div class="admonition warning">
+<p class="admonition-title">Important Information</p>
+<p>This must be set to a value greater than 0 for any insulin to be administered above your current set basal rate.<br/>
+If this remains at 0, Trio can suspend your insulin to prevent lows, but can only administer enough insulin to return you to your current basal rate amount.</p>
+</div>
+<p>This is the maximum amount of Insulin on Board (IOB) above your profile basal rates from all sources - positive temporary basal rates, manual or meal boluses, and SMBs - that Trio is allowed to accumulate to address an above target glucose.</p>
+<p>If a calculated amount exceeds this limit, the suggested and/or delivered amount will be reduced so that active Insulin on Board (IOB) will not exceed this safety limit.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can still manually bolus above this limit, but the suggested bolus amount will never exceed this in the bolus calculator</p>
+</div>
+<hr/>
+<h2 id="max-bolus">Max Bolus</h2>
+<p class="changed-block" data-change="added-or-revised"><strong>Default:</strong> <em>10 units</em><br/>
+<strong>Setting Limits:</strong> <em>0.5-30 units</em> </p>
+<p class="changed-block" data-change="added-or-revised">This is the maximum bolus allowed to be delivered at one time. The calculator caps its recommendation using this setting. Remote and Shortcut bolus commands also use it in their shared validation; it is not limited to the Treatments screen.</p>
+<p>If you attempt to request a bolus larger than this, the bolus will not be accepted or proceed. So if your max bolus is set to 5U but you enter a 6U bolus, the "Enact Bolus" button will turn red and display a warning message. You will be unable to proceed until you lower your bolus to within this limit.</p>
+<p align="center"><img alt="Exceed Max Bolus" src="../../../../source/docs/configuration/settings/therapy/img/exceed_max_bolus.png" width="600px"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most set this to their largest meal bolus, then adjust if needed.</p>
+</div>
+<hr/>
+<h2 id="max-basal">Max Basal</h2>
+<p><strong>Default:</strong> <em>2 units</em><br/>
+<strong>Setting Limits:</strong> <em>0.5-30 units</em> </p>
+<p>This is the maximum basal rate allowed to be set or scheduled. This applies to bothe automatic temp basal rates, profile basal rates, and manual temp basal rates.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Generally, users enter a value that is 4 times their highest hourly basal rate</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">For Medtronic Users:</p>
+<p>You must also manually set the max basal rate on the pump to match this value</p>
+</div>
+<hr/>
+<h2 id="max-cob">Max COB</h2>
+<p><strong>Default:</strong> <em>120 grams of carb</em><br/>
+<strong>Setting Limits:</strong> <em>0-300 g</em> </p>
+<p>This setting defines the maximum amount of Carbs On Board (COB) allowed at any given time for Trio to use in dosing calculations. If more carbs are entered than allowed by this limit, Trio will cap the current COB in calculations to this Max COB setting and remain at this max until all remaining carbs have shown to be absorbed or 6 hours has passed, whichever comes first.</p>
+<p>For example, if Max COB is 120g and you enter a meal containing 150g of carb, your COB will remain at 120g until the remaining 30g have replaced absorbed carbs.</p>
+<hr/>
+<h2 id="minimum-safety-threshold">Minimum Safety Threshold</h2>
+<p><strong>Default:</strong> <em>Set By Algorithm</em><br/>
+<strong>Setting Limits:</strong> <em>60 - 120 mg/dL</em></p>
+<p>Trio uses a Safety Threshold to prevent insulin dosing when your current glucose reading is too low. This threshold is always active, but you can increase this threshold from the system-determined value by entering a value into this setting in Trio.</p>
+<p>The system-determined value is based on this calculation:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mfrac><mrow><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mn>40</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow></math></div>
+<p>The threshold is a safety limiter function. If blood sugar at any point is predicted to go below this value, Trio will suspend insulin delivery (SMBs are halted and Temp Basal of 0 U/hr set) and wait until forcasting says otherwise. Increasing this setting can be useful if you are experiencing a high number of hypoglycemia events. Please review the <a href="https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html?highlight=Safety%20Threshold">OpenAPS documents</a> if you want a better understanding of how it is used. </p>
+<p>This setting allows you to choose a higher threshold setting than the default. Note that you cannot choose something lower than the default setting for a certain blood glucose target.</p>
+<details class="question">
+<summary>Bill has set a BG target of 110 mg/dl.  In his Trio Dynamic Settings, he has set his threshold to 65 mg/dl. Will Trio use the default threshold or the minimum safety threshold he set?</summary>
+<details class="info">
+<summary>Here are the formulas you'll need:</summary>
+<p><strong>Default Safety Threshold</strong>:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mfrac><mrow><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mn>40</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow></math></div>
+<p><strong>Then, compare that value to the Minimum Safety Threshold</strong> </p>
+<p>Default Safety Threshold <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&gt;</mo></mrow></math></span> or <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>=</mo></mrow></math></span> or <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&lt;</mo></mrow></math></span> Minimum Safety Threshold</p>
+</details>
+<details class="note">
+<summary>Now, enter in Bill's values</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>110</mn><mo>−</mo><mfrac><mrow><mn>110</mn><mo>−</mo><mn>40</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>110</mn><mo>−</mo><mfrac><mrow><mn>70</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>110</mn><mo>−</mo><mn>35</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>65</mn><mtext> </mtext><mi>m</mi><mi>g</mi><mo>/</mo><mi>d</mi><mi>L</mi></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>75</mn><mtext> </mtext><mi>m</mi><mi>g</mi><mo>/</mo><mi>d</mi><mi>L</mi><mo>&gt;</mo><mn>65</mn><mtext> </mtext><mi>m</mi><mi>g</mi><mo>/</mo><mi>d</mi><mi>L</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Because Trio's default threshold setting is 75 mg/dL for a 110 mg/dL blood glucose target, and that is greater than Bill's Minimum Safety Threshold, Trio will use the higher target of <strong><em>75 mg/dL</em></strong> and ignore this setting.</p>
+</details>
+</details>
+<details class="question">
+<summary>Bonus Question: Assuming Bill's target stays at 110 mg/dL, what would Bill have to set his Minimum Safety Threshold to for it to be used by Trio?</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>≥</mo><mn>75</mn><mtext> </mtext><mi>m</mi><mi>g</mi><mo>/</mo><mi>d</mi><mi>L</mi></mrow></math></div>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Basal may be resumed if there is negative IOB and glucose is rising faster than the forecast</p>
+</div>
+<hr/>
+<p>Return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<h2 class="changed-block" data-change="added-or-revised" id="saved-versus-effective-max-iob">Saved versus effective Max IOB</h2>
+<p class="changed-block" data-change="added-or-revised">Low Glucose Suspend and Basal Testing derive effective Max IOB 0 while retaining the saved preference. Basal Testing additionally changes effective sensitivity settings. These mode constraints do not establish a universal limit for every manual bolus entry path. See <a href="../closed-loop.html">Dosing Modes</a> and the <a href="../../../usage/features/bolus-calculator.html#recommendation-safety-gates">calculator safety gates</a>.</p>
+<p class="changed-block" data-change="added-or-revised">The Max Bolus picker accepts 0.5–30 U in 0.5 U steps in <code>DecimalPickerSettings.swift</code>; available pump-specific settings and rounding can impose further constraints.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F02 — Mode overrides differ from the documented manual basal-testing recipe</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6">Trio/Sources/Models/Preferences+DosingMode.swift:6</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559">Trio/Sources/APS/OpenAPS/OpenAPS.swift:559</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511">Trio/Sources/APS/APSManager.swift:1511</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F06 — Calculator safety gates and backdated-carb handling need explicit documentation</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F10 — Shortcut boluses use shared safety checks beyond the permission toggle</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L14">Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift:14</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L44">Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift:44</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/therapy/units-limits.md</span><span class="diff-line ">+++ updated/configuration/settings/therapy/units-limits.md</span><span class="diff-line ">@@ -32,9 +32,9 @@</span><span class="diff-line "> </span><span class="diff-line "> ## Max Bolus</span><span class="diff-line "> **Default:** _10 units_  </span><span class="diff-line diff-remove">-**Setting Limits:** _1-30 units_  </span><span class="diff-line diff-add">+**Setting Limits:** _0.5-30 units_  </span><span class="diff-line "> </span><span class="diff-line diff-remove">-This is the maximum bolus allowed to be delivered at one time. This only limits manual boluses given on the Treatments screen.</span><span class="diff-line diff-add">+This is the maximum bolus allowed to be delivered at one time. The calculator caps its recommendation using this setting. Remote and Shortcut bolus commands also use it in their shared validation; it is not limited to the Treatments screen.</span><span class="diff-line "> </span><span class="diff-line "> If you attempt to request a bolus larger than this, the bolus will not be accepted or proceed. So if your max bolus is set to 5U but you enter a 6U bolus, the &quot;Enact Bolus&quot; button will turn red and display a warning message. You will be unable to proceed until you lower your bolus to within this limit.</span><span class="diff-line "> </span><span class="diff-line ">@@ -139,3 +139,24 @@</span><span class="diff-line "> - - -</span><span class="diff-line "> </span><span class="diff-line "> Return to [New User Setup](../../new-user-setup.md)</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Saved versus effective Max IOB</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Low Glucose Suspend and Basal Testing derive effective Max IOB 0 while retaining the saved preference. Basal Testing additionally changes effective sensitivity settings. These mode constraints do not establish a universal limit for every manual bolus entry path. See [Dosing Modes](../closed-loop.md) and the [calculator safety gates](../../../usage/features/bolus-calculator.md#recommendation-safety-gates).</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+The Max Bolus picker accepts 0.5–30 U in 0.5 U steps in `DecimalPickerSettings.swift`; available pump-specific settings and rounding can impose further constraints.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F02 — Mode overrides differ from the documented manual basal-testing recipe**</span><span class="diff-line diff-add">+    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)</span><span class="diff-line diff-add">+- **F06 — Calculator safety gates and backdated-carb handling need explicit documentation**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344)</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452)</span><span class="diff-line diff-add">+- **F10 — Shortcut boluses use shared safety checks beyond the permission toggle**</span><span class="diff-line diff-add">+    - [Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift:14](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L14)</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift:44](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L44)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

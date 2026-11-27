@@ -1,0 +1,2 @@
+If you did not Enable Time Sensitive Notifications for your Trio Identifier, the Build Trio action fails with an error similar to this: error: Provisioning profile "match AppStore org.nightscout.***.trio" doesn't include the com.apple.developer.usernotifications.time-sensitive entitlement.
+ Solution: Enable Time Sensitive Notifications and then run Build Trio again - make sure you select the dev branch.

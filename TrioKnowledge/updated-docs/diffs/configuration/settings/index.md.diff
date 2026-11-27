@@ -1,0 +1,25 @@
+--- upstream/configuration/settings/index.md
++++ updated/configuration/settings/index.md
+@@ -45,6 +45,21 @@
+     
+     Connect Nightscout, Tidepool, and Apple Health
+     
+--   __[Close The Loop](closed-loop.md)__
++-   __[Dosing Modes](closed-loop.md)__
+     
+ </div>
++
++
++## Export Settings
++
++Use [Export Settings](export-settings.md) to share a versioned configuration for review.
++
++
++## 1.0.2 source references
++
++- **F01 — Dosing Mode replaces the documented Closed Loop switch**
++    - [Trio/Sources/Models/DosingMode.swift:16](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DosingMode.swift#L16)
++    - [Trio/Sources/Modules/Settings/View/SettingsRootView.swift:218](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L218)
++- **F08 — Document the Settings CSV export and effective-mode annotations**
++    - [Trio/Sources/Modules/Settings/View/SettingsRootView.swift:394](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L394)
++    - [Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift:1249](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift#L1249)

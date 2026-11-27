@@ -1,0 +1,1 @@
+Default: OFF Enabling this feature allows Trio to deliver insulin required using SMBs at times in which a manual temporary target (temp target) under 100 mg/dL (5.5 mmol/L) is set.   Tip Low temp targets are often set when struggling with high glucose readings. Allowing SMBs at this time can help counter elevated glucose levels faster.

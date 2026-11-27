@@ -1,0 +1,1 @@
+UAM  is a way for the algorithm to recognize that either there is carb absorption or an unaccounted-for increase in glucose levels as a result of more carbs being onboard than entered or as a result of hormonal variation and then dose with it effectively. To understand the logic behind UAM, have a read of Time Streets blog post Understanding SMB and oref1.

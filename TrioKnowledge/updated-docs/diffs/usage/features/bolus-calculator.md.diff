@@ -1,0 +1,43 @@
+--- upstream/usage/features/bolus-calculator.md
++++ updated/usage/features/bolus-calculator.md
+@@ -236,7 +236,7 @@
+ 
+ ### Glucose Trend Adjustment
+ 
+-Your glucose trend (Delta) takes into account how much your glucose readings have changed over the last 15 minutes. If you are experiencing a steep rise or steep fall, this helps Trio counter that activity and prevent an over- or under-dose.
++In Trio 1.0.2, the calculator selects glucose readings newer than 20 minutes ago and subtracts the oldest selected value from the newest. The actual interval depends on available readings; with fewer than two readings, delta is zero. It does not normalize this difference to a fixed 15-minute interval, despite the internal `fifteenMinutesInsulin` name. If you are experiencing a steep rise or steep fall, this helps Trio counter that activity and prevent an over- or under-dose.
+ 
+ Let's look at how Trio accounts for an increasing trend and a decreasing trend in glucose:
+ 
+@@ -363,3 +363,31 @@
+ !!! tip
+     - While it is **always** wise to use your best judgement rather than trusting the bolus recommendation blindly, accurate settings will prevent the need for you to manually intervene and override the bolus recommendation.
+     - If your glucose updates in the middle of your meal entry, Trio will update your calculation in real time.
++
++
++## Backdated carbohydrate entries
++
++For a backdated meal calculation, Trio uses simulated COB and sets new carbs to zero. For an ordinary entry, it adds existing COB and new carbs, capped at Max COB. This avoids counting a backdated entry both as newly entered carbs and as simulated remaining COB.
++
++The calculator already subtracts current IOB, including automated insulin represented in that IOB. A late meal bolus should not be explained as ignoring all previously delivered UAM/SMB insulin. The calculation still depends on the accuracy and freshness of the stored glucose, COB and IOB inputs.
++
++## Recommendation safety gates
++
++The recommendation is zero if current glucose is below 54 mg/dL, minimum predicted glucose is below 54 mg/dL, or the last successful loop is more than 15 minutes old. These checks concern the calculated recommendation, not a universal prohibition on every insulin entry or delivery path.
++
++Otherwise the implementation applies a nonnegative clamp, then Max Bolus, then `Max IOB − current IOB`, and finally pump bolus rounding. There is no second nonnegative clamp after the Max IOB headroom step; negative headroom therefore remains an implementation edge case rather than a guaranteed zero-result condition.
++
++## Two different percentage controls
++
++Positive manual-calculator results are multiplied by Recommended Bolus Percentage and, if selected, Reduced Bolus Percentage. The Super Bolus component is added afterward. SMB Delivery Ratio belongs to automated SMB dosing and is a separate control. See [calculator configuration](../../configuration/settings/features/bolus-calculator.md) and [SMB Delivery Ratio](../../configuration/settings/algorithm/additionals.md#smb-delivery-ratio).
++
++
++## 1.0.2 source references
++
++- **F05 — Calculator trend input is newest minus oldest within 20 minutes**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:216](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L216)
++- **F06 — Calculator safety gates and backdated-carb handling need explicit documentation**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344)
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452)
++- **F11 — The meal bolus calculator already subtracts automated insulin represented in IOB**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400)

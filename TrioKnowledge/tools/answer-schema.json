@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "answer": {"type": "string"},
+    "cited_setting_ids": {"type": "array", "items": {"type": "string"}},
+    "cited_source_ids": {"type": "array", "items": {"type": "string"}},
+    "limits": {"type": "array", "items": {"type": "string"}},
+    "follow_up_questions": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["answer", "cited_setting_ids", "cited_source_ids", "limits", "follow_up_questions"],
+  "additionalProperties": false
+}

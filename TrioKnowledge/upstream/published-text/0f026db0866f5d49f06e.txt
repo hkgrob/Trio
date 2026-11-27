@@ -1,0 +1,1 @@
+Default: 70 mg/dL (3.9 mmol/L) Range: 40 - 100 mg/dL (2.2 - 5.5 mmol/L)  This setting determines the low value for your alert range. Set this to the low value in which you'd like to receive alerts.

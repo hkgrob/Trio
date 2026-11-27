@@ -1,0 +1,1 @@
+Default: 180 mg/dL (10mmol/L) The upper value of your displayed glucose target range.   Tip This range is for display and statistical purposes only and does not influence insulin dosing.

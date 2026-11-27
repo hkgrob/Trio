@@ -1,0 +1,1 @@
+Like basal rates, Trio does not use your ISF verbatim. Instead, your scheduled ISF is modified dynamically based on:

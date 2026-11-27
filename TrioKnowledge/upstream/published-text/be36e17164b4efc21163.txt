@@ -1,0 +1,1 @@
+ Open LoopFollow and tap the Remote Control button Select "Meal" from the command options Enter the meal details: Carbs (required): Grams of carbohydrates Fat (optional): Grams of fat Protein (optional): Grams of protein Bolus (optional): Units of insulin to deliver with the meal Schedule (optional): Time to log the carbs (for pre-bolusing)   Tap "Send" to transmit the command 

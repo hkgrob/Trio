@@ -1,0 +1,1 @@
+The first step in setting up your continuous glucose monitor (CGM) on Trio is to tap the "Add CGM" button in the Devices Menu 

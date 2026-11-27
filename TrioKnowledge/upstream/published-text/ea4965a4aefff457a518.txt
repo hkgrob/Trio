@@ -1,0 +1,1 @@
+Issue Cause Solution "Override not found" Name doesn't match any preset Check spelling and capitalization in both Trio and LoopFollow "Failed to enable override" Trio can't access storage Restart Trio app and try again Override not taking effect Override successfully activated but settings unchanged Verify the override preset has non-zero percentage adjustments configured

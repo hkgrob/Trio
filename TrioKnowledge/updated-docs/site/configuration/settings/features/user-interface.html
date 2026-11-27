@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>User Interface Settings Menu · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/features/user-interface.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/features/user-interface.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="user-interface-settings-menu">User Interface Settings Menu</h1>
+<p align="center"><img alt="Trio 1.0 User Interface" src="../../../../source/docs/configuration/settings/features/img/light_vs_dark_mode.png" width="600"/></p>
+<h2 id="appearance">Appearance</h2>
+<p><strong>Default:</strong> <em>System Default</em></p>
+<h3 id="options">Options</h3>
+<p><strong>System Default:</strong><br/>
+This option follows the phone's current color scheme.</p>
+<p><strong>Light:</strong><br/>
+Always in Light Mode</p>
+<p><strong>Dark:</strong><br/>
+Always in Dark Mode</p>
+<hr/>
+<h2 id="glucose-color-scheme">Glucose Color Scheme</h2>
+<p><strong>Default:</strong> <em>Static</em> </p>
+<h3 id="options_1">Options</h3>
+<p><strong>Static:</strong><br/>
+This option uses orange, green, and red to indicate where the glucose reading falls on the range set.  </p>
+<div class="admonition info inline">
+<p class="admonition-title">Threshold Graph Legend</p>
+<p><img alt="High Threshold Static Icon" src="../../../../source/docs/configuration/settings/features/img/high_threshold_static.png" style="vertical-align: middle;" width="15"/>  High Threshold <br/>
+<img alt="Low Threshold Static Icon" src="../../../../source/docs/configuration/settings/features/img/low_threshold_static.png" style="vertical-align: middle;" width="15"/>  Low Threshold<br/>
+<span style="color: #fe9607;">:fontawesome-solid-circle:</span>  Above Range Glucose<br/>
+<span style="color: #35c759;">:fontawesome-solid-circle:</span>  In Range Glucose<br/>
+<span style="color: #ff3131;">:fontawesome-solid-circle:</span>  Below Range Glucose      </p>
+</div>
+<p align="left"><img alt="Static Color Graph" src="../../../../source/docs/configuration/settings/features/img/static_color_graph.png" width="250"/></p>
+<p><strong>Dynamic:</strong><br/>
+This option uses the color wheel to indicate where the glucose reading falls in relation to your target glucose.<br/>
+<em>*The colors of the threshold lines are also dynamic, so the exact coloring will depend on your settings</em> </p>
+<div class="admonition info inline">
+<p class="admonition-title">Threshold Graph Legend</p>
+<p><img alt="High Threshold Dynamic Icon" src="../../../../source/docs/configuration/settings/features/img/high_threshold_dynamic.png" style="vertical-align: middle;" width="15"/>  High Threshold (=180 mg/dL)<br/>
+<img alt="Low Threshold Dynamic Icon" src="../../../../source/docs/configuration/settings/features/img/low_threshold_dynamic.png" style="vertical-align: middle;" width="15"/>  Low Threshold (=70 mg/dL)<br/>
+<img alt="Above Target Icon" src="../../../../source/docs/configuration/settings/features/img/above_target_glucose_icon.png" style="vertical-align: middle;" width="15"/>  Above Target<br/>
+<img alt="At Target Icon" src="../../../../source/docs/configuration/settings/features/img/at_or_near_target.png" style="vertical-align: middle;" width="15"/>  At or Near Target<br/>
+<img alt="Below Target Icon" src="../../../../source/docs/configuration/settings/features/img/below_target_glucose_icon.png" style="vertical-align: middle;" width="15"/>  Below Target  </p>
+</div>
+<p align="left"><img alt="Dynamic Color Graph" src="../../../../source/docs/configuration/settings/features/img/dynamic_color_graph.png" width="250"/></p>
+<hr/>
+<h2 id="axis-grid-lines">Axis Grid Lines</h2>
+<h3 id="show-x-axis-grid-lines">Show X-Axis Grid Lines</h3>
+<p><strong>Default:</strong> <em>ON</em><br/>
+Choose whether or not to display the X-Axis (horizontal) grid lines on the glucose graph.  </p>
+<h3 id="show-y-axis-grid-lines">Show Y-Axis Grid Lines</h3>
+<p><strong>Default:</strong> <em>ON</em><br/>
+Choose whether or not to display the Y-Axis (vertical) grid lines on the glucose graph.  </p>
+<hr/>
+<h2 id="show-low-and-high-thresholds">Show Low and High Thresholds</h2>
+<p><strong>Default:</strong> <em>ON</em><br/>
+This setting displays the upper and lower values for your glucose target range.  </p>
+<h3 id="low-threshold">Low Threshold</h3>
+<p><strong>Default:</strong> <em>70 mg/dL (3.9 mmol/L)</em><br/>
+The lower value of your displayed glucose target range.  </p>
+<h3 id="high-threshold">High Threshold</h3>
+<p><strong>Default:</strong> <em>180 mg/dL (10mmol/L)</em><br/>
+The upper value of your displayed glucose target range.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This range is for display and statistical purposes only and does not influence insulin dosing.</p>
+</div>
+<hr/>
+<h2 id="forecast-display-type">Forecast Display Type</h2>
+<p><strong>Default:</strong> <em>Cone</em><br/>
+This setting allows you to choose between the Cone of Uncertainty (Cone) and OpenAPS Forecast Lines (Lines) for the glucose forecast display. Descriptions for each option found below.  </p>
+<h3 id="options_2">Options</h3>
+<p><strong>Cone (of Uncertainty):</strong> </p>
+<!-- TODO: Add image -->
+<p>Combines all possible forecasts from the OpenAPS lines into a single range. This option has been shown to reduce confusion and stress around algorithm forecasts by providing a clearer, less overwhelming visual representation.</p>
+<p><strong>Lines:</strong></p>
+<!-- TODO: Add image -->
+<p>Uses the IOB, COB, UAM, and ZT forecast lines from the OpenAPS (Oref) Algorithm used in Trio. This option provides a more detailed view of the algorithm's forecast and may be more or less helpful depending on the user's preference.</p>
+<hr/>
+<h2 id="ea1c-display-unit">eA1c Display Unit</h2>
+<p><strong>Default:</strong> <em>Percent</em><br/>
+Choose which format you'd prefer the eA1c (estimated A1c) value to be displayed as. Choose between percentage (Ex: 6.5%) or mmol/mol (Ex: 48 mmol/mol).</p>
+<h3 id="options_3">Options</h3>
+<p><strong>Percent</strong> or <strong>mmol/mol</strong></p>
+<hr/>
+<h2 id="show-carbs-required-badge">Show Carbs Required Badge</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+Turning this on will show the grams of carbs needed to prevent a low as a notification badge on the Trio home screen, located above the main icon.  </p>
+<h3 id="carbs-required-threshold">Carbs Required Threshold</h3>
+<p>If <code>Show Carbs Required Badge</code> is enabled, this setting will appear. Set this to the lowest number of carbs you'd like to be recommended. A recommendation will not be given if the carbs required is below this number.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The carbs suggested with this feature are to be used as a recommendation, not as a requirement. Depending on the current accuracy of your sensor and the accuracy of your settings, the suggested carbs can vary widely from what is actually required. Ultimately, use your best judgment before ingesting the suggested quantity of carbs.</p>
+</div>
+<hr/></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

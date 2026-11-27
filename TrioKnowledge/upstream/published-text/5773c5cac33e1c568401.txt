@@ -1,0 +1,1 @@
+The first place to start if you want to learn more about the underlying algorithm, is the extensive OpenAPS documentation. OpenAPS is the underlying algorithm that Trio implements to control blood sugar, with small modifications mostly pertaining to the Dynamic settings. 

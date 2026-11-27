@@ -1,0 +1,80 @@
+Please save yourself a lot of agony. Make a Secrets Reference folder and then create a Secrets Reference file in it. You don't need to know anything about the Secrets to do this. Come up with your own names, but make sure you know where you put this file.  Decide where you want your Secrets saved and create a special folder Open a text-only editor (do not use a Smart Editor, those might change capitalization or formatting and ruin your Secrets) Create a blank Secrets Reference file using the text-only editor Tap on the copy icon below to copy the template and paste it into your blank file Save the file   As you move through the steps of collecting the six secrets, fill in the file The ## characters are used to indicate sections or title (text only file) There is a reference pattern for each SECRET: replace that with your SECRET or you can add your secret below the pattern to give yourself confidence you got the correct item   In addition to the Secrets, this template has places for other pieces of information you may find handy to save in the same file At the very beginning is a place to indicate the last day you updated the file  Template to use for SecretsMySecretsReferenceFile.txt
+
+## This file updated on: DD MMM YYYY
+
+Information needed to use Browser Build.
+The same secrets are used for every app you build.
+
+First some handy username and password information:
+
+## Apple ID username for your Developer account is the associated email:
+<your information here>
+suggest you use your desired password tool to save the password for this account
+
+## GitHub personal account username
+<your information here>
+suggest you use your desired password tool to save the password for this account
+
+### GitHub organization name
+<your GitHub organization name>
+Using an organization is optional.
+But it you do use one, add the name here for reference.
+You always log in using your GitHub personal account to access your organization.
+
+There are Six Secrets and One Variable:
+ - the list below shows the expected format of each.
+You can replace each prototype with your secret as you gather them,
+ - or put your secret below a prototype.
+The letter A indicates an alphanumeric character;
+ - some may be small letter, some capital letters and some numerals.
+The FASTLANE_KEY may have additional characters included.
+  Be sure to copy the entire key including
+  -----BEGIN PRIVATE KEY-----
+  through
+  -----END PRIVATE KEY-----
+
+## SECRETS BELOW:
+
+TEAMID
+<looks like this>
+AAAAAAAAAA
+
+FASTLANE_ISSUER_ID
+<looks like this>
+AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA
+
+FASTLANE_KEY_ID
+<looks like this>
+AAAAAAAAAA
+
+FASTLANE_KEY
+<looks like this>
+-----BEGIN PRIVATE KEY-----
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAA
+-----END PRIVATE KEY-----
+
+GH_PAT
+<looks like this>
+ghp_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+MATCH_PASSWORD
+<looks like this>
+AnyThingYouWant-sameForEveryRepository
+
+This Variable (not a secret) is required for the annual certificate renewal:
+
+ENABLE_NUKE_CERTS = true
+
+## Repository Names for my Fork:
+
+If you use an organization (recommended)
+https://github.com/my-name-org/Trio
+
+or (if you don't use an organization): 
+https://github.com/my-name/Trio
+
+
+Add additional apps here if you decide to build any

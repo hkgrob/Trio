@@ -1,0 +1,1 @@
+There are now options that appear after you enable 'Developer Mode'. Go on and configure those now.  1. Open the 'Settings' application on your watch.   Next, scroll to the bottom of the page and tap on the 'Developer' option.   Scroll until you see WidgetKit Developer Mode and enable the option. This will allow faster updates of watch complications.  

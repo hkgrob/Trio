@@ -1,0 +1,1 @@
+Symptoms: - Good control at some times of day, poor at others - Dawn phenomenon not adequately addressed Solution: Set different ISF values for different times of day based on need

@@ -1,0 +1,177 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SMB Settings · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/algorithm/smb-settings.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/algorithm/smb-settings.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="smb-settings">SMB Settings</h1>
+<div class="admonition summary">
+<p class="admonition-title">Highlights</p>
+<ul>
+<li>UAMs should be enabled when SMBs are enabled.</li>
+<li>If entering carbs and/or bolusing: Max UAM Basal Minutes should be set <strong>lower</strong> than Max SMB Basal Minutes.</li>
+<li>If <strong>NOT</strong> entering carbs and/or bolusing (FCL): Max UAM Basal Minutes should be set <strong>higher</strong> than Max SMB Basal Minutes.</li>
+<li>Super micro boluses (SMB) often include your basal insulin. Your basal rate will be temporarily reduced after an SMB is delivered to prevent overdosing insulin.</li>
+<li>SMBs reduce blood sugar more quickly than temporary basal rates.</li>
+<li>If you want to configure SMBs only to run in certain conditions, do not turn on 'Enable SMB Always'.</li>
+<li>For a detailed look at when SMBs are used, see the chart in <a href="#are-smbs-allowed">Are SMBs Allowed?</a> section. </li>
+<li>For help with setup, see the <a href="../../new-user-setup.html">New User Guide</a>.</li>
+</ul>
+</div>
+<hr/>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All of the SMB options listed below are <strong><em>inclusive</em></strong>, not exclusive. This means that if more than one option is enabled, only <em>one</em> of those options needs to apply in order for SMBs to be utilized.</p>
+</div>
+<hr/>
+<h2 id="enable-smb-always">Enable SMB Always</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+When this setting is enabled, Super Micro Boluses (SMBs) will always be allowed if dosing calculations determine insulin is needed via the SMB delivery method. The exception is when a high temp target is set. Enabling SMB Always will remove the other redundant "Enable SMBs if..." options.  </p>
+<p>SMBs will remain on if you have a low temporary target set but will be fully disabled if a high temporary target is set (unless "<a href="#allow-smb-with-high-temptarget">Allow SMB With High Temptarget</a>" is enabled).  </p>
+<p>The size of SMBs is limited by <a href="#max-smb-basal-minutes">Max SMB Basal Minutes</a>.  </p>
+<hr/>
+<h2 id="enable-smb-with-cob">Enable SMB with COB</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+When the carbs on board (COB) forecast line is active, enabling this feature allows Trio to use SMBs to deliver the insulin required.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Allowing SMBs when you have carbs on board can help with mealtime spikes in glucose.</p>
+</div>
+<hr/>
+<h2 id="enable-smb-with-temptarget">Enable SMB with TempTarget</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs at times in which a manual temporary target (temp target) under <strong>100 mg/dL (5.5 mmol/L)</strong> is set.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Low temp targets are often set when struggling with high glucose readings. Allowing SMBs at this time can help counter elevated glucose levels faster.</p>
+</div>
+<hr/>
+<h2 id="enable-smb-after-carbs">Enable SMB After Carbs</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs for <strong>6 hours</strong> after any carb entry, regardless of whether there are active carbs on board (COB).  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Carbs do not digest at the same rate. Allowing SMBs for the 6 hours after entering a meal will help Trio counter those carbs faster.</p>
+</div>
+<hr/>
+<h2 id="enable-smb-with-high-glucose">Enable SMB with High Glucose</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs when your glucose reading is above the value set as your 'High Glucose Target'. This additional setting will appear when you enable this feature.  </p>
+<h3 id="high-glucose-target">High Glucose Target</h3>
+<p><strong>Default:</strong> <em>110 mg/dL</em> | <em>6.1 mmol/L</em><br/>
+If 'Enable SMB with High BG' is enabled, SMBs will be allowed if your glucose is above this value.  </p>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Important</strong></p>
+<ul>
+<li>This setting was often misunderstood. It was never a restriction on SMBs. To help clarify it's purpose for users, it has moved under the only setting it applies to, <code>Enable SMB with High BG</code>. </li>
+<li>Its only function is to allow SMBs if glucose is above this number and <code>Enable SMB with High BG</code> is turned ON.</li>
+<li><strong>It will not <em>prevent</em> SMBs or UAMs below this number if other SMB settings are turned ON.</strong></li>
+</ul>
+</div>
+<hr/>
+<h2 id="allow-smb-with-high-temptarget">Allow SMB with High TempTarget</h2>
+<p><strong>Default:</strong> <em>OFF</em><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs when a manual Temp Target above <strong>100 mg/dL (5.5 mmol/L)</strong> is set.  </p>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Important</strong></p>
+<p>High Temp Targets are often used to recover from lows. If you use a high temp target for that purpose, this feature should remain disabled.</p>
+</div>
+<hr/>
+<h2 id="enable-uam">Enable UAM</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Important</strong></p>
+<p>This setting should be <em>ON</em> if other SMBs are enabled. </p>
+</div>
+<p>Enabling Unannounced Meal SMBs (UAMs) allows Trio to detect and respond to unexpected rises in glucose readings caused by unannounced or miscalculated meals, meals high in fat or protein, or other factors like adrenaline or cortisol.  </p>
+<p>It uses SMBs to deliver insulin in small amounts to correct glucose spikes. UAM also works in reverse, reducing or stopping insulin if glucose levels drop unexpectedly.  </p>
+<p>The size of UAMs is limited by <a href="#max-uam-basal-minutes">Max UAM Basal Minutes</a> </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Enabling UAM will give minor adjustments in your insulin dosing to account for the difference in expected glucose and actual glucose readings.</p>
+<ul>
+<li>If you are entering carbs and/or bolusing for meals, <code>Max UAM Basal Minutes</code> should be set lower than <code>Max SMB Basal Minutes</code>.</li>
+<li>If you are <strong>not</strong> entering carbs or bolusing for meals, <code>Max UAM Basal Minutes</code> should be set higher than <code>Max SMB Basal Minutes</code>.</li>
+</ul>
+</div>
+<hr/>
+<h2 id="max-smb-basal-minutes">Max SMB Basal Minutes</h2>
+<p class="changed-block" data-change="added-or-revised"><strong>Default:</strong> <em>30 minutes</em><br/>
+<strong>Setting Limits:</strong> <em>15-180 minutes (5-minute steps)</em></p>
+<p>If any of the SMB options are enabled, this limit will apply to all SMBs except UAM SMBs. This is a limit on the size of a single SMB. One SMB can only be as large as this many minutes of your current profile basal rate.  </p>
+<p>To calculate the maximum SMB allowed based on this setting, use the following formula:  </p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mtext> </mtext><mrow><mi mathvariant="italic">S</mi><mi mathvariant="italic">M</mi></mrow><mi>𝐵</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>M</mi><mi>i</mi><mi>n</mi><mi>u</mi><mi>t</mi><mi>e</mi><mi>s</mi></mrow><mrow><mn>60</mn></mrow></mfrac><mi>×</mi><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow></math></div>
+<details class="question">
+<summary>Bill's current basal rate is 2.0 units/hr. His <code>Max SMB Basal Minutes</code> is set to 30 minutes. What is the largest SMB he can receive?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mtext> </mtext><mrow><mi mathvariant="italic">S</mi><mi mathvariant="italic">M</mi></mrow><mi>𝐵</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>M</mi><mi>i</mi><mi>n</mi><mi>u</mi><mi>t</mi><mi>e</mi><mi>s</mi></mrow><mrow><mn>60</mn></mrow></mfrac><mi>×</mi><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's largest SMB:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>30</mn></mrow><mrow><mn>60</mn></mrow></mfrac><mi>×</mi><mn>2.0</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>×</mi><mn>2.0</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.0</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p class="changed-block" data-change="added-or-revised">The basal-minute cap in this example is <strong>1.0 unit per eligible SMB</strong> before other constraints. This does not guarantee delivery every five minutes.  </p>
+</details>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Increasing this value above 90 minutes may impact Trio's ability to effectively zero temp and prevent lows.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are entering carbs or bolusing for meals, your <strong>Max SMB Basal Minutes should be set <em>higher</em></strong> than your Max UAM Basal Minutes</p>
+</div>
+<hr/>
+<h2 id="max-uam-basal-minutes">Max UAM Basal Minutes</h2>
+<p class="changed-block" data-change="added-or-revised"><strong>Default:</strong> <em>30 minutes</em><br/>
+<strong>Setting Limits:</strong> <em>15-180 minutes (5-minute steps)</em></p>
+<p>If UAM is enabled, this setting limits the size of each UAM SMB. One UAM SMB can only be as large as this many minutes of your current profile basal rate.  </p>
+<p>To calculate the maximum UAM allowed based on this setting, use the following formula:  </p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mtext> </mtext><mi>U</mi><mi>A</mi><mi>M</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>M</mi><mi>i</mi><mi>n</mi><mi>u</mi><mi>t</mi><mi>e</mi><mi>s</mi></mrow><mrow><mn>60</mn></mrow></mfrac><mi>×</mi><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow></math></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Increasing this value above 90 minutes may impact Trio's ability to effectively zero temp and prevent lows.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are <strong>NOT</strong> entering carbs or bolusing for meals and using Trio as a Fully Closed Loop (FCL), your <strong>Max UAM Basal Minutes should be set <em>higher</em></strong> than your Max SMB Basal Minutes</p>
+</div>
+<hr/>
+<h2 id="max-allowed-glucose-rise-for-smb">Max Allowed Glucose Rise for SMB</h2>
+<p class="changed-block" data-change="added-or-revised"><strong>Default:</strong> <em>20%</em><br/>
+<strong>Setting Limits:</strong> <em>10%–40%</em></p>
+<p class="changed-block" data-change="added-or-revised">The 1.0.2 Swift dosing engine disables SMBs when <code>glucoseStatus.maxDelta &gt; min(configured fraction, 0.4) × current glucose</code>. Equality does not trigger this particular block. This is a comparison with current glucose and the computed maximum delta, not simply a percentage change divided by the previous glucose reading.</p>
+<p class="changed-block" data-change="added-or-revised">For example, if the computed maximum delta is 25 mg/dL and current glucose is 115 mg/dL, the default threshold is <code>0.2 × 115 = 23 mg/dL</code>. Because 25 exceeds 23, this check blocks SMB delivery on that determination. Passing this check alone does not promise a dose or a compensating high temporary basal; the rest of the determination still applies.</p>
+<h2 id="are-smbs-allowed">Are SMBs Allowed?</h2>
+<p align="center"><img alt="SMB-flow-chart" src="../../../../source/docs/configuration/settings/algorithm/img/smb_allowed_flowchart.jpeg"/></p>
+<h3 id="by-following-the-flow-chart-above-you-can-see-which-combination-of-settings-will-allow-smbs">By following the flow chart above, you can see which combination of settings will allow SMBs.</h3>
+<ul>
+<li>If a setting in the top row is toggled off, look at the next box to the right. If no box in the top row is toggled on, then SMBs will not be allowed. </li>
+<li>If any of the settings in the top row are toggled on and their condition is true, follow the green line down to the "Allow SMB with High Temptarget" box. </li>
+<li>If "Allow SMB with High Temptarget" is toggled on (NOT the default), then continue to follow the green line to the bottom conditions.</li>
+<li>If "Allow SMB with High Temptarget" is toggled off (which IS the default), it will then check if you've set a Temp Target (not a custom profile) above 100 mg/dL (5.5 mmol/L). If you have a Temp Target set above 100 mg/dL, then SMBs are DISABLED and not allowed.</li>
+</ul>
+<p>If you've made it to the bottom row, it checks all those conditions, and if none of them are true, then SMBs are allowed.</p>
+<h3 id="here-is-the-order-of-settings-trio-uses-when-deciding-whether-to-enable-or-disable-smbs">Here is the order of settings Trio uses when deciding whether to enable or disable SMBs:</h3>
+<ul>
+<li>Disable when a High Temptarget is set (unless "Allow SMB with High Temp Target" is enabled)</li>
+<li>Enable if "Enable SMB Always" is set (unless disabled for "High Temp Target")</li>
+<li>Enable while there are COB</li>
+<li>Enable for a full 6 hours after any carb entry</li>
+<li>Enable if a Low Temp Target is set</li>
+</ul>
+<h2 class="changed-block" data-change="added-or-revised" id="permission-uam-and-dose-cap-selection-in-102">Permission, UAM and dose-cap selection in 1.0.2</h2>
+<p class="changed-block" data-change="added-or-revised">Enabling UAM is not itself an SMB-enabling condition. The permission function first considers override/scheduled SMB blocks and high Temp Target restrictions, then the enabled SMB conditions (Always, COB, After Carbs, low Temp Target, and High Glucose). Later guard-glucose and maximum-delta checks can still block delivery.</p>
+<p class="changed-block" data-change="added-or-revised">The simplified basal-minute formula assumes the relevant current profile basal, no overriding SMB/UAM-minute setting and no extra override factor. The code selects the UAM-minute branch when current IOB is positive and exceeds meal COB divided by carb ratio; otherwise it uses the SMB-minute branch. Active advanced overrides can replace the minutes and scale the basal factor. The defaults remain 30 minutes for both settings; allowable picker limits are not a recommendation to increase a limit.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F03 — SMB and UAM basal-minute picker limits start at 15, not 30</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DecimalPickerSettings.swift#L88">Trio/Sources/Models/DecimalPickerSettings.swift:88</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F12 — UAM does not independently grant SMB permission; interval is not a delivery schedule</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18">Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:18</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840">Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:840</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720">Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:720</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/algorithm/smb-settings.md</span><span class="diff-line ">+++ updated/configuration/settings/algorithm/smb-settings.md</span><span class="diff-line ">@@ -108,7 +108,7 @@</span><span class="diff-line "> </span><span class="diff-line "> ## Max SMB Basal Minutes</span><span class="diff-line "> **Default:** _30 minutes_  </span><span class="diff-line diff-remove">-**Setting Limits:** _30-180 minutes_</span><span class="diff-line diff-add">+**Setting Limits:** _15-180 minutes (5-minute steps)_</span><span class="diff-line "> </span><span class="diff-line "> If any of the SMB options are enabled, this limit will apply to all SMBs except UAM SMBs. This is a limit on the size of a single SMB. One SMB can only be as large as this many minutes of your current profile basal rate.  </span><span class="diff-line "> </span><span class="diff-line ">@@ -141,7 +141,7 @@</span><span class="diff-line ">         $$</span><span class="diff-line ">         </span><span class="diff-line ">     ??? success &quot;Answer&quot;</span><span class="diff-line diff-remove">-        The largest SMB Bill can receive is **1.0 unit** every 5 minutes.  </span><span class="diff-line diff-add">+        The basal-minute cap in this example is **1.0 unit per eligible SMB** before other constraints. This does not guarantee delivery every five minutes.  </span><span class="diff-line "> </span><span class="diff-line "> </span><span class="diff-line "> !!! warning</span><span class="diff-line ">@@ -156,7 +156,7 @@</span><span class="diff-line "> </span><span class="diff-line "> ## Max UAM Basal Minutes</span><span class="diff-line "> **Default:** _30 minutes_  </span><span class="diff-line diff-remove">-**Setting Limits:** _30-180 minutes_</span><span class="diff-line diff-add">+**Setting Limits:** _15-180 minutes (5-minute steps)_</span><span class="diff-line "> </span><span class="diff-line "> If UAM is enabled, this setting limits the size of each UAM SMB. One UAM SMB can only be as large as this many minutes of your current profile basal rate.  </span><span class="diff-line "> </span><span class="diff-line ">@@ -178,56 +178,11 @@</span><span class="diff-line "> </span><span class="diff-line "> ## Max Allowed Glucose Rise for SMB</span><span class="diff-line "> **Default:** _20%_  </span><span class="diff-line diff-remove">-**Setting Limits:** _10%-40%_</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-This safety limiter looks at the difference between your last two blood glucose readings. If the difference is above this percent, Trio suspects them to be incorrect and will suspend all SMB delivery accordingly (including UAM). You can adjust the amount of change that should be allowed before SMBs are delivered.  </span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-??? question &quot;Bill&#x27;s last CGM reading was 90 mg/dL. The very next reading is 115 mg/dL. Will Bill receive the insulin needed as an SMB?&quot;</span><span class="diff-line diff-remove">-    </span><span class="diff-line diff-remove">-    ??? info &quot;Here are the formulas you&#x27;ll need:&quot;</span><span class="diff-line diff-remove">-        Rise Percentage:</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        \frac{Current\ Glucose - Previous\ Glucose}{Previous\ Glucose}</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-        Compare to Max Allowed Glucose Rise for SMB</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        Rise\ Percentage \gt \ or\ = \ or\ \lt Max\ Allowed\ Glucose\ Rise\ for\ \mathit{SM}\mathit{B}\ Setting</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-        **No SMB**: $\gt$  </span><span class="diff-line diff-remove">-        **Yes SMB**: $\lt$ or $=$</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-    ??? note &quot;Calculate if an SMB will be used:&quot;</span><span class="diff-line diff-remove">-    </span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        \frac{115-90}{90} =</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        \frac{25}{90} =</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        </span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        +0.28\ or\ +28\%</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-        His rise, or increase in glucose, is an increase of **_28%_**</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-        28\%\gt 20\% = No\ \mathit{SM}\mathit{B}s</span><span class="diff-line diff-remove">-        $$</span><span class="diff-line diff-remove">-    </span><span class="diff-line diff-remove">-    ??? success &quot;Answer&quot;</span><span class="diff-line diff-remove">-        This increase is larger than the threshold, so **no SMBs will be given**. Trio will administer needed insulin via temp basal adjustment.</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-!!! tip</span><span class="diff-line diff-remove">-    </span><span class="diff-line diff-remove">-    For Fully Closed Loop (FCL), 30% is advised.</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-- - -</span><span class="diff-line diff-add">+**Setting Limits:** _10%–40%_</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+The 1.0.2 Swift dosing engine disables SMBs when `glucoseStatus.maxDelta &gt; min(configured fraction, 0.4) × current glucose`. Equality does not trigger this particular block. This is a comparison with current glucose and the computed maximum delta, not simply a percentage change divided by the previous glucose reading.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+For example, if the computed maximum delta is 25 mg/dL and current glucose is 115 mg/dL, the default threshold is `0.2 × 115 = 23 mg/dL`. Because 25 exceeds 23, this check blocks SMB delivery on that determination. Passing this check alone does not promise a dose or a compensating high temporary basal; the rest of the determination still applies.</span><span class="diff-line "> </span><span class="diff-line "> ## Are SMBs Allowed?</span><span class="diff-line "> </span><span class="diff-line ">@@ -252,3 +207,20 @@</span><span class="diff-line "> - Enable if a Low Temp Target is set</span><span class="diff-line "> </span><span class="diff-line "> </span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Permission, UAM and dose-cap selection in 1.0.2</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Enabling UAM is not itself an SMB-enabling condition. The permission function first considers override/scheduled SMB blocks and high Temp Target restrictions, then the enabled SMB conditions (Always, COB, After Carbs, low Temp Target, and High Glucose). Later guard-glucose and maximum-delta checks can still block delivery.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+The simplified basal-minute formula assumes the relevant current profile basal, no overriding SMB/UAM-minute setting and no extra override factor. The code selects the UAM-minute branch when current IOB is positive and exceeds meal COB divided by carb ratio; otherwise it uses the SMB-minute branch. Active advanced overrides can replace the minutes and scale the basal factor. The defaults remain 30 minutes for both settings; allowable picker limits are not a recommendation to increase a limit.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F03 — SMB and UAM basal-minute picker limits start at 15, not 30**</span><span class="diff-line diff-add">+    - [Trio/Sources/Models/DecimalPickerSettings.swift:88](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DecimalPickerSettings.swift#L88)</span><span class="diff-line diff-add">+- **F12 — UAM does not independently grant SMB permission; interval is not a delivery schedule**</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:18](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:840](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:720](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

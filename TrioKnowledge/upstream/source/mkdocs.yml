@@ -1,0 +1,344 @@
+# Project information
+site_name: TrioDocs
+site_description: Documentation of Trio, an Automated Insulin Delivery system for iOS.
+site_url: https://triodocs.org/
+site_author: Trio Community
+use_directory_urls: !ENV [CHECK_BROKEN_LINKS, True]
+
+# GitHub Repository
+repo_name: nightscout/trio-docs
+repo_url: https://github.com/nightscout/trio-docs/
+edit_uri: edit/dev/docs/
+
+copyright: Trio Community
+
+theme:
+  name: material
+  language: en
+  custom_dir: overrides
+  logo: assets/images/trio-logo.png
+  favicon: assets/images/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: deep purple
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: light blue
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to auto (use System Preferences)
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+
+plugins:
+  - redirects:
+      redirect_maps:
+        "startup-guide.md": "configuration/new-user-setup.md"
+        "startup-guide/index.md": "configuration/new-user-setup.md"
+  - open-in-new-tab
+  - macros
+  - exporter:
+      formats:
+        pdf:
+          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
+          concurrency: 16
+          stylesheets:
+            - docs/assets/stylesheets/pdf.scss
+          covers:
+            front: docs/assets/templates/covers/front.html.j2
+            # back: docs/assets/templates/covers/back.html.j2
+          aggregator:
+            enabled: true
+            output: trio-docs.pdf
+            covers: limits
+      buttons:
+        - title: Download Page as PDF
+          icon: material-file-download-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
+  - glightbox:
+      zoomable: false
+      skip_classes:
+        - skip-lightbox
+  - htmlproofer:
+      enabled: !ENV [CHECK_BROKEN_LINKS, False]
+      raise_error_after_finish: true
+  - include-markdown:
+      start: <!--include-markdown-start-->
+      end: <!--include-markdown-end-->
+  - unused_files:
+      enabled: !ENV [CHECK_UNUSED_FILES, False]
+      strict: true
+      excluded_files:
+        - back.html.j2
+        - background.png
+        - bolus-entry-dynamic-graph.mp4
+        - CNAME
+        - .DS_Store
+        - extra.css
+        - favicon.ico
+        - front.html.j2
+        - .keep
+        - mathjax.js
+        - mkdocs-exporter.js
+        - pdf.scss
+        - primary_color.css
+        - trio-docs.pdf
+        - trio-intro.mp4
+        - trio-phone-mockup.mp4
+  - search
+
+extra_css:
+  - assets/stylesheets/primary_color.css
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/disable-instant-if-translated.js
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/mkdocs-exporter.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js
+
+# Customizations
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/nightscout/Trio
+      name: Trio on GitHub
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/FnwFEFUwXE
+      name: Trio on Discord
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/groups/diytrio
+      name: Trio on Facebook
+  version: 0.4.0
+
+watch:
+  - includes
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:
+      auto_append:
+        - includes/glossary.txt
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Link to this section for reference
+      title: On this Page
+      toc_depth: 3
+
+exclude_docs: |
+  /includes/
+
+not_in_nav: |
+  0.2.x/Analyze/EvaluateBasal.md
+  0.2.x/Analyze/EvaluateCR.md
+  0.2.x/configuration/Configure.md
+  0.2.x/Getting-Started/cgm.md
+  0.2.x/settings/loop.md
+  0.2.x/settings/configuration/preferences/statistics.md
+  0.2.x/settings/devices/pump.md
+  configuration/transition-qa.md
+  install/customize.md
+  resources/citations.md
+
+# Navigation (Page tree)
+nav:
+  - index.md
+  # - Overview:
+  #- Use Cases ✏️: overview/use_cases.md
+  #- Comparison with Other Systems ✏️: overview/comparison.md
+  #- Advantages ✏️: overview/advantages.md
+  #- Disadvantages ✏️: overview/disadvantages.md
+  #- Safety ✏️: overview/safety.md
+  - Usage:
+      - usage/index.md
+      - User Interface: usage/interface.md
+      - Core Concepts:
+          - usage/concepts/index.md
+          - Basal Rates: usage/concepts/basal-rates.md
+          - Insulin Sensitivities: usage/concepts/isf.md
+          - Carb Ratios: usage/concepts/carb-ratios.md
+      - Features:
+          - usage/features/index.md
+          - Overrides: usage/features/overrides.md
+          - Temporary Targets: usage/features/temp-targets.md
+          - Statistics: usage/features/statistics.md
+          - Bolus Calculator: usage/features/bolus-calculator.md
+          - Using Dynamic ISF: usage/features/dynamic-isf.md
+  - Installation and Update:
+      - install/index.md
+      - Requirements:
+          - Compatible Devices:
+              - install/build/requirements/devices/index.md
+              - Insulin Pump: install/build/requirements/devices/pump.md
+              - CGM: install/build/requirements/devices/cgm.md
+              - iPhone: install/build/requirements/devices/iphone.md
+              - Mac: install/build/requirements/devices/mac.md # TODO
+              - Compatibility Matrix: install/build/requirements/devices/compatibility-matrix.md # TODO
+          - Apple Developer Account: install/build/requirements/apple-developer.md
+      - Build:
+          - Build with Browser:
+              - Browser Build Overview: install/build/browser/browser-build-overview.md
+              - Secrets Introduction: install/build/browser/intro-secrets.md
+              - Create GitHub Account: install/build/browser/create-github-account.md
+              - Apple Secrets: install/build/browser/apple-secrets.md
+              - Fork and Prepare your Trio Repository: install/build/browser/fork-prepare-repo.md
+              - GitHub Actions:
+                  - Validate Secrets: install/build/browser/actions/validate-secrets.md
+                  - Add Identifiers: install/build/browser/actions/add-identifiers.md
+                  - Prepare App: install/build/browser/actions/prepare-app.md
+                  - Prepare TestFlight: install/build/browser/actions/prepare-testflight.md
+                  - Create Certificates: install/build/browser/actions/generate-certificates.md
+                  - Build the App: install/build/browser/actions/build-app.md
+              - Install Trio from TestFlight: install/build/browser/install-from-testflight.md
+              - Browser Build Errors: install/build/browser/browser-build-errors.md
+              - Customizations: install/build/browser/browser-customizations.md
+              - Update with Browser: install/build/browser/browser-update.md
+              - Build Dev with Browser: install/build/browser/build-dev-with-browser.md
+          - Build with Mac:
+              - Mac Build Overview: install/build/mac/overview.md
+              - Prepare your Computer: install/build/mac/computer.md
+              - Prepare your iPhone: install/build/mac/iphone.md
+              - Set Up Xcode: install/build/mac/xcode-setup.md
+              - Build Trio with Xcode: install/build/mac/build.md
+              - Build Errors: install/build/mac/build-errors.md
+              - Update Trio with Xcode: install/build/mac/update.md
+      - Upgrade: install/upgrade.md
+      - Return to the Released Version: install/return-to-main.md
+      - Companion Apps:
+          - install/ecosystem/index.md
+          - Nightscout: install/ecosystem/nightscout-app.md
+          - LoopFollow: install/ecosystem/loop-follow.md
+          - xDrip4iOS: install/ecosystem/xdrip4ios.md
+  - Configuration:
+      - configuration/index.md
+      - Startup Guides:
+          - New User Setup Guide: configuration/new-user-setup.md
+          - Migration Guides:
+              - configuration/migration/index.md
+              - Migrating from Trio 0.2.x: configuration/migration/trio-02x-migration.md
+              - Migrating from iAPS: configuration/migration/iaps-migration.md
+              - Migrating from Loop: configuration/migration/loop-migration.md
+              - Migrating from AndroidAPS: configuration/migration/aaps-migration.md
+      - Trio Settings:
+          - configuration/settings/index.md
+          - Devices:
+              - configuration/settings/devices/index.md
+              - Insulin Pump: configuration/settings/devices/pump.md
+              - Continuous Glucose Monitor: configuration/settings/devices/cgm.md
+              - Smart Watch: configuration/settings/devices/smart-watch.md
+          - Therapy:
+              - configuration/settings/therapy/index.md
+              - Units and Limits: configuration/settings/therapy/units-limits.md
+              - Glucose Targets: configuration/settings/therapy/glucose-targets.md
+              - Basal Rates: configuration/settings/therapy/basal-rates.md
+              - Carb Ratios: configuration/settings/therapy/carb-ratios.md
+              - Insulin Sensitivities: configuration/settings/therapy/isf.md
+          - Algorithm:
+              - configuration/settings/algorithm/index.md
+              - Autosens: configuration/settings/algorithm/autosens.md
+              - Super Micro Bolus (SMB): configuration/settings/algorithm/smb-settings.md
+              - Dynamic Settings: configuration/settings/algorithm/dynamic-settings.md
+              - Target Behavior: configuration/settings/algorithm/target-behavior.md
+              - Additionals: configuration/settings/algorithm/additionals.md
+          - Features:
+              - configuration/settings/features/index.md
+              - Bolus Calculator: configuration/settings/features/bolus-calculator.md
+              - Meal Settings: configuration/settings/features/meal-settings.md
+              - Shortcuts: configuration/settings/features/shortcuts.md
+              - Remote Control: configuration/settings/features/remote-control.md
+              - User Interface: configuration/settings/features/user-interface.md
+              - App Icons: configuration/settings/features/app-icons.md
+              - App Diagnostics ✏️: configuration/settings/features/app-diagnostics.md
+          - Notifications:
+              - configuration/settings/notifications/index.md
+              - Trio Notifications: configuration/settings/notifications/trio-notifications.md
+              - Live Activity: configuration/settings/notifications/live-activity.md
+              - Calendar Events: configuration/settings/notifications/calendar-events.md
+          - Services ✏️:
+              - configuration/settings/services/index.md
+              - Nightscout ✏️: configuration/settings/services/nightscout.md
+              - Tidepool ✏️: configuration/settings/services/tidepool.md
+              - Apple Health ✏️: configuration/settings/services/apple-health.md
+          - Closing The Loop: configuration/settings/closed-loop.md
+
+  - Help:
+      - help/index.md
+      - FAQs: help/faq.md
+      - Safety ✏️: help/safety.md
+      - Glossary: help/glossary.md
+      - Troubleshooting ✏️: help/troubleshoot.md
+      - Share Logs: help/share-logs.md
+      - Submit an Issue: https://github.com/nightscout/trio-docs/issues/new/choose
+      - Translate ✏️: help/translate.md
+      - Support Communities:
+          - Facebook: https://facebook.triodocs.org
+          - Discord: https://discord.triodocs.org

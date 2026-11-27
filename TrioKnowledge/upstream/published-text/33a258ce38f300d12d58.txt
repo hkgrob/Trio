@@ -1,0 +1,1 @@
+Complete instructions are found at this link for those comfortable with using GitHub and navigating the Apple Developer and Apple App Connect pages.  Using GitHub Actions + FastLane to deploy to TestFlight 

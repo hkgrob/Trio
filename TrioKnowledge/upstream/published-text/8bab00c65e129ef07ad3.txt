@@ -1,0 +1,1 @@
+ Fetch Active Targets: Trio retrieves all currently active temp targets Create End Records: For each active temp target, Trio creates a TempTargetRunStored record marking it as ended Disable All: All active temp targets are marked as disabled Sync to Nightscout: Changes are uploaded UI Update: Trio interface updates to show no active temp targets 

@@ -1,0 +1,1 @@
+Welcome to the New User Setup Guide and congratulations on a successful Trio build! This guide walks you through how to set up your Trio app once you have installed it on your phone.   If you still need to install the app, head to the Build Instructions for Mac or Browser and come back here when you are ready to start the setup process!

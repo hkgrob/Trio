@@ -1,0 +1,1 @@
+In order to build using the Browser Build method, you will need to collect and save six secrets from your free GitHub account and your paid Apple Developer account.

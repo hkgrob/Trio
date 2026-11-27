@@ -1,0 +1,1 @@
+Trio's Statistics feature provides comprehensive data analysis and visualization of your diabetes management metrics. View detailed glucose patterns, insulin usage, loop performance, and meal data across multiple time periods. 

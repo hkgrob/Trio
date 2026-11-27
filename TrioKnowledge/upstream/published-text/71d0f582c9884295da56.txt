@@ -1,0 +1,1 @@
+When you start on Trio, you will notice there are significantly more settings than in Loop. A few can be manually added. Below are the settings that are in both Loop and Trio as well as where to locate them in each app.

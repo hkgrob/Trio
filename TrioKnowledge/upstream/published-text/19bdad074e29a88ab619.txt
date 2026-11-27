@@ -1,0 +1,1 @@
+ If you do not have a dev branch you must first configure one following these directions. If you already have a dev branch, skip ahead to Update Branch and be sure to select the dev branch when you update your fork.  

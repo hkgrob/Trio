@@ -1,0 +1,158 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Using Dynamic ISF · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../index.html">All documents</a><a href="../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../source/docs/usage/features/dynamic-isf.md">Updated Markdown</a><a href="../../../../upstream/source/docs/usage/features/dynamic-isf.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="using-dynamic-isf">Using Dynamic ISF</h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li>The images used are hypothetical graphs. Where the lines and values actually fall for you rely heavily on <em>your</em> personal settings. The focus of these illustrations is to show what shifts rather than what values will be used for your specific settings.</li>
+<li>The blue line in these images shows what ISF is used (Y-axis) when your glucose is at a certain value (X-Axis). Each point on the graph (X,Y) means at a glucose of "X", an ISF of "Y" is used.</li>
+<li>The orange shaded area is what portions of that blue line Trio is allowed to use. The lower orange line is the ISF determined by your Autosens Maximum and the upper orange line is the ISF determined by your Autosens Minimum. Trio cannot use any values outside of the orange shaded area.</li>
+</ul>
+</div>
+<h2 id="logarithmic-dynamic-isf">Logarithmic Dynamic ISF</h2>
+<p>If you've spent any time in the <a href="../../configuration/settings/algorithm/dynamic-settings.html#logarithmic-desmos-graphs">Desmos Graphs</a>, you may have noticed certain adjustments do not have the impact you'd expect. Below are a few that you should know about:</p>
+<h3 id="profile-isf">Profile ISF</h3>
+<ul>
+<li>Your profile ISF is not directly used to determine your ISF when Logarithmic Dynamic ISF is enabled. It influences the limits of what ISF is allowed.</li>
+<li>Adjusting your profile ISF when using Logarithmic Dynamic ISF will not have a direct impact on your sensitivity calculations. It will only have an impact on the Maximum and Minimum values allowed.</li>
+</ul>
+<p align="center"><img alt="ISF of 54" src="../../../source/docs/usage/img/isf_54.png" width="250"/>
+<img alt="ISF of 80" src="../../../source/docs/usage/img/isf_80.png" width="250"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Profile ISF Tip</p>
+<ul>
+<li>This is why the Desmos graphs are invaluable whenever adjustments are needed with Logarithmic Dynamic ISF.</li>
+</ul>
+</div>
+<h3 id="adjustment-factor">Adjustment Factor</h3>
+<ul>
+<li>Changing your <a href="../../configuration/settings/algorithm/dynamic-settings.html#adjustment-factor-logarithmic">Adjustment Factor</a> will have a huge impact on what sensitivity ratio and thus what ISF is used.</li>
+<li>It is strongly advised to enter any planned changes to Adjustment Factor into the <a href="../../configuration/settings/algorithm/dynamic-settings.html#logarithmic-desmos-graphs">Desmos Graph</a> before changing it in your settings.</li>
+</ul>
+<p>Notice how the graph shifts towards (0,0) to increase the rate of change as Adjustment Factor increases. While this does increase how fast ISF adjusts, if Autosens Maximum and Autosens Minimum aren't also adjusted, it can have the unintended consequence of always using a much too high or much too low ISF.</p>
+<p align="center"><img alt="AF of 40" src="../../../source/docs/usage/img/af_40.png" width="200"/>
+<img alt="AF of 80" src="../../../source/docs/usage/img/af_80.png" width="200"/>
+<img alt="AF of 180" src="../../../source/docs/usage/img/af_180.png" width="200"/></p>
+<h3 id="using-overrides-with-logarithmic-dynamic-isf">Using Overrides With Logarithmic Dynamic ISF</h3>
+<p>Overrides change your profile settings before they are sent to the Oref algorithm for adaptation. As noted above, because Logarithmic Dynamic ISF does not utilize your profile ISF for the sensitivity calculation, adjusting your profile ISF using an override will not have a significant impact on your dosage calculations. For this reason, it is advised to use <a href="temp-targets.html">Temp Targets</a> instead of or in conjunction with Overrides when using Logarithmic Dynamic ISF.</p>
+<div class="admonition question">
+<p class="admonition-title">What effect will using a &gt;100% Override have on Logarithmic Dynamic ISF?</p>
+<p>If you start with a Profile ISF of 50 mg/dL/U and set an override of 150%, this will change your Profile ISF to 33 mg/dL/U.</p>
+<p>Notice how the calculated ISF line does not change with this adjustment to the Profile ISF, only the limits of what section of the curve are allowed. It shifts the limits to only allow the lower ISF portions of the graph, meaning the ISF allowable range will be 27-47 mg/dL/U and the adjustments stop at 47 mg/dL/U if glucose is reading below than 126 mg/dL.</p>
+<p align="center"><img alt="ISF of 50" src="../../../source/docs/usage/img/isf_50.png" width="250"/>
+<img alt="ISF of 33" src="../../../source/docs/usage/img/isf_33.png" width="250"/></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">What effect will using a &lt;100% Override have on Logarithmic Dynamic ISF?</p>
+<p>If you start with a Profile ISF of 50 mg/dL/U and set an override of 70%, this will change your Profile ISF to 71 mg/dL/U.</p>
+<p>Notice how the calculated ISF line does not change with this adjustment to the Profile ISF, only the limits of what section of the curve are allowed. It shifts the limits to only allow the higher ISF portions of the graph, meaning the ISF allowable range will be 59-100 mg/dL/U and the adjustments are capped if glucose is reading higher than 87 mg/dL.</p>
+<p align="center"><img alt="ISF of 50" src="../../../source/docs/usage/img/isf_50.png" width="250"/>
+<img alt="ISF of 71" src="../../../source/docs/usage/img/isf_71.png" width="250"/></p>
+</div>
+<h3 id="using-temp-targets-with-logarithmic-dynamic-isf">Using Temp Targets With Logarithmic Dynamic ISF</h3>
+<p>When you utilize a Temp Target AND have <a href="../../configuration/settings/algorithm/target-behavior.html">Target Behavior</a> settings enabled, this will disable Logarithmic Dynamic ISF and utilize a <a href="../../configuration/settings/algorithm/target-behavior.html#half-basal-exercise-target">new formula</a> for your sensitivity ratio.</p>
+<div class="admonition tip">
+<p class="admonition-title">Temp Targets Tips</p>
+<ul>
+<li>
+<p>Worth noting that your Autosens Maximum and Autosens Minimum are still respected when this is utilized.</p>
+</li>
+<li>
+<p>If setting a Temp Target adjusts your Sensitivity Ratio to 60%, but your Autosens Minimum is 70%, the Autosens Minimum will be used.</p>
+</li>
+</ul>
+</div>
+<h3 id="using-both-overrides-and-temp-targets-with-logarithmic-dynamic-isf">Using Both Overrides and Temp Targets with Logarithmic Dynamic ISF</h3>
+<p>Yes, you can enable both an Override and a Temp Target at the same time. When you do, Trio will first adjust your profile settings based on the Override set, then those profile settings will be sent to the Oref algorithm for the Sensitivity Ratio and insulin required calculations. The <a href="../../configuration/settings/algorithm/target-behavior.html">Target Behavior</a> settings will influence the Sensitivity Ratio used as explained above. Your other override-adjusted profile settings will then be utilized to determine the next insulin dosing decision.</p>
+<h3 id="influence-of-total-daily-dose-on-logarithmic-dynamic-isf">Influence of Total Daily Dose on Logarithmic Dynamic ISF</h3>
+<p>It's not unheard of for there to be occasions when your daily insulin use can change drastically. It can increase significantly if you need a dose of steroids or are coming down with an illness. It can decrease significantly if you start a new exercise regimine. It's important to know how those changes will influence Trio's calculation in Logarithmic Dynamic ISF.</p>
+<p>Using a Total Daily Dose (TDD) of 40 units as a baseline, you can see how this changes the ISF calculations when TDD is halved (20 units) or doubled (80 units).</p>
+<p align="center"><img alt="TDD Decrease" src="../../../source/docs/usage/img/tdd_20.png" width="200"/>
+<img alt="TDD Baseline" src="../../../source/docs/usage/img/tdd_40.png" width="200"/>
+<img alt="TDD Increase" src="../../../source/docs/usage/img/tdd_80.png" width="200"/></p>
+<div class="admonition tip">
+<p class="admonition-title">TDD &amp; Logarithmic Tip</p>
+<ul>
+<li>You may want to temporarily adjust your Autosens Minimum or Maximum if you notice a significant change in your TDD.</li>
+<li>Before making changes, remember to check them in the <a href="../../configuration/settings/algorithm/dynamic-settings.html#logarithmic-desmos-graphs">Desmos Graph</a> to ensure your new insulin needs are being met.</li>
+</ul>
+</div>
+<hr/>
+<h2 id="sigmoid-dynamic-isf">Sigmoid Dynamic ISF</h2>
+<h3 id="profile-isf_1">Profile ISF</h3>
+<p>When you make changes to your Profile ISF, either as a profile setting change or through an Override, it will shift your Sigmoid Dynamic ISF curve to ensure your Profile ISF is always used when you are at your target glucose.</p>
+<p align="center"><img alt="ISF Decrease" src="../../../source/docs/usage/img/sig_isf_50.png" width="200"/>
+<img alt="ISF Baseline" src="../../../source/docs/usage/img/sig_isf_70.png" width="200"/>
+<img alt="ISF Increase" src="../../../source/docs/usage/img/sig_isf_100.png" width="200"/></p>
+<p>Though it can also shift how steep the curve is, and thus how quickly and to what degree adjustments change, changing your ISF should be done with caution and not as a means to change the curve. Rather, adjusting your <a href="../../configuration/settings/algorithm/dynamic-settings.html#sigmoid-adjustment-factor">Adjustment Factor</a> is the preferred way to adjust how quickly values adjust.</p>
+<div class="admonition tip">
+<p class="admonition-title">Profile ISF Tips</p>
+<ul>
+<li>
+<p>If you have tested your ISF at a glucose of 150 mg/dL (8.3 mmol/L) or greater, you may find your Profile ISF is too strong when you enable Sigmoid especially if your target glucose is 100 mg/dL (5.5 mmol/L) or lower.</p>
+</li>
+<li>
+<p>To resolve this, you can either increase your target glucose to 150 mg/dL (8.3 mmol/L) or increase your Profile ISF to account for the difference.</p>
+</li>
+</ul>
+</div>
+<h3 id="autosens-maximum">Autosens Maximum</h3>
+<p>Increasing your Autosens Maximum has the expected effect of raising the percentage in which ISF can be adjusted when using Sigmoid Dynamic ISF. What may not be as expected is the steepness of the curve also changes. If you increase your Autosens Maximum with Sigmoid, you'll see the maximum sensitivity ratio increase and also the speed and amount of ISF changes getting greater.</p>
+<p align="center"><img alt="Autosens Max Baseline" src="../../../source/docs/usage/img/sig_asmax_120.png" width="250"/>
+<img alt="Autosens Max Increase" src="../../../source/docs/usage/img/sig_asmax_180.png" width="250"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Autosens Maximum Tip</p>
+<ul>
+<li>If you want to avoid the steepness of the curve increasing while increasing your Autosens Max, reduce your Adjustment Factor to counter this effect.</li>
+</ul>
+</div>
+<h3 id="autosens-minimum">Autosens Minimum</h3>
+<p>Decreasing your Autosens Minimum has the expected effect of lowering the percentage in which ISF can be adjusted when using Sigmoid Dynamic ISF. The same way that Autosens Maximum will change the steepness of the curve, adjusting Autosens Minimum will have the same effect.</p>
+<p>Notice how Sigmoid is still locked at your Profile ISF being used when glucose is at target? And notice how there's a significant amount of empty space at the top of the orange section in the 50% graph? This means that lowering your Autosens Minimum may not actually lower the adjustments allowed to the extent that you hope, but the only noticeable result may be the curve becoming steeper.</p>
+<p align="center"><img alt="Autosens Min Baseline" src="../../../source/docs/usage/img/sig_asmin_70.png" width="250"/>
+<img alt="Autosens Min Decrease" src="../../../source/docs/usage/img/sig_asmin_50.png" width="250"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Autosens Minimum Tips</p>
+<ul>
+<li>
+<p>Check your planned adjustment in the <a href="../../configuration/settings/algorithm/dynamic-settings.html#sigmoid-desmos-graphs">Sigmoid Desmos Graph</a> to ensure it's having the intended result.</p>
+</li>
+<li>
+<p>If you are looking to decrease Autosens Min because of lows, the issue may be with your <a href="#profile-isf_1">Profile ISF setting</a>.</p>
+</li>
+</ul>
+</div>
+<h3 id="adjustment-factor_1">Adjustment Factor</h3>
+<p>When using Sigmoid, increasing your Adjustment Factor will cause your sensitivity ratio to increase and decrease at a faster pace as your glucose rises and falls.</p>
+<p>You can see in the graphs below how the curve gets steeper as the Adjustment Factor increases.</p>
+<p align="center"><img alt="Adjustment Factor Decrease" src="../../../source/docs/usage/img/sig_af_30.png" width="200"/>
+<img alt="Adjustment Factor Baseline" src="../../../source/docs/usage/img/sig_af_50.png" width="200"/>
+<img alt="Adjustment Factor Increase" src="../../../source/docs/usage/img/sig_af_80.png" width="200"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Sigmoid Adjustment Factor Tips</p>
+<ul>
+<li>If you need Sigmoid to respond faster, increase the Adjustment Factor.</li>
+<li>If you need Sigmoid to respond slower, decrease the Adjustment Factor.</li>
+<li>This is a fine tuning tool, and should be adjusted only after your core settings have been established as accurate.</li>
+</ul>
+</div>
+<h3 id="target-glucose">Target Glucose</h3>
+<p>Changing your Target Glucose either with an Override, Temp Target, or profile Target change, shifts the Sigmoid graph so that your Profile ISF is used at the new Glucose Target set.</p>
+<p align="center"><img alt="Target Glucose Baseline" src="../../../source/docs/usage/img/sig_target_100.png" width="250"/>
+<img alt="Target Glucose Increase" src="../../../source/docs/usage/img/sig_target_150.png" width="250"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Target Glucose Tip</p>
+<ul>
+<li>Be aware that if you make a drastic change your Profile Target Glucose while using Sigmoid, you may find that your ISF suddenly seems too weak or too strong. Watch for a few days to ensure you don't need to increase or decrease your ISF to match the new Glucose Target.</li>
+</ul>
+</div>
+<h3 id="influence-of-total-daily-dose-on-sigmoid-dynamic-isf">Influence of Total Daily Dose on Sigmoid Dynamic ISF</h3>
+<p>It's not unheard of for there to be occasions when your daily insulin use can change drastically. It can increase significantly if you need a dose of steroids or are coming down with an illness. It can decrease significantly if you start a new exercise regimine. While this has a big impact on Logarithmic Dynamic ISF, it does not have as much of an impact on Sigmoid Dynamic ISF.</p>
+<p>In the graphs below, you can see how the graph changes, but not by much as the Total Daily Dose (TDD) of 50 units is halved to 25 or doubled to 100 units. It does cause the steepness of the curve, thus the response time to adjust accordingly. It slows with a lower TDD and speeds up with a higher TDD.</p>
+<p align="center"><img alt="TDD Decrease" src="../../../source/docs/usage/img/sig_tdd_25.png" width="200"/>
+<img alt="TDD Baseline" src="../../../source/docs/usage/img/sig_tdd_50.png" width="200"/>
+<img alt="TDD Increase" src="../../../source/docs/usage/img/sig_tdd_100.png" width="200"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Sigmoid &amp; TDD Tip</p>
+<ul>
+<li>Most likely you won't need to make any adjustments to Sigmoid if you have a sudden increase or decrease in TDD.</li>
+</ul>
+</div></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

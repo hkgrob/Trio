@@ -1,0 +1,1 @@
+Default: 70 mg/dL (3.9 mmol/L) The lower value of your displayed glucose target range.  

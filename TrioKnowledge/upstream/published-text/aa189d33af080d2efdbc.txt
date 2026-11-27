@@ -1,0 +1,1 @@
+ Open LoopFollow and tap the Remote Control button Select "Start Override" from the command options Select the override preset from the dropdown (must match a preset name in Trio) Tap "Send" to transmit the command 

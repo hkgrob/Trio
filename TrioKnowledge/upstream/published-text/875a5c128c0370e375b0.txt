@@ -1,0 +1,1 @@
+ High Temp Targets (>100 mg/dL): Increases effective ISF (less aggressive insulin delivery) Low Temp Targets (<100 mg/dL): Decreases effective ISF (more aggressive insulin delivery) Half Basal Exercise Target: Default 160 mg/dL; affects ISF scaling during exercise targets Temp Target Behavior settings will replace the Autosens or Dynamic Ratio calculations when enabled. 

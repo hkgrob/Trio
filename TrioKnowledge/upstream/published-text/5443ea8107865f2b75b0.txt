@@ -1,0 +1,1 @@
+If you want to test again in the future, follow Build Dev with Browser or select the dev branch in the Build Select Script when building with Xcode.

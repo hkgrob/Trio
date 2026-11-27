@@ -1,0 +1,1 @@
+Highlights  Basal rates define your background insulin delivery throughout the day Different basal rates can be set for different times of day (up to 48 entries with 30-minute intervals) Trio uses your basal profile as a baseline but adjusts it every loop cycle based on your current glucose Accurate basal rates are crucial for correct insulin on board (IOB) calculations 

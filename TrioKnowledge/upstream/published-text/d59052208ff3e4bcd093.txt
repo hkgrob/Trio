@@ -1,0 +1,1 @@
+ Exercise: Activate exercise mode remotely before/during physical activity Illness: Switch to sick day settings when user is unwell Travel: Adjust settings for time zone changes or schedule disruptions Stress: Modify insulin delivery during stressful periods Menstrual Cycle: Adjust for hormonal changes Cancel: Return to normal settings anytime 

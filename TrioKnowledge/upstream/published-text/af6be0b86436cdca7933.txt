@@ -1,0 +1,1 @@
+Both provide estimates of your average glucose management:  eA1c: Calculated from average glucose using the ADAG formula GMI: Similar calculation, recommended by international consensus  These are estimates based on CGM data, not laboratory A1c measurements. They correlate well but may differ from lab results.

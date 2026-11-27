@@ -1,0 +1,1 @@
+Detailed breakdown of bolus insulin types:  Manual bolus totals SMB totals External insulin totals Average bolus amounts per period  Use this to understand:  How much insulin comes from automatic vs. manual delivery SMB effectiveness and contribution to total insulin Bolus patterns over time 

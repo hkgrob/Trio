@@ -1,0 +1,1 @@
+Trio supports two tighter TIR calculation methods:

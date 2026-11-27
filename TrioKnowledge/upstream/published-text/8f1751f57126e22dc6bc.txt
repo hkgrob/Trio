@@ -1,0 +1,1 @@
+Default: 90g Setting Limits: 0-200g In combination with the previous setting, Trio will limit the number of carbs that can remain in reserve for future carb absorption. This setting is the maximum grams of carbs that can be held over the 4 hours following a meal entry.

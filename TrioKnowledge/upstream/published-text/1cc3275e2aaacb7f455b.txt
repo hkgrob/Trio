@@ -1,0 +1,1 @@
+Symptoms:  Persistent high glucose despite corrections Slow return to target Insufficient SMB delivery  Solution:   Test your ISF Autosens or Sigmoid Dynamic ISF: Decrease your profile ISF value (make it more aggressive) Logarithmic Dynamic ISF: Re-evaluate your Adjustment Factor and other Dynamic Settings using the desmos graphs 

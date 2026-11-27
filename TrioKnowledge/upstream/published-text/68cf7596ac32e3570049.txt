@@ -1,0 +1,1 @@
+As long as nothing is published in Garmin Connect IQ, every Garmin watch needs to be individually compiled. You can do this yourself using VS Code with the monkeyC plugin and a Garmin SDK. If not, see the link below for the released watches.

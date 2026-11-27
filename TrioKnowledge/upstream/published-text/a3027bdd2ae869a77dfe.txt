@@ -1,0 +1,1 @@
+Xcode is a free application for Apple computers. You will use Xcode to turn the "raw" Trio source code into an iOS application and install it onto your iPhone. Which version of Xcode you install on your computer depends on the iOS version you have on the iPhone you will be installing Trio on and the macOS version you have on your computer. 

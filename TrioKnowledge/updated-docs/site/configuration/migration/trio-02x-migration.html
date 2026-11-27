@@ -1,0 +1,641 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coming from Trio 0.2.x · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../index.html">All documents</a><a href="../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../source/docs/configuration/migration/trio-02x-migration.md">Updated Markdown</a><a href="../../../../upstream/source/docs/configuration/migration/trio-02x-migration.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="coming-from-trio-02x">Coming from Trio 0.2.x</h1>
+<div class="admonition danger">
+<p class="admonition-title">Please Read This Page <strong>BEFORE</strong> Updating</p>
+<p>Do not update without reading this documentation or you risk finding many unexpected changes that can easily be resolved with prior planning.</p>
+</div>
+<!--    
+!!! tip "Browser Build Users"
+    Automatic builds for Browser Builders are disabled when updating from 0.2 to 0.7.
+    You will have to...
+
+    - manually update your fork of the Trio Main branch
+    - manually run Action 4: Build in the workflow
+-->
+<h2 id="what-to-expect-after-install">What to Expect After Install</h2>
+<ul>
+<li><strong>Brand New Interface</strong><br/>
+    A completely redesigned UI across the app, including the Watch app — clean, modern, and easier to use. Learn more in the <a href="../../usage/interface.html">User Interface Walk-Through</a>.</li>
+<li><strong>All-New Onboarding</strong><br/>
+    Step-by-step setup for new and returning users with smart defaults and safety checks. <strong><em>All users</em> will need to complete the new Onboarding Wizard after upgrading</strong>. Learn more in the <a href="../new-user-setup.html">New User Setup Guide</a>.</li>
+<li><strong>Rewritten Backend &amp; Data Storage</strong><br/>
+    Entire app logic and data storage rewritten for speed, stability, and future flexibility.</li>
+<li><strong>Remote Commands &amp; iOS Shortcuts</strong><br/>
+    Trigger actions like carb entry, bolus, overrides or temporary targets <a href="../settings/features/remote-control.html">remotely</a> or through <a href="../settings/features/shortcuts.html">shortcut automation</a>.</li>
+<li><strong>Smarter Settings</strong><br/>
+    Helpful hints, guidance sheets, and a built-in search function — just like iOS Settings. Information on the updated Trio Settings can be found <a href="../settings/index.html">here</a>.</li>
+<li><strong>New Bolus Calculator</strong><br/>
+    More accurate and simple dosing with clearer breakdowns and improved safety logic. Learn more about the <a href="../../usage/features/bolus-calculator.html">Bolus Calculator</a>.</li>
+<li><strong>Reworked Statistics</strong><br/>
+    All in-app statistics and graphs have been overhauled and extended. Learn more about the <a href="../../usage/features/statistics.html">New Statistics Screen</a>.</li>
+<li><strong>Improved Live Activity Widget</strong><br/>
+    Real-time loop data with optional chart — configurable and tailored to your preferences — visible on lockscreen, Watch, and CarPlay. Learn more about the <a href="../settings/notifications/live-activity.html">Live Activity Widget</a>.</li>
+<li><strong>Live Data on Watch</strong><br/>
+    Highly customizable “contact widgets” for glucose, IOB, COB, and more, always visible. Learn more about the <a href="../settings/devices/smart-watch.html#contacts-configuration">Contacts Configuration on Apple Watch</a>.</li>
+<li><strong>All-New Integrations</strong><br/>
+    Nightscout, Tidepool, and Apple Health connections have been rebuilt from scratch — faster and more stable. More on integrations <a href="../settings/services/index.html">here</a>.</li>
+<li><strong>Safety Improvements</strong><br/>
+    Dynamic ISF guarding (7-day required data), safer edge-case behavior, and improved support for high-insulin-resistance setups.</li>
+<li><strong>Updated Language &amp; Translations</strong><br/>
+    Clear, friendly, and easy-to-understand. Fully localized with ongoing help from our Crowdin contributors (<a href="https://crowdin.triodocs.org">translators still welcome</a>).</li>
+<li><strong>Now Requires Loop Follow v4.0 or Later</strong><br/>
+    More info at <a href="https://loopfollowdocs.org/remote/remote-control-trio/">LoopFollowDocs</a></li>
+<li><strong>Autotune Removed</strong><br/>
+    Autotune has not performed well with the addition of Dynamic ISF and many users using multiple ISF and CR in Therapy settings. For this reason, we have removed it until an improved Autotune-like feature is built.</li>
+</ul>
+<h3 id="what-will-transfer-from-trio-02-to-trio-05-or-higher">What <em>Will</em> Transfer from Trio 0.2 to Trio 0.5 (or higher)?</h3>
+<ul>
+<li>Current pump and CGM sessions (but always a good idea to have a backup pump ready whenever updating, just in case)</li>
+<li>24 hr treatment history</li>
+<li>Core therapy settings (glucose targets, basal rates, ISF, CR)</li>
+</ul>
+<h3 id="what-will-not-transfer-from-trio-02-to-trio-05-or-higher">What <em>Will Not</em> Transfer from Trio 0.2 to Trio 0.5 (or higher)?</h3>
+<ul>
+<li>Algorithm settings, Dynamic ISF, and some integrations (like Nightscout) will reset.</li>
+<li>Treatment history older then 24 hours will not transfer</li>
+<li>Historical data used for Dynamic ISF and Statistics</li>
+<li>Override, Temp Target, and Meal Presets</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Upgrading is a one-way street</p>
+<p>Once you upgrade to v0.5.0 (or higher), going back to v0.2.x is not supported.</p>
+</div>
+<hr/>
+<h2 id="what-to-expect-in-your-first-3-hours">What to Expect in Your First 3 Hours</h2>
+<p>Here are some things to keep in mind after upgrading from Trio 0.2 to Trio 0.5 (or higher) in the first 3 hours:</p>
+<ul>
+<li><strong>Dynamic ISF &amp; Autosens</strong><br/>
+    Dynamic ISF is disabled for the first <strong>7 days</strong>. <em>You may need to enter carbs and bolus during this time if you aren't already doing so.</em> Autosens will be used instead (but there's a long standing issue with autosens where it will likely be stuck at 1 when there are carb entries or SMBs.)</li>
+<li><strong>Onboarding Wizard</strong><br/>
+    Take this time to go through the Onboarding Wizard. Reference the <a href="../new-user-setup.html">New User Setup Guide</a> or ask questions on <a href="https://facebook.triodocs.org">Facebook</a> or <a href="https://discord.triodocs.org">Discord</a> if you have any questions.</li>
+<li><strong>Test Settings</strong><br/>
+    This is a great time to test your settings so you can start fresh on solid footing.</li>
+<li><strong>New User Interface</strong><br/>
+    Use this time to learn the <a href="../../usage/interface.html">New User Interface</a>.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Do not use a pump or cgm simulator</p>
+<ul>
+<li>Doing so will result in false data being stored and you will have to delete the app with all the data and reinstall before you can use it on a live pump.</li>
+<li>This will also reset your 7-day waiting period for Dynamic ISF.</li>
+<li><a href="../settings/devices/pump.html#pump-simulator">More information on simulator use</a></li>
+</ul>
+</div>
+<hr/>
+<h2 id="what-to-expect-after-24-hours">What to Expect After 24 Hours</h2>
+<p>A full day on Trio 0.5 (or higher)! Congratulations! Here's what to look for:</p>
+<ul>
+<li><strong>Autosens</strong><br/>
+    Autosens now has enough data to make adjustments</li>
+<li>
+<p><strong>Review &amp; Test Settings</strong><br/>
+    This is a good time to review your last 24 hours of results to see if your core settings performed as expected. If you had unexpected challenges with your settings, look at how to test them over the next 7 days</p>
+<ul>
+<li><a href="../../usage/concepts/basal-rates.html">Basal Testing</a></li>
+<li><a href="../../usage/concepts/isf.html">ISF Testing</a></li>
+<li><a href="../../usage/concepts/carb-ratios.html">Carb Ratio Testing</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Review Dynamic ISF Documentation</strong><br/>
+    Review the documentation on <a href="../../usage/features/dynamic-isf.html">Using Dynamic ISF</a> in preparation for <a href="#what-to-expect-after-7-days">Day 7</a>.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="what-to-expect-after-7-days">What to Expect After 7 Days</h2>
+<p>You've completed a week on Trio 0.5 (or higher)! Here's what you should see:</p>
+<ul>
+<li><strong>Dynamic ISF</strong><br/>
+    Dynamic ISF now has enough data. You now have the option to enable it if you would like to.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Can't Enable Dynamic ISF?</p>
+<p>If Dynamic ISF does not give you the option to enable, you may have experienced one or more of the following:</p>
+<ul>
+<li>You were not in closed loop for the full 7 days.<ul>
+<li><em>Trio needs 7 days of closed loop to safely enable Dynamic ISF</em></li>
+</ul>
+</li>
+<li>You had significant loss of connection with your CGM and/or pump. <ul>
+<li><em>Check your last week of Looping Statistics in the Stats tab in the Trio app. You need both <b>7 days</b> and an <b>85% success rate</b> to enable Dynamic ISF</em>. </li>
+</ul>
+</li>
+<li>You enabled a significant number of manual Temp Basals with long run times.<ul>
+<li><em>When a manual Temp Basal is set, Trio is unable to complete a loop cycle for the duration of the temp basal. This will cause a reduction in your success rate. If you do not have <b>85% success rate</b> for <b>7 days</b>, you cannot enable Dynamic ISF.</em></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li><strong>Dynamic CR</strong>
+    Dynamic CR has been removed due to no known scientific validity to CR changing with an increase or decrease in glucose.</li>
+</ul>
+<hr/>
+<h2 id="changes-from-trio-02-settings-to-trio-05-or-higher-settings">Changes from Trio 0.2 Settings to Trio 0.5 (or higher) Settings</h2>
+<p>When you update from Trio 0.2, some of your settings might look different even if they have the same or similar names. That’s because we changed some of the numbers from decimals to percentages to make them easier to understand.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>In Trio 0.2 you might set "Autosens Maximum" to 1.2. In Trio 0.5 (or higher), we show "Autosens Max" as 120%, which means the same thing, but is easier to understand.</p>
+</div>
+<p>Some setting names have also changed. We did this to make things less confusing. To help you out, we added definitions right in the app. Just tap the question mark icon next to any setting to see what it means. Healthcare Professionals and users can also find those settings and explanations <a href="../settings/index.html">in this section of the docs</a>.</p>
+<p>The charts below will help you see which setting names or formats have changed. The settings with changes are in bold.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>To convert a value from a decimal to a percentage, multiply it by 100.  </li>
+<li>To convert from a percentage to a decimal, divide by 100.</li>
+</ul>
+</div>
+<h3 id="therapy-settings"><a href="../settings/therapy/index.html">Therapy Settings</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span style="color: #ff8340;"><a href="../settings/therapy/glucose-targets.html#how-to-enter-your-glucose-targets-into-trio"><strong>Glucose Targets</strong></a></span></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (100 mg/dL / 5.5 mmol/L)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Target Glucose</strong></span></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (100 / 5.5)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/basal-rates.html#how-to-enter-your-basal-profiles-into-trio">Basal Rates</a></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (1.0 U/hr)</em></td>
+<td style="text-align: center;">Basal Profile</td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (1.0 U/hr)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/carb-ratios.html#how-to-enter-your-carb-ratios-cr-into-trio">Carb Ratios</a></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (10 g/U)</em></td>
+<td style="text-align: center;">Carb Ratios</td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (10 g/U)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/isf.html#how-to-enter-your-isf-into-trio">Insulin Sensitivities</a></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (54 mg/dL/U / 3.0 mmol/L/U)</em></td>
+<td style="text-align: center;">Insulin Sensitivities</td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (54 / 3.0)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-iob"><strong>Maximum Insulin on Board (IOB)</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (2 U)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max IOB</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (2)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-bolus"><strong>Maximum Bolus</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (10 U)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max Bolus</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (10)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-basal"><strong>Maximum Basal Rate</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (2 U/hr)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max Basal</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (2)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#max-cob"><strong>Maximum Carbs on Board (COB)</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (120 g)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max COB</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (120)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/therapy/units-limits.html#minimum-safety-threshold"><strong>Minimum Safety Threshold</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (60 mg/dL / 3.3 mmol/L)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Threshold Settings</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> <span style="color: #ff8340;">(60)</span></em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> mmol/L entry</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="algorithm-settings"><a href="../settings/algorithm/index.html">Algorithm Settings</a></h3>
+<h4 id="autosens"><a href="../settings/algorithm/autosens.html">Autosens</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#sensitivity-ratio">Sensitivity Ratio</a></td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (105%)</em></strong></td>
+<td style="text-align: center;">Autosens Ratio</td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1.05)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#calculated-sensitivity">Calculated Sensitivity</a></td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><em>decimal <br/> (45 mg/dL/U / 2.5 mmol/L/U)</em></td>
+<td style="text-align: center;">Calculated Sensitivity</td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><em>decimal <br/> (45 mg/dL/U / 2.5 mmol/L/U)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#autosens-max"><strong>Autosens Max</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (120%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Autosens Maximum</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1.2)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#autosens-min"><strong>Autosens Min</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (70%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Autosens Minimum</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (0.7)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/autosens.html#rewind-resets-autosens">Rewind Resets Autosens</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Rewind Resets Autosens</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+</tbody>
+</table>
+<h4 id="smb-super-micro-bolus"><a href="../settings/algorithm/smb-settings.html">SMB (Super Micro Bolus)</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-always">Enable SMB Always</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB Always</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now disables unused SMB settings</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-with-cob">Enable SMB With COB</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB With COB</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-with-temptarget">Enable SMB with Temptarget</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB with Temptarget</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-smb-after-carbs">Enable SMB After Carbs</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB After Carbs</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><a href="../settings/algorithm/smb-settings.html#enable-smb-with-high-glucose">Enable SMB With High Glucose</a></strong></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Enable SMB With High BG</strong></span></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name <br/> <em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><a href="../settings/algorithm/smb-settings.html#high-glucose-target">High Glucose Target</a></strong></td>
+<td style="text-align: center;"><strong>picker</strong></td>
+<td style="text-align: center;"><em>decimal <br/> (110 mg/dL / 6.1 mmol/L)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>... When Blood Glucose is Over (mg/dl)</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>typed value</strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> <span style="color: #ff8340;">(110)</span></em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name <br/> Entry Type <br/> Format <br/> <em>Now only appears when Enable SMB With High Glucose is ON, <br/> mmol/L entry</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#allow-smb-with-high-temptarget">Allow SMB with High Temptarget</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Allow SMB With High Temptarget</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#enable-uam">Enable UAM</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable UAM</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#max-smb-basal-minutes">Max SMB Basal Minutes</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (30 min)</em></td>
+<td style="text-align: center;">Max SMB Basal Minutes</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (30)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#max-uam-basal-minutes"><strong>Max UAM Basal Minutes</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (30 min)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max UAM SMB Basal Minutes</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (30)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/smb-settings.html#max-allowed-glucose-rise-for-smb"><strong>Max Allowed Glucose Rise for SMB</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (20%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max Delta-BG Threshold SMB</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (0.2)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="target-behavior"><a href="../settings/algorithm/target-behavior.html">Target Behavior</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#high-temp-target-raises-sensitivity"><strong>High Temp Target Raises Sensitivity</strong></a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>High Temptarget Raises Sensitivity/Exercise Mode</strong></span></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#low-temp-target-lowers-sensitivity"><strong>Low Temp Target Lowers Sensitivity</strong></a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Low Temptarget Lowers Sensitivity</strong></span></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#sensitivity-raises-target">Sensitivity Raises Target</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Sensitivity Raises Target</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#resistance-lowers-target">Resistance Lowers Target</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Resistance Lowers Target</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/target-behavior.html#half-basal-exercise-target">Half Basal Exercise Target</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (160 mg/dL / 8.9 mmol/L)</em></td>
+<td style="text-align: center;">Half Basal Exercise Target</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> <span style="color: #ff8340;">(160)</span></em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type, mmol/L entry</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="additionals"><a href="../settings/algorithm/additionals.html">Additionals</a></h4>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>The settings in this section typically do not require any modifications.<br/>
+Do not alter them without a solid understanding of what you are changing and the full impact it will have on the algorithm.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#max-daily-safety-multiplier">Max Daily Safety Multiplier</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (300%)</em></strong></td>
+<td style="text-align: center;">Max Daily Safety Multiplier</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (3)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#current-basal-safety-multiplier">Current Basal Safety Multiplier</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (400%)</em></strong></td>
+<td style="text-align: center;">Current Basal Safety Multiplier</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (4)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#duration-of-insulin-action">Duration of Insulin Action</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (10 hr)</em></td>
+<td style="text-align: center;">Duration of Insulin Action</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (10)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#use-custom-peak-time">Use Custom Peak Time</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Use Custom Peak Time</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#insulin-peak-time">Insulin Peak Time</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (65 min)</em></td>
+<td style="text-align: center;">Insulin Peak Time</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (65)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#skip-neutral-temps">Skip Neutral Temps</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Skip Neutral Temps</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#unsuspend-if-no-temp">Unsuspend If No Temp</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Unsuspend If No Temp</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#smb-delivery-ratio"><strong>SMB Delivery Ratio</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (50%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>SMB DeliveryRatio</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (0.5)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#smb-interval">SMB Interval</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (3 min)</em></td>
+<td style="text-align: center;">SMB Interval</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (3)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#min-5m-carb-impact"><strong>Min 5m Carb Impact</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (8 mg/dL)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Min 5m Carbimpact</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (8)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#remaining-carbs-percentage"><strong>Remaining Carbs Percentage</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (100%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Remaining Carbs Fraction</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#remaining-carbs-cap">Remaining Carbs Cap</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (90 g)</em></td>
+<td style="text-align: center;">Remaining Carbs Cap</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (90)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../settings/algorithm/additionals.html#noisy-cgm-target-increase"><strong>Noisy CGM Target Increase</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (130%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Noisy CGM Target Multiplier</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1.3)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="what-are-the-reasons-for-these-changes">What are the reasons for these changes?</h2>
+<h3 id="entry-type-picker-vs-typed-entry">Entry Type: Picker vs Typed Entry</h3>
+<p align="center"><img alt="Picker vs Typed" src="../../../source/docs/configuration/migration/img/picker-vs-typed-trio-02.png" width="500"/></p>
+<ul>
+<li>A typed entry can result in mistyping a value and could result in unintended consequences within the algorithm.</li>
+<li>A picker ensures the setting is within the guardrails of the algorithm. Both Trio 0.2 and 0.5 (or higher) have guardrails, however when typed in 0.2, those values were ignored and the closest valid number was used. 
+    !!! example
+        If you set your DIA to 2, Trio 0.2 would use a DIA of 5 without notifying you.</li>
+</ul>
+<h3 id="format-percentage-vs-decimal">Format: Percentage vs Decimal</h3>
+<p align="center"><img alt="Percentage vs Decimal" src="../../../source/docs/configuration/migration/img/percentage-vs-decimal-Trio.png" width="500"/></p>
+<ul>
+<li>Percentages are easier to comprehend than decimals when trying to make decisions on your settings adjustments.</li>
+</ul>
+<h3 id="name-changes">Name Changes</h3>
+<ul>
+<li>Some settings names in Trio 0.2 were the labels used in the Trio code and were really only clear to developers. This often times made those settings difficult to understand.</li>
+<li>Certain settings names in Trio 0.2 were unclear. We changed those names to make them easier to understand.</li>
+<li>In addition to updating names to be easier to understand, we also added clearer settings explanations in the app for every setting.</li>
+</ul></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

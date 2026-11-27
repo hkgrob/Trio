@@ -1,0 +1,1 @@
+Congratulations on choosing to build Trio using your web browser, aka "Browser Build." This documentation provides all the necessary instructions to complete your first browser build and to update future builds. Requirements:  Compatible Phone Compatible CGM Compatible Insulin Pump Apple Developer Account GitHub Account TestFlight 

@@ -1,0 +1,1 @@
+ Disable when a High Temptarget is set (unless "Allow SMB with High Temp Target" is enabled) Enable if "Enable SMB Always" is set (unless disabled for "High Temp Target") Enable while there are COB Enable for a full 6 hours after any carb entry Enable if a Low Temp Target is set 

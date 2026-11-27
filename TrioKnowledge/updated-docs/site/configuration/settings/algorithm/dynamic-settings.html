@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dynamic Settings · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/algorithm/dynamic-settings.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/algorithm/dynamic-settings.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="dynamic-settings">Dynamic Settings</h1>
+<h2 id="dynamic-isf-logarithmic">Dynamic ISF: Logarithmic</h2>
+<p><strong>Default:</strong> <em>Disabled</em></p>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>It is important to enter your information into the Desmos graphs found <a href="#logarithmic-desmos-graphs">here</a> <strong>before</strong> turning on Logarithmic Dynamic ISF. The default settings work for a majority of users, but not all.  </p>
+<p>Use the sliders in Desmos to determine what your Adjustment Factor (AF) should be so that your ProfileISF is used when your glucose is at <strong><em>150 mg/dL (8.3 mmol/L)</em></strong>.  </p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You must first choose <code>Logarithmic</code> or <code>Sigmoid</code> before any other dynamic features will appear</p>
+</div>
+<p>Activating this feature allows Trio to calculate your <a href="autosens.html#sensitivity-ratio">Sensitivity Ratio</a> using the logarithmic dynamic formula, rather than the <a href="autosens.html#autosens">Autosens formula</a> with each loop cycle by considering factors such as: your current glucose, the weighted total daily dose of insulin (TDD), your adjustment factor setting (AF), and a few other data points. Using Logarithmic Dynamic ISF allows you to customize your Sensitivity Ratio calculation beyond what is allowed with Autosens.  </p>
+<p>Below is the formula used for calculating the Sensitivity Ratio using Logarithmic Dynamic ISF for mg/dL:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>i</mi><mi>t</mi><mi>y</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mo>=</mo><mi>P</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>I</mi><mi>S</mi><mi>F</mi><mi>×</mi><mi>A</mi><mi>F</mi><mi>×</mi><mi>T</mi><mi>D</mi><mi>D</mi><mi>×</mi><mi>ln</mi><mrow></mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mrow><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi></mrow><mrow><mi>P</mi><mi>e</mi><mi>a</mi><mi>k</mi></mrow></mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mn>1</mn></mrow><mrow><mn>1800</mn></mrow></mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></mrow></math></div>
+<p>Here is that same formula adjusted for mmol/L:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>i</mi><mi>t</mi><mi>y</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mo>=</mo><mi>P</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>I</mi><mi>S</mi><mi>F</mi><mi>×</mi><mi>A</mi><mi>F</mi><mi>×</mi><mi>T</mi><mi>D</mi><mi>D</mi><mi>×</mi><mi>ln</mi><mrow></mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mrow><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi></mrow><mrow><mn>0.0555</mn><mi>×</mi><mi>P</mi><mi>e</mi><mi>a</mi><mi>k</mi></mrow></mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mn>1</mn></mrow><mrow><mn>100</mn></mrow></mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></mrow></math></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This formula considers your profile ISF, current glucose, total daily dose (TDD over the last 24 hours), insulin peak effect (Peak), and Adjustment Factor (AF) that allows for user tuning of Dynamic ISF.</p>
+</div>
+<p>After the Sensitivity Ratio is calculated, your Calculated Sensitivity is then determined by using the same formula as <a href="autosens.html#calculated-sensitivity">Autosens</a>:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>C</mi><mi>a</mi><mi>l</mi><mi>c</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>S</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>=</mo><mfrac><mrow><mi>P</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>I</mi><mi>S</mi><mi>F</mi></mrow><mrow><mi>S</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>i</mi><mi>t</mi><mi>y</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mrow></math></div>
+<hr/>
+<h2 id="dynamic-isf-sigmoid">Dynamic ISF: Sigmoid</h2>
+<p><strong>Default:</strong> <em>Disabled</em></p>
+<p>Turning on the Sigmoid Formula setting replaces the default logarithmic formula used to determine your Sensitivity Ratio. Your Calculated Sensitivity is calculated using a sigmoid curve rather than the logarithmic function.</p>
+<p>The curve's steepness, reflecting how big adjustments are from one reading to another, is influenced by the <a href="#sigmoid-adjustment-factor">Adjustment Factor</a>, while <a href="autosens.html#autosens-max">Autosens Max</a> and <a href="autosens.html#autosens-min">Min</a> settings determine the limits of the ratio adjustment. Autosens Max and Min can also influence the curve's steepness with the Sigmoid Formula.</p>
+<p>When using the Sigmoid Formula, Total Daily Dose (TDD) has much less of an impact on adjustments to sensitivity. Sigmoid is more reliant upon how far from the target your glucose readings are.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is not recommended to set <a href="autosens.html#autosens-max">Autosens Max</a> higher than 150% when using Sigmoid</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>As of the publication of this documentation, there has been no empirical data analysis to support the use of Sigmoid for dynamic sensitivity determination.</p>
+</div>
+<hr/>
+<h2 id="adjustment-factor-logarithmic">Adjustment Factor (Logarithmic)</h2>
+<p><strong>Default:</strong> <em>80%</em><br/>
+<strong>Setting Limits:</strong> <em>30%-150%</em></p>
+<p>Adjustment Factor (AF) allows you to control how quickly and effectively Dynamic ISF responds to changes in glucose levels.</p>
+<p>Adjusting this value shifts and steepens the curve of logarithmic Dynamic ISF. Increasing this setting will cause Trio to respond faster to changes in sensitivity, but can also shift the response to new values.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please enter your adjustments in the <a href="#logarithmic-desmos-graphs">Desmos graphs</a> before you change them in the app to verify your adjustments are changing as intended.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong><em>Adjustment Factor (AF) is not a safety limiter</em></strong></p>
+<ul>
+<li>Increasing AF means you are telling the system that ALL dynamically calculated ISF values have not been aggressive enough, and you want the system to make them more aggressive.</li>
+<li>Decreasing AF means you are telling the system that ALL dynamically calculated values are too aggressive, and to make them less so.</li>
+</ul>
+</div>
+<hr/>
+<h2 id="sigmoid-adjustment-factor">Sigmoid Adjustment Factor</h2>
+<p><strong>Default:</strong> <em>50%</em><br/>
+<strong>Setting Limits:</strong> <em>10%-200%</em></p>
+<p>The Sigmoid Adjustment Factor (AF) allows you to control the rate in which Trio responds to changes in insulin sensitivity and adjusts at which glucose value you will reach your Autosens Max and Min limits.</p>
+<p>Sigmoid Adjustment Factor influences both how much your ISF values change between 2 glucose readings and how quickly you will reach the limits you've set. Increasing this setting increases the rate of change and reduces the range of glucose values between your Autosens Max and Autosens Min limits.</p>
+<p>Due to how the curve is calculated, increasing this setting has a different impact than it's Logarithmic counterpart. Please use caution when adjusting this setting.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please enter your adjustments in the <a href="#sigmoid-desmos-graphs">Desmos graphs</a> before you change them in the app to verify your adjustments are changing as intended.</p>
+</div>
+<hr/>
+<h2 id="weighted-average-of-tdd">Weighted Average of TDD</h2>
+<p><strong>Default:</strong> <em>35%</em><br/>
+<strong>Setting Limits:</strong> <em>5%-100%</em></p>
+<p>This setting adjusts how much weight is given to your recent daily total insulin dose (TDD) when calculating your Sensitivity Ratio using either the Logarithmic or Sigmoid Formulas.</p>
+<p>At the default setting, Trio weights your TDD used with 35% of your last 24 hours and 65% of the last 10 days of data.</p>
+<ul>
+<li>Set at <strong>100%</strong> = TDD is composed of 100% the last 24 hours of TDD data + 0% the last 10 days of TDD data</li>
+<li>Set at <strong>35%</strong> (default) = TDD is composed of 35% the last 24 hours of TDD data + 65% the last 10 days of TDD data</li>
+<li>Set at <strong>0%</strong> = TDD is composed of 0% the last 24 hours of TDD data + 100% the last 10 days of TDD data</li>
+</ul>
+<details class="question">
+<summary>Bill has a TDD of 55 U over the last 24 hours. He has had a TDD of 48 U over the last 10 days. His <code>Weighted Average of TDD</code> is set at 35%. What TDD is used to calculate his Sensitivity Ratio?</summary>
+<details class="info">
+<summary>Here's the formula to calculate Weighted Average of TDD:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>24</mn><mtext> </mtext><mi>h</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>s</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mi>×</mi><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>g</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mtext> </mtext><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>10</mn><mtext> </mtext><mi>d</mi><mi>a</mi><mi>y</mi><mi>s</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mi>×</mi><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>100</mn><mo>−</mo><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>g</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Weighted Average of TDD:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>55</mn><mi>×</mi><mn>35</mn><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>48</mn><mi>×</mi><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>100</mn><mo>−</mo><mn>35</mn><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>55</mn><mi>×</mi><mn>35</mn><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>48</mn><mi>×</mi><mn>65</mn><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>19.25</mn><mo>+</mo><mn>31.2</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>50.45</mn><mtext> </mtext><mi>U</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Trio will use a TDD of <strong><em>50.45 U</em></strong> in Bill's Sensitivity Ratio calculation.</p>
+</details>
+</details>
+<p>As you increase the default to a higher number, the adjusted basal rates will be more influenced by your last 24-hour insulin usage, resulting in more variable changes.</p>
+<hr/>
+<h2 id="adjust-basal">Adjust Basal</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>Adjust Basal replaces the sensitivity-based formula normally used by Trio for adjusting your basal rates with a new formula based on your total daily insulin use (TDD). Use this if the current Trio adjustments of basal rates are not adequate.</p>
+<p>Turn this setting on to give basal adjustments more agility. Keep this setting off if your basal needs are not highly variable.</p>
+<p><strong>Calculation used if this setting is OFF:</strong></p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>e</mi><mi>w</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mo>=</mo><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>×</mi><mi>S</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>i</mi><mi>t</mi><mi>y</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></math></div>
+<p><strong>Calculation used if this setting is ON:</strong></p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mi>d</mi><mi>j</mi><mi>u</mi><mi>s</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mo>=</mo><mfrac><mrow><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi></mrow><mrow><mn>10</mn><mtext> </mtext><mi>d</mi><mi>a</mi><mi>y</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi></mrow></mfrac></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>e</mi><mi>w</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mo>=</mo><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>×</mi><mi>A</mi><mi>d</mi><mi>j</mi><mi>u</mi><mi>s</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></math></div>
+<p>See <a href="#weighted-average-of-tdd">Weighted Average of TDD</a> setting to understand how this variable is calculated.</p>
+<details class="question">
+<summary>Bill's TDD has been 55 U over the last 24 hours, and his 10-day average is 48 U. He has set his <code>Weighted average of TDD</code> in preferences to 35%. His current profile basal rate is 1.0 U/h. What will his new basal rate be with <code>Adjust Basal</code> turned ON?</summary>
+<details class="info">
+<summary>Here are the formulas you'll need:</summary>
+<p>Weighted Average of TDD:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>24</mn><mtext> </mtext><mi>h</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>s</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mi>×</mi><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>g</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mtext> </mtext><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>10</mn><mtext> </mtext><mi>d</mi><mi>a</mi><mi>y</mi><mi>s</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mi>×</mi><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>100</mn><mo>−</mo><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>g</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi><mtext> </mtext><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></mrow></math></div>
+<p>Adjust Basal Ratio:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>W</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi></mrow><mrow><mn>10</mn><mtext> </mtext><mi>d</mi><mi>a</mi><mi>y</mi><mtext> </mtext><mi>A</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mtext> </mtext><mi>o</mi><mi>f</mi><mtext> </mtext><mi>T</mi><mi>D</mi><mi>D</mi></mrow></mfrac></mrow></math></div>
+<p>New Basal Rate:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>×</mi><mi>A</mi><mi>d</mi><mi>j</mi><mi>u</mi><mi>s</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></math></div>
+</details>
+<details class="note">
+<summary>First, calculate the Weighted Average of TDD:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>55</mn><mi>×</mi><mn>35</mn><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>48</mn><mi>×</mi><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>100</mn><mo>−</mo><mn>35</mn><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>55</mn><mi>×</mi><mn>35</mn><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mn>48</mn><mi>×</mi><mn>65</mn><mi>%</mi><mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>19.25</mn><mo>+</mo><mn>31.2</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>50.45</mn><mtext> </mtext><mi>U</mi></mrow></math></div>
+</details>
+<details class="note">
+<summary>Next, calculate the Adjust Basal Ratio:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>50.45</mn></mrow><mrow><mn>48</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.05</mn></mrow></math></div>
+</details>
+<details class="note">
+<summary>Finally, calculate the New Basal Rate</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.0</mn><mi>×</mi><mn>1.05</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.05</mn><mtext> </mtext><mi>U</mi><mo>/</mo><mi>h</mi><mi>r</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Adjust Basal will replace Bill's profile basal rate with a new basal rate of <strong><em>1.05 U/hr</em></strong> for this loop cycle.</p>
+</details>
+</details>
+<hr/>
+<h2 id="logarithmic-desmos-graphs">Logarithmic Desmos Graphs</h2>
+<p><a href="https://www.desmos.com/calculator/0frb0mvjzr">Click here to view a graph depicting the logarithmic formula in mg/dL</a></p>
+<p><a href="https://www.desmos.com/calculator/2iu4cgtqln">Click here to view a graph depicting the logarithmic formula in mmol/L</a></p>
+<hr/>
+<h2 id="sigmoid-desmos-graphs">Sigmoid Desmos Graphs</h2>
+<p><a href="https://www.desmos.com/calculator/zhc6k580qm">Click here to view a graph depicting the sigmoid formula in mg/dL</a></p>
+<p><a href="https://www.desmos.com/calculator/ihjjxwipbt">Click here to view a graph depicting the sigmoid formula in mmol/L</a></p>
+<hr/>
+<h2 class="changed-block" data-change="added-or-revised" id="effective-settings-in-constrained-dosing-modes">Effective settings in constrained dosing modes</h2>
+<p class="changed-block" data-change="added-or-revised">In <a href="../closed-loop.html#basal-testing">Basal Testing</a>, the effective Autosens Min and Max are both 100%, and Dynamic ISF / sigmoid are disabled. These derived values preserve the saved preferences. Low Glucose Suspend derives Max IOB 0 but does not impose those additional sensitivity constraints. Read <a href="../closed-loop.html">Dosing Modes</a> when interpreting displayed or exported settings.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F02 — Mode overrides differ from the documented manual basal-testing recipe</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6">Trio/Sources/Models/Preferences+DosingMode.swift:6</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559">Trio/Sources/APS/OpenAPS/OpenAPS.swift:559</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511">Trio/Sources/APS/APSManager.swift:1511</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/algorithm/dynamic-settings.md</span><span class="diff-line ">+++ updated/configuration/settings/algorithm/dynamic-settings.md</span><span class="diff-line ">@@ -242,3 +242,16 @@</span><span class="diff-line "> [Click here to view a graph depicting the sigmoid formula in mmol/L](https://www.desmos.com/calculator/ihjjxwipbt)</span><span class="diff-line "> </span><span class="diff-line "> - - -</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Effective settings in constrained dosing modes</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+In [Basal Testing](../closed-loop.md#basal-testing), the effective Autosens Min and Max are both 100%, and Dynamic ISF / sigmoid are disabled. These derived values preserve the saved preferences. Low Glucose Suspend derives Max IOB 0 but does not impose those additional sensitivity constraints. Read [Dosing Modes](../closed-loop.md) when interpreting displayed or exported settings.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F02 — Mode overrides differ from the documented manual basal-testing recipe**</span><span class="diff-line diff-add">+    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

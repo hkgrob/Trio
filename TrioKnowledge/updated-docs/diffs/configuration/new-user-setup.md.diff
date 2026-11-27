@@ -1,0 +1,50 @@
+--- upstream/configuration/new-user-setup.md
++++ updated/configuration/new-user-setup.md
+@@ -49,7 +49,7 @@
+ 
+ [**Step 7:** Connect Your Devices](#step-7-connect-your-devices)
+ 
+-[**Step 8:** Enable Closed Loop](#step-8-enable-closed-loop)
++[**Step 8:** Choose Dosing Mode](#step-8-enable-closed-loop)
+ 
+ [**Step 9:** Change App Icon (Optional)](#step-9-change-app-icon-optional)
+ 
+@@ -358,16 +358,13 @@
+ 
+ - - -
+ 
+-## **Step 8:** Enable Closed Loop
+-
+-!!! warning
+-    Trio works best as a closed loop system. If you need to test your settings or are concerned about trying a new algorithm, it's best to close the loop and follow the configuration instructions [here](settings/closed-loop.md#want-to-stay-in-open-loop).
+-
+-Closed loop functionality is turned **OFF** by default. This means Trio cannot make any adjustments automatically. The system relies solely on you to make any adjustments while Closed Loop is **OFF**. You can control your pump and manually bolus with the Trio app, but nothing can be done without your approval. This is often referred to as running in open loop. You will ***not receive any Trio-initiated protection from lows or highs while in open loop***.
+-
+-![Enable Closed loop](img/closeLoop.png){ width="500px" }  
+-[More on closing the loop](settings/closed-loop.md)
+-{align=center}
++## **Step 8:** Choose Dosing Mode {#step-8-enable-closed-loop}
++
++After connecting your pump and CGM, open **Settings → Dosing Mode**. Trio 1.0.2 offers Closed Loop, Open Loop, Low Glucose Suspend and Basal Testing. The default is Open Loop, which displays recommendations without enacting automated dosing or low protection.
++
++Closed Loop permits full automation subject to settings and safety checks. Low Glucose Suspend permits predictive reductions with effective Max IOB 0. Basal Testing uses low-only suspension and derives additional sensitivity constraints while preserving saved preferences. Read [Dosing Modes](settings/closed-loop.md) before choosing the mode for your intended workflow.
++
++Earlier Closed Loop switch screenshots do not represent this picker. Manual actions are separate from automated enactment; choosing a mode does not itself validate an individual bolus.
+ 
+ - - -
+ 
+@@ -403,3 +400,14 @@
+ 
+ 
+ 
++
++
++## 1.0.2 source references
++
++- **F01 — Dosing Mode replaces the documented Closed Loop switch**
++    - [Trio/Sources/Models/DosingMode.swift:16](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DosingMode.swift#L16)
++    - [Trio/Sources/Modules/Settings/View/SettingsRootView.swift:218](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L218)
++- **F02 — Mode overrides differ from the documented manual basal-testing recipe**
++    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)
++    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)
++    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)

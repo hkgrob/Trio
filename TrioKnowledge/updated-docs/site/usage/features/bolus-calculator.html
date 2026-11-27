@@ -1,0 +1,274 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bolus Calculator · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../index.html">All documents</a><a href="../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../source/docs/usage/features/bolus-calculator.md">Updated Markdown</a><a href="../../../../upstream/source/docs/usage/features/bolus-calculator.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="bolus-calculator">Bolus Calculator</h1>
+<!-- Include the following
+- How doses are calculated in bolus calc
+- Interface walkthrough
+- ??? Bill examples
+- highlight confirmation feature
+-->
+<h2 id="bolus-calculator-interface">Bolus Calculator Interface</h2>
+<p>You can access the bolus calculator by tapping the <span style="color: #7d8cf2;">:fontawesome-solid-circle-plus:</span> icon</p>
+<p>There are 4 main sections of the Bolus Calculator Interface</p>
+<p align="center"><img alt="Bolus Calculation Sections" src="../../../source/docs/usage/img/calculator-sections.png" width="500"/></p>
+<h3 id="dynamic-glucose-forecast">Dynamic Glucose Forecast</h3>
+<p>As you enter your carbs and insulin, this dynamic graph at the top of the bolus calculator will adjust the forecast lines or cone to account for your future data.<br/>
+Watch the video below to see this in action.</p>
+<div class="video-center">
+<video controls="" height="664" preload="metadata" width="334">
+<source src="../../../source/docs/usage/img/bolus-entry-dynamic-graph.mp4" type="video/mp4"/>
+    Your browser doesn’t support the HTML5 video tag.
+  </video>
+</div>
+<h3 id="meal-entry">Meal Entry</h3>
+<p>In the Meal Entry section, you will enter your carbs. If you have <a href="../../configuration/settings/features/meal-settings.html#enable-fat-and-protein-entries">FPU</a>'s enabled, you can also enter your fat and protein.</p>
+<p>Below this, there is a place to enter the time for future or past carbs.</p>
+<p>You can also add a note for this meal.</p>
+<h3 id="dosing-calculation">Dosing Calculation</h3>
+<p>In the Dosing Calculation section, it starts with the <a href="../../configuration/settings/features/bolus-calculator.html#reduced-bolus-and-super-bolus-options">Reduced Bolus and Super Bolus options</a> at the top, if you have those enabled.</p>
+<p>Below that is the suggested bolus amount that Trio has calculated. Tap the "i" icon for more details and <a href="#how-does-the-bolus-calculator-determine-dosage">read the section below</a> for more details on the information shared when you tap on this icon.</p>
+<p>If you check the "External Insulin" box, the bolus will be added to your IOB, but it will not be delivered by Trio.</p>
+<h3 id="enact-button">Enact Button</h3>
+<p>This button will show one of the following messages:</p>
+<ul>
+<li><strong>Continue Without Treatment</strong>: This means no COB or IOB will be added</li>
+<li><strong>Log Carbs</strong>: Carbs will be logged, but no insulin will be delivered</li>
+<li><strong>Log FPU</strong>: FPUs will be logged, but no insulin will be delivered</li>
+<li><strong>Log Meal</strong>: Both carbs and FPUs will be logged, but no insulin will be delivered</li>
+<li><strong>Log Meal/FPU/Carbs and Enact Bolus</strong>: Carbs and/or FPUs will be logged and insulin will be delivered</li>
+<li><strong>Log External Insulin</strong>: Insulin will be added to IOB, but it will <strong>not</strong> be delivered</li>
+</ul>
+<h2 id="how-does-the-bolus-calculator-determine-dosage">How Does the Bolus Calculator Determine Dosage?</h2>
+<p>There are multiple calculations that are used to determine the bolus recommendation in Trio.  </p>
+<p>A positive calculation will be shown in green and a negative calculation will be shown in red.</p>
+<p align="center"><img alt="Bolus Calculation Steps" src="../../../source/docs/usage/img/bolus-calculation.png" width="500"/></p>
+<h3 id="glucose-calculation">Glucose Calculation</h3>
+<p>The bolus calculator in Trio starts with your basic dosage needed to address your current glucose reading. If your glucose is below your target, it will be a negative number. If your glucose is above your target, it will be a positive number.</p>
+<p>Let's walk through Bill's current bolus calculation, starting with the first step, <strong>Glucose Calculation</strong>.  </p>
+<details class="question">
+<summary><strong>Glucose Above Target</strong>: Bill's current glucose reading is 122 mg/dL. His target glucose is 83 mg/dL. Trio is currently using a calculated ISF of 59 mg/dL/U. How much insulin does Bill need to reach his target glucose?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo stretchy="false">)</mo></mrow><mrow><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">S</mi></mrow><mi>𝐹</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Glucose Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mn>122</mn><mo>−</mo><mn>83</mn><mo stretchy="false">)</mo></mrow><mrow><mn>59</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>39</mn></mrow><mrow><mn>59</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.66</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Bill needs <strong>0.66 units</strong> to reach his glucose target without accounting for any other factors.</p>
+</details>
+</details>
+<details class="question">
+<summary><strong>Glucose Below Target</strong>: Bill's current glucose reading is 70 mg/dL. His target glucose is 83 mg/dL. Trio is currently using a calculated ISF of 90 mg/dL/U. How much insulin does Bill need to reach his target glucose?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo stretchy="false">)</mo></mrow><mrow><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">S</mi></mrow><mi>𝐹</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Glucose Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mn>70</mn><mo>−</mo><mn>83</mn><mo stretchy="false">)</mo></mrow><mrow><mn>90</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo>−</mo><mn>13</mn></mrow><mrow><mn>90</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mn>0.14</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Because Bill was below target, the bolus calculator estimates he has the equivalent of 0.14 units already present based on his current ISF. Therefore, Trio will <strong>subtract 0.14 units</strong> from his insulin needed in the bolus calculator.</p>
+</details>
+</details>
+<p>Trio takes many additional factors into account. Next, it will adjust for the amount of insulin already in his system.</p>
+<h3 id="insulin-on-board-adjustment">Insulin on Board Adjustment</h3>
+<p>The next step in the bolus calculation is the adjustment for current insulin on board (IOB). To prevent the calculator from giving you insulin already given, it subtracts your current IOB.  </p>
+<p>This will also replace any missing insulin that may have occurred after basal reduction or suspension. If you are trending low before a meal, this will add any negative IOB to return you to baseline basal in preparation for addressing your insulin needed for the incoming carbs.</p>
+<p>Let's look at how Trio addresses both positive and negative IOB:</p>
+<details class="question">
+<summary><strong>Postive IOB</strong>: Bill currently has 1.0 units of insulin on board (IOB) from previous SMBs, manual boluses, and/or increased temp basal rates. How will the bolus calculator adjust for this IOB?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mo stretchy="false">(</mo><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">O</mi></mrow><mi>𝐵</mi><mo stretchy="false">)</mo></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Insulin on Board Adjustment:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mo stretchy="false">(</mo><mn>1.0</mn><mo stretchy="false">)</mo><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mn>1.0</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>The bolus calculator will <strong>subtract 1.0 units</strong> from the bolus recommendation.</p>
+</details>
+</details>
+<details class="question">
+<summary><strong>Negative IOB</strong>: Bill currently has -1.0 units of insulin on board (IOB) from previous reduced or suspended basal rates. How will the bolus calculator adjust for this IOB?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mo stretchy="false">(</mo><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">O</mi></mrow><mi>𝐵</mi><mo stretchy="false">)</mo></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Insulin on Board Adjustment:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1.0</mn><mo stretchy="false">)</mo><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>+</mo><mn>1.0</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>The bolus calculator will <strong>add 1.0 units</strong> from the bolus recommendation.</p>
+</details>
+</details>
+<p>There are still more factors for Trio to take into account, so we aren't done yet! Next, let's see how your current COB and the new carbs entered will influence the bolus recommendation.</p>
+<h3 id="carbs-on-board-adjustment">Carbs on Board Adjustment</h3>
+<p>The previous step took into account the insulin you already have in your system. This next step will add the insulin needed for both the carbs already on board and the new carbs you just entered, which serves to negate any IOB that was due to previous meals (COB).</p>
+<p>Let's look at how Trio addresses times when there are carbs on board and times when there are no carbs on board:</p>
+<details class="question">
+<summary><strong>Without COB</strong>: Bill currently has no carbs on board (COB), but he is entering 50g into the bolus calculator. His current carb ratio (CR) is 10 g/U. How much insulin does he need to counter both the existing and new carbs in his system?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mrow><mi mathvariant="italic">C</mi><mi mathvariant="italic">O</mi></mrow><mi>𝐵</mi><mo>+</mo><mi>C</mi><mi>a</mi><mi>r</mi><mi>b</mi><mi>s</mi><mtext> </mtext><mi>E</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>e</mi><mi>d</mi><mo stretchy="false">)</mo></mrow><mrow><mi>𝐶</mi><mi>𝑅</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Glucose Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>+</mo><mn>50</mn><mo stretchy="false">)</mo></mrow><mrow><mn>10</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>50</mn></mrow><mrow><mn>10</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5.00</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Based on his current core settings, Bill needs <strong>5.00 units</strong> to counter the carbs he's entered.</p>
+</details>
+</details>
+<details class="question">
+<summary><strong>With COB</strong>: Bill currently has 20g carbs on board (COB), but he is entering 50g into the bolus calculator. His current carb ratio (CR) is 10 g/U. How much insulin does he need to counter both the existing and new carbs in his system?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mrow><mi mathvariant="italic">C</mi><mi mathvariant="italic">O</mi></mrow><mi>𝐵</mi><mo>+</mo><mi>C</mi><mi>a</mi><mi>r</mi><mi>b</mi><mi>s</mi><mtext> </mtext><mi>E</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>e</mi><mi>d</mi><mo stretchy="false">)</mo></mrow><mrow><mi>𝐶</mi><mi>𝑅</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Glucose Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo stretchy="false">(</mo><mn>20</mn><mo>+</mo><mn>50</mn><mo stretchy="false">)</mo></mrow><mrow><mn>10</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>70</mn></mrow><mrow><mn>10</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7.00</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Based on his current core settings, Bill needs <strong>7.00 units</strong> to counter the carbs he's entered and his current COB.</p>
+</details>
+</details>
+<p>We aren't done yet! Aren't you glad Trio is doing all of this for you and you only need to follow along to understand the reasoning behind it? Next, it will look at how our glucose is trending to ensure it's not over or under treating you.</p>
+<h3 id="glucose-trend-adjustment">Glucose Trend Adjustment</h3>
+<p class="changed-block" data-change="added-or-revised">In Trio 1.0.2, the calculator selects glucose readings newer than 20 minutes ago and subtracts the oldest selected value from the newest. The actual interval depends on available readings; with fewer than two readings, delta is zero. It does not normalize this difference to a fixed 15-minute interval, despite the internal <code>fifteenMinutesInsulin</code> name. If you are experiencing a steep rise or steep fall, this helps Trio counter that activity and prevent an over- or under-dose.</p>
+<p>Let's look at how Trio accounts for an increasing trend and a decreasing trend in glucose:</p>
+<details class="question">
+<summary><strong>Increasing Trend</strong>: Bill's last 3 glucose readings were steadily increasing for a combined change of +29 mg/dL. His current ISF is 59 mg/dL/U How will Trio treat this trend in glucose?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>D</mi><mi>e</mi><mi>l</mi><mi>t</mi><mi>a</mi></mrow><mrow><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">S</mi></mrow><mi>𝐹</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Glucose Trend Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>29</mn></mrow><mrow><mn>59</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.49</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Based on his current ISF, Bill needs <strong>0.49 units</strong> to counter the current trend in his glucose readings.</p>
+</details>
+</details>
+<details class="question">
+<summary><strong>Decreasing Trend</strong>: Bill's last 3 glucose readings were steadily decreasing for a combined change of -15 mg/dL. His current ISF is 100 mg/dL/U How will Trio treat this trend in glucose?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>D</mi><mi>e</mi><mi>l</mi><mi>t</mi><mi>a</mi></mrow><mrow><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">S</mi></mrow><mi>𝐹</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Glucose Trend Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mo>−</mo><mn>15</mn></mrow><mrow><mn>100</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>−</mo><mn>0.15</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Based on his current ISF, Trio will <strong>subtract 0.15 units</strong> to counter the current trend in his glucose readings.</p>
+</details>
+</details>
+<p>Next, Trio combines all of the dosage components that it has calculated into one full bolus recommendation.</p>
+<h3 id="full-bolus-calculation">Full Bolus Calculation</h3>
+<p>Trio starts your bolus recommendation at the full bolus amount, then adjusts it in the next step. Before it can adjust, it needs to know what the full bolus needed is. To do this, it takes all the previous calculations and combines them.</p>
+<p>Let's look at the combination used in the image to see what the full bolus recommendation is:</p>
+<details class="question">
+<summary>In the <a href="#how-does-the-bolus-calculator-determine-dosage">image</a> above, you can find the steps of each calculation. Let's combine them to see what Bill's full bolus calculation will be.</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mi mathvariant="italic">G</mi><mi mathvariant="italic">l</mi><mi mathvariant="italic">u</mi><mi mathvariant="italic">c</mi><mi mathvariant="italic">o</mi><mi mathvariant="italic">s</mi><mi mathvariant="italic">e</mi><mtext mathvariant="italic"> </mtext><mi mathvariant="italic">C</mi><mi mathvariant="italic">a</mi><mi mathvariant="italic">l</mi><mi mathvariant="italic">c</mi></mrow><mo>+</mo><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">O</mi></mrow><mrow><mi mathvariant="italic">B</mi><mtext mathvariant="italic"> </mtext><mi mathvariant="italic">C</mi><mi mathvariant="italic">a</mi><mi mathvariant="italic">l</mi><mi mathvariant="italic">c</mi></mrow><mo>+</mo><mrow><mi mathvariant="italic">C</mi><mi mathvariant="italic">O</mi></mrow><mrow><mi mathvariant="italic">B</mi><mtext mathvariant="italic"> </mtext><mi mathvariant="italic">C</mi><mi mathvariant="italic">a</mi><mi mathvariant="italic">l</mi><mi mathvariant="italic">c</mi></mrow><mo>+</mo><mrow><mi mathvariant="italic">D</mi><mi mathvariant="italic">e</mi><mi mathvariant="italic">l</mi><mi mathvariant="italic">t</mi><mi mathvariant="italic">a</mi><mtext mathvariant="italic"> </mtext><mi mathvariant="italic">C</mi><mi mathvariant="italic">a</mi><mi mathvariant="italic">l</mi><mi mathvariant="italic">c</mi></mrow></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Full Bolus Calculation:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.66</mn><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1.00</mn><mo stretchy="false">)</mo><mo>+</mo><mn>5.00</mn><mo>+</mo><mn>0.00</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.66</mn><mo>−</mo><mn>1.00</mn><mo>+</mo><mn>5.00</mn><mo>+</mo><mn>0.00</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4.66</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Based on all the important factors that make up his bolus calculation, Trio determines Bill needs 4.66 units for this bolus.</p>
+</details>
+</details>
+<p>Now that Trio has the full bolus determined, Trio reduces this based on the settings you've put in place.</p>
+<h3 id="limiting-factors-adjustment">Limiting Factors Adjustment</h3>
+<p>Trio will reduce your bolus amount by the <a href="../../configuration/settings/features/bolus-calculator.html#recommended-bolus-percentage">Recommended Bolus Percentage</a> you've set.</p>
+<p>Let's look at how Trio will adjust Bill's bolus based on the default setting of 50%:</p>
+<details class="question">
+<summary>Bill has his Recommended Bolus Percentage set to the default of 50%. In the previous step, we calculated he needed 4.66 units. How will Trio adjust his bolus recommendation based on this setting?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>F</mi><mi>u</mi><mi>l</mi><mi>l</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mi>×</mi><mi>R</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Limiting Factors Adjustment:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4.66</mn><mi>×</mi><mn>50</mn><mi>%</mi><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2.33</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Trio determines Bill needs 2.33 units for this bolus.</p>
+</details>
+</details>
+<p>But, wait! Trio can't administer 2.33 units because he's using an Omnipod pump. Trio addresses this in the final step.</p>
+<h3 id="final-bolus-calculation">Final Bolus Calculation</h3>
+<p>Now that Trio has the final recommended bolus determined, it must ensure it provides the pump with a bolus command that it can execute. Meaning, a bolus amount that the pump can give.</p>
+<p>This is pretty simple. Trio will round up or down the bolus calculation. If the calculated amount is greater than 0.06, it will round up. If it is less than 0.05, it will round down. If it is exactly 0.00 or 0.05, it will not change the amount.</p>
+<details class="question">
+<summary>Trio has determined Bill needs 2.33 units. Bill is using an Omnipod pump, so boluses can only be delivered in increments of 0.05 units. How will Trio adjust Bill's final bolus recommendation?</summary>
+<details class="success">
+<summary>Answer</summary>
+<p>Because Bill's recommended bolus ends in a number less than 0.05, it will be <strong>rounded down to 2.30 units</strong>.</p>
+</details>
+</details>
+<p>Congratulations! You've completed the full bolus calculation. We realize this is an extensive and lengthy process, so we encourage you to ensure your <a href="../../configuration/settings/therapy/index.html">core settings</a> are tested and accurate for the Trio algorithm and your <a href="../../configuration/settings/algorithm/index.html">algorithm settings</a> are set appropriately so that you do not need to constantly second guess these determinations.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>While it is <strong>always</strong> wise to use your best judgement rather than trusting the bolus recommendation blindly, accurate settings will prevent the need for you to manually intervene and override the bolus recommendation.</li>
+<li>If your glucose updates in the middle of your meal entry, Trio will update your calculation in real time.</li>
+</ul>
+</div>
+<h2 class="changed-block" data-change="added-or-revised" id="backdated-carbohydrate-entries">Backdated carbohydrate entries</h2>
+<p class="changed-block" data-change="added-or-revised">For a backdated meal calculation, Trio uses simulated COB and sets new carbs to zero. For an ordinary entry, it adds existing COB and new carbs, capped at Max COB. This avoids counting a backdated entry both as newly entered carbs and as simulated remaining COB.</p>
+<p class="changed-block" data-change="added-or-revised">The calculator already subtracts current IOB, including automated insulin represented in that IOB. A late meal bolus should not be explained as ignoring all previously delivered UAM/SMB insulin. The calculation still depends on the accuracy and freshness of the stored glucose, COB and IOB inputs.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="recommendation-safety-gates">Recommendation safety gates</h2>
+<p class="changed-block" data-change="added-or-revised">The recommendation is zero if current glucose is below 54 mg/dL, minimum predicted glucose is below 54 mg/dL, or the last successful loop is more than 15 minutes old. These checks concern the calculated recommendation, not a universal prohibition on every insulin entry or delivery path.</p>
+<p class="changed-block" data-change="added-or-revised">Otherwise the implementation applies a nonnegative clamp, then Max Bolus, then <code>Max IOB − current IOB</code>, and finally pump bolus rounding. There is no second nonnegative clamp after the Max IOB headroom step; negative headroom therefore remains an implementation edge case rather than a guaranteed zero-result condition.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="two-different-percentage-controls">Two different percentage controls</h2>
+<p class="changed-block" data-change="added-or-revised">Positive manual-calculator results are multiplied by Recommended Bolus Percentage and, if selected, Reduced Bolus Percentage. The Super Bolus component is added afterward. SMB Delivery Ratio belongs to automated SMB dosing and is a separate control. See <a href="../../configuration/settings/features/bolus-calculator.html">calculator configuration</a> and <a href="../../configuration/settings/algorithm/additionals.html#smb-delivery-ratio">SMB Delivery Ratio</a>.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F05 — Calculator trend input is newest minus oldest within 20 minutes</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L216">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:216</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F06 — Calculator safety gates and backdated-carb handling need explicit documentation</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F11 — The meal bolus calculator already subtracts automated insulin represented in IOB</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/usage/features/bolus-calculator.md</span><span class="diff-line ">+++ updated/usage/features/bolus-calculator.md</span><span class="diff-line ">@@ -236,7 +236,7 @@</span><span class="diff-line "> </span><span class="diff-line "> ### Glucose Trend Adjustment</span><span class="diff-line "> </span><span class="diff-line diff-remove">-Your glucose trend (Delta) takes into account how much your glucose readings have changed over the last 15 minutes. If you are experiencing a steep rise or steep fall, this helps Trio counter that activity and prevent an over- or under-dose.</span><span class="diff-line diff-add">+In Trio 1.0.2, the calculator selects glucose readings newer than 20 minutes ago and subtracts the oldest selected value from the newest. The actual interval depends on available readings; with fewer than two readings, delta is zero. It does not normalize this difference to a fixed 15-minute interval, despite the internal `fifteenMinutesInsulin` name. If you are experiencing a steep rise or steep fall, this helps Trio counter that activity and prevent an over- or under-dose.</span><span class="diff-line "> </span><span class="diff-line "> Let&#x27;s look at how Trio accounts for an increasing trend and a decreasing trend in glucose:</span><span class="diff-line "> </span><span class="diff-line ">@@ -363,3 +363,31 @@</span><span class="diff-line "> !!! tip</span><span class="diff-line ">     - While it is **always** wise to use your best judgement rather than trusting the bolus recommendation blindly, accurate settings will prevent the need for you to manually intervene and override the bolus recommendation.</span><span class="diff-line ">     - If your glucose updates in the middle of your meal entry, Trio will update your calculation in real time.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Backdated carbohydrate entries</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+For a backdated meal calculation, Trio uses simulated COB and sets new carbs to zero. For an ordinary entry, it adds existing COB and new carbs, capped at Max COB. This avoids counting a backdated entry both as newly entered carbs and as simulated remaining COB.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+The calculator already subtracts current IOB, including automated insulin represented in that IOB. A late meal bolus should not be explained as ignoring all previously delivered UAM/SMB insulin. The calculation still depends on the accuracy and freshness of the stored glucose, COB and IOB inputs.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Recommendation safety gates</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+The recommendation is zero if current glucose is below 54 mg/dL, minimum predicted glucose is below 54 mg/dL, or the last successful loop is more than 15 minutes old. These checks concern the calculated recommendation, not a universal prohibition on every insulin entry or delivery path.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Otherwise the implementation applies a nonnegative clamp, then Max Bolus, then `Max IOB − current IOB`, and finally pump bolus rounding. There is no second nonnegative clamp after the Max IOB headroom step; negative headroom therefore remains an implementation edge case rather than a guaranteed zero-result condition.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Two different percentage controls</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Positive manual-calculator results are multiplied by Recommended Bolus Percentage and, if selected, Reduced Bolus Percentage. The Super Bolus component is added afterward. SMB Delivery Ratio belongs to automated SMB dosing and is a separate control. See [calculator configuration](../../configuration/settings/features/bolus-calculator.md) and [SMB Delivery Ratio](../../configuration/settings/algorithm/additionals.md#smb-delivery-ratio).</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F05 — Calculator trend input is newest minus oldest within 20 minutes**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:216](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L216)</span><span class="diff-line diff-add">+- **F06 — Calculator safety gates and backdated-carb handling need explicit documentation**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344)</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452)</span><span class="diff-line diff-add">+- **F11 — The meal bolus calculator already subtracts automated insulin represented in IOB**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

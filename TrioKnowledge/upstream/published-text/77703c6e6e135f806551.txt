@@ -1,0 +1,1 @@
+Default: OFF When the carbs on board (COB) forecast line is active, enabling this feature allows Trio to use SMBs to deliver the insulin required.   Tip Allowing SMBs when you have carbs on board can help with mealtime spikes in glucose.

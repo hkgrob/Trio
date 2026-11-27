@@ -1,0 +1,191 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CGM · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/devices/cgm.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/devices/cgm.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="cgm">CGM</h1>
+<p>This section allows you to choose your glucose data source. Most options are self-explanatory.  For more information on compatible CGMs, please see the following <a href="../../../install/build/requirements/devices/cgm.html#compatible-cgm">link</a>.</p>
+<h2 id="step-1-add-cgm">Step 1: Add CGM</h2>
+<p>The first step in setting up your continuous glucose monitor (CGM) on Trio is to tap the "Add CGM" button in the Devices Menu</p>
+<p align="center"><img alt="CGM Setup" src="../../../../source/docs/configuration/settings/devices/img/cgm_setup.png"/></p>
+<h2 id="step-2-select-your-cgm">Step 2: Select Your CGM</h2>
+<p>Select your CGM from the in-app menu and from the options below for step by step instructions. The links below will guide you through the connection instructions for your specific CGM:  </p>
+<ul>
+<li><a href="#dexcom-g5-g6-one">Dexcom G5 / G6 / ONE</a></li>
+<li><a href="#dexcom-g7-one">Dexcom G7 / ONE+</a></li>
+<li><a href="#dexcom-share">Dexcom Share</a></li>
+<li><a href="#freestyle-libre-1-2-2-plus">FreeStyle Libre 1 / 2 / 2 Plus</a></li>
+<li><a href="#freestyle-libre-3-3-plus">FreeStyle Libre 3 / 3 Plus</a></li>
+<li><a href="#eversense-e3-365">Eversense E3 / 365</a></li>
+<li><a href="#glucose-simulator">Glucose Simulator</a> </li>
+<li><a href="#nightscout-as-cgm">Nightscout as CGM</a> </li>
+<li><a href="#xdrip4ios">xDrip4iOS</a> </li>
+</ul>
+<hr/>
+<h3 id="dexcom-g5-g6-one">Dexcom G5 / G6 / ONE</h3>
+<p>Trio will intercept glucose readings between the transmitter and the Dexcom app. If you are using a Dexcom G5, G6, or ONE sensor, tap Configuration CGM to enter your transmitter's 6-digit ID. <em>Dexcom Share Credentials are not necessary</em>. When you switch transmitters, you must delete your current transmitter from Trio by tapping Configuration CGM, scrolling down, and tapping Delete CGM. Once you do this, you can add the new transmitter with its Transmitter ID.</p>
+<p><strong>Step 3</strong>
+Enter your 6-digit Dexcom transmitter ID.</p>
+<p align="center"><img alt="Dexcom G5 G6 One" src="../../../../source/docs/configuration/settings/devices/img/1_dexcom_g5_g6_setup.png" width="300px"/></p>
+<p><strong>Step 4</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="dexcom-g7-one">Dexcom G7 / ONE+</h3>
+<p>As long as the Dexcom G7 or ONE+ app is installed on the same phone, Trio can intercept its glucose readings. When a new G7 or ONE+ sensor is paired to the Dexcom app, Trio will automatically start reading it.</p>
+<p><strong>Step 3</strong>
+Tap "Continue" to use the G7/ONE+ as your CGM source</p>
+<p align="center"><img alt="Dexcom G7 One+" src="../../../../source/docs/configuration/settings/devices/img/1_dexcom_g7_setup.png" width="300px"/></p>
+<p><strong>Step 4</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="dexcom-share">Dexcom Share</h3>
+<!-- TODO: add information on Dexcom Share -->
+<hr/>
+<h3 id="freestyle-libre-1-2-2-plus">FreeStyle Libre 1 / 2 / 2 Plus</h3>
+<p>This option can be used to pair a compatible Libre 1, Libre 2, or Libre 2 Plus sensor directly to Trio without going through a separate app like xDrip4iOS. In the in-app menu, it is listed as "FreeStyle Libre 1 / 2 / 2+". For Libre 3 and Libre 3 Plus sensors, see <a href="#freestyle-libre-3-3-plus">FreeStyle Libre 3 / 3 Plus</a> instead.</p>
+<p><strong>Step 3</strong>
+Tap "Libre 2 Direct" to use Libre 2 sensors or "Bluetooth Transmitters" to use Libre 1 sensors with a Miao Miao or other 3<sup>rd</sup> party transmitter.</p>
+<p align="center"><img alt="Libre Setup" src="../../../../source/docs/configuration/settings/devices/img/1_libre_setup.png" width="300px"/></p>
+<p><strong>Step 4:Libre 2 Direct</strong>
+Tap "Pair Sensor" to connect your Libre 2/2+ sensor to Trio</p>
+<p align="center"><img alt="Libre 2 Setup" src="../../../../source/docs/configuration/settings/devices/img/2_libre2_pairing.png" width="300px"/></p>
+<p><strong>Step 4:Bluetooth Transmitters (Libre 1)</strong>
+Select your 3<sup>rd</sup> party transmitter from the list of found devices and tap "Save"</p>
+<p align="center"><img alt="Libre 1 Setup" src="../../../../source/docs/configuration/settings/devices/img/2_libre1_bluetooth_transmitter.png" width="300px"/></p>
+<p><strong>Step 5</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="freestyle-libre-3-3-plus">FreeStyle Libre 3 / 3 Plus</h3>
+<div class="admonition info">
+<p class="admonition-title changed-block" data-change="added-or-revised">Available in main / Trio 1.0.2</p>
+<p class="changed-block" data-change="added-or-revised">The pinned 1.0.2 app includes the Libre 3/3+ driver; <code>dev</code> is not required solely for Libre 3 availability. Its app-menu label still includes "(Beta)".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title changed-block" data-change="added-or-revised">Upgrading to Trio 1.0.2: re-pair the sensor</p>
+<p class="changed-block" data-change="added-or-revised">The official 1.0.2 release notes say the changed driver cannot retain the previous pairing. Re-pair the existing sensor after the upgrade; the release notes do not require a new sensor. Read the <a href="https://github.com/nightscout/Trio/releases/tag/v1.0.2">official version-specific upgrade note</a>. Initial sensor activation and recovering/re-pairing a running sensor are different workflows.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title changed-block" data-change="added-or-revised">Driver-procedure validation scope</p>
+<p class="changed-block" data-change="added-or-revised">The detailed procedure retained below comes from the captured docs source. Sensor startup/recovery behavior depends on the pinned LibreLoop driver and the sensor's prior state; this alignment update does not independently validate every driver-screen instruction.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trio starts the sensor, and only one app can read it</p>
+<p>Trio starts (activates) the sensor itself while pairing, so pair a new sensor that you have not started in another app.
+A Libre 3 sensor answers only to the app that started it. A sensor you start in Trio can no longer be read by the FreeStyle Libre 3 app, and a sensor you already started in the FreeStyle Libre 3 app cannot be paired to Trio.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">The FreeStyle Libre 3 app's alarms will not reach you</p>
+<p>Because Trio reads the sensor directly, the FreeStyle Libre 3 app's low and high glucose alarms are not active while the sensor is paired to Trio.
+Set up Trio's own <a href="../notifications/trio-notifications.html#glucose-alarm-limits">Glucose Alarm Limits</a> before you rely on this CGM, and consider a remote monitoring option such as Nightscout so someone else can see a low or high that you miss.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Wait until warm-up is completed</p>
+<p>A newly started sensor warms up for about 60 minutes and reports no glucose during that time. Trio shows the remaining warm-up time on the home screen.
+Before using automated insulin delivery, be sure the warm-up has completed and the readings look reasonable to you.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">A paid Apple Developer account is required</p>
+<p>Pairing uses Near Field Communication (NFC), the short-range technology that lets you hold your phone against the sensor to talk to it. NFC is not available when Trio is built with a free Apple Developer account. See <a href="../../../install/build/requirements/apple-developer.html">Apple Developer Account</a>.</p>
+</div>
+<p><strong>Step 3</strong>
+Apply a new sensor to the back of your upper arm. Tap "HOW TO APPLY A SENSOR" if you would like Trio to walk you through it, then tap "Next".</p>
+<!-- TODO: add screenshot of the Apply a new Sensor screen -->
+<p><strong>Step 4</strong>
+Tap "Start pairing", then hold the back of your phone against the sensor and keep it still. Your phone vibrates once the sensor is paired. If the phone moves away too early, the scan fails and you can try again.</p>
+<!-- TODO: add screenshot of the Scan new Sensor screen -->
+<p><strong>Step 5</strong>
+Wait for Trio to finish pairing. Trio starts the sensor, connects to it over Bluetooth, and then receives a glucose reading every 5 minutes once warm-up is finished.</p>
+<!-- TODO: add screenshot of the pairing progress screen -->
+<p><strong>Step 6</strong>
+Write down your Receiver ID, which you will find in the Debug Info section of the Libre 3 CGM settings page. The Receiver ID is the identifier the sensor remembers Trio by, and it is the only way to re-pair a sensor that is already running, for example after you delete the CGM from Trio or reinstall the app. To use it, tap "Recover existing sensor" on the pairing screen and enter the ID. When you re-pair a sensor that is already running, Trio shows "Stabilizing" for a while and does not display glucose readings the sensor itself flags as unreliable.</p>
+<p><strong>Step 7</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="eversense-e3-365">Eversense E3 / 365</h3>
+<div class="admonition warning">
+<p class="admonition-title">Wait until the initialization phase is completed</p>
+<p>During the initialization phase of this system, the glucose reading might be incorrect.
+Before using automated insulin delivery, be sure to complete the initialization phase using the original Eversense app.
+Since swelling at the insertion site can cause inaccurate readings, make sure that you are getting stable readings
+before switching to Trio.  This could be as long as the start of weekly calibrations (Day 14).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Do not use the Eversense 365 app and Trio concurrently</p>
+<p>The 365 transmitter is not able to connect to multiple apps or devices at the same time, due to the security protocol.
+Make sure you either use the Eversense app or Trio, but not both at the same time.</p>
+</div>
+<p><strong>Step 1</strong>
+Disconnect from the Eversense app</p>
+<pre><code>Go to Connect from the main menu and click on the connected sensor.
+
+Press OK to disconnect the transmitter.
+</code></pre>
+<p><strong>Step 2</strong>
+Forget the transmitter from Bluetooth on your phone.</p>
+<p><strong>Step 3</strong>
+Select whether you want to pair the Eversense E3 or the Eversense 365.</p>
+<p align="center"><img alt="Eversense Transmitter type selection" src="../../../../source/docs/configuration/settings/devices/img/1_eversense_transmitter_selection.PNG" width="300px"/></p>
+<p><strong>Step 4 (only for Eversense 365)</strong>
+Log in using your Eversense account. If you do not have an accunt or you forgot your password, the appropriate links are included in this step</p>
+<p align="center"><img alt="Eversense Account login" src="../../../../source/docs/configuration/settings/devices/img/2_eversense_account_login.PNG" width="300px"/></p>
+<p><strong>Step 5</strong>
+Now put your Eversense transmitter in pairing mode (done by tapping the button 3 times), and wait till your Serial Number shows up on screen.
+Click on the found transmitter, accept the pairing prompt (if show), and wait untill the pairing process is completed!</p>
+<p align="center"><img alt="Eversense Transmitter scanning" src="../../../../source/docs/configuration/settings/devices/img/3_eversense_transmitter_scanning.PNG" width="300px"/></p>
+<p><strong>Step 6</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="accu-chek-smartguide">Accu-Chek SmartGuide</h3>
+<div class="admonition warning">
+<p class="admonition-title">You must build the <code>dev</code> branch to use the Accu-Chek SmartGuide CGM at this time</p>
+<p>The Accu-Chek SmartGuide CGM is in <code>dev</code> and is experimental for now</p>
+</div>
+<p><strong>Step 3</strong>
+Wait a minute while Trio is scanning for your Accu-Chek SmartGuide</p>
+<p align="center"><img alt="Accu-Chek Scanning" src="../../../../source/docs/configuration/settings/devices/img/1_accu-chek-scanning.png" width="300px"/></p>
+<p><strong>Step 4</strong>
+Once Trio has found your Accu-Chek SmartGuide, it prompts you to confirm the Serial Number.
+This Serial Number can be found on the twist cap of your applicator.</p>
+<p align="center"><img alt="Accu-Chek Scanning" src="../../../../source/docs/configuration/settings/devices/img/2_accu-chek_device_found.png" width="300px"/></p>
+<p><strong>Step 5</strong>
+After you've confirmed the Serial Number, Trio will pair and configure your CGM.
+It might be the case that iOS asks for a Bluetooth pairing code, this code can be found at the top of the twist cap.
+After pairing, be sure to either never remove your CGM from the Bluetooth list or keep the twist cap/pincode somewhere safe.</p>
+<p><strong>Note</strong> you will need this pincode if you want to migrate to a new phone</p>
+<p align="center"><img alt="Accu-Chek Scanning" src="../../../../source/docs/configuration/settings/devices/img/3_accu-chek_pairing.png" width="300px"/></p>
+<p><strong>Step 6</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="glucose-simulator">Glucose Simulator</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If using a Glucose Simulator, it is important to understand:</p>
+<ul>
+<li>You will only experience the user interface of Trio.</li>
+<li>Using a Glucose Simulator does not indicate how the app will perform, nor will it give accurate guidance or suggestions for insulin dosing.</li>
+<li>A Glucose Simulator should <strong>NEVER</strong> be used with a live pump connected to a living person or pet.</li>
+<li><strong>Only use a Glucose Simulator if you understand the conditions above.</strong></li>
+</ul>
+</div>
+<p><strong>Step 2</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="nightscout-as-cgm">Nightscout as CGM</h3>
+<p>While using Nightscout as a CGM is an option, it should be avoided if possible because it does not keep Trio running in the background like other CGM options.</p>
+<p><strong>Step 2</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h3 id="xdrip4ios">xDrip4iOS</h3>
+<p>To use xDrip4iOS as a CGM source, you must build it yourself with the same Apple Developer account you used to build your Trio app. You cannot use Shuggah or a version distributed by someone else's TestFlight. Please see the following for instructions on how to build xDrip4iOS yourself: <a href="../../../install/ecosystem/xdrip4ios.html">link</a></p>
+<p>However, if you are using Dexcom G6 or ONE with xDrip4iOS, you can choose the Dexcom G6 option in Trio rather than xDrip4iOS, and Trio will intercept the glucose readings even if you're using Shuggah or someone else's TestFlight of xDrip4iOS.</p>
+<p><strong>Step 2</strong>
+Continue to <a href="smart-watch.html">Connect Watch</a> <em>OR</em> return to <a href="../../new-user-setup.html">New User Setup</a></p>
+<hr/>
+<h2 id="smooth-glucose-value">Smooth Glucose Value</h2>
+<p><strong>Default:</strong> <em>OFF</em> </p>
+<p>Smooths CGM readings using Savitzky-Golay Filtering</p>
+<!-- Update with additional description of Savitzky-Golay filtering -->
+<hr/>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F07 — Libre 3 documentation still claims dev-only availability</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/Devices/DeviceCatalog.swift#L357">Trio/Sources/APS/Devices/DeviceCatalog.swift:357</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/.gitmodules#L44">.gitmodules:44</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/devices/cgm.md</span><span class="diff-line ">+++ updated/configuration/settings/devices/cgm.md</span><span class="diff-line ">@@ -84,8 +84,14 @@</span><span class="diff-line "> </span><span class="diff-line "> ### FreeStyle Libre 3 / 3 Plus</span><span class="diff-line "> </span><span class="diff-line diff-remove">-!!! warning &quot;You must build the `dev` branch to use the FreeStyle Libre 3 / 3 Plus CGM at this time&quot;</span><span class="diff-line diff-remove">-    The FreeStyle Libre 3 / 3 Plus CGM is in `dev` and is in open-beta for now. In the in-app menu, it is listed as &quot;FreeStyle Libre 3 / 3+ (Beta)&quot;.</span><span class="diff-line diff-add">+!!! info &quot;Available in main / Trio 1.0.2&quot;</span><span class="diff-line diff-add">+    The pinned 1.0.2 app includes the Libre 3/3+ driver; `dev` is not required solely for Libre 3 availability. Its app-menu label still includes &quot;(Beta)&quot;.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+!!! warning &quot;Upgrading to Trio 1.0.2: re-pair the sensor&quot;</span><span class="diff-line diff-add">+    The official 1.0.2 release notes say the changed driver cannot retain the previous pairing. Re-pair the existing sensor after the upgrade; the release notes do not require a new sensor. Read the [official version-specific upgrade note](https://github.com/nightscout/Trio/releases/tag/v1.0.2). Initial sensor activation and recovering/re-pairing a running sensor are different workflows.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+!!! note &quot;Driver-procedure validation scope&quot;</span><span class="diff-line diff-add">+    The detailed procedure retained below comes from the captured docs source. Sensor startup/recovery behavior depends on the pinned LibreLoop driver and the sensor&#x27;s prior state; this alignment update does not independently validate every driver-screen instruction.</span><span class="diff-line "> </span><span class="diff-line "> !!! warning &quot;Trio starts the sensor, and only one app can read it&quot;</span><span class="diff-line ">     Trio starts (activates) the sensor itself while pairing, so pair a new sensor that you have not started in another app.</span><span class="diff-line ">@@ -246,3 +252,10 @@</span><span class="diff-line "> &lt;!-- Update with additional description of Savitzky-Golay filtering --&gt;</span><span class="diff-line "> </span><span class="diff-line "> - - -</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F07 — Libre 3 documentation still claims dev-only availability**</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/Devices/DeviceCatalog.swift:357](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/Devices/DeviceCatalog.swift#L357)</span><span class="diff-line diff-add">+    - [.gitmodules:44](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/.gitmodules#L44)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

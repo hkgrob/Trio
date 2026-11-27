@@ -1,0 +1,1 @@
+ Autosens Min/Max: Limits how much Autosens can adjust your ISF (default: 70-120%) Sensitivity Ratio: Applied to ISF and basal rates simultaneously 

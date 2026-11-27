@@ -1,0 +1,1 @@
+As long as the Dexcom G7 or ONE+ app is installed on the same phone, Trio can intercept its glucose readings. When a new G7 or ONE+ sensor is paired to the Dexcom app, Trio will automatically start reading it. Step 3 Tap "Continue" to use the G7/ONE+ as your CGM source  Step 4 Continue to Connect Watch OR return to New User Setup

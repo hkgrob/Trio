@@ -1,0 +1,1 @@
+Bill has a CR of 10 g/U. If Bill eats a meal containing 50 grams of carbs, how much insulin does Bill need? Here is the formula: \[ \frac{grams\ of\ carb\ eaten}{Carb\ Ratio} \] Calculate Bill's Insulin Dose: \[ \frac{50}{10} = 5\ units \] Answer Bill needs 5 units of insulin for his 50g meal.

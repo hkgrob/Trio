@@ -1,0 +1,112 @@
+--- upstream/configuration/settings/algorithm/smb-settings.md
++++ updated/configuration/settings/algorithm/smb-settings.md
+@@ -108,7 +108,7 @@
+ 
+ ## Max SMB Basal Minutes
+ **Default:** _30 minutes_  
+-**Setting Limits:** _30-180 minutes_
++**Setting Limits:** _15-180 minutes (5-minute steps)_
+ 
+ If any of the SMB options are enabled, this limit will apply to all SMBs except UAM SMBs. This is a limit on the size of a single SMB. One SMB can only be as large as this many minutes of your current profile basal rate.  
+ 
+@@ -141,7 +141,7 @@
+         $$
+         
+     ??? success "Answer"
+-        The largest SMB Bill can receive is **1.0 unit** every 5 minutes.  
++        The basal-minute cap in this example is **1.0 unit per eligible SMB** before other constraints. This does not guarantee delivery every five minutes.  
+ 
+ 
+ !!! warning
+@@ -156,7 +156,7 @@
+ 
+ ## Max UAM Basal Minutes
+ **Default:** _30 minutes_  
+-**Setting Limits:** _30-180 minutes_
++**Setting Limits:** _15-180 minutes (5-minute steps)_
+ 
+ If UAM is enabled, this setting limits the size of each UAM SMB. One UAM SMB can only be as large as this many minutes of your current profile basal rate.  
+ 
+@@ -178,56 +178,11 @@
+ 
+ ## Max Allowed Glucose Rise for SMB
+ **Default:** _20%_  
+-**Setting Limits:** _10%-40%_
+-
+-This safety limiter looks at the difference between your last two blood glucose readings. If the difference is above this percent, Trio suspects them to be incorrect and will suspend all SMB delivery accordingly (including UAM). You can adjust the amount of change that should be allowed before SMBs are delivered.  
+-
+-??? question "Bill's last CGM reading was 90 mg/dL. The very next reading is 115 mg/dL. Will Bill receive the insulin needed as an SMB?"
+-    
+-    ??? info "Here are the formulas you'll need:"
+-        Rise Percentage:
+-        
+-        $$
+-        \frac{Current\ Glucose - Previous\ Glucose}{Previous\ Glucose}
+-        $$
+-        
+-        Compare to Max Allowed Glucose Rise for SMB
+-        
+-        $$
+-        Rise\ Percentage \gt \ or\ = \ or\ \lt Max\ Allowed\ Glucose\ Rise\ for\ \mathit{SM}\mathit{B}\ Setting
+-        $$
+-        
+-        **No SMB**: $\gt$  
+-        **Yes SMB**: $\lt$ or $=$
+-        
+-    ??? note "Calculate if an SMB will be used:"
+-    
+-        $$
+-        \frac{115-90}{90} =
+-        $$
+-        
+-        $$
+-        \frac{25}{90} =
+-        $$
+-        
+-        $$
+-        +0.28\ or\ +28\%
+-        $$
+-
+-        His rise, or increase in glucose, is an increase of **_28%_**
+-
+-        $$
+-        28\%\gt 20\% = No\ \mathit{SM}\mathit{B}s
+-        $$
+-    
+-    ??? success "Answer"
+-        This increase is larger than the threshold, so **no SMBs will be given**. Trio will administer needed insulin via temp basal adjustment.
+-
+-!!! tip
+-    
+-    For Fully Closed Loop (FCL), 30% is advised.
+-
+-- - -
++**Setting Limits:** _10%–40%_
++
++The 1.0.2 Swift dosing engine disables SMBs when `glucoseStatus.maxDelta > min(configured fraction, 0.4) × current glucose`. Equality does not trigger this particular block. This is a comparison with current glucose and the computed maximum delta, not simply a percentage change divided by the previous glucose reading.
++
++For example, if the computed maximum delta is 25 mg/dL and current glucose is 115 mg/dL, the default threshold is `0.2 × 115 = 23 mg/dL`. Because 25 exceeds 23, this check blocks SMB delivery on that determination. Passing this check alone does not promise a dose or a compensating high temporary basal; the rest of the determination still applies.
+ 
+ ## Are SMBs Allowed?
+ 
+@@ -252,3 +207,20 @@
+ - Enable if a Low Temp Target is set
+ 
+ 
++
++
++## Permission, UAM and dose-cap selection in 1.0.2
++
++Enabling UAM is not itself an SMB-enabling condition. The permission function first considers override/scheduled SMB blocks and high Temp Target restrictions, then the enabled SMB conditions (Always, COB, After Carbs, low Temp Target, and High Glucose). Later guard-glucose and maximum-delta checks can still block delivery.
++
++The simplified basal-minute formula assumes the relevant current profile basal, no overriding SMB/UAM-minute setting and no extra override factor. The code selects the UAM-minute branch when current IOB is positive and exceeds meal COB divided by carb ratio; otherwise it uses the SMB-minute branch. Active advanced overrides can replace the minutes and scale the basal factor. The defaults remain 30 minutes for both settings; allowable picker limits are not a recommendation to increase a limit.
++
++
++## 1.0.2 source references
++
++- **F03 — SMB and UAM basal-minute picker limits start at 15, not 30**
++    - [Trio/Sources/Models/DecimalPickerSettings.swift:88](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DecimalPickerSettings.swift#L88)
++- **F12 — UAM does not independently grant SMB permission; interval is not a delivery schedule**
++    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:18](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18)
++    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:840](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840)
++    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:720](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720)

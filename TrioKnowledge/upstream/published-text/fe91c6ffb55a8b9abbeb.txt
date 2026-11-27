@@ -1,0 +1,1 @@
+ Minimum: 9 mg/dL/U (0.5 mmol/L/U) Maximum: 540 mg/dL/U (30 mmol/L/U) Default: 200 mg/dL/U (11.1 mmol/L/U) Step: 1 mg/dL/U (0.1 mmol/L/U)  Units Trio stores ISF internally in mg/dL but displays it based on your glucose unit preference. Conversions are automatic.

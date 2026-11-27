@@ -1,0 +1,1 @@
+Activates a chosen preset override.   Tip You must first save the Preset Override on the Adjustments screen before you can activate an override using Shortcuts.

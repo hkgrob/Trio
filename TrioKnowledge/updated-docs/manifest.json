@@ -1,0 +1,1148 @@
+{
+  "app_commit": "0b29cd53415e7f0e668677749cad8daf81c68c2f",
+  "source_documents": 105,
+  "rendered_documents": 105,
+  "changed_documents": 19,
+  "new_documents": 1,
+  "pages": [
+    {
+      "path": "configuration/index.md",
+      "title": "Configuration",
+      "html": "site/configuration/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "2702e654a66160061de8f049240812a9461a8965437b5b94a662b58fd53e07e5",
+      "original_sha256": "2702e654a66160061de8f049240812a9461a8965437b5b94a662b58fd53e07e5"
+    },
+    {
+      "path": "configuration/migration/aaps-migration.md",
+      "title": "Coming from AAPS",
+      "html": "site/configuration/migration/aaps-migration.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "0602e9f6ff8070087b41e2dc7ac7577069efca62bf8932125c5ae855d00210dd",
+      "original_sha256": "0602e9f6ff8070087b41e2dc7ac7577069efca62bf8932125c5ae855d00210dd"
+    },
+    {
+      "path": "configuration/migration/iaps-migration.md",
+      "title": "Coming from iAPS",
+      "html": "site/configuration/migration/iaps-migration.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "c9cdb0b176d8d7fdbfb951c672d809aae148e4c719a13da48c064a161c5f5e49",
+      "original_sha256": "c9cdb0b176d8d7fdbfb951c672d809aae148e4c719a13da48c064a161c5f5e49"
+    },
+    {
+      "path": "configuration/migration/index.md",
+      "title": "Migration Guides",
+      "html": "site/configuration/migration/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "f750ac0c5b78898711108faa0fdb607b2a5954c90c0a9d45e494b93ca99049d3",
+      "original_sha256": "f750ac0c5b78898711108faa0fdb607b2a5954c90c0a9d45e494b93ca99049d3"
+    },
+    {
+      "path": "configuration/migration/loop-migration.md",
+      "title": "Coming from Loop",
+      "html": "site/configuration/migration/loop-migration.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "c65af2f3d4a5f8b2a8945554201a7e9403838bde9b6ed5f070631f1ad52e9e27",
+      "original_sha256": "c65af2f3d4a5f8b2a8945554201a7e9403838bde9b6ed5f070631f1ad52e9e27"
+    },
+    {
+      "path": "configuration/migration/trio-02x-migration.md",
+      "title": "Coming from Trio 0.2.x",
+      "html": "site/configuration/migration/trio-02x-migration.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "8535a89f4406f9555080e5a65eebd9aa9c43c1e27766deb324624a2bcd9daa03",
+      "original_sha256": "8535a89f4406f9555080e5a65eebd9aa9c43c1e27766deb324624a2bcd9daa03"
+    },
+    {
+      "path": "configuration/new-user-setup.md",
+      "title": "New User Setup Guide",
+      "html": "site/configuration/new-user-setup.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "5467aa9266c5815a53cfbb9b691a45b7c9384f6c220bd46dd930800a39254d65",
+      "original_sha256": "096e84395739225047facf52b213371deb14546d1dd08f4df123640bcfa5f83f",
+      "findings": [
+        "F01",
+        "F02"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/algorithm/additionals.md",
+      "title": "Additionals",
+      "html": "site/configuration/settings/algorithm/additionals.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "cde8ab54260c3303daf8c31baf3df1baaad73d380bbcbf072c9d690c96f87127",
+      "original_sha256": "4b4b5d4fde90133c7a1a3af90b74f8289b63f55a738a86f66b11bf8d08488b8e",
+      "findings": [
+        "F11",
+        "F12"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/algorithm/autosens.md",
+      "title": "Autosens Settings",
+      "html": "site/configuration/settings/algorithm/autosens.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "7949b33753003bd317a94776eec5e97e803e6ea72119f14436ddf2a282b726b9",
+      "original_sha256": "af64d6bef53646841ad30961631a3868f742edd7fd9d532f02be7f3ed91813ee",
+      "findings": [
+        "F02"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/algorithm/dynamic-settings.md",
+      "title": "Dynamic Settings",
+      "html": "site/configuration/settings/algorithm/dynamic-settings.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "86d6c8ad85a49f4a6d499532770888826d0c2e4930ec99079888b01fb3a91e2a",
+      "original_sha256": "5ac47e5fafa3efa10ad71fceb05220b40ecbd012183a0e9a845b0998ec8dc736",
+      "findings": [
+        "F02"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/algorithm/index.md",
+      "title": "Algorithm",
+      "html": "site/configuration/settings/algorithm/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "23d093b9fe81f3c55bace9b294606b123523fdd42a9d3ea62be5ea2c72691516",
+      "original_sha256": "23d093b9fe81f3c55bace9b294606b123523fdd42a9d3ea62be5ea2c72691516"
+    },
+    {
+      "path": "configuration/settings/algorithm/smb-settings.md",
+      "title": "SMB Settings",
+      "html": "site/configuration/settings/algorithm/smb-settings.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "1e86b9694002c970393da0ac3b5c861e992ae568a1726ca734c38217b68aa698",
+      "original_sha256": "8287d2f06cd24c9606acd9a48173b013ff063a34f32c3c479ec4b4485410b164",
+      "findings": [
+        "F03",
+        "F12"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/algorithm/target-behavior.md",
+      "title": "Target Behavior",
+      "html": "site/configuration/settings/algorithm/target-behavior.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "cb817c3b84a8c571b4252f5c9856a3cddc5056386be121280401d87b63561306",
+      "original_sha256": "cb817c3b84a8c571b4252f5c9856a3cddc5056386be121280401d87b63561306"
+    },
+    {
+      "path": "configuration/settings/closed-loop.md",
+      "title": "Dosing Modes",
+      "html": "site/configuration/settings/closed-loop.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "24829615ca0c6b840b4de20ec0b7134b2e2ecf3a729ed6a0be868d8d13f0f58b",
+      "original_sha256": "cc785edc2a2823179ae60c9c2ae60e24aa7d0c86489991dd975a5a5f13cb9312",
+      "findings": [
+        "F01",
+        "F02"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/devices/cgm.md",
+      "title": "CGM",
+      "html": "site/configuration/settings/devices/cgm.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "10b0b5a9c8750b51af7d2ef6a0d04423b3601c273a5ea3256f83868ee446b787",
+      "original_sha256": "27ce97f7fd645c992a879e60b9a56a8153febc6dc14e5e3d8d0287fd134e106b",
+      "findings": [
+        "F07"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/devices/index.md",
+      "title": "Devices",
+      "html": "site/configuration/settings/devices/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "cb99838451d856ff6a09949005b22403910200af5e27154328989c2e9a9db54b",
+      "original_sha256": "cb99838451d856ff6a09949005b22403910200af5e27154328989c2e9a9db54b"
+    },
+    {
+      "path": "configuration/settings/devices/pump.md",
+      "title": "Insulin Pump",
+      "html": "site/configuration/settings/devices/pump.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "4589b4180f291107c20fdef58b2946fc483251a0ca748976056112ec282cff1a",
+      "original_sha256": "4589b4180f291107c20fdef58b2946fc483251a0ca748976056112ec282cff1a"
+    },
+    {
+      "path": "configuration/settings/devices/smart-watch.md",
+      "title": "Smart Watch",
+      "html": "site/configuration/settings/devices/smart-watch.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "4ae87d5df068a3394be60501effcf94d3edc38f6cc566b01b2d79e7bac07a376",
+      "original_sha256": "3aecddd5a08c2ba6da347b543c141bf67552bc099432753d8bb35d8b29f62432",
+      "findings": [
+        "F09"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/export-settings.md",
+      "title": "Export Settings",
+      "html": "site/configuration/settings/export-settings.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "442374f804172a594dd40825722766e5301691b4548ee34a9bbd0f9bc3df8b0d",
+      "original_sha256": null,
+      "findings": [
+        "F08",
+        "F02"
+      ],
+      "new_page": true
+    },
+    {
+      "path": "configuration/settings/features/app-diagnostics.md",
+      "title": "App Diagnostics \u270f\ufe0f",
+      "html": "site/configuration/settings/features/app-diagnostics.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "75d3f1613651de7ad38e6aacb0a2e8fc1ef1351b26582e3a616dbdbca7ca374c",
+      "original_sha256": "75d3f1613651de7ad38e6aacb0a2e8fc1ef1351b26582e3a616dbdbca7ca374c"
+    },
+    {
+      "path": "configuration/settings/features/app-icons.md",
+      "title": "App Icons",
+      "html": "site/configuration/settings/features/app-icons.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "72fb102f03e16323ed1068f3ef29eb27f38c8ff5e648fa79026d0feac93462da",
+      "original_sha256": "72fb102f03e16323ed1068f3ef29eb27f38c8ff5e648fa79026d0feac93462da"
+    },
+    {
+      "path": "configuration/settings/features/bolus-calculator.md",
+      "title": "Bolus Calculator",
+      "html": "site/configuration/settings/features/bolus-calculator.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "104d40f5b61ad966d844b7c8af23e5b545c453340143724b6e80d4696b840ff3",
+      "original_sha256": "1c342fa9cb75da58a0e1abe7fd1adca6c43174d53c9938309eb62dfca70eb75d",
+      "findings": [
+        "F06",
+        "F11"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/features/index.md",
+      "title": "Features",
+      "html": "site/configuration/settings/features/index.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "629fbc702dc52679bc809ddd35ac6b8141d7e118815c327aecc236570154814e",
+      "original_sha256": "0b212bfbf278127009c4668dc0e5159416df9d5807bab3f933d4d095a42fb818",
+      "findings": [
+        "F08"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/features/meal-settings.md",
+      "title": "Meal Settings",
+      "html": "site/configuration/settings/features/meal-settings.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "b8b9243807465ef06414d9d5546488174dcf467bc991ad47be12723b0d3b4b9c",
+      "original_sha256": "b8b9243807465ef06414d9d5546488174dcf467bc991ad47be12723b0d3b4b9c"
+    },
+    {
+      "path": "configuration/settings/features/remote-control.md",
+      "title": "Remote Control",
+      "html": "site/configuration/settings/features/remote-control.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "5811af5664d4c81899c48c8e4b140b0dc816f85c14e455f6350912b171078088",
+      "original_sha256": "b3cc93f8a4a73fa5f7a8357e929a22b287df0947be74641e6fdcef93027a54da",
+      "findings": [
+        "F04"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/features/shortcuts.md",
+      "title": "Shortcuts",
+      "html": "site/configuration/settings/features/shortcuts.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "32464784c6cb925df644ee6189d84165923a64bd8a5d4d323ba58084459d40cc",
+      "original_sha256": "afd1cecba3ecda2ec248cf26dab9b84eab45ef85682b5a6a4deb1c6a977238a2",
+      "findings": [
+        "F04",
+        "F10"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/features/user-interface.md",
+      "title": "User Interface Settings Menu",
+      "html": "site/configuration/settings/features/user-interface.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "686a6a87c1ebf4cd277fec98ed6fc6ae3b44edb0479e0fd07103c14557865161",
+      "original_sha256": "686a6a87c1ebf4cd277fec98ed6fc6ae3b44edb0479e0fd07103c14557865161"
+    },
+    {
+      "path": "configuration/settings/index.md",
+      "title": "Trio Settings",
+      "html": "site/configuration/settings/index.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "6d2bf9a3ab0101b79dfb4515a704515aa9b1a7481347720c0b984891793bfa45",
+      "original_sha256": "30d9b9885bac0b91e580317b5978c9e402cdea29adef1eb108066669a5250b58",
+      "findings": [
+        "F01",
+        "F08"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/notifications/calendar-events.md",
+      "title": "Calendar Events",
+      "html": "site/configuration/settings/notifications/calendar-events.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "275ced07f77d2188e03d8cf62d1c064c41959154e276032edfe3ac27427a8cd4",
+      "original_sha256": "275ced07f77d2188e03d8cf62d1c064c41959154e276032edfe3ac27427a8cd4"
+    },
+    {
+      "path": "configuration/settings/notifications/index.md",
+      "title": "Notifications",
+      "html": "site/configuration/settings/notifications/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "7f6c42f091d0843ebf752e28f9f3fbf96516fd61fd78d0fb0e038f98442702db",
+      "original_sha256": "7f6c42f091d0843ebf752e28f9f3fbf96516fd61fd78d0fb0e038f98442702db"
+    },
+    {
+      "path": "configuration/settings/notifications/live-activity.md",
+      "title": "Live Activity",
+      "html": "site/configuration/settings/notifications/live-activity.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "7b1536ceecf025cdadabf8671ab3e2cbaffc5a6146a61ff0e39feeb2daeb348b",
+      "original_sha256": "7b1536ceecf025cdadabf8671ab3e2cbaffc5a6146a61ff0e39feeb2daeb348b"
+    },
+    {
+      "path": "configuration/settings/notifications/trio-notifications.md",
+      "title": "Notifications",
+      "html": "site/configuration/settings/notifications/trio-notifications.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "6d0015f0d5a81be4cb1daa7bde09123499b92a9fc57d3f3bce0cf7dfdbd00aa6",
+      "original_sha256": "6d0015f0d5a81be4cb1daa7bde09123499b92a9fc57d3f3bce0cf7dfdbd00aa6"
+    },
+    {
+      "path": "configuration/settings/services/apple-health.md",
+      "title": "Apple Health \u270f\ufe0f",
+      "html": "site/configuration/settings/services/apple-health.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "87ac1be1dac17c4e5934d13faa272e5cd26b411f8685654803d7dbbe21c53cbf",
+      "original_sha256": "87ac1be1dac17c4e5934d13faa272e5cd26b411f8685654803d7dbbe21c53cbf"
+    },
+    {
+      "path": "configuration/settings/services/index.md",
+      "title": "Services",
+      "html": "site/configuration/settings/services/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "836cc2b845f159db199b768e28bd6343ab71e7630e8db921e7ebf0084a90fa81",
+      "original_sha256": "836cc2b845f159db199b768e28bd6343ab71e7630e8db921e7ebf0084a90fa81"
+    },
+    {
+      "path": "configuration/settings/services/nightscout.md",
+      "title": "Visualization and Monitoring \u270f\ufe0f",
+      "html": "site/configuration/settings/services/nightscout.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "1779db512026fdfc101b381df000d3d8721df6b98691ef2990217c50ed4dc340",
+      "original_sha256": "1779db512026fdfc101b381df000d3d8721df6b98691ef2990217c50ed4dc340"
+    },
+    {
+      "path": "configuration/settings/services/tidepool.md",
+      "title": "Tidepool \u270f\ufe0f",
+      "html": "site/configuration/settings/services/tidepool.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "f89faa4a1a827a99e11a3b37d22c44ef7d1388a05cc12964b8c2199e88c1ba93",
+      "original_sha256": "f89faa4a1a827a99e11a3b37d22c44ef7d1388a05cc12964b8c2199e88c1ba93"
+    },
+    {
+      "path": "configuration/settings/therapy/basal-rates.md",
+      "title": "Basal Profile",
+      "html": "site/configuration/settings/therapy/basal-rates.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "daa16ec20d82dbc05bb2f1e8357f58a7dc099df6a16d778cfe6e896308f485ee",
+      "original_sha256": "8a043ec5739f260e4d185182f669b1ae88ee22cd35a33717a436589c65211fb6",
+      "findings": [
+        "F02"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/settings/therapy/carb-ratios.md",
+      "title": "Carb Ratio (CR)",
+      "html": "site/configuration/settings/therapy/carb-ratios.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "a4a0e2484d26ffca79c62788e4c5e9201fead3223222c81e6ab7de175fb3f708",
+      "original_sha256": "a4a0e2484d26ffca79c62788e4c5e9201fead3223222c81e6ab7de175fb3f708"
+    },
+    {
+      "path": "configuration/settings/therapy/glucose-targets.md",
+      "title": "Glucose Targets",
+      "html": "site/configuration/settings/therapy/glucose-targets.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "4569539861fc51bdcb6f75399af23d23ff0d1bf65cb4b0e2e4c8a1e96bf6db28",
+      "original_sha256": "4569539861fc51bdcb6f75399af23d23ff0d1bf65cb4b0e2e4c8a1e96bf6db28"
+    },
+    {
+      "path": "configuration/settings/therapy/index.md",
+      "title": "Therapy",
+      "html": "site/configuration/settings/therapy/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "100ba424a2d67a4dd579529668cf3472cc95cec127fa2fb18228c7a942a8b117",
+      "original_sha256": "100ba424a2d67a4dd579529668cf3472cc95cec127fa2fb18228c7a942a8b117"
+    },
+    {
+      "path": "configuration/settings/therapy/isf.md",
+      "title": "Insulin Sensitivity Factor (ISF)",
+      "html": "site/configuration/settings/therapy/isf.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "0a91635574448ab8440c6ff5724ccd17cc37b7be258a14426e38191aae584219",
+      "original_sha256": "0a91635574448ab8440c6ff5724ccd17cc37b7be258a14426e38191aae584219"
+    },
+    {
+      "path": "configuration/settings/therapy/units-limits.md",
+      "title": "Units and Limits",
+      "html": "site/configuration/settings/therapy/units-limits.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "634ecf183330e1a5ad903cff0cb526f94d537e9a46ea81a07a7e7be17083975c",
+      "original_sha256": "f2080828babd0b3667b73537b2fc1dc3696de5762994a9c2a8195473dbe126f4",
+      "findings": [
+        "F02",
+        "F06",
+        "F10"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "configuration/transition-qa.md",
+      "title": "Transition from other closed-loop solutions",
+      "html": "site/configuration/transition-qa.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "fdae71b7b2eff6d6ce43f706b0097c408886d017a94a6bfb680b15261a6d3eea",
+      "original_sha256": "fdae71b7b2eff6d6ce43f706b0097c408886d017a94a6bfb680b15261a6d3eea"
+    },
+    {
+      "path": "help/faq.md",
+      "title": "Frequently Asked Questions",
+      "html": "site/help/faq.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "aa4bce884c1196d70c52248d597cdaddc9c4a856d17a36e8a6441a69ca085cec",
+      "original_sha256": "aa4bce884c1196d70c52248d597cdaddc9c4a856d17a36e8a6441a69ca085cec"
+    },
+    {
+      "path": "help/glossary.md",
+      "title": "Glossary \u270f\ufe0f",
+      "html": "site/help/glossary.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "b8f2d96872d15d78ef911c27eed8d6669504270295cc9b9f66a4c888193b24f9",
+      "original_sha256": "b8f2d96872d15d78ef911c27eed8d6669504270295cc9b9f66a4c888193b24f9"
+    },
+    {
+      "path": "help/index.md",
+      "title": "Help",
+      "html": "site/help/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "16b300ce760b63e4b94f89d1e482fe7516c340fc5712efcd3c4c8421551853b3",
+      "original_sha256": "16b300ce760b63e4b94f89d1e482fe7516c340fc5712efcd3c4c8421551853b3"
+    },
+    {
+      "path": "help/safety.md",
+      "title": "Safety \u270f\ufe0f",
+      "html": "site/help/safety.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "9db82e8fceaed03f367908109ec9f3d7a29b93a201a4294e05c5889f8a8a3815",
+      "original_sha256": "9db82e8fceaed03f367908109ec9f3d7a29b93a201a4294e05c5889f8a8a3815"
+    },
+    {
+      "path": "help/share-logs.md",
+      "title": "Sharing Trio Logs",
+      "html": "site/help/share-logs.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "87b485880b33b94c5e3f9f829a64ac027fc273cec220d12661ee954b9000b445",
+      "original_sha256": "87b485880b33b94c5e3f9f829a64ac027fc273cec220d12661ee954b9000b445"
+    },
+    {
+      "path": "help/translate.md",
+      "title": "Translation \u270f\ufe0f",
+      "html": "site/help/translate.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "cc3923d5cdd5fd92c417d342b0e04e140a71ce240d0373c1022f666b7256c5ea",
+      "original_sha256": "cc3923d5cdd5fd92c417d342b0e04e140a71ce240d0373c1022f666b7256c5ea"
+    },
+    {
+      "path": "help/troubleshoot.md",
+      "title": "Troubleshooting Common Issues \u270f\ufe0f",
+      "html": "site/help/troubleshoot.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "ad02a6caa20ade93ed6b0e4fd39d395a2052717538f5132a0adae20b75cf4729",
+      "original_sha256": "ad02a6caa20ade93ed6b0e4fd39d395a2052717538f5132a0adae20b75cf4729"
+    },
+    {
+      "path": "includes/supported-cgms.md",
+      "title": "Supported Cgms",
+      "html": "site/includes/supported-cgms.html",
+      "changed": true,
+      "source_changed": true,
+      "include": true,
+      "sha256": "3f870d618671ccdbac461fa904fd7bea1ecc76f1a901e5ed6f0e0afea2ec7cf3",
+      "original_sha256": "af2e1b6d5431ac1dd9ba6f7ae993416dbfce73a2b11454baf15a118b521dfed0",
+      "findings": [
+        "F07"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "includes/supported-iphones.md",
+      "title": "Supported Iphones",
+      "html": "site/includes/supported-iphones.html",
+      "changed": false,
+      "source_changed": false,
+      "include": true,
+      "sha256": "586d3e7bdcee1bed5a2c68635b62fb0befbeae97699e6b802e7568c11822b995",
+      "original_sha256": "586d3e7bdcee1bed5a2c68635b62fb0befbeae97699e6b802e7568c11822b995"
+    },
+    {
+      "path": "includes/version-compatibility-matrix.md",
+      "title": "Version Compatibility Matrix",
+      "html": "site/includes/version-compatibility-matrix.html",
+      "changed": false,
+      "source_changed": false,
+      "include": true,
+      "sha256": "078e2e1345dd4c74f2a11571edbdf4a7fed94717f336ff92d7d47978642d3f9a",
+      "original_sha256": "078e2e1345dd4c74f2a11571edbdf4a7fed94717f336ff92d7d47978642d3f9a"
+    },
+    {
+      "path": "index.md",
+      "title": "What is Trio?",
+      "html": "site/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "7964fb61186a04af6ee660a8fdc8ad892d8557c04509b01bac3e6abb9d9cb2ec",
+      "original_sha256": "7964fb61186a04af6ee660a8fdc8ad892d8557c04509b01bac3e6abb9d9cb2ec"
+    },
+    {
+      "path": "install/build/browser/actions/add-identifiers.md",
+      "title": "Add Identifiers",
+      "html": "site/install/build/browser/actions/add-identifiers.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "33bff70f33160b84ab11d230a728980a11565957c51ac2e0b39bc8a94e66eb98",
+      "original_sha256": "33bff70f33160b84ab11d230a728980a11565957c51ac2e0b39bc8a94e66eb98"
+    },
+    {
+      "path": "install/build/browser/actions/build-app.md",
+      "title": "Build App",
+      "html": "site/install/build/browser/actions/build-app.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "1f04532b2d65261d3b41cd52c4cee67797bc12f07ac69aad65e65f6907dd9e3f",
+      "original_sha256": "1f04532b2d65261d3b41cd52c4cee67797bc12f07ac69aad65e65f6907dd9e3f"
+    },
+    {
+      "path": "install/build/browser/actions/generate-certificates.md",
+      "title": "Generate Certificates",
+      "html": "site/install/build/browser/actions/generate-certificates.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "4b4df4443bfe080572341ea285a42cfb3330651a4c517e740eaf8114b04a7aa0",
+      "original_sha256": "4b4df4443bfe080572341ea285a42cfb3330651a4c517e740eaf8114b04a7aa0"
+    },
+    {
+      "path": "install/build/browser/actions/prepare-app.md",
+      "title": "Prepare App",
+      "html": "site/install/build/browser/actions/prepare-app.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "c9d0ddf4e303449e4247cf41c17bf2e3d7e351b6b28f4b94b4a3c05d4722fcef",
+      "original_sha256": "c9d0ddf4e303449e4247cf41c17bf2e3d7e351b6b28f4b94b4a3c05d4722fcef"
+    },
+    {
+      "path": "install/build/browser/actions/prepare-testflight.md",
+      "title": "Prepare Testflight",
+      "html": "site/install/build/browser/actions/prepare-testflight.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "a48c19e62e3d7a623dcd23ec894cc867a9fb363271ccb0ae71059994dedc0c7a",
+      "original_sha256": "a48c19e62e3d7a623dcd23ec894cc867a9fb363271ccb0ae71059994dedc0c7a"
+    },
+    {
+      "path": "install/build/browser/actions/validate-secrets.md",
+      "title": "Validate Secrets",
+      "html": "site/install/build/browser/actions/validate-secrets.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "00ed41b91433eb09094be8cc6e211959660d88f8dfcfbb06a54b3cf57d6e60e7",
+      "original_sha256": "00ed41b91433eb09094be8cc6e211959660d88f8dfcfbb06a54b3cf57d6e60e7"
+    },
+    {
+      "path": "install/build/browser/apple-secrets.md",
+      "title": "Apple Secrets",
+      "html": "site/install/build/browser/apple-secrets.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "026b2382a963b6d4dec6e5ab70e97b333ff92c9a912d40701bde7fe629db7199",
+      "original_sha256": "026b2382a963b6d4dec6e5ab70e97b333ff92c9a912d40701bde7fe629db7199"
+    },
+    {
+      "path": "install/build/browser/browser-build-errors.md",
+      "title": "Browser Build Errors",
+      "html": "site/install/build/browser/browser-build-errors.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "46daaf6033f3fd0af7ac69cdcdca41c73e4bf525dcfdd4ea61e6017ffbcb6767",
+      "original_sha256": "46daaf6033f3fd0af7ac69cdcdca41c73e4bf525dcfdd4ea61e6017ffbcb6767"
+    },
+    {
+      "path": "install/build/browser/browser-build-overview.md",
+      "title": "Browser Build Overview",
+      "html": "site/install/build/browser/browser-build-overview.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "76fdf56b7f2cfef43e393e5a4361288e4d3a7e193ac39c1db108794520a4657e",
+      "original_sha256": "76fdf56b7f2cfef43e393e5a4361288e4d3a7e193ac39c1db108794520a4657e"
+    },
+    {
+      "path": "install/build/browser/browser-customizations.md",
+      "title": "Browser Customizations",
+      "html": "site/install/build/browser/browser-customizations.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "e1b712b6b6a5ec9c3d1c3a93d65d523db3a8bd7cfb108554c335c546650bd49a",
+      "original_sha256": "e1b712b6b6a5ec9c3d1c3a93d65d523db3a8bd7cfb108554c335c546650bd49a"
+    },
+    {
+      "path": "install/build/browser/browser-update.md",
+      "title": "Browser Update",
+      "html": "site/install/build/browser/browser-update.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "3b15de3fd0ce03d9b53942bf72b630a0b0f8526e605b6cf43674ad1a0ed7f821",
+      "original_sha256": "3b15de3fd0ce03d9b53942bf72b630a0b0f8526e605b6cf43674ad1a0ed7f821"
+    },
+    {
+      "path": "install/build/browser/build-dev-with-browser.md",
+      "title": "Build Dev With Browser",
+      "html": "site/install/build/browser/build-dev-with-browser.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "32073eeca99ae5f35abd48006f3e6720cd9f58f09f6fcce92cee8cdf676fd630",
+      "original_sha256": "32073eeca99ae5f35abd48006f3e6720cd9f58f09f6fcce92cee8cdf676fd630"
+    },
+    {
+      "path": "install/build/browser/create-github-account.md",
+      "title": "Create a GitHub Account",
+      "html": "site/install/build/browser/create-github-account.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "912f48908c400df0b33275163d858b0073fdd142f93b99ee69d532a04f285414",
+      "original_sha256": "912f48908c400df0b33275163d858b0073fdd142f93b99ee69d532a04f285414"
+    },
+    {
+      "path": "install/build/browser/fork-prepare-repo.md",
+      "title": "Fork and Prepare Trio Repository",
+      "html": "site/install/build/browser/fork-prepare-repo.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "f7db5f8b0f23d1689594706503b0405b7dfd8832337cdef965f88c6320107b89",
+      "original_sha256": "f7db5f8b0f23d1689594706503b0405b7dfd8832337cdef965f88c6320107b89"
+    },
+    {
+      "path": "install/build/browser/install-from-testflight.md",
+      "title": "Install From Testflight",
+      "html": "site/install/build/browser/install-from-testflight.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "694b297e31f12f0d7ec98fbd3231f3a9380a3186884f61a9de9d3ecd3f70b234",
+      "original_sha256": "694b297e31f12f0d7ec98fbd3231f3a9380a3186884f61a9de9d3ecd3f70b234"
+    },
+    {
+      "path": "install/build/browser/intro-secrets.md",
+      "title": "Introduction to Secrets",
+      "html": "site/install/build/browser/intro-secrets.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "1530c86bbe4f4e77378d6f63f8f0066029db58bad21f55e2860afecb45852849",
+      "original_sha256": "1530c86bbe4f4e77378d6f63f8f0066029db58bad21f55e2860afecb45852849"
+    },
+    {
+      "path": "install/build/mac/build-errors.md",
+      "title": "Build Errors",
+      "html": "site/install/build/mac/build-errors.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "a67c92c3eb4dc268ec1622b0cb3b2ba6a89e3e8635ada1d6fcb7ae33fbb6ca27",
+      "original_sha256": "a67c92c3eb4dc268ec1622b0cb3b2ba6a89e3e8635ada1d6fcb7ae33fbb6ca27"
+    },
+    {
+      "path": "install/build/mac/build.md",
+      "title": "Build",
+      "html": "site/install/build/mac/build.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "0e1d384d0c8b38977991ec0f403630b0e47f3e90221df99c40152e5c54968c29",
+      "original_sha256": "0e1d384d0c8b38977991ec0f403630b0e47f3e90221df99c40152e5c54968c29"
+    },
+    {
+      "path": "install/build/mac/computer.md",
+      "title": "Computer",
+      "html": "site/install/build/mac/computer.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "67cc35e5d4863ae32b5632d242bfc631389738708cbcf098e5479602612fbacf",
+      "original_sha256": "67cc35e5d4863ae32b5632d242bfc631389738708cbcf098e5479602612fbacf"
+    },
+    {
+      "path": "install/build/mac/iphone.md",
+      "title": "Iphone",
+      "html": "site/install/build/mac/iphone.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "7a9007b178851db95d7591e341cfd1755e591c2bb53590f9fcb0326980bae5ca",
+      "original_sha256": "7a9007b178851db95d7591e341cfd1755e591c2bb53590f9fcb0326980bae5ca"
+    },
+    {
+      "path": "install/build/mac/overview.md",
+      "title": "Overview",
+      "html": "site/install/build/mac/overview.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "6b4f5a1670324ca70a3480e32d84307f05bed572dc6a1abe92bca64e2cff3de2",
+      "original_sha256": "6b4f5a1670324ca70a3480e32d84307f05bed572dc6a1abe92bca64e2cff3de2"
+    },
+    {
+      "path": "install/build/mac/update.md",
+      "title": "Update",
+      "html": "site/install/build/mac/update.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "8b97a42f4900a514878de796dbb30793f867b0a2097562841be1ee1ff1ef38da",
+      "original_sha256": "001c604f966f8e25b655219df88b3315ab4c15a63874e155a329551c1b346f95",
+      "findings": [
+        "F07"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "install/build/mac/xcode-setup.md",
+      "title": "Xcode Setup",
+      "html": "site/install/build/mac/xcode-setup.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "855957045efbad8efec744743204f13bf771fc6f2e8e2468bfdd7cfff2f0f2e1",
+      "original_sha256": "855957045efbad8efec744743204f13bf771fc6f2e8e2468bfdd7cfff2f0f2e1"
+    },
+    {
+      "path": "install/build/requirements/apple-developer.md",
+      "title": "Apple Developer",
+      "html": "site/install/build/requirements/apple-developer.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "17c255ad64f085e98737f2d1dad1ed400eac6ee3e77bedc7ad865ee03bebce8e",
+      "original_sha256": "17c255ad64f085e98737f2d1dad1ed400eac6ee3e77bedc7ad865ee03bebce8e"
+    },
+    {
+      "path": "install/build/requirements/devices/cgm.md",
+      "title": "Compatible CGM",
+      "html": "site/install/build/requirements/devices/cgm.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "f1c2790d093d83f0a96a6cb357a7c6f9cc80ef51098824942b71b592f4765207",
+      "original_sha256": "f1c2790d093d83f0a96a6cb357a7c6f9cc80ef51098824942b71b592f4765207"
+    },
+    {
+      "path": "install/build/requirements/devices/compatibility-matrix.md",
+      "title": "Version Compatibility Matrix",
+      "html": "site/install/build/requirements/devices/compatibility-matrix.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "57a016e24dc6fd41c71eaa6e82a27c17801ac91f402eb4814662c60d9fd13173",
+      "original_sha256": "57a016e24dc6fd41c71eaa6e82a27c17801ac91f402eb4814662c60d9fd13173"
+    },
+    {
+      "path": "install/build/requirements/devices/index.md",
+      "title": "Compatible Devices",
+      "html": "site/install/build/requirements/devices/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "78f594c180ecace058ce7edac8e3337c7cef68300096beec15e9bf91a874f57b",
+      "original_sha256": "78f594c180ecace058ce7edac8e3337c7cef68300096beec15e9bf91a874f57b"
+    },
+    {
+      "path": "install/build/requirements/devices/iphone.md",
+      "title": "Compatible Phones",
+      "html": "site/install/build/requirements/devices/iphone.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "bf231fd8ad53142bff9fab882756f6b8e6a9579e2653c86e608d0ef3a64692be",
+      "original_sha256": "bf231fd8ad53142bff9fab882756f6b8e6a9579e2653c86e608d0ef3a64692be"
+    },
+    {
+      "path": "install/build/requirements/devices/mac.md",
+      "title": "Mac",
+      "html": "site/install/build/requirements/devices/mac.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "8b0bd577600ecc6e478117514af81b76ffe2358928cad9ff424a75f61096fe40",
+      "original_sha256": "8b0bd577600ecc6e478117514af81b76ffe2358928cad9ff424a75f61096fe40"
+    },
+    {
+      "path": "install/build/requirements/devices/pump.md",
+      "title": "Pump",
+      "html": "site/install/build/requirements/devices/pump.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "03895c2b7ddf77a019098f9f30034dcf344fd3391ab1eb4a84266cbb616026ac",
+      "original_sha256": "03895c2b7ddf77a019098f9f30034dcf344fd3391ab1eb4a84266cbb616026ac"
+    },
+    {
+      "path": "install/customize.md",
+      "title": "Add Customizations to Trio",
+      "html": "site/install/customize.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "bb84ae561bf0eb8b1a7ace8e6e846e1ff62215c2fc549b81b29b0f46173bfbb4",
+      "original_sha256": "bb84ae561bf0eb8b1a7ace8e6e846e1ff62215c2fc549b81b29b0f46173bfbb4"
+    },
+    {
+      "path": "install/ecosystem/index.md",
+      "title": "Companion Apps",
+      "html": "site/install/ecosystem/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "0f8aafbc8f12d2fe05ed38167e280c773bd39ab5ba1668ba5dc3baeef4b751ae",
+      "original_sha256": "0f8aafbc8f12d2fe05ed38167e280c773bd39ab5ba1668ba5dc3baeef4b751ae"
+    },
+    {
+      "path": "install/ecosystem/loop-follow.md",
+      "title": "LoopFollow",
+      "html": "site/install/ecosystem/loop-follow.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "c37aea969bf02dcaadedd53b341b4cc58916575bdc684134f1976f6dce2fda2d",
+      "original_sha256": "c37aea969bf02dcaadedd53b341b4cc58916575bdc684134f1976f6dce2fda2d"
+    },
+    {
+      "path": "install/ecosystem/nightscout-app.md",
+      "title": "Nightscout",
+      "html": "site/install/ecosystem/nightscout-app.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "0dafc1e24642acf8d71e50fabb7341d9065bd5334a60607ed0a34304d08d0d22",
+      "original_sha256": "0dafc1e24642acf8d71e50fabb7341d9065bd5334a60607ed0a34304d08d0d22"
+    },
+    {
+      "path": "install/ecosystem/xdrip4ios.md",
+      "title": "xDrip4iOS",
+      "html": "site/install/ecosystem/xdrip4ios.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "8de68a134b0e48421d6cc0645f8f68d1c5850e3ef4dbad159a9c93d1d094359f",
+      "original_sha256": "8de68a134b0e48421d6cc0645f8f68d1c5850e3ef4dbad159a9c93d1d094359f"
+    },
+    {
+      "path": "install/index.md",
+      "title": "Installation and Update",
+      "html": "site/install/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "19cbf2748c358e1dc624f8639ac8499e2ed1db1e7698154260c7b6d297d6e552",
+      "original_sha256": "19cbf2748c358e1dc624f8639ac8499e2ed1db1e7698154260c7b6d297d6e552"
+    },
+    {
+      "path": "install/return-to-main.md",
+      "title": "Return to the Released Version",
+      "html": "site/install/return-to-main.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "e3dea7f954734daf54a0432f8fa27eec79e9d93bae50b1033eb2bf4bb573b7a3",
+      "original_sha256": "e3dea7f954734daf54a0432f8fa27eec79e9d93bae50b1033eb2bf4bb573b7a3"
+    },
+    {
+      "path": "install/upgrade.md",
+      "title": "Upgrade",
+      "html": "site/install/upgrade.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "72a3d76de159d844b596353ec4534b41a088b45f5fc1e450f3a647419189094b",
+      "original_sha256": "72a3d76de159d844b596353ec4534b41a088b45f5fc1e450f3a647419189094b"
+    },
+    {
+      "path": "resources/citations.md",
+      "title": "Resources",
+      "html": "site/resources/citations.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "0e1cefbde3e627804bc3f552fde2cf184e8c2b543574fec21e8051d0aa15c76a",
+      "original_sha256": "0e1cefbde3e627804bc3f552fde2cf184e8c2b543574fec21e8051d0aa15c76a"
+    },
+    {
+      "path": "usage/concepts/basal-rates.md",
+      "title": "Basal Rates",
+      "html": "site/usage/concepts/basal-rates.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "5d10fd661822ca399861bee81b64ae9eab02836e0700c0adceef050832840565",
+      "original_sha256": "5d10fd661822ca399861bee81b64ae9eab02836e0700c0adceef050832840565"
+    },
+    {
+      "path": "usage/concepts/carb-ratios.md",
+      "title": "Carbohydrate Ratios (CR)",
+      "html": "site/usage/concepts/carb-ratios.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "5169809f5a03aed310c24ac6f11cb6fb9e954c452a9bcebc3c787b79566c4179",
+      "original_sha256": "5169809f5a03aed310c24ac6f11cb6fb9e954c452a9bcebc3c787b79566c4179"
+    },
+    {
+      "path": "usage/concepts/index.md",
+      "title": "Core Concepts",
+      "html": "site/usage/concepts/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "fda4908fd136dc7f1a99ed1d465547d053a68ff31f0b1d983da44a4ac3cd0c6c",
+      "original_sha256": "fda4908fd136dc7f1a99ed1d465547d053a68ff31f0b1d983da44a4ac3cd0c6c"
+    },
+    {
+      "path": "usage/concepts/isf.md",
+      "title": "Insulin Sensitivity Factor (ISF)",
+      "html": "site/usage/concepts/isf.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "97088f904445935fd1e66a4c158e5b18be96074c06a4a1a0e8e203b3a6df3662",
+      "original_sha256": "97088f904445935fd1e66a4c158e5b18be96074c06a4a1a0e8e203b3a6df3662"
+    },
+    {
+      "path": "usage/features/bolus-calculator.md",
+      "title": "Bolus Calculator",
+      "html": "site/usage/features/bolus-calculator.html",
+      "changed": true,
+      "source_changed": true,
+      "include": false,
+      "sha256": "f17e8289533a28e3960642b7accb18e694b06f36a96e1b163468788a168aefb1",
+      "original_sha256": "87a4dab5f447f9f0d41a29d93552010e30d460fded87d33cac44ca4875ae00e1",
+      "findings": [
+        "F05",
+        "F06",
+        "F11"
+      ],
+      "new_page": false
+    },
+    {
+      "path": "usage/features/dynamic-isf.md",
+      "title": "Using Dynamic ISF",
+      "html": "site/usage/features/dynamic-isf.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "1c2337e34f22cfef88c0fdee9796146fe5982535892e452887dea99404a490b6",
+      "original_sha256": "1c2337e34f22cfef88c0fdee9796146fe5982535892e452887dea99404a490b6"
+    },
+    {
+      "path": "usage/features/index.md",
+      "title": "Features",
+      "html": "site/usage/features/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "af7cfb20e943036214e6a7e88dfc338912fba4141aebcd1864195e5a11467c96",
+      "original_sha256": "af7cfb20e943036214e6a7e88dfc338912fba4141aebcd1864195e5a11467c96"
+    },
+    {
+      "path": "usage/features/overrides.md",
+      "title": "Overrides",
+      "html": "site/usage/features/overrides.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "ceeb818dea1ad622d746edf3c2eb7cec1f781cd61e02f24a44be1a02d9ab3d2b",
+      "original_sha256": "ceeb818dea1ad622d746edf3c2eb7cec1f781cd61e02f24a44be1a02d9ab3d2b"
+    },
+    {
+      "path": "usage/features/statistics.md",
+      "title": "Statistics",
+      "html": "site/usage/features/statistics.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "cc4d4899bc91e350a08c4bb78c05636ebf4a513c6f5712d7f335d4fa71b40309",
+      "original_sha256": "cc4d4899bc91e350a08c4bb78c05636ebf4a513c6f5712d7f335d4fa71b40309"
+    },
+    {
+      "path": "usage/features/temp-targets.md",
+      "title": "Temporary Targets",
+      "html": "site/usage/features/temp-targets.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "d8de92759783f7ceeeffaea10bc69287543ac3e3db7bdc9b815ea92aede1f0c7",
+      "original_sha256": "d8de92759783f7ceeeffaea10bc69287543ac3e3db7bdc9b815ea92aede1f0c7"
+    },
+    {
+      "path": "usage/index.md",
+      "title": "Usage",
+      "html": "site/usage/index.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "92505f3dc8c0cfaa8af0c1dce87a44a32160dd06563bc445ca2133947db4c574",
+      "original_sha256": "92505f3dc8c0cfaa8af0c1dce87a44a32160dd06563bc445ca2133947db4c574"
+    },
+    {
+      "path": "usage/interface.md",
+      "title": "User Interface",
+      "html": "site/usage/interface.html",
+      "changed": false,
+      "source_changed": false,
+      "include": false,
+      "sha256": "6bf20bfac27a1ce88b488ad19b801fc7e7fe1e70ec20825680062085ee95f0cf",
+      "original_sha256": "6bf20bfac27a1ce88b488ad19b801fc7e7fe1e70ec20825680062085ee95f0cf"
+    }
+  ],
+  "inherited_link_issues": []
+}

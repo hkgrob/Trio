@@ -1,0 +1,1 @@
+System Default: This option follows the phone's current color scheme. Light: Always in Light Mode Dark: Always in Dark Mode

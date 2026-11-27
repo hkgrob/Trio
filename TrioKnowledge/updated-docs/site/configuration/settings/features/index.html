@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Features · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/features/index.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/features/index.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="features">Features</h1>
+<p><img align="left" alt="Trio Logo" class="skip-lightbox" src="../../../../source/docs/assets/images/trio-logo.png" width="75"/> Welcome to the features homepage! Here you'll find information on a variety of customization features available to you in the Trio app.  </p>
+<hr/>
+<p>Please use the navigation menu :fontawesome-solid-bars:, search bar :fontawesome-solid-magnifying-glass:, or the menu below to find the section you are looking for.</p>
+<div class="grid cards">
+<ul>
+<li>
+<p><strong><a href="bolus-calculator.html">Bolus Calculator</a></strong></p>
+<hr/>
+<p>Personalize the bolus calculator using these settings</p>
+</li>
+<li>
+<p><strong><a href="meal-settings.html">Meal Settings</a></strong></p>
+<hr/>
+<p>Adjust maximum meal absorption time and Fat/Protein settings</p>
+</li>
+<li>
+<p><strong><a href="shortcuts.html">Shortcuts</a></strong></p>
+<hr/>
+<p>Enable and set up shortcuts</p>
+</li>
+<li>
+<p><strong><a href="remote-control.html">Remote Control</a></strong></p>
+<hr/>
+<p>Allow remote control and find the shared secret used in Loop Follow</p>
+</li>
+<li>
+<p><strong><a href="user-interface.html">User Interface</a></strong></p>
+<hr/>
+<p>Personalize the User Interface with a variety of options and preferences</p>
+</li>
+<li>
+<p><strong><a href="app-icons.html">App Icons</a></strong></p>
+<hr/>
+<p>Change the Trio app icon</p>
+</li>
+</ul>
+</div>
+<h2 class="changed-block" data-change="added-or-revised" id="review-and-share-configuration">Review and share configuration</h2>
+<p class="changed-block" data-change="added-or-revised"><a href="../export-settings.html">Export Settings</a> saves a selected-category CSV for configuration review. It is available from the main Settings screen.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F08 — Document the Settings CSV export and effective-mode annotations</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L394">Trio/Sources/Modules/Settings/View/SettingsRootView.swift:394</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift#L1249">Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift:1249</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/features/index.md</span><span class="diff-line ">+++ updated/configuration/settings/features/index.md</span><span class="diff-line ">@@ -45,3 +45,15 @@</span><span class="diff-line ">     Change the Trio app icon</span><span class="diff-line ">     </span><span class="diff-line "> &lt;/div&gt;</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Review and share configuration</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+[Export Settings](../export-settings.md) saves a selected-category CSV for configuration review. It is available from the main Settings screen.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F08 — Document the Settings CSV export and effective-mode annotations**</span><span class="diff-line diff-add">+    - [Trio/Sources/Modules/Settings/View/SettingsRootView.swift:394](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L394)</span><span class="diff-line diff-add">+    - [Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift:1249](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift#L1249)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

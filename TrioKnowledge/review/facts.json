@@ -1,0 +1,146 @@
+[
+  {
+    "id": "F01", "status": "verified-mismatch", "title": "Dosing Mode replaces the documented Closed Loop switch",
+    "keywords": ["closed loop", "open loop", "dosing mode", "low glucose suspend", "basal testing"],
+    "answer": "In the pinned 1.0.2 code, Settings uses a Dosing Mode picker with closed, open, lowGlucoseSuspend and basalTesting. Open is the model default. Closed permits full automation; Open enacts no automated dosing; LGS uses reductionsOnly; Basal Testing uses hypoSuspendOnly. LGS can replenish negative IOB up to zero, so describing it as never giving any extra insulin is too absolute. These modes govern automated enactment, not every user-initiated manual bolus.",
+    "update": "Replace switch-based navigation and screenshots on the closing-the-loop and new-user pages with the four-mode picker. Explain each mode's enactment scope and the requirement for a pump and CGM. Preserve the distinction between forecasts and delivered insulin.",
+    "settings": ["TrioSettings.dosingMode", "Preferences.maxIOB"],
+    "evidence": [
+      {"path": "Trio/Sources/Models/DosingMode.swift", "anchor": "enum DosingMode"},
+      {"path": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift", "anchor": "label: Text(\"Dosing Mode\")"},
+      {"path": "upstream/source/docs/configuration/settings/closed-loop.md", "anchor": "Closed loop is turned off by default"}
+    ]
+  },
+  {
+    "id": "F02", "status": "verified-mismatch", "title": "Mode overrides differ from the documented manual basal-testing recipe",
+    "keywords": ["basal testing", "autosens", "max iob", "effective settings", "threshold"],
+    "answer": "LGS derives effective maxIOB=0. Basal Testing additionally derives autosensMin=autosensMax=1, disables useNewFormula and sigmoid, and raises threshold_setting to at least 72 mg/dL. Saved preferences remain unchanged. Profile generation actually calls clamped(for:); entry into Basal Testing also attempts to cancel an existing automatic temp basal. The documentation instead tells readers to change saved Max IOB, Autosens and Dynamic settings manually.",
+    "update": "Document derived versus stored settings and the dedicated Basal Testing mode. Distinguish Basal Testing's low-only suspension from predictive reductions in LGS. Replace the old saved-setting recipe with a version-specific explanation rather than recommending patient-specific changes.",
+    "settings": ["TrioSettings.dosingMode", "Preferences.maxIOB", "Preferences.autosensMin", "Preferences.autosensMax", "Preferences.useNewFormula", "Preferences.sigmoid", "Preferences.threshold_setting"],
+    "evidence": [
+      {"path": "Trio/Sources/Models/Preferences+DosingMode.swift", "anchor": "func clamped(for mode"},
+      {"path": "Trio/Sources/APS/OpenAPS/OpenAPS.swift", "anchor": "adjustedPreferences = adjustedPreferences.clamped(for: dosingMode)"},
+      {"path": "Trio/Sources/APS/APSManager.swift", "anchor": "guard settings.dosingMode == .basalTesting"},
+      {"path": "upstream/source/docs/configuration/settings/closed-loop.md", "anchor": "Set [Max IOB]"}
+    ]
+  },
+  {
+    "id": "F03", "status": "verified-mismatch", "title": "SMB and UAM basal-minute picker limits start at 15, not 30",
+    "keywords": ["smb", "uam", "basal minutes", "range", "limits"],
+    "answer": "Both maxSMBBasalMinutes and maxUAMSMBBasalMinutes have picker bounds 15–180 minutes in steps of 5. Their default is still 30. The documentation lists 30–180 for both. Picker limits describe selectable values, not a clinically appropriate range or all downstream pump constraints.",
+    "update": "Change both Setting Limits entries to 15–180 minutes; retain the 30-minute default. Keep default and allowable range distinct.",
+    "settings": ["Preferences.maxSMBBasalMinutes", "Preferences.maxUAMSMBBasalMinutes"],
+    "evidence": [
+      {"path": "Trio/Sources/Models/DecimalPickerSettings.swift", "anchor": "var maxSMBBasalMinutes = PickerSetting"},
+      {"path": "upstream/source/docs/configuration/settings/algorithm/smb-settings.md", "anchor": "**Setting Limits:** _30-180 minutes_"}
+    ]
+  },
+  {
+    "id": "F04", "status": "verified-mismatch", "title": "Remote duplicate-bolus guard uses command time and a cumulative inclusive threshold",
+    "keywords": ["remote", "bolus", "duplicate", "20%", "six", "ten", "shortcuts"],
+    "answer": "The shared evaluator rejects when total recent bolus is greater than or equal to 20% of the requested bolus. Remote bolus passes the original command timestamp as lookbackStart, so its cumulative sum covers boluses since the command was sent. Shortcuts omits that argument and uses the default six-minute lookback. The docs instead describe an individual bolus greater than 20% within a fixed ten-minute window. Command expiry is a separate validation and should not be confused with this lookback.",
+    "update": "Rewrite duplicate prevention to describe summed boluses, >=20%, and the caller-specific windows. Replace the remote eight-minutes-ago example: a bolus before the command timestamp is outside this caller's lookback. Document command expiry separately.",
+    "settings": ["TrioSettings.bolusShortcut", "Preferences.maxIOB"],
+    "evidence": [
+      {"path": "Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift", "anchor": "static let recentBolusThreshold"},
+      {"path": "Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift", "anchor": "lookbackStart: Date(timeIntervalSince1970: payload.timestamp)"},
+      {"path": "Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift", "anchor": "bolusSafetyValidator.validate(bolusAmount: requestedAmount)"},
+      {"path": "upstream/source/docs/configuration/settings/features/remote-control.md", "anchor": "Trio checks for recent boluses in the last 10 minutes"}
+    ]
+  },
+  {
+    "id": "F05", "status": "verified-mismatch", "title": "Calculator trend input is newest minus oldest within 20 minutes",
+    "keywords": ["bolus calculator", "delta", "glucose trend", "15 minutes", "20 minutes"],
+    "answer": "updateGlucoseVariables selects readings newer than now minus 20 minutes and calculates newest glucose minus oldest glucose within that window, or zero if fewer than two readings exist. It does not normalize that delta to a fixed 15-minute interval. The later variable is still named fifteenMinutesInsulin. Docs describe the last 15 minutes / three readings; actual span depends on available readings.",
+    "update": "Describe the actual data-window selection and irregular-reading behavior. Flag the 15-minute documentation versus 20-minute implementation as requiring maintainer intent confirmation before changing algorithm behavior; this review changes no dosing code.",
+    "settings": [],
+    "evidence": [
+      {"path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift", "anchor": "let twentyMinutesAgo"},
+      {"path": "upstream/source/docs/usage/features/bolus-calculator.md", "anchor": "over the last 15 minutes"}
+    ]
+  },
+  {
+    "id": "F06", "status": "verified-gap", "title": "Calculator safety gates and backdated-carb handling need explicit documentation",
+    "keywords": ["backdated", "carbs", "calculator", "stale", "54", "max bolus", "max iob"],
+    "answer": "Backdated calculation uses zero new carbs and simulated COB. Ordinary calculation uses existing COB plus new carbs capped by maxCOB. Recommendation becomes zero for currentBG<54 mg/dL, minPredBG<54, or loop age>15 minutes. Otherwise the code applies a nonnegative clamp, Max Bolus cap, Max IOB headroom cap and pump bolus rounding in that order. It does not apply a second nonnegative clamp after maxIOB-currentIOB, so negative headroom is an edge case to inspect rather than assume away.",
+    "update": "Add an explicit backdated-meal example, the three zero-recommendation conditions, and the actual cap/rounding order to the calculator guide. Distinguish a displayed recommendation from a validated delivery command.",
+    "settings": ["Preferences.maxCOB", "Preferences.maxIOB", "PumpSettings.maxBolus"],
+    "evidence": [
+      {"path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift", "anchor": "let effectiveCarbs = isBackdated ? 0 : carbs"},
+      {"path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift", "anchor": "if input.currentBG < 54"},
+      {"path": "upstream/source/docs/usage/features/bolus-calculator.md", "anchor": "# Bolus Calculator"}
+    ]
+  },
+  {
+    "id": "F07", "status": "verified-mismatch", "title": "Libre 3 documentation still claims dev-only availability",
+    "keywords": ["libre", "libre 3", "cgm", "dev", "pairing", "1.0.2"],
+    "answer": "The published CGM guide says Libre 3/3 Plus requires dev. The pinned 1.0.2 main code includes the Libre 3 plugin. The official 1.0.2 release notes also describe the updated Libre driver and mandatory re-pairing after upgrade. The latest dev-source sensor recovery instructions may describe a different driver revision; availability does not establish every driver instruction applies to main.",
+    "update": "Remove the unconditional dev-only claim for the 1.0.2 guide. Add a clearly versioned upgrade/re-pair note, and verify sensor startup/recovery instructions against the exact LibreLoop submodule revision before copying newer driver procedures into 1.0.2 instructions.",
+    "settings": ["TrioSettings.cgm", "TrioSettings.cgmPluginIdentifier"],
+    "evidence": [
+      {"path": "Trio/Sources/APS/Devices/DeviceCatalog.swift", "anchor": "FreeStyle Libre 3 / 3+ (Beta)"},
+      {"path": ".gitmodules", "anchor": "LibreLoop"},
+      {"path": "upstream/source/docs/configuration/settings/devices/cgm.md", "anchor": "You must build the `dev` branch"}
+    ]
+  },
+  {
+    "id": "F08", "status": "verified-gap", "title": "Document the Settings CSV export and effective-mode annotations",
+    "keywords": ["export", "csv", "settings", "stored", "effective", "metadata"],
+    "answer": "Settings has Export Settings. The implementation exports selected categories to CSV with Setting Category, Subcategory, Setting Name, Value and Unit columns, plus optional version/build/branch metadata. It annotates some values overridden by dosing mode. The docs corpus describes log export but has no settings-export guide. CSV names and values are localized; the export is not a flat preferences JSON backup or an import mechanism.",
+    "update": "Add an Export Settings guide covering category selection, metadata, units, stored/effective annotations and sharing. Explain that export supports review rather than automatic restoration. Use a fresh export when evaluating a configuration.",
+    "settings": ["TrioSettings.dosingMode"],
+    "evidence": [
+      {"path": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift", "anchor": "Export Settings"},
+      {"path": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift", "anchor": "var csvContent"},
+      {"path": "upstream/source/docs/help/share-logs.md", "anchor": "Export Logs"}
+    ]
+  },
+  {
+    "id": "F09", "status": "verified-gap", "title": "Garmin guide omits configuration choices and transmission reset behavior",
+    "keywords": ["garmin", "watchface", "complication", "datafield", "transmission"],
+    "answer": "The 1.0.2 Garmin configuration includes watchface selection, independent datafield selection, a transmission control and primary/secondary attribute choices. Its help includes a Complication option. Changing the selected watchface disables transmission and requires resuming it after changing the watch. The brief documentation focuses on sideloading and adding a device. Current Connect IQ publication status was not evaluated.",
+    "update": "Add screenshots and instructions for each configuration choice and the pause/change/resume sequence. Verify external distribution links separately instead of inferring their present status from app code.",
+    "settings": ["TrioSettings.garminWatchface", "TrioSettings.garminDatafield", "TrioSettings.isWatchfaceDataEnabled", "TrioSettings.primaryAttributeChoice", "TrioSettings.secondaryAttributeChoice"],
+    "evidence": [
+      {"path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift", "anchor": "Watchface Selection"},
+      {"path": "Trio/Sources/Models/GarminWatchSettings.swift", "anchor": "complication"},
+      {"path": "upstream/source/docs/configuration/settings/devices/smart-watch.md", "anchor": "## Garmin"}
+    ]
+  },
+  {
+    "id": "F10", "status": "verified-gap", "title": "Shortcut boluses use shared safety checks beyond the permission toggle",
+    "keywords": ["shortcuts", "bolus", "permission", "safety", "six minutes"],
+    "answer": "The UI permission maps to bolusShortcut notAllowed or limitWithSafetyChecks. The bolus intent uses the shared validator before pump rounding/enactment, enforcing Max Bolus, available current IOB, Max IOB headroom and the cumulative >=20% recent-bolus check with the default six-minute window. External insulin logging is a distinct path with a three-times-Max-Bolus bound and does not deliver insulin.",
+    "update": "Expand the Shortcuts bolus section with rejection conditions, the internal enum/export mapping and the difference between requesting a pump bolus and logging externally delivered insulin.",
+    "settings": ["TrioSettings.bolusShortcut", "Preferences.maxIOB", "PumpSettings.maxBolus"],
+    "evidence": [
+      {"path": "Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift", "anchor": "case .limitWithSafetyChecks:"},
+      {"path": "Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift", "anchor": "static let recentBolusWindowMinutes"},
+      {"path": "upstream/source/docs/configuration/settings/features/shortcuts.md", "anchor": "### Bolus"}
+    ]
+  },
+  {
+    "id": "F11", "status": "verified-behavior", "title": "The meal bolus calculator already subtracts automated insulin represented in IOB",
+    "keywords": ["iob", "uam", "late bolus", "meal", "already delivered", "recommended bolus percentage", "overlap"],
+    "answer": "The calculator combines glucose correction, glucose trend and capped COB plus new-carbs coverage, then subtracts current IOB. Automated insulin already included in that IOB is therefore counted. Positive results are multiplied by overrideFactor (Recommended Bolus Percentage), optionally by fattyMealFactor; an optional super-bolus component is added afterward. This is separate from smbDeliveryRatio, which scales automated SMB delivery. Default overrideFactor is 0.8 (80%); smbDeliveryRatio is 0.5 (50%). Neither default establishes the right personal setting.",
+    "update": "Keep the existing IOB explanation: it agrees with the implementation. Add a cross-link explaining the separate manual-recommendation and automated-SMB percentages, plus the backdated-carb path. Avoid claiming that all documentation is wrong.",
+    "settings": ["TrioSettings.overrideFactor", "TrioSettings.fattyMealFactor", "TrioSettings.sweetMealFactor", "Preferences.smbDeliveryRatio"],
+    "evidence": [
+      {"path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift", "anchor": "let iobInsulinReduction = (-1) * input.iob"},
+      {"path": "upstream/source/docs/usage/features/bolus-calculator.md", "anchor": "it subtracts your current IOB"}
+    ]
+  },
+  {
+    "id": "F12", "status": "verified-behavior", "title": "UAM does not independently grant SMB permission; interval is not a delivery schedule",
+    "keywords": ["uam", "enable smb", "interval", "temporary target", "permissions", "smb always"],
+    "answer": "The SMB permission function checks override/schedule blocks, high Temp Target restrictions, then SMB Always, COB, After Carbs, low Temp Target and high-glucose conditions. enableUAM alone is not one of those enabling conditions. Later guard-glucose and maximum-delta checks can still block SMBs. The interval is clamped to 1–10 minutes and delivery requires lastBolusAge strictly greater than the interval when that age exists. It is an eligibility gate, not a timer promising delivery every N minutes. The basal-minute cap switches to the UAM branch when current IOB exceeds mealCOB/carbRatio and is positive; override settings can change the minutes and basal factor.",
+    "update": "Keep the documented SMB prerequisite flow, but explain that UAM enablement, an SMB permission condition, current safety checks and actual loop timing are separate. Qualify the simplified per-dose basal-minute formula for active overrides and the code's IOB-versus-meal-insulin branch.",
+    "settings": ["Preferences.enableUAM", "Preferences.enableSMBAlways", "Preferences.smbInterval", "Preferences.maxSMBBasalMinutes", "Preferences.maxUAMSMBBasalMinutes", "Preferences.maxDeltaBGthreshold"],
+    "evidence": [
+      {"path": "Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift", "anchor": "private static func isProfileSmbEnabled"},
+      {"path": "Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift", "anchor": "if lastBolusAge > smbInterval"},
+      {"path": "Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift", "anchor": "if currentIob > mealInsulinRequired"},
+      {"path": "upstream/source/docs/configuration/settings/algorithm/smb-settings.md", "anchor": "## Max SMB Basal Minutes"}
+    ]
+  }
+]

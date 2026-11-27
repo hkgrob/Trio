@@ -1,0 +1,1 @@
+Release 0.7.0 and newer The main branch is the preferred build for everyone except expert builders. If you are coming from an older main version 0.2.x, please read the Migration Guide before updating. All Trio users are encouraged to follow along in Trio Discord.

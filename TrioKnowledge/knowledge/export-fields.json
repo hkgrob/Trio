@@ -1,0 +1,583 @@
+{
+  "Dosing Mode": {
+    "id": "TrioSettings.dosingMode",
+    "name": "dosingMode",
+    "type": "DosingMode",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 142
+  },
+  "CGM": {
+    "id": "TrioSettings.cgm",
+    "name": "cgm",
+    "type": "CGMType",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 155
+  },
+  "Smooth Glucose Value": {
+    "id": "TrioSettings.smoothGlucose",
+    "name": "smoothGlucose",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 156
+  },
+  "Maximum Insulin on Board (IOB)": {
+    "id": "Preferences.maxIOB",
+    "name": "maxIOB",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 205
+  },
+  "Maximum Bolus": {
+    "id": "PumpSettings.maxBolus",
+    "name": "maxBolus",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 220
+  },
+  "Maximum Basal Rate": {
+    "id": "PumpSettings.maxBasal",
+    "name": "maxBasal",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 227
+  },
+  "Maximum Carbs on Board (COB)": {
+    "id": "Preferences.maxCOB",
+    "name": "maxCOB",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 234
+  },
+  "Minimum Safety Threshold": {
+    "id": "Preferences.threshold_setting",
+    "name": "threshold_setting",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 241
+  },
+  "Autosens Max": {
+    "id": "Preferences.autosensMax",
+    "name": "autosensMax",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 322
+  },
+  "Autosens Min": {
+    "id": "Preferences.autosensMin",
+    "name": "autosensMin",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 333
+  },
+  "Rewind Resets Autosens": {
+    "id": "Preferences.rewindResetsAutosens",
+    "name": "rewindResetsAutosens",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 344
+  },
+  "Enable SMB Always": {
+    "id": "Preferences.enableSMBAlways",
+    "name": "enableSMBAlways",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 353
+  },
+  "Enable SMB With COB": {
+    "id": "Preferences.enableSMBWithCOB",
+    "name": "enableSMBWithCOB",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 359
+  },
+  "Enable SMB With Temptarget": {
+    "id": "Preferences.enableSMBWithTemptarget",
+    "name": "enableSMBWithTemptarget",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 365
+  },
+  "Enable SMB After Carbs": {
+    "id": "Preferences.enableSMBAfterCarbs",
+    "name": "enableSMBAfterCarbs",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 371
+  },
+  "Enable SMB With High Glucose": {
+    "id": "Preferences.enableSMB_high_bg",
+    "name": "enableSMB_high_bg",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 377
+  },
+  "High Glucose Target": {
+    "id": "Preferences.enableSMB_high_bg_target",
+    "name": "enableSMB_high_bg_target",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 384
+  },
+  "Allow SMB With High Temptarget": {
+    "id": "Preferences.allowSMBWithHighTemptarget",
+    "name": "allowSMBWithHighTemptarget",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 394
+  },
+  "Enable UAM": {
+    "id": "Preferences.enableUAM",
+    "name": "enableUAM",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 400
+  },
+  "Max SMB Basal Minutes": {
+    "id": "Preferences.maxSMBBasalMinutes",
+    "name": "maxSMBBasalMinutes",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 406
+  },
+  "Max UAM Basal Minutes": {
+    "id": "Preferences.maxUAMSMBBasalMinutes",
+    "name": "maxUAMSMBBasalMinutes",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 413
+  },
+  "Max Allowed Glucose Rise for SMB": {
+    "id": "Preferences.maxDeltaBGthreshold",
+    "name": "maxDeltaBGthreshold",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 420
+  },
+  "Adjustment Factor (AF)": {
+    "id": "Preferences.adjustmentFactor",
+    "name": "adjustmentFactor",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 454
+  },
+  "Sigmoid Adjustment Factor": {
+    "id": "Preferences.adjustmentFactorSigmoid",
+    "name": "adjustmentFactorSigmoid",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 462
+  },
+  "Weighted Average of TDD": {
+    "id": "Preferences.weightPercentage",
+    "name": "weightPercentage",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 476
+  },
+  "Adjust Basal": {
+    "id": "Preferences.tddAdjBasal",
+    "name": "tddAdjBasal",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 483
+  },
+  "High Temptarget Raises Sensitivity": {
+    "id": "Preferences.highTemptargetRaisesSensitivity",
+    "name": "highTemptargetRaisesSensitivity",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 492
+  },
+  "Low Temptarget Lowers Sensitivity": {
+    "id": "Preferences.lowTemptargetLowersSensitivity",
+    "name": "lowTemptargetLowersSensitivity",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 499
+  },
+  "Sensitivity Raises Target": {
+    "id": "Preferences.sensitivityRaisesTarget",
+    "name": "sensitivityRaisesTarget",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 506
+  },
+  "Resistance Lowers Target": {
+    "id": "Preferences.resistanceLowersTarget",
+    "name": "resistanceLowersTarget",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 512
+  },
+  "Half Basal Exercise Target": {
+    "id": "Preferences.halfBasalExerciseTarget",
+    "name": "halfBasalExerciseTarget",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 518
+  },
+  "Max Daily Safety Multiplier": {
+    "id": "Preferences.maxDailySafetyMultiplier",
+    "name": "maxDailySafetyMultiplier",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 531
+  },
+  "Current Basal Safety Multiplier": {
+    "id": "Preferences.currentBasalSafetyMultiplier",
+    "name": "currentBasalSafetyMultiplier",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 538
+  },
+  "Use Custom Peak Time": {
+    "id": "Preferences.useCustomPeakTime",
+    "name": "useCustomPeakTime",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 548
+  },
+  "Duration of Insulin Action": {
+    "id": "PumpSettings.insulinActionCurve",
+    "name": "insulinActionCurve",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 554
+  },
+  "Insulin Peak Time": {
+    "id": "Preferences.insulinPeakTime",
+    "name": "insulinPeakTime",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 561
+  },
+  "Skip Neutral Temps": {
+    "id": "Preferences.skipNeutralTemps",
+    "name": "skipNeutralTemps",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 568
+  },
+  "Unsuspend If No Temp": {
+    "id": "Preferences.unsuspendIfNoTemp",
+    "name": "unsuspendIfNoTemp",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 574
+  },
+  "Suspend Zeros IOB": {
+    "id": "Preferences.suspendZerosIOB",
+    "name": "suspendZerosIOB",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 580
+  },
+  "SMB Delivery Ratio": {
+    "id": "Preferences.smbDeliveryRatio",
+    "name": "smbDeliveryRatio",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 587
+  },
+  "SMB Interval": {
+    "id": "Preferences.smbInterval",
+    "name": "smbInterval",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 594
+  },
+  "Min 5m Carb Impact": {
+    "id": "Preferences.min5mCarbimpact",
+    "name": "min5mCarbimpact",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 601
+  },
+  "Remaining Carbs Percentage": {
+    "id": "Preferences.remainingCarbsFraction",
+    "name": "remainingCarbsFraction",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 610
+  },
+  "Remaining Carbs Cap": {
+    "id": "Preferences.remainingCarbsCap",
+    "name": "remainingCarbsCap",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 617
+  },
+  "Noisy CGM Target Increase": {
+    "id": "Preferences.noisyCGMTargetMultiplier",
+    "name": "noisyCGMTargetMultiplier",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 624
+  },
+  "Display Meal Presets": {
+    "id": "TrioSettings.displayPresets",
+    "name": "displayPresets",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 639
+  },
+  "Recommended Bolus Percentage": {
+    "id": "TrioSettings.overrideFactor",
+    "name": "overrideFactor",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 645
+  },
+  "Enable Reduced Bolus Option": {
+    "id": "TrioSettings.fattyMeals",
+    "name": "fattyMeals",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 652
+  },
+  "Reduced Bolus Percentage": {
+    "id": "TrioSettings.fattyMealFactor",
+    "name": "fattyMealFactor",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 659
+  },
+  "Enable Super Bolus Option": {
+    "id": "TrioSettings.sweetMeals",
+    "name": "sweetMeals",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 667
+  },
+  "Super Bolus Percentage": {
+    "id": "TrioSettings.sweetMealFactor",
+    "name": "sweetMealFactor",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 674
+  },
+  "Very Low Glucose Warning": {
+    "id": "TrioSettings.confirmBolus",
+    "name": "confirmBolus",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 682
+  },
+  "Enable Quick-Pick Treatments": {
+    "id": "TrioSettings.enableQuickPickTreatments",
+    "name": "enableQuickPickTreatments",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 688
+  },
+  "Max Carbs": {
+    "id": "TrioSettings.maxCarbs",
+    "name": "maxCarbs",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 694
+  },
+  "Max Fat": {
+    "id": "TrioSettings.maxFat",
+    "name": "maxFat",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 701
+  },
+  "Max Protein": {
+    "id": "TrioSettings.maxProtein",
+    "name": "maxProtein",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 708
+  },
+  "Max Meal Absorption Time": {
+    "id": "Preferences.maxMealAbsorptionTime",
+    "name": "maxMealAbsorptionTime",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 715
+  },
+  "Enable Fat and Protein Entries": {
+    "id": "TrioSettings.useFPUconversion",
+    "name": "useFPUconversion",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 722
+  },
+  "Fat and Protein Delay": {
+    "id": "TrioSettings.delay",
+    "name": "delay",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 728
+  },
+  "Spread Interval": {
+    "id": "TrioSettings.minuteInterval",
+    "name": "minuteInterval",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 735
+  },
+  "Fat and Protein Percentage": {
+    "id": "TrioSettings.individualAdjustmentFactor",
+    "name": "individualAdjustmentFactor",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 742
+  },
+  "Allow Bolusing with Shortcuts": {
+    "id": "TrioSettings.bolusShortcut",
+    "name": "bolusShortcut",
+    "type": "BolusShortcutLimit",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 752
+  },
+  "Show X-Axis Grid Lines": {
+    "id": "TrioSettings.xGridLines",
+    "name": "xGridLines",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 772
+  },
+  "Show Y-Axis Grid Lines": {
+    "id": "TrioSettings.yGridLines",
+    "name": "yGridLines",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 778
+  },
+  "Show Low and High Thresholds": {
+    "id": "TrioSettings.rulerMarks",
+    "name": "rulerMarks",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 784
+  },
+  "Low Threshold": {
+    "id": "TrioSettings.low",
+    "name": "low",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 790
+  },
+  "High Threshold": {
+    "id": "TrioSettings.high",
+    "name": "high",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 798
+  },
+  "eA1c/GMI Display Unit": {
+    "id": "TrioSettings.eA1cDisplayUnit",
+    "name": "eA1cDisplayUnit",
+    "type": "EstimatedA1cDisplayUnit",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 806
+  },
+  "Show Carbs Required Badge": {
+    "id": "TrioSettings.showCarbsRequiredBadge",
+    "name": "showCarbsRequiredBadge",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 812
+  },
+  "Carbs Required Threshold": {
+    "id": "TrioSettings.carbsRequiredThreshold",
+    "name": "carbsRequiredThreshold",
+    "type": "Decimal",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 818
+  },
+  "Forecast Display Type": {
+    "id": "TrioSettings.forecastDisplayType",
+    "name": "forecastDisplayType",
+    "type": "ForecastDisplayType",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 825
+  },
+  "Glucose Color Scheme": {
+    "id": "TrioSettings.glucoseColorScheme",
+    "name": "glucoseColorScheme",
+    "type": "GlucoseColorScheme",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 831
+  },
+  "Time in Range Type": {
+    "id": "TrioSettings.timeInRangeType",
+    "name": "timeInRangeType",
+    "type": "TimeInRangeType",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 837
+  },
+  "Require Adjustments Confirmation": {
+    "id": "TrioSettings.requireAdjustmentsConfirmation",
+    "name": "requireAdjustmentsConfirmation",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 843
+  },
+  "Show Glucose App Badge": {
+    "id": "TrioSettings.glucoseBadge",
+    "name": "glucoseBadge",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 881
+  },
+  "Enable Live Activity": {
+    "id": "TrioSettings.useLiveActivity",
+    "name": "useLiveActivity",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 890
+  },
+  "Lock Screen Widget Style": {
+    "id": "TrioSettings.lockScreenView",
+    "name": "lockScreenView",
+    "type": "LockScreenView",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 896
+  },
+  "Display Glucose Forecasts": {
+    "id": "TrioSettings.displayGlucoseForecasts",
+    "name": "displayGlucoseForecasts",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 902
+  },
+  "Allow Uploading to Nightscout": {
+    "id": "TrioSettings.isUploadEnabled",
+    "name": "isUploadEnabled",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 916
+  },
+  "Upload Glucose": {
+    "id": "TrioSettings.uploadGlucose",
+    "name": "uploadGlucose",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 922
+  },
+  "Upload CGM Sensor States": {
+    "id": "TrioSettings.uploadCGMSensorStates",
+    "name": "uploadCGMSensorStates",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 928
+  },
+  "Allow Fetching From Nightscout": {
+    "id": "TrioSettings.isDownloadEnabled",
+    "name": "isDownloadEnabled",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 934
+  },
+  "Apple Health": {
+    "id": "TrioSettings.useAppleHealth",
+    "name": "useAppleHealth",
+    "type": "Bool",
+    "source": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+    "line": 943
+  }
+}

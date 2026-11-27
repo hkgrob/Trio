@@ -1,0 +1,1 @@
+Before using remote overrides, you must:   Create Override Presets in Trio:  Go to Trio Settings → Overrides Create and name your override presets (e.g., "Exercise", "Sick Day") Configure the percentage adjustments for each preset    Configure LoopFollow with the exact preset names  

@@ -1,0 +1,1 @@
+ Adjusts target glucose based on the Sensitivity Ratio calculated by the algorithm Sensitivity Raises Target Increases your target glucose when Sensitivity Ratio is calculated less than 100%. Resistance Lowers Target decreases your target glucose when Sensitivity Ratio is calculated greater than 100%. 

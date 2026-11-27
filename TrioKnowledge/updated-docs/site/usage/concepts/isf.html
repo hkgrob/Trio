@@ -1,0 +1,283 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Insulin Sensitivity Factor (ISF) · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../index.html">All documents</a><a href="../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../source/docs/usage/concepts/isf.md">Updated Markdown</a><a href="../../../../upstream/source/docs/usage/concepts/isf.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="insulin-sensitivity-factor-isf">Insulin Sensitivity Factor (ISF)</h1>
+<div class="admonition tip">
+<p class="admonition-title">Highlights</p>
+<ul>
+<li>ISF determines how much one unit of insulin lowers your glucose</li>
+<li>It's the most common setting that needs adjustment for new Trio users</li>
+<li>A lower ISF number means you're more resistant to insulin (need more insulin)</li>
+<li>A higher ISF number means you're more sensitive to insulin (need less insulin)</li>
+<li>ISF can vary throughout the day and is set as a time-based schedule</li>
+</ul>
+</div>
+<h2 id="what-is-isf">What Is ISF?</h2>
+<p>Insulin Sensitivity Factor (ISF), also called Insulin Correction Factor (ICF), is the amount your blood glucose drops when you receive one unit of insulin. It's expressed as:</p>
+<ul>
+<li><strong>mg/dL per unit (mg/dL/U)</strong> </li>
+<li><strong>mmol/L per unit (mmol/L/U)</strong></li>
+</ul>
+<p>For example, an ISF of 50 mg/dL/U means that 1 unit of insulin will lower your glucose by 50 mg/dL (2.8 mmol/L).</p>
+<h3 id="example-calculation">Example Calculation</h3>
+<details class="question">
+<summary>Bill has an ISF of 50 mg/dL/U. His current glucose is 250 mg/dL and his target is 100 mg/dL. How many units of insulin does Bill need to reach his target?</summary>
+<details class="info">
+<summary>Here is the formula:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi></mrow><mrow><mi>I</mi><mi>S</mi><mi>F</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's Insulin Dose:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>250</mn><mo>−</mo><mn>100</mn></mrow><mrow><mn>50</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>150</mn></mrow><mrow><mn>50</mn></mrow></mfrac><mo>=</mo><mn>3</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Bill needs 3 units of insulin to reach his target glucose of 100 mg/dL.</p>
+</details>
+</details>
+<hr/>
+<h2 id="why-isf-matters">Why ISF Matters</h2>
+<p>ISF is one of the most critical settings in Trio because it determines:</p>
+<ol>
+<li><strong>SMB and Temp Basal Delivery</strong>: How much insulin is needed to bring high glucose back to target or keep glucose at target</li>
+<li><strong>Algorithm Calculations</strong>: Trio uses ISF every loop cycle to calculate optimal insulin delivery</li>
+<li><strong>Glucose Predictions</strong>: ISF affects how Trio predicts future glucose levels</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Common Issue for New Users</p>
+<p>Incorrect ISF is the #1 cause of problems when starting Trio. If you experience:</p>
+<ul>
+<li>Frequent lows after corrections</li>
+<li>Rollercoaster glucose patterns</li>
+<li>Too much or too little insulin from SMB/UAM</li>
+</ul>
+<p>Your ISF likely needs adjustment.</p>
+</div>
+<hr/>
+<h2 id="how-trio-uses-isf">How Trio Uses ISF</h2>
+<p>Like basal rates, Trio does <strong>not</strong> use your ISF verbatim. Instead, your scheduled ISF is modified dynamically based on:</p>
+<h3 id="1-autosens-adjustments">1. Autosens Adjustments</h3>
+<p>When Autosens is enabled (which it is by default), Trio analyzes 8-24 hours of glucose data to calculate a Sensitivity Ratio. This ratio adjusts your ISF:</p>
+<ul>
+<li><strong>Sensitivity Ratio &gt; 1.0</strong>: You're more insulin-resistant → ISF is decreased (more insulin)</li>
+<li><strong>Sensitivity Ratio &lt; 1.0</strong>: You're more insulin-sensitive → ISF is increased (less insulin)</li>
+<li><strong>Limits</strong>: Default range is 70-120% (controlled by Autosens Min/Max settings)</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<details class="question">
+<summary>Bill has an ISF of 50 mg/dL/U. Autosens detects resistance and has set his sensitivity ratio to 1.15 (115%). What will Bill's new ISF be?</summary>
+<details class="info">
+<summary>Here is the formula:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>I</mi><mi>S</mi><mi>F</mi></mrow><mrow><mi>A</mi><mi>u</mi><mi>t</mi><mi>o</mi><mi>s</mi><mi>e</mi><mi>n</mi><mi>s</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's new ISF:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>50</mn></mrow><mrow><mn>1.15</mn></mrow></mfrac><mo>=</mo><mn>43.5</mn><mi>m</mi><mi>g</mi><mo>/</mo><mi>d</mi><mi>L</mi><mo>/</mo><mi>U</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Bill's ISF is adjusted from 50 mg/dL/U to 43.5 mg/dL/U.
+Bill requires 15% more insulin.</p>
+</details>
+</details>
+<h3 id="2-dynamic-isf-optional">2. Dynamic ISF (Optional)</h3>
+<p>Dynamic ISF is a more aggressive way to adjust your ISF based on current glucose and/or historical insulin dosing:</p>
+<ul>
+<li><strong>Requires</strong>: 7 days of TDD data with 85% coverage (minimum 1,715 data points)</li>
+<li><strong>Types</strong>: Logarithmic (default) or Sigmoid</li>
+<li><strong>Output</strong>: Dynamic Ratio that replaces the Autosens Ratio each loop cycle</li>
+<li><strong>Temporary</strong>: The adjustment changes every loop cycle; it's not a permanent ISF change</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>There are 2 algorithms available for Dynamic ISF. Logarithmic Dynamic ISF adjusts your ISF based on current glucose levels and Total Daily Dose (TDD). Sigmoid Dynamic ISF adjusts your profile ISF based on how far from your target glucose you currently are.</p>
+</div>
+<p><strong>Key Parameters</strong>:</p>
+<ul>
+<li><strong>Adjustment Factor</strong>: <ul>
+<li><strong>Sigmoid</strong>: Adjustment Factor controls how aggressively ISF changes. Learn more about how changes to Sigmoid Adjustment Factor influences ISF adjustments <a href="../features/dynamic-isf.html#adjustment-factor_1">here</a>. The default for Sigmoid Adjustment Factor is 50%.</li>
+<li><strong>Logarithmic</strong>: Controls what ISF is used at which glucose. It should be manually set to approximately <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.02</mn><mi>×</mi><mi>T</mi><mi>D</mi><mi>D</mi></mrow></math></span>. Learn more about how changing Adjustment Factor influences Logarithmic dynamic ISF <a href="../features/dynamic-isf.html#adjustment-factor">here</a>.</li>
+</ul>
+</li>
+<li><strong>Autosens Maximum</strong>: Controls the upper limit of the autosens ratio (default: 120%)</li>
+<li><strong>Autosens Minimum</strong>: Controls the lower limit of the autosens ratio (default: 70%)</li>
+<li><strong>Weighted Average of TDD</strong>: Blends recent (24h) and historical (10-day) insulin use (default: 35%)</li>
+</ul>
+<p>Dynamic ISF is designed to make your ISF more aggressive (lower) when glucose is high and less aggressive (higher) when glucose is near target.</p>
+<hr/>
+<h2 id="time-based-isf-schedules">Time-Based ISF Schedules</h2>
+<p>Your insulin sensitivity varies throughout the day due to hormones, activity, and circadian rhythms. Trio supports time-based ISF schedules:</p>
+<ul>
+<li>Time slots in 30-minute increments</li>
+<li>Maximum of 48 entries (covering 24 hours)</li>
+<li>First entry must start at 00:00 (midnight)</li>
+<li>Each ISF applies from its start time until the next entry</li>
+</ul>
+<p><strong>Example ISF Schedule:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>ISF (mg/dL/U)</th>
+<th>Why It Might Vary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00</td>
+<td>60</td>
+<td>Overnight baseline</td>
+</tr>
+<tr>
+<td>03:00</td>
+<td>45</td>
+<td>Dawn phenomenon (more resistant)</td>
+</tr>
+<tr>
+<td>09:00</td>
+<td>55</td>
+<td>Morning sensitivity increase</td>
+</tr>
+<tr>
+<td>17:00</td>
+<td>50</td>
+<td>Evening decrease</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="isf-value-ranges">ISF Value Ranges</h2>
+<ul>
+<li><strong>Minimum</strong>: 9 mg/dL/U (0.5 mmol/L/U)</li>
+<li><strong>Maximum</strong>: 540 mg/dL/U (30 mmol/L/U)</li>
+<li><strong>Default</strong>: 200 mg/dL/U (11.1 mmol/L/U)</li>
+<li><strong>Step</strong>: 1 mg/dL/U (0.1 mmol/L/U)</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Units</p>
+<p>Trio stores ISF internally in mg/dL but displays it based on your glucose unit preference. Conversions are automatic.</p>
+</div>
+<hr/>
+<h2 id="testing-and-adjusting-your-isf">Testing and Adjusting Your ISF</h2>
+<h3 id="starting-point">Starting Point</h3>
+<p>If you're coming from pump therapy, you can transfer your pump's ISF as a starting point. However, be prepared to adjust it based on Trio's behavior.</p>
+<h3 id="testing-method">Testing Method</h3>
+<p>To test if your ISF is accurate:</p>
+<ol>
+<li><strong>Choose a testing time</strong>: When you're "stuck" above target (around 150 mg/dL or 8.3 mmol/L) or by bringing yourself to a higher glucose with glucose tabs</li>
+<li><strong>Prepare Trio for testing</strong>: Set Max IOB to 0 (<em>Optional</em>: Set Autosens Max and Min to 100% to avoid Autosens adjustments)</li>
+<li><strong>Give a correction bolus</strong> based on your current ISF<ul>
+<li>To determine your testing dose, follow the formula <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mo>−</mo><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi></mrow><mrow><mi>I</mi><mi>S</mi><mi>F</mi></mrow></mfrac></mrow></math></span></li>
+</ul>
+</li>
+<li><strong>Wait 4 hours</strong> without eating or exercising</li>
+<li><strong>Evaluate the result</strong>:<ul>
+<li><strong>Still above target after 4 hours</strong>: ISF is too high (too conservative) → DECREASE the ISF value</li>
+<li><strong>Below target after 4 hours</strong>: ISF is too low (too aggressive) → INCREASE the ISF value</li>
+<li><strong>At target after 4 hours</strong>: ISF is accurate</li>
+</ul>
+</li>
+<li><strong>Return Max IOB to your previous setting</strong> after you've completed the test</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Understanding ISF Adjustments</p>
+<ul>
+<li><strong>Lower ISF number</strong> = More insulin per unit of glucose correction = More aggressive</li>
+<li><strong>Higher ISF number</strong> = Less insulin per unit of glucose correction = Less conservative</li>
+</ul>
+<p>This can be counterintuitive at first!</p>
+</div>
+<hr/>
+<h2 id="relationship-to-other-settings">Relationship to Other Settings</h2>
+<p>ISF interacts with many Trio settings:</p>
+<h3 id="autosens-integration">Autosens Integration</h3>
+<ul>
+<li><strong>Autosens Min/Max</strong>: Limits how much Autosens can adjust your ISF (default: 70-120%)</li>
+<li><strong>Sensitivity Ratio</strong>: Applied to ISF and basal rates simultaneously</li>
+</ul>
+<h3 id="dynamic-isf-integration">Dynamic ISF Integration</h3>
+<ul>
+<li><strong>Replaces Autosens</strong>: When Dynamic ISF is enabled, it calculates a Dynamic Ratio instead of using the Autosens Ratio</li>
+<li><strong>Bounded by Autosens Limits</strong>: Dynamic Ratio is still constrained by Autosens Min/Max settings</li>
+<li><strong>Affects Basal</strong> (optional): When "Adjust Basal" is enabled, Dynamic Ratio also modifies the baseline basal rate</li>
+<li>**Learn how your Profile ISF is used in Dynamic ISF by reviewing the page on <a href="../features/dynamic-isf.html">Using Dynamic ISF</a></li>
+</ul>
+<h3 id="temp-target-behavior-when-enabled"><a href="../features/temp-targets.html">Temp Target Behavior</a> (when enabled)</h3>
+<ul>
+<li><strong>High Temp Targets</strong> (&gt;100 mg/dL): Increases effective ISF (less aggressive insulin delivery)</li>
+<li><strong>Low Temp Targets</strong> (&lt;100 mg/dL): Decreases effective ISF (more aggressive insulin delivery)</li>
+<li><strong>Half Basal Exercise Target</strong>: Default 160 mg/dL; affects ISF scaling during exercise targets</li>
+<li>Temp Target Behavior settings will replace the Autosens or Dynamic Ratio calculations when enabled.</li>
+</ul>
+<h3 id="sensitivity-target-behavior">Sensitivity Target Behavior</h3>
+<ul>
+<li>Adjusts target glucose based on the Sensitivity Ratio calculated by the algorithm</li>
+<li><code>Sensitivity Raises Target</code> Increases your target glucose when Sensitivity Ratio is calculated less than 100%.</li>
+<li><code>Resistance Lowers Target</code> decreases your target glucose when Sensitivity Ratio is calculated greater than 100%.</li>
+</ul>
+<h3 id="bolus-calculator">Bolus Calculator</h3>
+<p>ISF is used in the bolus calculator formula:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>I</mi><mi>n</mi><mi>s</mi><mi>u</mi><mi>l</mi><mi>i</mi><mi>n</mi><mo>=</mo><mfrac><mrow><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>G</mi><mo>−</mo><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>G</mi></mrow><mrow><mi>I</mi><mi>S</mi><mi>F</mi></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>C</mi><mi>a</mi><mi>r</mi><mi>b</mi><mi>s</mi></mrow><mrow><mi>C</mi><mi>R</mi></mrow></mfrac><mo>+</mo><mi>T</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>d</mi><mtext> </mtext><mi>C</mi><mi>o</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>−</mo><mi>I</mi><mi>O</mi><mi>B</mi></mrow></math></div>
+<h3 id="carbs-on-board-cob-calculations">Carbs on Board (COB) Calculations</h3>
+<p>ISF is used to determine how quickly carbs are absorbed in your body and how fast Trio reduces the COB amount.</p>
+<ul>
+<li>ISF is used to determine your Carb Sensitivity Factor (CSF)<ul>
+<li><strong>Formula</strong>: <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>C</mi><mi>S</mi><mi>F</mi><mo>=</mo><mfrac><mrow><mi>C</mi><mi>a</mi><mi>r</mi><mi>b</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><mrow><mrow><mi mathvariant="italic">I</mi><mi mathvariant="italic">S</mi></mrow><mi>𝐹</mi></mrow></mfrac></mrow></math></span></li>
+<li>CSF shows how much 1g of carbohydrate will raise your glucose</li>
+</ul>
+</li>
+<li>Carb Sensitivity Factor is used to determine how many carbs have been absorbed during that loop cycle<ul>
+<li><strong>Formula</strong>: <span class="arithmatex"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>I</mi><mi>n</mi><mi>c</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>e</mi><mtext> </mtext><mi>i</mi><mi>n</mi><mtext> </mtext><mi>g</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mi>×</mi><mi>C</mi><mi>S</mi><mi>F</mi></mrow></math></span></li>
+<li>Your COB will be reduced by this amount*</li>
+</ul>
+</li>
+</ul>
+<p>*If no change is indicated in your glucose readings, your <code>Min 5m Carb Impact</code> setting will be used for COB determination</p>
+<h2 id="common-isf-mistakes">Common ISF Mistakes</h2>
+<h3 id="1-isf-too-low-too-aggressive">1. ISF Too Low (Too Aggressive)</h3>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>Frequent hypoglycemia after corrections</li>
+<li>Rollercoaster patterns (high → over-correction → low → high)</li>
+<li>Excessive SMB delivery resulting in lows</li>
+</ul>
+<p><strong>Solution</strong>: </p>
+<ul>
+<li><a href="#testing-and-adjusting-your-isf"><strong>Test your ISF</strong></a></li>
+<li><strong>Autosens or Sigmoid Dynamic ISF</strong>: Increase your profile ISF value (make it less aggressive)</li>
+<li><strong>Logarithmic Dynamic ISF</strong>: Re-evaluate your Adjustment Factor and other Dynamic settings using the <a href="../../configuration/settings/algorithm/dynamic-settings.html#logarithmic-desmos-graphs">desmos graphs</a></li>
+</ul>
+<h3 id="2-isf-too-high-too-conservative">2. ISF Too High (Too Conservative)</h3>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>Persistent high glucose despite corrections</li>
+<li>Slow return to target</li>
+<li>Insufficient SMB delivery</li>
+</ul>
+<p><strong>Solution</strong>: </p>
+<ul>
+<li><a href="#testing-and-adjusting-your-isf"><strong>Test your ISF</strong></a></li>
+<li><strong>Autosens or Sigmoid Dynamic ISF</strong>: Decrease your profile ISF value (make it more aggressive)</li>
+<li><strong>Logarithmic Dynamic ISF</strong>: Re-evaluate your Adjustment Factor and other Dynamic Settings using the <a href="../../configuration/settings/algorithm/dynamic-settings.html#logarithmic-desmos-graphs">desmos graphs</a></li>
+</ul>
+<h3 id="3-ignoring-time-of-day-variations">3. Ignoring Time-of-Day Variations</h3>
+<p><strong>Symptoms</strong>:
+- Good control at some times of day, poor at others
+- Dawn phenomenon not adequately addressed</p>
+<p><strong>Solution</strong>: Set different ISF values for different times of day based on need</p>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Start conservatively</strong>: Begin with a higher (less aggressive) ISF and adjust downward if needed</li>
+<li><strong>Make small changes</strong>: Adjust by 5-10% at a time</li>
+<li><strong>Wait between changes</strong>: Give each adjustment 2-3 days to see the full effect</li>
+<li><strong>Test systematically</strong>: Test one time period at a time</li>
+<li><strong>Consider patterns</strong>: Look for consistent trends over multiple days, not single events</li>
+<li><strong>Monitor Autosens Ratio</strong>: Watching how your Autosens Ratio changes or doesn't change can indicate an issue with your Dynamic ISF settings</li>
+<li><strong>Work with your healthcare provider</strong>: Especially when making significant changes</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>ISF is a foundational setting that determines how much insulin is needed to correct high glucose. Getting your ISF right is crucial for Trio to function effectively. While Trio adjusts your ISF dynamically through Autosens or Dynamic ISF, having accurate baseline ISF values ensures:</p>
+<ul>
+<li>Safe and effective corrections</li>
+<li>Appropriate SMB delivery</li>
+<li>Smooth glucose control without rollercoasters</li>
+<li>Effective algorithm predictions and decisions</li>
+</ul>
+<p>Take the time to test and refine your ISF carefully. It's one of the most important settings for successful automated insulin delivery.</p></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

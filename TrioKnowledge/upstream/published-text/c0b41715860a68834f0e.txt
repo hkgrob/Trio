@@ -1,0 +1,1 @@
+To enable your Nightscout connection:  input your Nightscout URL, including the https:// and your API_SECRET.  Toggle on Allow Uploading to Nightscout so Trio can share its predictions and settings with Nightscout.   A Nightscout URL starts with httpS:// Your Nightscout URL must start with https://.  To set this up correctly, do not forget the letter s between http and ://.

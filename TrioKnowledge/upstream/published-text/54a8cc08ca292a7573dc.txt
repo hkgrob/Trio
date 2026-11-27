@@ -1,0 +1,1 @@
+Discord and Facebook will reject your file upload if it is larger than 25 MB. In this case, you first need to compress the log files into an archive before sending. The following sections describe how to do that on Windows and macOS.

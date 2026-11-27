@@ -1,0 +1,1 @@
+After you run Identifiers and Prepare the App, you are ready to Build.  Click on the Actions tab of your Trio repository On the left side, click on 4. Build Trio On the right side, click Run Workflow to show a dropdown menu You will see your default branch (typically this is main)   Tap the green button that says Run workflow.  

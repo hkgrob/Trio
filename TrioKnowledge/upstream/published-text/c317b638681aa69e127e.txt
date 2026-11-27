@@ -1,0 +1,1 @@
+No, you do not need to own an Apple computer. The "Browser Build" method can be completed on any computer with access to the Internet and GitHub. However, if you chose the "Mac Build" method, while you do not necessarily need to own an Apple computer, you must at least borrow one. 

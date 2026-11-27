@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Documentation of Trio, an Automated Insulin Delivery system for iOS." name="description"/>
+<meta content="Trio Community" name="author"/>
+<link href="https://triodocs.org/configuration/migration/trio-02x-migration/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../iaps-migration/" rel="next"/>
+<link href="../../../assets/images/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Migrating from Trio 0.2.x - TrioDocs</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../assets/stylesheets/primary_color.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+<body data-md-color-accent="light-blue" data-md-color-primary="deep-purple" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#coming-from-trio-02x">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="TrioDocs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="TrioDocs">
+<img alt="logo" src="../../../assets/images/trio-logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            TrioDocs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Migrating from Trio 0.2.x
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="deep-purple" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="deep-purple" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+</label>
+<input aria-label="Switch to auto (use System Preferences)" class="md-option" data-md-color-accent="light-blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="deep-purple" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to auto (use System Preferences)">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/nightscout/Trio/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</div>
+<div class="md-source__repository">nightscout/Trio</div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../usage/">
+          
+  
+  
+    
+  
+  Usage
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../install/">
+          
+  
+  
+    
+  
+  Installation and Update
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
+          
+  
+  
+    
+  
+  Configuration
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../help/">
+          
+  
+  
+    
+  
+  Help
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="TrioDocs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="TrioDocs">
+<img alt="logo" src="../../../assets/images/trio-logo.png"/>
+</a>
+    TrioDocs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/nightscout/Trio/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</div>
+<div class="md-source__repository">nightscout/Trio</div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../usage/">
+<span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../install/">
+<span class="md-ellipsis">
+    
+  
+    Installation and Update
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Startup Guides
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Startup Guides
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../new-user-setup/">
+<span class="md-ellipsis">
+    
+  
+    New User Setup Guide
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Migration Guides
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Migration Guides
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Migrating from Trio 0.2.x
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Migrating from Trio 0.2.x
+  
+
+    
+  </span>
+</a>
+<nav aria-label="On this Page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this Page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-after-install">
+<span class="md-ellipsis">
+      
+        What to Expect After Install
+      
+    </span>
+</a>
+<nav aria-label="What to Expect After Install" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-will-transfer-from-trio-02-to-trio-05-or-higher">
+<span class="md-ellipsis">
+      
+        What Will Transfer from Trio 0.2 to Trio 0.5 (or higher)?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-will-not-transfer-from-trio-02-to-trio-05-or-higher">
+<span class="md-ellipsis">
+      
+        What Will Not Transfer from Trio 0.2 to Trio 0.5 (or higher)?
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-in-your-first-3-hours">
+<span class="md-ellipsis">
+      
+        What to Expect in Your First 3 Hours
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-after-24-hours">
+<span class="md-ellipsis">
+      
+        What to Expect After 24 Hours
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-after-7-days">
+<span class="md-ellipsis">
+      
+        What to Expect After 7 Days
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#changes-from-trio-02-settings-to-trio-05-or-higher-settings">
+<span class="md-ellipsis">
+      
+        Changes from Trio 0.2 Settings to Trio 0.5 (or higher) Settings
+      
+    </span>
+</a>
+<nav aria-label="Changes from Trio 0.2 Settings to Trio 0.5 (or higher) Settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#therapy-settings">
+<span class="md-ellipsis">
+      
+        Therapy Settings
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algorithm-settings">
+<span class="md-ellipsis">
+      
+        Algorithm Settings
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-reasons-for-these-changes">
+<span class="md-ellipsis">
+      
+        What are the reasons for these changes?
+      
+    </span>
+</a>
+<nav aria-label="What are the reasons for these changes?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entry-type-picker-vs-typed-entry">
+<span class="md-ellipsis">
+      
+        Entry Type: Picker vs Typed Entry
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#format-percentage-vs-decimal">
+<span class="md-ellipsis">
+      
+        Format: Percentage vs Decimal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#name-changes">
+<span class="md-ellipsis">
+      
+        Name Changes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iaps-migration/">
+<span class="md-ellipsis">
+    
+  
+    Migrating from iAPS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../loop-migration/">
+<span class="md-ellipsis">
+    
+  
+    Migrating from Loop
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../aaps-migration/">
+<span class="md-ellipsis">
+    
+  
+    Migrating from AndroidAPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../settings/">
+<span class="md-ellipsis">
+    
+  
+    Trio Settings
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Trio Settings
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../settings/devices/">
+<span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../settings/therapy/">
+<span class="md-ellipsis">
+    
+  
+    Therapy
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../settings/algorithm/">
+<span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../settings/features/">
+<span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../settings/notifications/">
+<span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../settings/services/">
+<span class="md-ellipsis">
+    
+  
+    Services ✏️
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../settings/closed-loop/">
+<span class="md-ellipsis">
+    
+  
+    Closing The Loop
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../help/">
+<span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this Page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this Page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-after-install">
+<span class="md-ellipsis">
+      
+        What to Expect After Install
+      
+    </span>
+</a>
+<nav aria-label="What to Expect After Install" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-will-transfer-from-trio-02-to-trio-05-or-higher">
+<span class="md-ellipsis">
+      
+        What Will Transfer from Trio 0.2 to Trio 0.5 (or higher)?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-will-not-transfer-from-trio-02-to-trio-05-or-higher">
+<span class="md-ellipsis">
+      
+        What Will Not Transfer from Trio 0.2 to Trio 0.5 (or higher)?
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-in-your-first-3-hours">
+<span class="md-ellipsis">
+      
+        What to Expect in Your First 3 Hours
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-after-24-hours">
+<span class="md-ellipsis">
+      
+        What to Expect After 24 Hours
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-to-expect-after-7-days">
+<span class="md-ellipsis">
+      
+        What to Expect After 7 Days
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#changes-from-trio-02-settings-to-trio-05-or-higher-settings">
+<span class="md-ellipsis">
+      
+        Changes from Trio 0.2 Settings to Trio 0.5 (or higher) Settings
+      
+    </span>
+</a>
+<nav aria-label="Changes from Trio 0.2 Settings to Trio 0.5 (or higher) Settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#therapy-settings">
+<span class="md-ellipsis">
+      
+        Therapy Settings
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algorithm-settings">
+<span class="md-ellipsis">
+      
+        Algorithm Settings
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-reasons-for-these-changes">
+<span class="md-ellipsis">
+      
+        What are the reasons for these changes?
+      
+    </span>
+</a>
+<nav aria-label="What are the reasons for these changes?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entry-type-picker-vs-typed-entry">
+<span class="md-ellipsis">
+      
+        Entry Type: Picker vs Typed Entry
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#format-percentage-vs-decimal">
+<span class="md-ellipsis">
+      
+        Format: Percentage vs Decimal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#name-changes">
+<span class="md-ellipsis">
+      
+        Name Changes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download="Migrating from Trio 0.2.x.pdf" href="index.pdf" title="Download Page as PDF"><html><body><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14 2 6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm4 18V9h-5V4H6v16zm-6-1-4-4h2.5v-3h3v3H16z"></path></svg></body></html></a>
+<a class="md-content__button md-icon" href="https://github.com/nightscout/trio-docs/edit/dev/docs/configuration/migration/trio-02x-migration.md" rel="edit" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+</a>
+
+<h1 id="coming-from-trio-02x">Coming from Trio 0.2.x<a class="headerlink" href="#coming-from-trio-02x" title="Link to this section for reference">¶</a></h1>
+<div class="admonition danger">
+<p class="admonition-title">Please Read This Page <strong>BEFORE</strong> Updating</p>
+<p>Do not update without reading this documentation or you risk finding many unexpected changes that can easily be resolved with prior planning.</p>
+</div>
+<!--    
+!!! tip "Browser Build Users"
+    Automatic builds for Browser Builders are disabled when updating from 0.2 to 0.7.
+    You will have to...
+
+    - manually update your fork of the Trio Main branch
+    - manually run Action 4: Build in the workflow
+-->
+<h2 id="what-to-expect-after-install">What to Expect After Install<a class="headerlink" href="#what-to-expect-after-install" title="Link to this section for reference">¶</a></h2>
+<ul>
+<li><strong>Brand New Interface</strong><br/>
+    A completely redesigned UI across the app, including the Watch app — clean, modern, and easier to use. Learn more in the <a href="../../../usage/interface/">User Interface Walk-Through</a>.</li>
+<li><strong>All-New Onboarding</strong><br/>
+    Step-by-step setup for new and returning users with smart defaults and safety checks. <strong><em>All users</em> will need to complete the new Onboarding Wizard after upgrading</strong>. Learn more in the <a href="../../new-user-setup/">New User Setup Guide</a>.</li>
+<li><strong>Rewritten Backend &amp; Data Storage</strong><br/>
+    Entire app logic and data storage rewritten for speed, stability, and future flexibility.</li>
+<li><strong>Remote Commands &amp; <abbr title="operating system used by Apple Mobile devices (iPhone, iPod, iPad)">iOS</abbr> Shortcuts</strong><br/>
+    Trigger actions like carb entry, bolus, overrides or temporary targets <a href="../../settings/features/remote-control/">remotely</a> or through <a href="../../settings/features/shortcuts/">shortcut automation</a>.</li>
+<li><strong>Smarter Settings</strong><br/>
+    Helpful hints, guidance sheets, and a built-in search function — just like <abbr title="operating system used by Apple Mobile devices (iPhone, iPod, iPad)">iOS</abbr> Settings. Information on the updated Trio Settings can be found <a href="../../settings/">here</a>.</li>
+<li><strong>New Bolus Calculator</strong><br/>
+    More accurate and simple dosing with clearer breakdowns and improved safety logic. Learn more about the <a href="../../../usage/features/bolus-calculator/">Bolus Calculator</a>.</li>
+<li><strong>Reworked Statistics</strong><br/>
+    All in-app statistics and graphs have been overhauled and extended. Learn more about the <a href="../../../usage/features/statistics/">New Statistics Screen</a>.</li>
+<li><strong>Improved Live Activity Widget</strong><br/>
+    Real-time loop data with optional chart — configurable and tailored to your preferences — visible on lockscreen, Watch, and CarPlay. Learn more about the <a href="../../settings/notifications/live-activity/">Live Activity Widget</a>.</li>
+<li><strong>Live Data on Watch</strong><br/>
+    Highly customizable “contact widgets” for glucose, <abbr title="Insulin on Board, affects automated insulin delivery: the current active insulin (above or below the basal rate)">IOB</abbr>, <abbr title="Carbs on Board, affects automated insulin delivery">COB</abbr>, and more, always visible. Learn more about the <a href="../../settings/devices/smart-watch/#contacts-configuration">Contacts Configuration on Apple Watch</a>.</li>
+<li><strong>All-New Integrations</strong><br/>
+<abbr title="a personal website used to view your glucose and diabetes management data.">Nightscout</abbr>, Tidepool, and Apple Health connections have been rebuilt from scratch — faster and more stable. More on integrations <a href="../../settings/services/">here</a>.</li>
+<li><strong>Safety Improvements</strong><br/>
+    Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> guarding (7-day required data), safer edge-case behavior, and improved support for high-insulin-resistance setups.</li>
+<li><strong>Updated Language &amp; Translations</strong><br/>
+    Clear, friendly, and easy-to-understand. Fully localized with ongoing help from our Crowdin contributors (<a href="https://crowdin.triodocs.org">translators still welcome</a>).</li>
+<li><strong>Now Requires <abbr title="With a capital L, Loop is one of several do-it-yourself artifical pancreas systems">Loop</abbr> Follow v4.0 or Later</strong><br/>
+    More info at <a href="https://loopfollowdocs.org/remote/remote-control-trio/">LoopFollowDocs</a></li>
+<li><strong>Autotune Removed</strong><br/>
+    Autotune has not performed well with the addition of Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> and many users using multiple <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> and <abbr title="Carb Ratio; how many grams of carbs are covered by one unit of rapid-acting insulin">CR</abbr> in Therapy settings. For this reason, we have removed it until an improved Autotune-like feature is built.</li>
+</ul>
+<h3 id="what-will-transfer-from-trio-02-to-trio-05-or-higher">What <em>Will</em> Transfer from Trio 0.2 to Trio 0.5 (or higher)?<a class="headerlink" href="#what-will-transfer-from-trio-02-to-trio-05-or-higher" title="Link to this section for reference">¶</a></h3>
+<ul>
+<li>Current pump and <abbr title="continuous glucose monitor, wearable medical device that measures and reports glucose in interstitial fluid">CGM</abbr> sessions (but always a good idea to have a backup pump ready whenever updating, just in case)</li>
+<li>24 hr treatment history</li>
+<li>Core therapy settings (glucose targets, basal rates, <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr>, <abbr title="Carb Ratio; how many grams of carbs are covered by one unit of rapid-acting insulin">CR</abbr>)</li>
+</ul>
+<h3 id="what-will-not-transfer-from-trio-02-to-trio-05-or-higher">What <em>Will Not</em> Transfer from Trio 0.2 to Trio 0.5 (or higher)?<a class="headerlink" href="#what-will-not-transfer-from-trio-02-to-trio-05-or-higher" title="Link to this section for reference">¶</a></h3>
+<ul>
+<li>Algorithm settings, Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr>, and some integrations (like <abbr title="a personal website used to view your glucose and diabetes management data.">Nightscout</abbr>) will reset.</li>
+<li>Treatment history older then 24 hours will not transfer</li>
+<li>Historical data used for Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> and Statistics</li>
+<li>Override, Temp Target, and Meal Presets</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Upgrading is a one-way street</p>
+<p>Once you upgrade to v0.5.0 (or higher), going back to v0.2.x is not supported.</p>
+</div>
+<hr/>
+<h2 id="what-to-expect-in-your-first-3-hours">What to Expect in Your First 3 Hours<a class="headerlink" href="#what-to-expect-in-your-first-3-hours" title="Link to this section for reference">¶</a></h2>
+<p>Here are some things to keep in mind after upgrading from Trio 0.2 to Trio 0.5 (or higher) in the first 3 hours:</p>
+<ul>
+<li><strong>Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> &amp; Autosens</strong><br/>
+    Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> is disabled for the first <strong>7 days</strong>. <em>You may need to enter carbs and bolus during this time if you aren't already doing so.</em> Autosens will be used instead (but there's a long standing issue with autosens where it will likely be stuck at 1 when there are carb entries or SMBs.)</li>
+<li><strong>Onboarding Wizard</strong><br/>
+    Take this time to go through the Onboarding Wizard. Reference the <a href="../../new-user-setup/">New User Setup Guide</a> or ask questions on <a href="https://facebook.triodocs.org">Facebook</a> or <a href="https://discord.triodocs.org">Discord</a> if you have any questions.</li>
+<li><strong>Test Settings</strong><br/>
+    This is a great time to test your settings so you can start fresh on solid footing.</li>
+<li><strong>New User Interface</strong><br/>
+    Use this time to learn the <a href="../../../usage/interface/">New User Interface</a>.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Do not use a pump or cgm simulator</p>
+<ul>
+<li>Doing so will result in false data being stored and you will have to delete the app with all the data and reinstall before you can use it on a live pump.</li>
+<li>This will also reset your 7-day waiting period for Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr>.</li>
+<li><a href="../../settings/devices/pump/?h=simulator#pump-simulator">More information on simulator use</a></li>
+</ul>
+</div>
+<hr/>
+<h2 id="what-to-expect-after-24-hours">What to Expect After 24 Hours<a class="headerlink" href="#what-to-expect-after-24-hours" title="Link to this section for reference">¶</a></h2>
+<p>A full day on Trio 0.5 (or higher)! Congratulations! Here's what to look for:</p>
+<ul>
+<li><strong>Autosens</strong><br/>
+    Autosens now has enough data to make adjustments</li>
+<li>
+<p><strong>Review &amp; Test Settings</strong><br/>
+    This is a good time to review your last 24 hours of results to see if your core settings performed as expected. If you had unexpected challenges with your settings, look at how to test them over the next 7 days</p>
+<ul>
+<li><a href="../../../usage/concepts/basal-rates/">Basal Testing</a></li>
+<li><a href="../../../usage/concepts/isf/"><abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> Testing</a></li>
+<li><a href="../../../usage/concepts/carb-ratios/">Carb Ratio Testing</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Review Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> Documentation</strong><br/>
+    Review the documentation on <a href="../../../usage/features/dynamic-isf/">Using Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr></a> in preparation for <a href="#what-to-expect-after-7-days">Day 7</a>.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="what-to-expect-after-7-days">What to Expect After 7 Days<a class="headerlink" href="#what-to-expect-after-7-days" title="Link to this section for reference">¶</a></h2>
+<p>You've completed a week on Trio 0.5 (or higher)! Here's what you should see:</p>
+<ul>
+<li><strong>Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr></strong><br/>
+    Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> now has enough data. You now have the option to enable it if you would like to.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Can't Enable Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr>?</p>
+<p>If Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr> does not give you the option to enable, you may have experienced one or more of the following:</p>
+<ul>
+<li>You were not in closed loop for the full 7 days.<ul>
+<li><em>Trio needs 7 days of closed loop to safely enable Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr></em></li>
+</ul>
+</li>
+<li>You had significant loss of connection with your <abbr title="continuous glucose monitor, wearable medical device that measures and reports glucose in interstitial fluid">CGM</abbr> and/or pump. <ul>
+<li><em>Check your last week of Looping Statistics in the Stats tab in the Trio app. You need both <b>7 days</b> and an <b>85% success rate</b> to enable Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr></em>. </li>
+</ul>
+</li>
+<li>You enabled a significant number of manual Temp Basals with long run times.<ul>
+<li><em>When a manual Temp Basal is set, Trio is unable to complete a loop cycle for the duration of the temp basal. This will cause a reduction in your success rate. If you do not have <b>85% success rate</b> for <b>7 days</b>, you cannot enable Dynamic <abbr title="Insulin Sensitivity Factor; how many points your blood sugar will drop for each unit of insulin; sometimes called Correction Factor">ISF</abbr>.</em></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li><strong>Dynamic <abbr title="Carb Ratio; how many grams of carbs are covered by one unit of rapid-acting insulin">CR</abbr></strong>
+    Dynamic <abbr title="Carb Ratio; how many grams of carbs are covered by one unit of rapid-acting insulin">CR</abbr> has been removed due to no known scientific validity to <abbr title="Carb Ratio; how many grams of carbs are covered by one unit of rapid-acting insulin">CR</abbr> changing with an increase or decrease in glucose.</li>
+</ul>
+<hr/>
+<h2 id="changes-from-trio-02-settings-to-trio-05-or-higher-settings">Changes from Trio 0.2 Settings to Trio 0.5 (or higher) Settings<a class="headerlink" href="#changes-from-trio-02-settings-to-trio-05-or-higher-settings" title="Link to this section for reference">¶</a></h2>
+<p>When you update from Trio 0.2, some of your settings might look different even if they have the same or similar names. That’s because we changed some of the numbers from decimals to percentages to make them easier to understand.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>In Trio 0.2 you might set "Autosens Maximum" to 1.2. In Trio 0.5 (or higher), we show "Autosens Max" as 120%, which means the same thing, but is easier to understand.</p>
+</div>
+<p>Some setting names have also changed. We did this to make things less confusing. To help you out, we added definitions right in the app. Just tap the question mark icon next to any setting to see what it means. Healthcare Professionals and users can also find those settings and explanations <a href="../../settings/">in this section of the docs</a>.</p>
+<p>The charts below will help you see which setting names or formats have changed. The settings with changes are in bold.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>To convert a value from a decimal to a percentage, multiply it by 100.  </li>
+<li>To convert from a percentage to a decimal, divide by 100.</li>
+</ul>
+</div>
+<h3 id="therapy-settings"><a href="../../settings/therapy/">Therapy Settings</a><a class="headerlink" href="#therapy-settings" title="Link to this section for reference">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span style="color: #ff8340;"><a href="../../settings/therapy/glucose-targets/#how-to-enter-your-glucose-targets-into-trio"><strong>Glucose Targets</strong></a></span></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (100 mg/dL / 5.5 mmol/L)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Target Glucose</strong></span></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (100 / 5.5)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/basal-rates/#how-to-enter-your-basal-profiles-into-trio">Basal Rates</a></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (1.0 U/hr)</em></td>
+<td style="text-align: center;">Basal Profile</td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (1.0 U/hr)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/carb-ratios/#how-to-enter-your-carb-ratios-cr-into-trio">Carb Ratios</a></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (10 g/U)</em></td>
+<td style="text-align: center;">Carb Ratios</td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (10 g/U)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/isf/#how-to-enter-your-isf-into-trio">Insulin Sensitivities</a></td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (54 mg/dL/U / 3.0 mmol/L/U)</em></td>
+<td style="text-align: center;">Insulin Sensitivities</td>
+<td style="text-align: center;"><em>schedule</em></td>
+<td style="text-align: center;"><em>decimal <br/> (54 / 3.0)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/units-limits/#max-iob"><strong>Maximum Insulin on Board (<abbr title="Insulin on Board, affects automated insulin delivery: the current active insulin (above or below the basal rate)">IOB</abbr>)</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (2 U)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max <abbr title="Insulin on Board, affects automated insulin delivery: the current active insulin (above or below the basal rate)">IOB</abbr></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (2)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/units-limits/#max-bolus"><strong>Maximum Bolus</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (10 U)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max Bolus</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (10)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/units-limits/#max-basal"><strong>Maximum Basal Rate</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (2 U/hr)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max Basal</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (2)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/units-limits/#max-cob"><strong>Maximum Carbs on Board (<abbr title="Carbs on Board, affects automated insulin delivery">COB</abbr>)</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (120 g)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max <abbr title="Carbs on Board, affects automated insulin delivery">COB</abbr></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (120)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/therapy/units-limits/#minimum-safety-threshold"><strong>Minimum Safety Threshold</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (60 mg/dL / 3.3 mmol/L)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Threshold Settings</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> <span style="color: #ff8340;">(60)</span></em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> mmol/L entry</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="algorithm-settings"><a href="../../settings/algorithm/">Algorithm Settings</a><a class="headerlink" href="#algorithm-settings" title="Link to this section for reference">¶</a></h3>
+<h4 id="autosens"><a href="../../settings/algorithm/autosens/">Autosens</a><a class="headerlink" href="#autosens" title="Link to this section for reference">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/autosens/#sensitivity-ratio">Sensitivity Ratio</a></td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (105%)</em></strong></td>
+<td style="text-align: center;">Autosens Ratio</td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1.05)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/autosens/#calculated-sensitivity">Calculated Sensitivity</a></td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><em>decimal <br/> (45 mg/dL/U / 2.5 mmol/L/U)</em></td>
+<td style="text-align: center;">Calculated Sensitivity</td>
+<td style="text-align: center;"><em>N/A</em></td>
+<td style="text-align: center;"><em>decimal <br/> (45 mg/dL/U / 2.5 mmol/L/U)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/autosens/#autosens-max"><strong>Autosens Max</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (120%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Autosens Maximum</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1.2)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/autosens/#autosens-min"><strong>Autosens Min</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (70%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Autosens Minimum</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (0.7)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/autosens/#rewind-resets-autosens">Rewind Resets Autosens</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Rewind Resets Autosens</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+</tbody>
+</table>
+<h4 id="smb-super-micro-bolus"><a href="../../settings/algorithm/smb-settings/">SMB (Super Micro Bolus)</a><a class="headerlink" href="#smb-super-micro-bolus" title="Link to this section for reference">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#enable-smb-always">Enable SMB Always</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB Always</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now disables unused SMB settings</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#enable-smb-with-cob">Enable SMB With <abbr title="Carbs on Board, affects automated insulin delivery">COB</abbr></a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB With <abbr title="Carbs on Board, affects automated insulin delivery">COB</abbr></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#enable-smb-with-temptarget">Enable SMB with Temptarget</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB with Temptarget</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#enable-smb-after-carbs">Enable SMB After Carbs</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable SMB After Carbs</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><a href="../../settings/algorithm/smb-settings/#enable-smb-with-high-glucose">Enable SMB With High Glucose</a></strong></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Enable SMB With High BG</strong></span></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name <br/> <em>Now only appears if Enable SMB Always is OFF</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><a href="../../settings/algorithm/smb-settings/#high-glucose-target">High Glucose Target</a></strong></td>
+<td style="text-align: center;"><strong>picker</strong></td>
+<td style="text-align: center;"><em>decimal <br/> (110 mg/dL / 6.1 mmol/L)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>... When Blood Glucose is Over (mg/dl)</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>typed value</strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> <span style="color: #ff8340;">(110)</span></em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name <br/> Entry Type <br/> Format <br/> <em>Now only appears when Enable SMB With High Glucose is ON, <br/> mmol/L entry</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#allow-smb-with-high-temptarget">Allow SMB with High Temptarget</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Allow SMB With High Temptarget</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#enable-uam">Enable UAM</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Enable UAM</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#max-smb-basal-minutes">Max SMB Basal Minutes</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (30 min)</em></td>
+<td style="text-align: center;">Max SMB Basal Minutes</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (30)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#max-uam-basal-minutes"><strong>Max UAM Basal Minutes</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (30 min)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max UAM SMB Basal Minutes</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (30)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/smb-settings/#max-allowed-glucose-rise-for-smb"><strong>Max Allowed Glucose Rise for SMB</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (20%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Max Delta-BG Threshold SMB</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (0.2)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="target-behavior"><a href="../../settings/algorithm/target-behavior/">Target Behavior</a><a class="headerlink" href="#target-behavior" title="Link to this section for reference">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/target-behavior/#high-temp-target-raises-sensitivity"><strong>High Temp Target Raises Sensitivity</strong></a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>High Temptarget Raises Sensitivity/Exercise Mode</strong></span></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/target-behavior/#low-temp-target-lowers-sensitivity"><strong>Low Temp Target Lowers Sensitivity</strong></a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Low Temptarget Lowers Sensitivity</strong></span></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/target-behavior/#sensitivity-raises-target">Sensitivity Raises Target</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Sensitivity Raises Target</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/target-behavior/#resistance-lowers-target">Resistance Lowers Target</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Resistance Lowers Target</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/target-behavior/#half-basal-exercise-target">Half Basal Exercise Target</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (160 mg/dL / 8.9 mmol/L)</em></td>
+<td style="text-align: center;">Half Basal Exercise Target</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> <span style="color: #ff8340;">(160)</span></em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type, mmol/L entry</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="additionals"><a href="../../settings/algorithm/additionals/">Additionals</a><a class="headerlink" href="#additionals" title="Link to this section for reference">¶</a></h4>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>The settings in this section typically do not require any modifications.<br/>
+Do not alter them without a solid understanding of what you are changing and the full impact it will have on the algorithm.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Trio 0.5+ Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;">Trio 0.2 Name</th>
+<th style="text-align: center;"><em>Entry Type</em></th>
+<th style="text-align: center;"><em>Format <br/> (example)</em></th>
+<th style="text-align: center;"><span style="color: #ff8340;">Change</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#max-daily-safety-multiplier">Max Daily Safety Multiplier</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (300%)</em></strong></td>
+<td style="text-align: center;">Max Daily Safety Multiplier</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (3)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#current-basal-safety-multiplier">Current Basal Safety Multiplier</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (400%)</em></strong></td>
+<td style="text-align: center;">Current Basal Safety Multiplier</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (4)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#duration-of-insulin-action">Duration of Insulin Action</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (10 hr)</em></td>
+<td style="text-align: center;">Duration of Insulin Action</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (10)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#use-custom-peak-time">Use Custom Peak Time</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Use Custom Peak Time</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#insulin-peak-time">Insulin Peak Time</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (65 min)</em></td>
+<td style="text-align: center;">Insulin Peak Time</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (65)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#skip-neutral-temps">Skip Neutral Temps</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Skip Neutral Temps</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#unsuspend-if-no-temp">Unsuspend If No Temp</a></td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">Unsuspend If No Temp</td>
+<td style="text-align: center;"><em>toggle</em></td>
+<td style="text-align: center;"><em>(On/Off)</em></td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#smb-delivery-ratio"><strong>SMB Delivery Ratio</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (50%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>SMB DeliveryRatio</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (0.5)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#smb-interval">SMB Interval</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (3 min)</em></td>
+<td style="text-align: center;">SMB Interval</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (3)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#min-5m-carb-impact"><strong>Min 5m Carb Impact</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (8 mg/dL)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Min 5m Carbimpact</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (8)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#remaining-carbs-percentage"><strong>Remaining Carbs Percentage</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (100%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Remaining Carbs Fraction</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#remaining-carbs-cap">Remaining Carbs Cap</a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><em>decimal <br/> (90 g)</em></td>
+<td style="text-align: center;">Remaining Carbs Cap</td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><em>decimal <br/> (90)</em></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>Entry Type</em></strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="../../settings/algorithm/additionals/#noisy-cgm-target-increase"><strong>Noisy <abbr title="continuous glucose monitor, wearable medical device that measures and reports glucose in interstitial fluid">CGM</abbr> Target Increase</strong></a></td>
+<td style="text-align: center;"><strong><em>picker</em></strong></td>
+<td style="text-align: center;"><strong><em>percentage <br/> (130%)</em></strong></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Noisy <abbr title="continuous glucose monitor, wearable medical device that measures and reports glucose in interstitial fluid">CGM</abbr> Target Multiplier</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>typed value</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong><em>decimal <br/> (1.3)</em></strong></span></td>
+<td style="text-align: center;"><span style="color: #ff8340;"><strong>Name, <br/> <em>Entry Type, <br/> Format</em></strong></span></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="what-are-the-reasons-for-these-changes">What are the reasons for these changes?<a class="headerlink" href="#what-are-the-reasons-for-these-changes" title="Link to this section for reference">¶</a></h2>
+<h3 id="entry-type-picker-vs-typed-entry">Entry Type: Picker vs Typed Entry<a class="headerlink" href="#entry-type-picker-vs-typed-entry" title="Link to this section for reference">¶</a></h3>
+<p align="center"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../img/picker-vs-typed-trio-02.png"><img alt="Picker vs Typed" src="../img/picker-vs-typed-trio-02.png" width="500"/></a></p>
+<ul>
+<li>A typed entry can result in mistyping a value and could result in unintended consequences within the algorithm.</li>
+<li>A picker ensures the setting is within the guardrails of the algorithm. Both Trio 0.2 and 0.5 (or higher) have guardrails, however when typed in 0.2, those values were ignored and the closest valid number was used. 
+    !!! example
+        If you set your <abbr title="Duration of Insulin Action, the full time insulin is active including a long, low-level tail">DIA</abbr> to 2, Trio 0.2 would use a <abbr title="Duration of Insulin Action, the full time insulin is active including a long, low-level tail">DIA</abbr> of 5 without notifying you.</li>
+</ul>
+<h3 id="format-percentage-vs-decimal">Format: Percentage vs Decimal<a class="headerlink" href="#format-percentage-vs-decimal" title="Link to this section for reference">¶</a></h3>
+<p align="center"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../img/percentage-vs-decimal-Trio.png"><img alt="Percentage vs Decimal" src="../img/percentage-vs-decimal-Trio.png" width="500"/></a></p>
+<ul>
+<li>Percentages are easier to comprehend than decimals when trying to make decisions on your settings adjustments.</li>
+</ul>
+<h3 id="name-changes">Name Changes<a class="headerlink" href="#name-changes" title="Link to this section for reference">¶</a></h3>
+<ul>
+<li>Some settings names in Trio 0.2 were the labels used in the Trio code and were really only clear to developers. This often times made those settings difficult to understand.</li>
+<li>Certain settings names in Trio 0.2 were unclear. We changed those names to make them easier to understand.</li>
+<li>In addition to updating names to be easier to understand, we also added clearer settings explanations in the app for every setting.</li>
+</ul>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Index" class="md-footer__link md-footer__link--prev" href="../">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Index
+              </div>
+</div>
+</a>
+<a aria-label="Next: Migrating from iAPS" class="md-footer__link md-footer__link--next" href="../iaps-migration/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Migrating from iAPS
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Trio Community
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/nightscout/Trio" rel="noopener" target="_blank" title="Trio on GitHub">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://discord.gg/FnwFEFUwXE" rel="noopener" target="_blank" title="Trio on Discord">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.facebook.com/groups/diytrio" rel="noopener" target="_blank" title="Trio on Facebook">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "0.4.0"}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../assets/javascripts/disable-instant-if-translated.js"></script>
+<script src="../../../assets/javascripts/mathjax.js"></script>
+<script src="../../../assets/javascripts/mkdocs-exporter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<script src="../../../js/open_in_new_tab.js"></script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": false, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

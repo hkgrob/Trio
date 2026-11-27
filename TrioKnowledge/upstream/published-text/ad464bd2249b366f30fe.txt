@@ -1,0 +1,1 @@
+Yes. SMBs effectively borrow insulin from the future to front load insulin delivery to assist in avoiding glucose spikes. Long, low, or zero temporary basal rates are expected to be observed with SMBs activated. This allows the algorithm to balance out the peak insulin timing and avoid hypoglycemia secondary to the increased insulin on board. 

@@ -1,0 +1,357 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>New User Setup Guide · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../index.html">All documents</a><a href="../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../source/docs/configuration/new-user-setup.md">Updated Markdown</a><a href="../../../upstream/source/docs/configuration/new-user-setup.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="new-user-setup-guide">New User Setup Guide</h1>
+<p>Welcome to the New User Setup Guide and congratulations on a successful Trio build! This guide walks you through how to set up your Trio app once you have installed it on your phone.  </p>
+<p>If you still need to install the app, head to the Build Instructions for <a href="../install/build/mac/overview.html">Mac</a> or <a href="../install/build/browser/browser-build-overview.html">Browser</a> and come back here when you are ready to start the setup process!</p>
+<hr/>
+<h2 id="onboarding-wizard">Onboarding Wizard</h2>
+<p>Trio has an Onboarding Wizard that walks you through these steps when you first start the app. Each step contains a tab for <strong>During Onboarding</strong> and <strong>After Onboarding</strong>, explained below.  </p>
+<div class="grid">
+<p><img alt="Onboarding Screen" src="../../source/docs/configuration/img/onboarding-guide.png"/></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">During Onboarding</label><label for="__tabbed_1_2">After Onboarding</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Information under the <strong>During Onboarding</strong> tab provides additional information for that step of the Onboarding Wizard.  </p>
+<p>Use this documentation as your home base to refer back to as needed.</p>
+</div>
+<div class="tabbed-block">
+<p>Information under the <strong>After Onboarding</strong> tab shows you where to edit the relevant settings after onboarding is complete as well as the additional information on those settings.  </p>
+<p>Use this documentation as your home base to refer back to as needed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you've completed the Onboarding Wizard and need guidance on what to do next, jump to <a href="#step-7-connect-your-devices">Step 7: Connect Your Devices</a></p>
+</div>
+<hr/>
+<p><strong><em>Jump to:</em></strong></p>
+<div class="grid">
+<p><a href="#step-1-prepare-trio"><strong>Step 1:</strong> Prepare Trio</a></p>
+<p><a href="#step-2-therapy-settings"><strong>Step 2:</strong> Therapy Settings</a></p>
+<p><a href="#step-3-delivery-limits"><strong>Step 3:</strong> Delivery Limits</a></p>
+<p><a href="#step-4-algorithm-settings"><strong>Step 4:</strong> Algorithm Settings</a></p>
+<p><a href="#step-5-notifications"><strong>Step 5:</strong> Notifications</a></p>
+<p><a href="#step-6-bluetooth"><strong>Step 6:</strong> Bluetooth</a></p>
+<p><a href="#step-7-connect-your-devices"><strong>Step 7:</strong> Connect Your Devices</a></p>
+<p class="changed-block" data-change="added-or-revised"><a href="#step-8-enable-closed-loop"><strong>Step 8:</strong> Choose Dosing Mode</a></p>
+<p><a href="#step-9-change-app-icon-optional"><strong>Step 9:</strong> Change App Icon (Optional)</a></p>
+</div>
+<hr/>
+<div class="admonition tip">
+<p class="admonition-title">Need help finding these settings in your current DIY app?</p>
+<p>If you are coming from another Open Source Automated Insulin Dosing (OS-AID) app, these guides may help you with finding these settings in your previous app and inputing them into Trio.</p>
+<ul>
+<li><a href="migration/trio-02x-migration.html">Trio 0.2.x</a></li>
+<li><a href="migration/iaps-migration.html">iAPS</a></li>
+<li><a href="migration/loop-migration.html">Loop</a></li>
+<li><a href="migration/aaps-migration.html">AndroidAPS</a></li>
+</ul>
+</div>
+<h2 id="step-1-prepare-trio"><strong>Step 1:</strong> Prepare Trio</h2>
+<p>In this step, you'll configure diagnostics sharing, optionally sync with Nightscout, and enter other essential setup information.</p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">During Onboarding</label><label for="__tabbed_2_2">After Onboarding</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="diagnostics">Diagnostics</h3>
+<p>By default, Trio collects crash reports and other anonymized data related to errors, exceptions, and overall app performance. Sharing this data helps developers maintain and improve the app. This is completely anonymous and optional.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you select <code>Enable Sharing</code>, you must also read and accept the Privacy Policy in the Onboarding Wizard before you are able to proceed.</p>
+</div>
+<h3 id="nightscout">Nightscout</h3>
+<p>Nightscout is a cloud-based platform that allows you to store your diabetes data.<br/>
+Nightscout is not required and can be added at a later time under <a href="settings/services/nightscout.html">Services</a> in the Settings menu of the app.</p>
+<h3 id="units-pump">Units &amp; Pump</h3>
+<p>In the Onboarding Wizard, you will select your <a href="settings/therapy/units-limits.html#glucose-units">Glucose Units</a> and Pump Model, but you will not pair your pump yet. You will pair your pump and CGM after completing the Onboarding process (See <a href="#step-7-connect-your-devices">Step 7</a>).</p>
+</div>
+<div class="tabbed-block">
+<h3 id="edit-diagnostics">Edit Diagnostics</h3>
+<p>To enable or disable sharing after you've completed onboarding, open the settings menu, then Features, then App Diagnostics. Here you will find the ability to adjust sharing as well as the Privacy Policy.</p>
+<h3 id="edit-nightscout">Edit Nightscout</h3>
+<p>To connect or edit your Nightscout credentials after you've completed onboarding, follow the guidance <a href="settings/services/nightscout.html">here</a>.</p>
+<h3 id="edit-glucose-units">Edit Glucose Units</h3>
+<p align="center"><img alt="Units and Limits" src="../../source/docs/configuration/img/unitsandlimits.png" width="400px"/><br/>
+<a href="settings/therapy/units-limits.html#glucose-units">Learn more about setting your Glucose Units</a></p>
+<h3 id="edit-insulin-pump">Edit Insulin Pump</h3>
+<p align="center"><img alt="Devices Settings" src="../../source/docs/configuration/img/pumpMenu.png" width="400px"/><br/>
+<a href="settings/devices/pump.html">Learn how to connect or change your insulin pump</a></p>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h2 id="step-2-therapy-settings"><strong>Step 2:</strong> Therapy Settings</h2>
+<p>The next step is to enter your Therapy Settings. These include:</p>
+<ul>
+<li><strong>Glucose Targets</strong>: Trio's dosing will aim for this glucose when calculating insulin dosage</li>
+<li><strong>Basal Rates</strong>: Used as a baseline for increasing or decreasing insulin needs</li>
+<li><strong>Carb Ratios</strong>: How many grams of carbohydrate are countered by 1 unit of insulin</li>
+<li><strong>Insulin Sensitivities</strong>: How much 1 unit of insulin will lower your blood glucose</li>
+</ul>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">During Onboarding</label><label for="__tabbed_3_2">After Onboarding</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>For more information about each therapy setting in this step, use the links below:</p>
+<ul>
+<li><a href="settings/therapy/glucose-targets.html">Glucose Targets</a> </li>
+<li><a href="settings/therapy/basal-rates.html">Basal Rates</a> </li>
+<li><a href="settings/therapy/carb-ratios.html">Carb Ratios (CR)</a> </li>
+<li><a href="settings/therapy/isf.html">Insulin Sensitivities (ISF)</a> </li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p align="center">Here is how to locate these settings after onboarding:<br/>
+<img alt="Therapy Settings" src="../../source/docs/configuration/img/TherapyMenu.png" width="400px"/></p>
+<p>Below you'll find a step by step guide to edit each of these settings:</p>
+<ul>
+<li><a href="settings/therapy/glucose-targets.html#how-to-enter-your-glucose-targets-into-trio">Glucose Targets</a> </li>
+<li><a href="settings/therapy/basal-rates.html#how-to-enter-your-basal-profiles-into-trio">Basal Rates</a> </li>
+<li><a href="settings/therapy/carb-ratios.html#how-to-enter-your-carb-ratios-cr-into-trio">Carb Ratios (CR)</a> </li>
+<li><a href="settings/therapy/isf.html#how-to-enter-your-isf-into-trio">Insulin Sensitivities (ISF)</a> </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h2 id="step-3-delivery-limits"><strong>Step 3:</strong> Delivery Limits</h2>
+<p>In this step you will set the boundaries for insulin delivery and carb entries to help Trio keep your insulin dosing safe, yet effective.</p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">During Onboarding</label><label for="__tabbed_4_2">After Onboarding</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Below you'll find more information on each of the settings in order of appearance in the Onboarding Wizard:</p>
+<ul>
+<li><a href="settings/therapy/units-limits.html#max-iob">Max IOB</a> </li>
+<li><a href="settings/therapy/units-limits.html#max-bolus">Max Bolus</a> </li>
+<li><a href="settings/therapy/units-limits.html#max-basal">Max Basal Rate</a> </li>
+<li><a href="settings/therapy/units-limits.html#max-cob">Max COB</a> </li>
+<li><a href="settings/therapy/units-limits.html#minimum-safety-threshold">Minimum Safety Threshold</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p align="center">Here is how to locate these settings after onboarding:<br/>
+<img alt="Units and Limits" src="../../source/docs/configuration/img/unitsandlimits.png" width="400px"/></p>
+<p>Below you'll find more information on each of these settings:</p>
+<ul>
+<li><a href="settings/therapy/units-limits.html#max-iob">Max IOB</a> </li>
+<li><a href="settings/therapy/units-limits.html#max-bolus">Max Bolus</a> </li>
+<li><a href="settings/therapy/units-limits.html#max-basal">Max Basal Rate</a> </li>
+<li><a href="settings/therapy/units-limits.html#max-cob">Max COB</a> </li>
+<li><a href="settings/therapy/units-limits.html#minimum-safety-threshold">Minimum Safety Threshold</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h2 id="step-4-algorithm-settings"><strong>Step 4:</strong> Algorithm Settings</h2>
+<p>Trio includes several algorithm settings that allow you to customize the Oref algorithm behavior to suit your specific needs.</p>
+<p>To configure the algorithm, you'll define the settings for Autosens, Super Micro Bolus (SMB), and Target Behavior.</p>
+<div class="admonition warning">
+<p class="admonition-title">Go Slow</p>
+<ul>
+<li>This step may feel overwhelming, so take it slow and use the links shared below to help guide your choices.</li>
+<li>Our strong recommendation is to leave everything on the default settings as a new user.</li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important information for this step:</p>
+<ul>
+<li>DynamicISF requires at least 7 days of data and is not yet configurable</li>
+<li>Even if you're an updating user, you'll be guided through this step-by-step. It is important to read each step as some things may have changed</li>
+<li><strong>All additional "advanced settings" have been reset</strong></li>
+<li>The duration of insulin action (DIA) is now locked to Trio's new default of <em>10 hours</em>.<ul>
+<li>We strongly recommend <strong><em>not</em></strong> changing DIA as it is essential for an accurate IOB calculation and necessary for safe and stable operation.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">During Onboarding</label><label for="__tabbed_5_2">After Onboarding</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="autosens">Autosens</h3>
+<p>Autosensitivity, or <a href="settings/algorithm/autosens.html">Autosens</a>, adjusts insulin delivery based on observed sensitivity or resistance.</p>
+<p><strong>Step 1: Set <a href="settings/algorithm/autosens.html#autosens-min">Autosens Min</a></strong><br/>
+This is the lower limit of the Autosens Ratio.  </p>
+<p><strong>Step 2: Set <a href="settings/algorithm/autosens.html#autosens-max">Autosens Max</a></strong><br/>
+This is the upper limit of the Autosens Ratio.  </p>
+<h3 id="super-micro-bolus-smb"><a href="settings/algorithm/smb-settings.html">Super Micro Bolus (SMB)</a></h3>
+<p>SMB (Super Micro Bolus) is an oref algorithm feature that delivers small, frequent boluses instead of temporary basal adjustments, creating a more responsive system. The onboarding options are different depending on what you choose for Step 3.</p>
+<p><strong>Step 3: <a href="settings/algorithm/smb-settings.html#enable-smb-always">Enable/Disable SMB Always</a></strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Enable SMB Always</label><label for="__tabbed_6_2">Disable SMB Always</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>When this setting is enabled, Super Micro Boluses (SMBs) will always be allowed if dosing calculations determine insulin is needed via the SMB delivery method. The exception is when a high temp target is set. Enabling SMB Always will skip the other individual SMB options during the onboarding process.</p>
+</div>
+<div class="tabbed-block">
+<p>If you do not want to always allow SMBs, and would rather be more selective with the SMBs you enable, keep <code>Enable SMB Always</code> <strong><em>OFF</em></strong> and the individual SMB options will appear next.  </p>
+<p><strong>Step 3a: <a href="settings/algorithm/smb-settings.html#enable-smb-with-cob">Enable/Disable SMB with COB</a></strong><br/>
+Enabling this feature allows Trio to administer SMBs when there are carbs on board (COB).  </p>
+<p><strong>Step 3b: <a href="settings/algorithm/smb-settings.html#enable-smb-with-temptarget">Enable SMB with TempTarget</a></strong><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs at times in which a manual temporary target (temp target) under <strong>100 mg/dL (5.5 mmol/L)</strong> is set.  </p>
+<p><strong>Step 3c: <a href="settings/algorithm/smb-settings.html#enable-smb-after-carbs">Enable SMB After Carbs</a></strong><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs for <strong>6 hours</strong> after any carb entry, regardless of whether there are active carbs on board (COB).  </p>
+<p><strong>Step 3d: <a href="settings/algorithm/smb-settings.html#enable-smb-with-high-glucose">Enable SMB with High Glucose</a></strong><br/>
+Enabling this feature allows Trio to deliver insulin required using SMBs when your glucose reading is above the value set as your <a href="settings/algorithm/smb-settings.html#high-glucose-target">High Glucose Target</a>. This additional setting will appear when you enable this feature.  </p>
+</div>
+</div>
+</div>
+<p><strong>Step 4: <a href="settings/algorithm/smb-settings.html#allow-smb-with-high-temptarget">Allow SMB with High Temp Target</a></strong><br/>
+This is the only setting not enabled when <code>Enable SMB Always</code> is turned on. Turning this setting on will allow SMBs when a manual Temp Target is set greater than 100 mg/dL (5.5 mmol/L). </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This type of Temp Target is often set as a low recovery step. If you set a high temp target when recovering from a low to avoid over treatment during recovery, it is advised to keep this setting <em>OFF</em>.</p>
+</div>
+<p><strong>Step 5: <a href="settings/algorithm/smb-settings.html#enable-uam">Enable UAM</a></strong><br/>
+Best practice is to have both UAM and SMBs enabled at the same time. If you have enabled SMB Always (or plan to enable individual SMBs as soon as you complete onboarding), it is advised to turn <code>Enable UAM</code> <strong><em>ON</em></strong> during this step.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The settings in Steps 6, 7, and 8 are often misunderstood. Follow the links to understand what they do more clearly.</p>
+</div>
+<p><strong>Step 6: Set <a href="settings/algorithm/smb-settings.html#max-smb-basal-minutes">Max SMB Basal Minutes</a></strong><br/>
+This setting limits the size of a single SMB dose.  </p>
+<p><strong>Step 7: Set <a href="settings/algorithm/smb-settings.html#max-uam-basal-minutes">Max UAM Basal Minutes</a></strong><br/>
+This setting limits the size of a single unannounced meal SMB dose, aka UAM.  </p>
+<p><strong>Step 8: Set <a href="settings/algorithm/smb-settings.html#max-allowed-glucose-rise-for-smb">Max Allowed Glucose Rise for SMB</a></strong><br/>
+This setting disables SMBs if the last two glucose values differ by more than this percent.  </p>
+<h3 id="target-behavior">Target Behavior</h3>
+<p><a href="settings/algorithm/target-behavior.html">Target Behavior</a> allows you to adjust how temporary targets influence ISF, basal, and auto-targeting based on sensitivity or resistance.  </p>
+<p><strong>Step 9: <a href="settings/algorithm/target-behavior.html#high-temp-target-raises-sensitivity">High Temp Target Raises Sensitivity</a></strong><br/>
+This setting increases sensitivity when glucose is above target if a manual Temp Target &gt; 100mg/dL (5.5mmol/L) is set.  </p>
+<p><strong>Step 10: <a href="settings/algorithm/target-behavior.html#low-temp-target-lowers-sensitivity">Low Temp Target Lowers Sensitivity</a></strong><br/>
+This setting decreases sensitivity when glucose is below target if a manual Temp Target &lt; 100mg/dL (5.5mmol/L) is set.  </p>
+<p><strong>Step 11: <a href="settings/algorithm/target-behavior.html#sensitivity-raises-target">Sensitivity Raises Target</a></strong><br/>
+This setting raises the glucose target if the Sensitivity Ratio is &gt; 1.0.  </p>
+<p><strong>Step 12: <a href="settings/algorithm/target-behavior.html#resistance-lowers-target">Resistance Lowers Target</a></strong><br/>
+This setting lowers the glucose target if the Sensitivity Ratio is &lt; 1.0.  </p>
+<p><strong>Step 13: <a href="settings/algorithm/target-behavior.html#half-basal-exercise-target">Half Basal Exercise Target</a></strong>
+This setting scales your basal rate such that your basal will be set to 50% at this value. This setting is only applied when <code>High Temp Target Raises Sensitivity</code> and/or <code>Low Temp Target Lowers Sensitivity</code> are enabled.  </p>
+</div>
+<div class="tabbed-block">
+<div class="admonition warning">
+<p class="admonition-title">New To Trio?</p>
+<ul>
+<li>Before you adjust these settings, it is important to know what and why you are making those changes.</li>
+<li>Start with the default limits for a few days or weeks before you adjust them.</li>
+</ul>
+</div>
+<h3 id="edit-autosens">Edit Autosens</h3>
+<p>Autosensitivity, or <a href="settings/algorithm/autosens.html">Autosens</a>, adjusts insulin delivery based on observed sensitivity or resistance.  </p>
+<p>Below you'll find more information on the Autosens settings:</p>
+<ul>
+<li><a href="settings/algorithm/autosens.html#autosens-min">Autosens Min</a> </li>
+<li><a href="settings/algorithm/autosens.html#autosens-max">Autosens Max</a> </li>
+</ul>
+<h3 id="edit-super-micro-bolus-smb">Edit Super Micro Bolus (SMB)</h3>
+<p><a href="settings/algorithm/smb-settings.html">SMB (Super Micro Bolus)</a> is an oref algorithm feature that delivers small, frequent boluses instead of temporary basal adjustments, creating a more responsive system.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>Best practice is to have both UAM and SMBs enabled at the same time. If you enable any SMBs, also enable UAM.</li>
+<li>Individual SMB Options are inclusive, not exclusive. Only <strong>ONE</strong> enabled setting needs to be true for SMBs to be allowed. More info in the flow chart: <a href="settings/algorithm/smb-settings.html#are-smbs-allowed">Are SMBs Allowed?</a></li>
+</ul>
+</div>
+<p>Below you'll find more information on the SMB settings:</p>
+<ul>
+<li><a href="settings/algorithm/smb-settings.html#enable-smb-always">Enable SMB Always</a> </li>
+<li>Enable Individual SMB Options<ul>
+<li><a href="settings/algorithm/smb-settings.html#enable-smb-with-cob">Enable SMB with COB</a></li>
+<li><a href="settings/algorithm/smb-settings.html#enable-smb-with-temptarget">Enable SMB with TempTarget</a></li>
+<li><a href="settings/algorithm/smb-settings.html#enable-smb-after-carbs">Enable SMB After Carbs</a></li>
+<li><a href="settings/algorithm/smb-settings.html#enable-smb-with-high-glucose">Enable SMB with High Glucose</a></li>
+<li><a href="settings/algorithm/smb-settings.html#allow-smb-with-high-temptarget">Allow SMB with High Temp Target</a></li>
+</ul>
+</li>
+<li><a href="settings/algorithm/smb-settings.html#enable-uam">Enable UAM</a> </li>
+<li>SMB Limiting Settings<ul>
+<li><a href="settings/algorithm/smb-settings.html#max-smb-basal-minutes">Max SMB Basal Minutes</a></li>
+<li><a href="settings/algorithm/smb-settings.html#max-uam-basal-minutes">Max UAM Basal Minutes</a></li>
+<li><a href="settings/algorithm/smb-settings.html#max-allowed-glucose-rise-for-smb">Max Allowed Glucose Rise for SMB</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="edit-target-behavior">Edit Target Behavior</h3>
+<p><a href="settings/algorithm/target-behavior.html">Target Behavior</a> allows you to adjust how temporary targets influence ISF, basal, and auto-targeting based on sensitivity or resistance.</p>
+<p>Below you'll find more information on the Target Behavior settings:  </p>
+<p><a href="settings/algorithm/target-behavior.html#high-temp-target-raises-sensitivity">High Temp Target Raises Sensitivity</a><br/>
+<a href="settings/algorithm/target-behavior.html#low-temp-target-lowers-sensitivity">Low Temp Target Lowers Sensitivity here</a><br/>
+<a href="settings/algorithm/target-behavior.html#sensitivity-raises-target">Sensitivity Raises Target</a><br/>
+<a href="settings/algorithm/target-behavior.html#resistance-lowers-target">Resistance Lowers Target</a><br/>
+<a href="settings/algorithm/target-behavior.html#half-basal-exercise-target">Half Basal Exercise Target</a> </p>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h2 id="step-5-notifications"><strong>Step 5:</strong> Notifications</h2>
+<p>In this step you will allow Trio to send you notifications. These include alerts, sounds, and icon badges of your choosing. Notifications give you important Trio information without requiring you to open the app. It is essential that these are allowed in your iPhone system settings. Once you complete onboarding, you can customize your notifications. </p>
+<p>To edit Notifications after you've completed onboarding, head over to the <a href="settings/notifications/index.html">Notifications</a> section for more information on each type of notification and how to edit them.</p>
+<hr/>
+<h2 id="step-6-bluetooth"><strong>Step 6:</strong> Bluetooth</h2>
+<p>Trio requires Bluetooth to function as a (hybrid) closed-loop system. If you do not have Bluetooth enabled in your iOS settings, you will not be able to connect your phone to your insulin pump or CGM. A pop up will appear that makes this easy to enable if it hasn't been already.</p>
+<hr/>
+<p style="text-align: center; font-size: 32px;">Congratulations!</p>
+<p style="text-align: center; font-size: 24px;">But, you're not done yet!</p>
+<div class="video-center" label="Home Screen Mockup">
+<video controls="" height="500" preload="metadata" width="500">
+<source src="../../source/docs/configuration/img/trio-phone-mockup.mp4" type="video/mp4"/>
+      Your browser doesn’t support the HTML5 video tag.
+       <p>The video cannot be displayed. You can <a href="https://triodocs.org/usage/img/trio-phone-mockup.mp4">download it here</a>.</p>
+</video>
+&lt;</div>
+<p><strong>Steps 7 &amp; 8 are not in the Onboarding Wizard</strong><br/>
+These cannot be completed until you've finished onboarding, but <em>must</em> be completed before you can start using Trio.</p>
+<h2 id="step-7-connect-your-devices"><strong>Step 7:</strong> Connect Your Devices</h2>
+<p><a href="settings/devices/pump.html">Connect your Insulin Pump</a><br/>
+<a href="settings/devices/cgm.html">Connect your CGM</a><br/>
+<a href="settings/devices/smart-watch.html">Connect your Watch</a> </p>
+<hr/>
+<h2 class="changed-block" data-change="added-or-revised" id="step-8-enable-closed-loop"><strong>Step 8:</strong> Choose Dosing Mode</h2>
+<p class="changed-block" data-change="added-or-revised">After connecting your pump and CGM, open <strong>Settings → Dosing Mode</strong>. Trio 1.0.2 offers Closed Loop, Open Loop, Low Glucose Suspend and Basal Testing. The default is Open Loop, which displays recommendations without enacting automated dosing or low protection.</p>
+<p class="changed-block" data-change="added-or-revised">Closed Loop permits full automation subject to settings and safety checks. Low Glucose Suspend permits predictive reductions with effective Max IOB 0. Basal Testing uses low-only suspension and derives additional sensitivity constraints while preserving saved preferences. Read <a href="settings/closed-loop.html">Dosing Modes</a> before choosing the mode for your intended workflow.</p>
+<p class="changed-block" data-change="added-or-revised">Earlier Closed Loop switch screenshots do not represent this picker. Manual actions are separate from automated enactment; choosing a mode does not itself validate an individual bolus.</p>
+<hr/>
+<div class="admonition warning">
+<p class="admonition-title">Dynamic Settings</p>
+<p>Trio will not allow you to enable Dynamic Settings until it has accumulated 7 days of data. This is essential so Trio can make sound dosing recommendations. Once it has enough data and you can enable Dynamic Settings, it is still recommended that you have already...  </p>
+<ul>
+<li>...tuned your core Trio settings (ISF, CR, and Basal Rates) for use in the Oref algorithm.</li>
+<li>...used Trio with a <em>real</em> CGM and <em>real</em> pump (not simulators) for the recommended minimum of <strong>7 consecutive days</strong>.</li>
+<li>...read and understand the Dynamic Settings and how they interact with each other.</li>
+</ul>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">DO NOT ALTER ANYTHING ELSE UNTIL YOU'VE TESTED AND VERIFIED YOUR SETTINGS</p>
+<ul>
+<li>If you are coming from another Oref-based system, like Trio 0.2, iAPS, or AAPS, you will want to watch your current settings to ensure they are performing as they did previously. You may need to make some adjustments, but you also may find your settings work as well as they did in the previous system.  </li>
+<li>If you are coming from Loop, a commercial system, or multiple daily injections (MDI), you will want to first test your settings to ensure they do not require any adjustments. You've been using a completely different algorithm to manage your insulin dosing and that means you've tailored your settings to be optimized using that method of dosing. Because Trio uses a different algorithm, your settings will almost assuredly need to be adjusted to work optimally within the Oref algorithm.</li>
+</ul>
+</div>
+<!--    You can find more information on transitioning to Trio [here](transition-qa.md) -->
+<hr/>
+<h2 id="step-9-change-app-icon-optional"><strong>Step 9:</strong> Change App Icon (Optional)</h2>
+<p>Under "App Icons" in the Settings Menu, you can find various icons for your Trio app.</p>
+<p align="center"><img alt="Change App Icon" src="../../source/docs/configuration/img/icon_selection.png"/></p>
+<!-- NOTE: Commented out until customizations page (install/customize.md) is updated. Will be removed if we do not include build customizations.
+Have a special icon in mind?  
+You can use your own custom icon by following the instructions under [Customizations](../install/customize.md#add-custom-icon).
+-->
+<p><strong><em>Congratulations!</em></strong> You've completed the New User Setup for Trio!</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F01 — Dosing Mode replaces the documented Closed Loop switch</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DosingMode.swift#L16">Trio/Sources/Models/DosingMode.swift:16</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L218">Trio/Sources/Modules/Settings/View/SettingsRootView.swift:218</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F02 — Mode overrides differ from the documented manual basal-testing recipe</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6">Trio/Sources/Models/Preferences+DosingMode.swift:6</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559">Trio/Sources/APS/OpenAPS/OpenAPS.swift:559</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511">Trio/Sources/APS/APSManager.swift:1511</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/new-user-setup.md</span><span class="diff-line ">+++ updated/configuration/new-user-setup.md</span><span class="diff-line ">@@ -49,7 +49,7 @@</span><span class="diff-line "> </span><span class="diff-line "> [**Step 7:** Connect Your Devices](#step-7-connect-your-devices)</span><span class="diff-line "> </span><span class="diff-line diff-remove">-[**Step 8:** Enable Closed Loop](#step-8-enable-closed-loop)</span><span class="diff-line diff-add">+[**Step 8:** Choose Dosing Mode](#step-8-enable-closed-loop)</span><span class="diff-line "> </span><span class="diff-line "> [**Step 9:** Change App Icon (Optional)](#step-9-change-app-icon-optional)</span><span class="diff-line "> </span><span class="diff-line ">@@ -358,16 +358,13 @@</span><span class="diff-line "> </span><span class="diff-line "> - - -</span><span class="diff-line "> </span><span class="diff-line diff-remove">-## **Step 8:** Enable Closed Loop</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-!!! warning</span><span class="diff-line diff-remove">-    Trio works best as a closed loop system. If you need to test your settings or are concerned about trying a new algorithm, it&#x27;s best to close the loop and follow the configuration instructions [here](settings/closed-loop.md#want-to-stay-in-open-loop).</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-Closed loop functionality is turned **OFF** by default. This means Trio cannot make any adjustments automatically. The system relies solely on you to make any adjustments while Closed Loop is **OFF**. You can control your pump and manually bolus with the Trio app, but nothing can be done without your approval. This is often referred to as running in open loop. You will ***not receive any Trio-initiated protection from lows or highs while in open loop***.</span><span class="diff-line diff-remove">-</span><span class="diff-line diff-remove">-![Enable Closed loop](img/closeLoop.png){ width=&quot;500px&quot; }  </span><span class="diff-line diff-remove">-[More on closing the loop](settings/closed-loop.md)</span><span class="diff-line diff-remove">-{align=center}</span><span class="diff-line diff-add">+## **Step 8:** Choose Dosing Mode {#step-8-enable-closed-loop}</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+After connecting your pump and CGM, open **Settings → Dosing Mode**. Trio 1.0.2 offers Closed Loop, Open Loop, Low Glucose Suspend and Basal Testing. The default is Open Loop, which displays recommendations without enacting automated dosing or low protection.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Closed Loop permits full automation subject to settings and safety checks. Low Glucose Suspend permits predictive reductions with effective Max IOB 0. Basal Testing uses low-only suspension and derives additional sensitivity constraints while preserving saved preferences. Read [Dosing Modes](settings/closed-loop.md) before choosing the mode for your intended workflow.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Earlier Closed Loop switch screenshots do not represent this picker. Manual actions are separate from automated enactment; choosing a mode does not itself validate an individual bolus.</span><span class="diff-line "> </span><span class="diff-line "> - - -</span><span class="diff-line "> </span><span class="diff-line ">@@ -403,3 +400,14 @@</span><span class="diff-line "> </span><span class="diff-line "> </span><span class="diff-line "> </span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F01 — Dosing Mode replaces the documented Closed Loop switch**</span><span class="diff-line diff-add">+    - [Trio/Sources/Models/DosingMode.swift:16](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DosingMode.swift#L16)</span><span class="diff-line diff-add">+    - [Trio/Sources/Modules/Settings/View/SettingsRootView.swift:218](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L218)</span><span class="diff-line diff-add">+- **F02 — Mode overrides differ from the documented manual basal-testing recipe**</span><span class="diff-line diff-add">+    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

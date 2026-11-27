@@ -1,0 +1,1 @@
+As with iAPS ver 2.3.3, your settings must be entered manually and/or transferred from Nightscout. It is also recommended that you wait 7 days before enabling dynamic settings. In the meantime, you may notice some adjustments made by autosens.

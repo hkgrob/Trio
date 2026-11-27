@@ -1,0 +1,1 @@
+View your nutritional intake over time: Macros tracked:  Carbohydrates: Total grams per period Fat: Total grams per period Protein: Total grams per period  The meal chart displays:  Bar graph showing daily or hourly totals Breakdown by macronutrient type Scrollable timeline Date range label 

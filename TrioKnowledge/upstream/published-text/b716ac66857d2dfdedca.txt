@@ -1,0 +1,1 @@
+Trio is not a fork of Loop. While their underlying algorithms are different, they share some parts of their code base. It is recommended that you take a quick glance in the Loop Docs for your issue, especially if it relates to pump usage and build errors. Many of these documents have been adapted from Loopdocs.

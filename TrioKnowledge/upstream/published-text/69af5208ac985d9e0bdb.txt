@@ -1,0 +1,1 @@
+Default: OFF This will add your current glucose readings on the top right of your Trio app icon as a red notification badge. Note Changing this setting takes effect on the next glucose reading

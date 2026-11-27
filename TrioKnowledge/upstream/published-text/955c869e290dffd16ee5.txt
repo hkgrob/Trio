@@ -1,0 +1,1 @@
+Autosensitivity, or Autosens, adjusts insulin delivery based on observed sensitivity or resistance. Step 1: Set Autosens Min This is the lower limit of the Autosens Ratio.   Step 2: Set Autosens Max This is the upper limit of the Autosens Ratio.  

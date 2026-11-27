@@ -1,0 +1,1 @@
+Before updating Trio, it is important to check for any iOS updates. It's good practice to keep your other devices updated wherever possible. If updates are available, check their compatibility with Trio before updating.

@@ -1,0 +1,1 @@
+This section allows you to choose your glucose data source. Most options are self-explanatory.  For more information on compatible CGMs, please see the following link.

@@ -1,0 +1,21 @@
+--- upstream/includes/supported-cgms.md
++++ updated/includes/supported-cgms.md
+@@ -42,9 +42,16 @@
+ |Libre 1|Europe|14 days|✅ Yes|Transmitter|
+ |Libre 2 / 2 Plus|Europe|14 days|✅ Yes|Bluetooth|
+ |Libre 2 (non-European)|US|14 days|❌ **No**|N/A|
+-|Libre 3|All regions|14 days|✅ Yes (Open-beta in `dev` branch)|Bluetooth|
+-|Libre 3 Plus|All regions|15 days|✅ Yes (Open-beta in `dev` branch)|Bluetooth|
++|Libre 3|All regions|14 days|✅ Yes (Included in main / 1.0.2; Beta label)|Bluetooth|
++|Libre 3 Plus|All regions|15 days|✅ Yes (Included in main / 1.0.2; Beta label)|Bluetooth|
+ |FreeStyle Libre Pro|All regions|14 days|❌ **No**|N/A|
+ |FreeStyle Libre H|All regions|Varies| ❌ **No**|N/A|
+ 
+ <!--include-markdown-end-->
++
++
++## 1.0.2 source references
++
++- **F07 — Libre 3 documentation still claims dev-only availability**
++    - [Trio/Sources/APS/Devices/DeviceCatalog.swift:357](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/Devices/DeviceCatalog.swift#L357)
++    - [.gitmodules:44](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/.gitmodules#L44)

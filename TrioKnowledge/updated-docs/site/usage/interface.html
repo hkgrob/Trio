@@ -1,0 +1,324 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>User Interface · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../index.html">All documents</a><a href="../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../source/docs/usage/interface.md">Updated Markdown</a><a href="../../../upstream/source/docs/usage/interface.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="user-interface">User Interface</h1>
+<h2 id="trio-user-interface">Trio User Interface</h2>
+<p align="center"><img alt="Trio 1.0 UI" src="../../source/docs/usage/img/light_vs_dark_mode.png" width="600"/></p>
+<hr/>
+<h2 id="main-screen">Main Screen</h2>
+<p><strong>The main screen of Trio can be divided into four sections:</strong></p>
+<p align="center"><img alt="Trio Main Screen" src="../../source/docs/usage/img/light_mode_sections.png" width="500"/></p>
+<p>Use the links below to learn more about each section:<br/>
+<a href="#current-status">Current Status</a> | <a href="#graph-and-history">Graph &amp; History</a> | <a href="#adjustment-status">Adjustment Status</a> | <a href="#action-buttons">Action Buttons</a></p>
+<hr/>
+<h3 id="current-status">Current Status</h3>
+<p>The Current Status section functions as an easy reference point for a variety of important data points.<br/>
+Use the tabs below to learn more about each section:  </p>
+<p align="center"><img alt="Trio Current Status" src="../../source/docs/usage/img/current_status.png" width="400"/></p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Current Glucose</label><label for="__tabbed_1_2">Pump Info</label><label for="__tabbed_1_3">Loop Info</label><label for="__tabbed_1_4">Current Metrics</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Here you will find a centered bobble containing your current glucose reading, the time since the last glucose reading, the change in glucose from the previous reading, and an arrow that indicates the trending direction of your glucose.</p>
+<p align="center"><img alt="Current Glucose" src="../../source/docs/usage/img/current_glucose.png" width="300"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Pro Tip</p>
+<p>If you long press the bobble, it will snooze CGM alerts</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Omnipod Users</label><label for="__tabbed_2_2">Medtronic &amp; Dana Users</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><img alt="Pump Info Omnipod" src="../../source/docs/usage/img/pump_info_omnipod.png" width="300"/></p>
+<ul>
+<li><strong>Reservoir Status:</strong> Units Remaining in your pod  </li>
+<li><strong>Remaining Pod Life:</strong> Remaining time left on your current pod<br/>
+<strong>Keep in mind:</strong> 50+ U means more than 50 units of insulin are left. Omnipod only provides an exact value for the reservoir if the amount is less than 50 Units. </li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p align="center"><img alt="Pump Info Medt" src="../../source/docs/usage/img/pump_info_medt.png" width="300"/></p>
+<ul>
+<li><strong>Reservoir Status:</strong> Units remaining in your reservoir  </li>
+<li><strong>Pump Battery:</strong> Pump battery percentage remaining  </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>To the right of the bobble, you will find the current looping status and the time since the last loop cycle. Below that, is your 4-hour glucose forecast.</p>
+<p align="center"><img alt="Loop Info" src="../../source/docs/usage/img/loop_info.png" width="300"/></p>
+<p>The Loop Indicator tells you how long it has been since the last loop cycle using specific colors:</p>
+<p><span style="color: #6FCE96;">:fontawesome-regular-circle:</span> <strong>Green:</strong><br/>
+    It has been <strong><em>5 minutes or less</em></strong> since a successful loop cycle</p>
+<p><span style="color: #FFC145;">:fontawesome-regular-circle:</span> <strong>Yellow:</strong><br/>
+    It has been <strong><em>6-10 minutes</em></strong> since a successful loop cycle</p>
+<p><span style="color: #EB5757;">:fontawesome-regular-circle:</span> <strong>Red:</strong><br/>
+    It has been <strong><em>10+ minutes</em></strong> without a successful loop cycle</p>
+<p><span style="color: #d9d9d9;">:fontawesome-regular-circle:</span> <strong>Grey:</strong><br/>
+    No data or not enough data to complete a loop cycle</p>
+<div class="admonition tip">
+<p class="admonition-title">Pro Tip</p>
+<p>If you pull down the Current Status section of the screen, it will force a loop cycle</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Below the bobble, you'll find 3 icons that provide you with the current IOB, COB, and adjusted basal rate. These values were determined by the calculations made in the most recent loop cycle.</p>
+<p align="center"><img alt="Current Metrics" src="../../source/docs/usage/img/current_metrics.png" width="300"/></p>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h3 id="graph-and-history">Graph and History</h3>
+<p>The middle of the screen graphs your blood sugar data and entered carbs overlaid with Trio's insulin delivery and glucose forecasting.<br/>
+Use the tabs below the image to learn more about each section.  </p>
+<p align="center"><img alt="Trio Graph and History" src="../../source/docs/usage/img/graph_and_history.png" width="400"/></p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Basal Adjustments</label><label for="__tabbed_3_2">Current &amp; Previous Activity</label><label for="__tabbed_3_3">Active Insulin &amp; Carbs</label><label for="__tabbed_3_4">Stats &amp; Display Info</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Here you will find the adjustments made to your basal delivery. See below for more details:  </p>
+<p><img alt="Basal Line" src="../../source/docs/usage/img/blue_basal_line.png" style="vertical-align: middle;" width="40"/> <strong>Therapy Basal Reference Line:</strong> The rate you entered in settings. (In Trio 0.2.x, this was called "Profile Basal Rate")<br/>
+<img alt="No Adjustment" src="../../source/docs/usage/img/no_adjustment.png" style="vertical-align: middle;" width="40"/> <strong>No Basal Adjustment</strong> Basal is being delivered at your current therapy basal rate.<br/>
+<img alt="Basal Increase" src="../../source/docs/usage/img/basal_increase.png" style="vertical-align: middle;" width="40"/> <strong>Basal Increase</strong> Basal increased above your current therapy basal rate.<br/>
+<img alt="Basal Decrease" src="../../source/docs/usage/img/basal_decrease.png" style="vertical-align: middle;" width="40"/> <strong>Basal Decrease</strong> Basal decreased below your current therapy basal rate.  </p>
+</div>
+<div class="tabbed-block">
+<p>This section shows a combined view of your previous, current, and forecasted activity.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1"><img alt="Cone of Uncertainty" src="../../source/docs/usage/img/cone_of_uncertainty.png" style="vertical-align: middle;" width="20"/> <strong>Cone of Uncertainty</strong></label><label for="__tabbed_4_2"><img alt="Forecast Lines" src="../../source/docs/usage/img/forecast_lines.png" style="vertical-align: middle;" width="20"/> <strong>Forecast Lines</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition info inline end">
+<p class="admonition-title">Graph Legend</p>
+<p><span style="color: #35c759;">:fontawesome-solid-circle:</span>  CGM Glucose Value<br/>
+<span style="color: #35c759;">:fontawesome-solid-circle-dot:</span>  CGM Glucose Value (Smoothed)<br/>
+<span style="color: red;">:fontawesome-solid-droplet:</span>  Manual Glucose Entry<br/>
+<img alt="Bolus Icon" src="../../source/docs/usage/img/bolus.png" style="vertical-align: middle;" width="15"/>  Bolus (SMB or Manual)<br/>
+<img alt="Carb Icon" src="../../source/docs/usage/img/carb.png" style="vertical-align: middle;" width="15"/>  Carb Entry<br/>
+<span style="color: #a1845c;">:fontawesome-solid-circle:</span>  Fat-Protein Carb Equivalent (FPU)<br/>
+<img alt="Override Icon" src="../../source/docs/usage/img/override_icon.png" style="vertical-align: middle;" width="15"/>  Override Active<br/>
+<img alt="Temp Target Icon" src="../../source/docs/usage/img/temp_target_icon.png" style="vertical-align: middle;" width="15"/>  Temp Target Active<br/>
+<img alt="Target Glucose Icon" src="../../source/docs/usage/img/target_glucose.png" style="vertical-align: middle;" width="15"/>  Target Glucose  </p>
+</div>
+<p>This forecast option displays the full range of possible forecasted predictions as a simplified view of oref's four forecast lines.  </p>
+</div>
+<div class="tabbed-block">
+<div class="admonition info inline end">
+<p class="admonition-title">Graph Legend</p>
+<p><span style="color: #35c759;">:fontawesome-solid-circle:</span>  CGM Glucose Value<br/>
+<span style="color: #35c759;">:fontawesome-solid-circle-dot:</span>  CGM Glucose Value (Smoothed)<br/>
+<span style="color: red;">:fontawesome-solid-droplet:</span>  Manual Glucose Entry<br/>
+<img alt="Bolus Icon" src="../../source/docs/usage/img/bolus.png" style="vertical-align: middle;" width="15"/>  Bolus (SMB or Manual)<br/>
+<img alt="Carb Icon" src="../../source/docs/usage/img/carb.png" style="vertical-align: middle;" width="15"/>  Carb Entry<br/>
+<span style="color: #a1845c;">:fontawesome-solid-circle:</span>  Fat-Protein Carb Equivalent (FPU)<br/>
+<img alt="Override Icon" src="../../source/docs/usage/img/override_icon.png" style="vertical-align: middle;" width="15"/>  Override Active<br/>
+<img alt="Temp Target Icon" src="../../source/docs/usage/img/temp_target_icon.png" style="vertical-align: middle;" width="15"/>  Temp Target Active<br/>
+<img alt="Target Glucose Icon" src="../../source/docs/usage/img/target_glucose.png" style="vertical-align: middle;" width="15"/>  Target Glucose  </p>
+</div>
+<p><span style="color: #1895ff;">:fontawesome-solid-circle:</span> <strong>IOB Forecast:</strong> Forecasts future glucose readings based on the amount of insulin still active in the body<br/>
+<span style="color: #6f62f3;">:fontawesome-solid-circle:</span> <strong>ZT Forecast:</strong> Forecasts the worst-case future glucose reading scenario if no carbs are absorbed and insulin delivery is stopped until glucose begins to rise<br/>
+<span style="color: #ffc246;">:fontawesome-solid-circle:</span> <strong>COB Forecast:</strong> Forecasts future glucose readings by considering the amount of carbohydrates still being absorbed in the body<br/>
+<span style="color: #d12bf7;">:fontawesome-solid-circle:</span> <strong>UAM Forecast:</strong> Forecasts future glucose levels based on the difference between expected glucose and actual glucose readings</p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1"><img alt="Static Glucose" src="../../source/docs/usage/img/static_glucose.png" style="vertical-align: middle;" width="18"/> Static Glucose Color</label><label for="__tabbed_5_2"><img alt="Dynamic Glucose" src="../../source/docs/usage/img/dynamic_glucose.png" style="vertical-align: middle;" width="20"/> Dynamic Glucose Color</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition info inline end">
+<p class="admonition-title">Threshold Graph Legend</p>
+<p><img alt="High Threshold Static Icon" src="../../source/docs/usage/img/high_threshold_static.png" style="vertical-align: middle;" width="15"/>  High Threshold <br/>
+<img alt="Low Threshold Static Icon" src="../../source/docs/usage/img/low_threshold_static.png" style="vertical-align: middle;" width="15"/>  Low Threshold<br/>
+<span style="color: #fe9607;">:fontawesome-solid-circle:</span>  Above Range Glucose<br/>
+<span style="color: #35c759;">:fontawesome-solid-circle:</span>  In Range Glucose<br/>
+<span style="color: #ff3131;">:fontawesome-solid-circle:</span>  Below Range Glucose      </p>
+</div>
+<p align="center"><img alt="Static Color Graph" src="../../source/docs/usage/img/static_color_graph.png" width="300"/></p>
+</div>
+<div class="tabbed-block">
+<div class="admonition info inline end">
+<p class="admonition-title">Threshold Graph Legend</p>
+<p><img alt="High Threshold Dynamic Icon" src="../../source/docs/usage/img/high_threshold_dynamic.png" style="vertical-align: middle;" width="15"/>  High Threshold (=180)<br/>
+<img alt="Low Threshold Dynamic Icon" src="../../source/docs/usage/img/low_threshold_dynamic.png" style="vertical-align: middle;" width="15"/>  Low Threshold (=70)<br/>
+<img alt="Above Target Icon" src="../../source/docs/usage/img/above_target_glucose_icon.png" style="vertical-align: middle;" width="15"/>  Above Target<br/>
+<img alt="At Target Icon" src="../../source/docs/usage/img/at_or_near_target.png" style="vertical-align: middle;" width="15"/>  At or Near Target<br/>
+<img alt="Below Target Icon" src="../../source/docs/usage/img/below_target_glucose_icon.png" style="vertical-align: middle;" width="15"/>  Below Target  </p>
+<p><em>*The colors of the threshold lines are also dynamic, so the exact coloring will depend on your settings</em> </p>
+</div>
+<p align="center"><img alt="Dynamic Color Graph" src="../../source/docs/usage/img/dynamic_color_graph.png" width="300"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows the decay of your active insulin and carbohydrates.  </p>
+<p align="center"><img alt="Active Insulin Carbs" src="../../source/docs/usage/img/active_ins_carb.png" width="300"/></p>
+<p>Insulin is shown in <span style="color: #7d8cf2;">blue</span> and carbs are shown in <span style="color: #ff8340;">orange</span>.</p>
+</div>
+<div class="tabbed-block">
+<p>Here you will find 3 main sections for statistics and display information.</p>
+<p align="center"><img alt="Stats and Display" src="../../source/docs/usage/img/stats_and_display.png" width="300"/></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Statistics</label><label for="__tabbed_6_2">Time Frame</label><label for="__tabbed_6_3">Legend</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>This opens the statistics view. You can learn more about the new statistics page <a href="features/statistics.html">here</a>.</p>
+</div>
+<div class="tabbed-block">
+<p>This allows you to choose the time frame shown in the graph.<br/>
+It defaults to 6 hours, but you can choose 4, 6, 12, or 24 hours to be displayed.</p>
+</div>
+<div class="tabbed-block">
+<p>Tapping this will open a detailed, in-app description of each item shown on the graph.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h3 id="adjustment-status">Adjustment Status</h3>
+<p>Under the graph you'll find the current status of any adjustment currently active. Adjustments include boluses in progress, temp targets, and overrides.<br/>
+Use the tabs below to learn more:    </p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:4"><input checked="" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><input id="__tabbed_7_3" name="__tabbed_7" type="radio"/><input id="__tabbed_7_4" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">No Active Adjustment</label><label for="__tabbed_7_2"><img alt="Bolus Active Icon" src="../../source/docs/usage/img/bolus_icon.png" style="vertical-align: middle;" width="10"/> Bolus in Progress</label><label for="__tabbed_7_3"><img alt="Override Icon" src="../../source/docs/usage/img/icon_override.png" style="vertical-align: middle;" width="15"/> Active Override</label><label for="__tabbed_7_4"><img alt="Temp Target Icon" src="../../source/docs/usage/img/target.png" style="vertical-align: middle;" width="15"/> Active Temp Target</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><img alt="No Active Adjustment" src="../../source/docs/usage/img/no_active_adjustment.png" width="300"/></p>
+<ul>
+<li>This is the default view when there is no bolus-in-progress, active override, or active temp target</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p align="center"><img alt="Bolus in Progress" src="../../source/docs/usage/img/bolus_in_progress.png" width="300"/></p>
+<ul>
+<li>Shows the status of current bolus</li>
+<li>Press the <img alt="Cancel Icon" src="../../source/docs/usage/img/x_square.png" style="vertical-align: middle;" width="20"/> to cancel the current bolus</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p align="center"><img alt="Active Override" src="../../source/docs/usage/img/override_active.png" width="300"/></p>
+<ul>
+<li>Shows details of the current override running</li>
+<li>Press the <img alt="Cancel Icon" src="../../source/docs/usage/img/x_square.png" style="vertical-align: middle;" width="20"/> to cancel the override</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p align="center"><img alt="Active Temp Target" src="../../source/docs/usage/img/temp_target_active.png" width="300"/></p>
+<ul>
+<li>Shows details of the current temp target running</li>
+<li>Press the <img alt="Cancel Icon" src="../../source/docs/usage/img/x_square.png" style="vertical-align: middle;" width="20"/> to cancel the temp target</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h3 id="action-buttons">Action Buttons</h3>
+<p>At the bottom of the screen, you have five action buttons. Use the tabs below to learn more about each section:  </p>
+<p align="center"><img alt="Trio Actions" src="../../source/docs/usage/img/actions.png" width="400"/></p>
+<!-- Intentionally left off the "s" in the nested Adjustments tab title because it keeps jumping to the Adjustments tab above -->
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:5"><input checked="" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><input id="__tabbed_8_4" name="__tabbed_8" type="radio"/><input id="__tabbed_8_5" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1"><img alt="Main Icon" src="../../source/docs/usage/img/icon_main.png" style="vertical-align: middle;" width="15"/> Main</label><label for="__tabbed_8_2"><img alt="History Icon" src="../../source/docs/usage/img/icon_history.png" style="vertical-align: middle;" width="15"/> History</label><label for="__tabbed_8_3"><span style="color: #7d8cf2;">:fontawesome-solid-circle-plus:</span> Carb &amp; Bolus Entry</label><label for="__tabbed_8_4"><img alt="Adjustments Icon" src="../../source/docs/usage/img/icon_adjust.png" style="vertical-align: middle;" width="15"/> Adjustments</label><label for="__tabbed_8_5"><img alt="Settings Icon" src="../../source/docs/usage/img/icon_settings.png" style="vertical-align: middle;" width="15"/> Settings</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>This button takes you back to the home screen no matter where you are in the app.</p>
+</div>
+<div class="tabbed-block">
+<p>This button brings up the History screen. Here you will find previous treatments, meal entries, glucose readings &amp; manual glucose entries, and previous use of adjustments. Here you can add a finger stick glucose entry by tapping the "+" at the top right.<br/>
+<strong>More information about each tab:</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><input id="__tabbed_9_3" name="__tabbed_9" type="radio"/><input id="__tabbed_9_4" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">Treatments</label><label for="__tabbed_9_2">Meals</label><label for="__tabbed_9_3">Glucose</label><label for="__tabbed_9_4">Adjustment</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Scroll to see previously enacted Temp Basals, Boluses, and SMBs</li>
+<li>Swipe left to delete inaccurate bolus and SMB entries. You cannot delete Temp Basal entries</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Scroll to see previously entered carb, fat, and protein entries</li>
+<li>Swipe left to edit or delete inaccurate entries</li>
+<li>Tap "Show Future" or "Hide Future" to expose and remove future carb entries (This does not delete them, only allows you to see or not see them)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Scroll to see previous glucose readings</li>
+<li>Swipe left to delete inaccurate entries</li>
+<li>CGM readings are marked with "→" and finger stick readings are marked with "🩸"</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Scroll to see previous temp targets and overrides that have been enacted</li>
+<li>Temp Targets are indicated by a green target icon</li>
+<li>Overrides are indicated by a purple time icon</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This button opens the treatments entry screen, also known as the bolus calculator.</p>
+</div>
+<div class="tabbed-block">
+<p>This button opens the Overrides and Temp Targets screen.<br/>
+More information about each option:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">Overrides</label><label for="__tabbed_10_2">Temp Targets</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Add an override by tapping the "+" at the top right</li>
+<li>With an override, you can:<ul>
+<li>Name your override to save it as a preset</li>
+<li>Increase or decrease basal by a percentage</li>
+<li>Attribute that % change to both ISF and CR, just one of them, or neither of them</li>
+<li>Override your target glucose</li>
+<li>Allow, disable or disable on schedule all SMBs</li>
+<li>Override your Max SMB Basal Minutes and/or Max UAM Basal Minutes</li>
+<li>Enable indefinitely or for a set length of time</li>
+</ul>
+</li>
+<li>You can save it as a preset to enact later or start the override now<ul>
+<li>If you need to edit or delete a preset override, just swipe left on the override</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Add a temp target by tapping the "+" at the top right</li>
+<li>With a Temp Target, you can:<ul>
+<li>Name your temp target to save it as a preset</li>
+<li>Set your temporary target glucose</li>
+<li>Set it to start now or in the future</li>
+<li>Set the duration of your temp target</li>
+</ul>
+</li>
+<li>You can save it as a preset to enact later, start the temp target now, or set a start time for a future time and/or date.<ul>
+<li>If you need to edit or delete a preset temp target, just swipe left on the temp target</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This button opens the settings menu
+Below you will (<em>soon</em>) find links to each of the settings pages within the docs that correlate to the menus you see:<br/>
+- Closed Loop<br/>
+- Devices
+- Therapy<br/>
+- Algorithm<br/>
+- Features<br/>
+- Notifications<br/>
+- Services<br/>
+- Support &amp; Community  </p>
+</div>
+</div>
+</div>
+</div>
+<hr/></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

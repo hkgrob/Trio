@@ -1,0 +1,1 @@
+Other signatures that you need to force the update are shown in the graphics below - for both these instances, Trio Remote Control (TRC) was working with LoopFollow and then stopped working: TRC Option Not Allowed TRC Error

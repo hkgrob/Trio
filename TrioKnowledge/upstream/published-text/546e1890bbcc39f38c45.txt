@@ -1,0 +1,1 @@
+ From within the Trio app,   tap ⚙️ Settings › Support & Communities › Share Logs Use the standard iOS share sheet to send these files via Mail, cloud-storage apps, or any other destination available in the share sheet.  Once you've exported the logs, you can share them where needed.

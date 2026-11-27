@@ -1,0 +1,5 @@
+If you are not comfortable using the  command line in a terminal on your Mac, consider using a graphical application instead; otherwise, keep reading:  Launch Terminal: Press Cmd+Space Type Terminal  Press Enter   Navigate to Downloads Folder: cd ~/Downloads
+     Replace ~/Downloads with the folder where you downloaded the log files. Create Archive:    To create the archive, you can use zip or tar.     zip triologs.zip log.txt log_prev.txt
+     If this method does not work because zip is not installed, you can install it like so:     xcode-select --install
+     You can also use the tar gzip alternative method to compress the log files:     tar -czf triologs.tar.gz log.txt log_prev.txt
+ 

@@ -1,0 +1,205 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Basal Rates · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../index.html">All documents</a><a href="../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../source/docs/usage/concepts/basal-rates.md">Updated Markdown</a><a href="../../../../upstream/source/docs/usage/concepts/basal-rates.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="basal-rates">Basal Rates</h1>
+<div class="admonition tip">
+<p class="admonition-title">Highlights</p>
+<ul>
+<li>Basal rates define your background insulin delivery throughout the day</li>
+<li>Different basal rates can be set for different times of day (up to 48 entries with 30-minute intervals)</li>
+<li>Trio uses your basal profile as a baseline but adjusts it every loop cycle based on your current glucose</li>
+<li>Accurate basal rates are crucial for correct insulin on board (IOB) calculations</li>
+</ul>
+</div>
+<h2 id="what-are-basal-rates">What Are Basal Rates?</h2>
+<p>Basal rates are the foundational insulin delivery settings in Trio. They represent the amount of rapid-acting insulin delivered continuously throughout the day to manage your glucose levels when you're not eating. Think of basal insulin as the background insulin your body needs to maintain steady glucose levels during fasting periods.</p>
+<p>Basal rates are measured in <strong>units per hour (U/hr)</strong>. For example, a basal rate of 0.8 U/hr means you receive 0.8 units of insulin spread out over the course of that hour.</p>
+<h2 id="why-basal-rates-matter">Why Basal Rates Matter</h2>
+<div class="admonition tip">
+<p class="admonition-title">Basal is Key</p>
+<p>Basal rates are the foundation of the Trio algorithm. Before testing any other core settings, ensure your basal rates are set appropriately.</p>
+</div>
+<p>Your basal rates serve several critical functions in Trio:</p>
+<ol>
+<li>
+<p><strong>Baseline for Algorithm Adjustments</strong>: Trio uses your scheduled basal profile as a starting point, then adjusts it every loop cycle based on your current glucose, trend, and other factors. Your basal rate should cover what your body needs during times of fasting and low activity.</p>
+</li>
+<li>
+<p><strong>Insulin on Board (IOB) Calculations</strong>: Your scheduled basal rate is treated as the "zero point" for IOB. When Trio delivers a temporary basal rate higher than your scheduled rate, your IOB increases. When it delivers a lower temporary basal rate, your IOB decreases (and can even become negative).</p>
+</li>
+<li>
+<p><strong>Foundation for Autosens and Dynamic ISF</strong>: Autosens and Dynamic ISF modify your basal rates (along with ISF and targets) based on your sensitivity ratio.</p>
+</li>
+<li>
+<p><strong>Total Daily Dose (TDD) Calculations</strong>: Your basal insulin contributes to your TDD, which Trio uses for Dynamic ISF and other algorithm features.</p>
+</li>
+<li>
+<p><strong>Basal Rates as a Safety Net</strong>: If your pump has recieved no communication from Trio because your phone is out of range or otherwise unavailable, it will revert back to your programmed basal rates after the last temp basal expires. Your profile basal rates are stored on your pump. This ensures insulin delivery is present even when your phone is out of contact.</p>
+</li>
+</ol>
+<h2 id="how-trio-uses-basal-rates">How Trio Uses Basal Rates</h2>
+<div class="admonition important">
+<p class="admonition-title">Basals are the Foundation</p>
+<p>Trio uses your basal profile as the baseline of your insulin needs. When SMBs are enabled, you may see a wide variation in the temp basal rates set. <em>This is normal.</em> This is how Trio operates. It is including your baseline basal rates in the full insulin required calculation and giving that basal through SMBs and/or temp basal rates.</p>
+</div>
+<p>Every 5 minutes, Trio's algorithm:</p>
+<ol>
+<li>Reads your current scheduled basal rate</li>
+<li>Applies Autosens adjustments</li>
+<li>Calculates the optimal temporary basal rate based on:<ul>
+<li>Current glucose level</li>
+<li>Glucose trend</li>
+<li>Insulin on board (IOB)</li>
+<li>Carbs on board (COB)</li>
+<li>Target glucose</li>
+<li>SMB Settings</li>
+</ul>
+</li>
+<li>Sets a temporary basal rate (within your safety limits) and/or delivers an SMB</li>
+</ol>
+<p>This means your actual insulin delivery will vary throughout the day, even if you're fasting, as Trio responds to your glucose patterns in real time.</p>
+<h2 id="time-based-basal-schedules">Time-Based Basal Schedules</h2>
+<p>Because insulin needs vary throughout the day due to circadian rhythms, hormone fluctuations, and activity patterns, Trio supports <strong>time-based basal schedules</strong>:</p>
+<ul>
+<li>You can define different basal rates for different times of day</li>
+<li>Time slots are in 30-minute increments</li>
+<li>Maximum of 48 entries (covering 24 hours)</li>
+<li>The first entry must start at 00:00 (midnight)</li>
+<li>Each rate applies from its start time until the next scheduled rate</li>
+</ul>
+<p><strong>Example Basal Schedule:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Basal Rate<br/>(U/hr)</th>
+<th>Why It Might Vary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00</td>
+<td>0.6</td>
+<td>Lower overnight needs</td>
+</tr>
+<tr>
+<td>03:00</td>
+<td>0.9</td>
+<td>Dawn phenomenon (early morning glucose rise)</td>
+</tr>
+<tr>
+<td>09:00</td>
+<td>0.7</td>
+<td>Daytime baseline</td>
+</tr>
+<tr>
+<td>17:00</td>
+<td>0.8</td>
+<td>Evening increase</td>
+</tr>
+</tbody>
+</table>
+<h2 id="basal-rate-ranges">Basal Rate Ranges</h2>
+<p>The allowed basal rate range depends on your insulin pump:</p>
+<table>
+<thead>
+<tr>
+<th>Pump Type</th>
+<th>Minimum<br/>(U/hr)</th>
+<th>Maximum<br/>(U/hr)</th>
+<th>Increment<br/>(U/hr)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Omnipod 5 &amp; DASH</td>
+<td>0.0</td>
+<td>30.0</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Omnipod Eros</td>
+<td>0.05</td>
+<td>30.0</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Dana</td>
+<td>0.0</td>
+<td>3.0</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Medtrum Nano</td>
+<td>0.0</td>
+<td>25.0</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>MiniMed x15 &amp; x22</td>
+<td>0.0</td>
+<td>35.0</td>
+<td>0.05 (0-10)<br/>0.1 (10-35)</td>
+</tr>
+<tr>
+<td>MiniMed x23 &amp; x54</td>
+<td>0.0</td>
+<td>35.0</td>
+<td>0.025 (0-1)<br/>0.05 (1-10)<br/>0.1 (10-35)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Max Basal Safety Limit</p>
+<p>In addition to your pump's maximum, Trio has a <strong>Max Basal</strong> safety setting (default: 2.0 U/hr) that prevents the algorithm from setting temporary basal rates above this value. Make sure your Max Basal setting is appropriate for your needs.</p>
+</div>
+<h2 id="testing-your-basal-rates">Testing Your Basal Rates</h2>
+<p>Accurate basal rates are essential for Trio to function optimally. Here are two methods to verify and adjust your basal rates:</p>
+<h3 id="1-fasting-tests">1. Fasting Tests</h3>
+<p>The traditional method for testing basal rates:</p>
+<ol>
+<li>Fast for 4-6 hours (no food at least 2 hours before starting)</li>
+<li>Avoid exercise during the test</li>
+<li>Monitor your glucose:<ul>
+<li><strong>Steady glucose</strong>: Basal rate is accurate</li>
+<li><strong>Rising glucose</strong>: Basal rate is too low (increase it)</li>
+<li><strong>Falling glucose</strong>: Basal rate is too high (decrease it)</li>
+</ul>
+</li>
+</ol>
+<p>Test different times of day separately, as your basal needs vary throughout the day.</p>
+<h3 id="2-monitor-your-iob-patterns">2. Monitor Your IOB Patterns</h3>
+<p>Review your insulin on board (IOB) throughout the day when you're not eating and have no residual COB:</p>
+<ul>
+<li><strong>Consistently negative IOB</strong> at certain times → Basal rate may be too high for those hours</li>
+<li><strong>Consistently positive IOB</strong> at certain times → Basal rate may be too low for those hours</li>
+<li><strong>IOB hovering around zero</strong> → Basal rate is appropriate</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This general rule does not apply when food is consumed. Basal testing and IOB evaluation can only be completed during times of fasting.</p>
+</div>
+<h2 id="starting-point-for-new-users">Starting Point for New Users</h2>
+<p>If you're coming from pump therapy, you can start with your pump's basal settings, but be prepared to adjust them:</p>
+<ul>
+<li>Trio may require different basal rates than traditional pump therapy</li>
+<li>Monitor your glucose patterns during fasting periods</li>
+<li>Make gradual adjustments (typically 10-20% changes)</li>
+<li>Wait several days between adjustments to see the full effect</li>
+</ul>
+<p>If you don't have existing basal rates, work with your healthcare provider to establish safe starting values based on your total daily insulin requirements.</p>
+<h2 id="relationship-to-other-settings">Relationship to Other Settings</h2>
+<p>Your basal rates interact with other Trio settings:</p>
+<ul>
+<li><strong>Autosens</strong>: Multiplies your basal rates by the sensitivity ratio (default range: 70-120%)</li>
+<li><strong>Dynamic Settings</strong>: When "Adjust Basal" is enabled, Dynamic ISF adjustments also affect basal needs</li>
+<li><strong>SMB (Super Micro Bolus)</strong>: SMB calculations reference your current basal rate for SMB limits (e.g., "50% of current basal rate")</li>
+<li><strong>Total Daily Dose</strong>: Basal insulin is included in your TDD calculation along with bolus insulin</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Basal rates are your baseline insulin delivery schedule that Trio uses as a foundation for its automated insulin delivery. While Trio adjusts these rates dynamically every loop cycle, having accurate scheduled basal rates ensures:</p>
+<ul>
+<li>Correct IOB calculations</li>
+<li>Effective Autosens adjustments</li>
+<li>Appropriate algorithm behavior</li>
+<li>Safe insulin delivery within your physiological needs</li>
+<li>Accurate safety net is in place when Trio cannot communicate with pump</li>
+</ul>
+<p>Take the time to test and refine your basal rates. They're one of the most important settings for successful automated insulin delivery.</p></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

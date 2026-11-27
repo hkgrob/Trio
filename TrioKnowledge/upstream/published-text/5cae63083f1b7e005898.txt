@@ -1,0 +1,1 @@
+Transitioning from iAPS 2.3.3 to Trio is currently straightforward. The screens and menus will be very familiar.

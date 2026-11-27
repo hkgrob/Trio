@@ -1,0 +1,30 @@
+--- upstream/configuration/settings/features/shortcuts.md
++++ updated/configuration/settings/features/shortcuts.md
+@@ -28,7 +28,11 @@
+ 
+ ### Bolus
+ 
+-If [Allow Bolusing with Shortcuts](#allow-bolusing-with-shortcuts) is enabled, you will be able to use shortcuts to deliver a bolus.
++If [Allow Bolusing with Shortcuts](#allow-bolusing-with-shortcuts) is enabled, the internal `bolusShortcut` selection permits the validated bolus path (`limitWithSafetyChecks` rather than `notAllowed`).
++
++Before rounding and enactment, the shared validator checks Max Bolus, available current IOB, Max IOB headroom, and cumulative boluses within the default **six-minute** lookback. A recent total **greater than or equal to 20%** of the requested amount rejects the request. Enabling permission does not guarantee a request will be accepted.
++
++Logging external insulin is a separate action that does not deliver through the pump; that path has a bound of three times Max Bolus. It should not be confused with requesting a pump bolus.
+ 
+ - - -
+ 
+@@ -84,3 +88,14 @@
+ - - -
+ 
+ <!--TODO: Add a How to use Shortcuts & Automations page and reference it here-->
++
++
++## 1.0.2 source references
++
++- **F04 — Remote duplicate-bolus guard uses command time and a cumulative inclusive threshold**
++    - [Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift:43](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L43)
++    - [Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift:13](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift#L13)
++    - [Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift:16](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L16)
++- **F10 — Shortcut boluses use shared safety checks beyond the permission toggle**
++    - [Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift:14](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L14)
++    - [Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift:44](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L44)

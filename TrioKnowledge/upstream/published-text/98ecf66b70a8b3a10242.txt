@@ -1,0 +1,1 @@
+  On your iPhone, click on the 'Settings' application.   Next, select the 'General' option.   Then, select the 'About' option.   Review and take note of your 'iOS Version' at the top of the page.   Compare your 'iOS Version' with the above table to confirm what "macOS" your computer requires.    

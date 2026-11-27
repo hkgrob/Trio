@@ -1,0 +1,1 @@
+High loop success rates (> 95%) indicate:  Good CGM connectivity Reliable pump communication Stable Trio operation  Frequent loop failures warrant investigation:  Check CGM sensor placement and transmitter battery Verify pump is in range and functioning Review phone battery and background app settings 

@@ -1,0 +1,1 @@
+If statistics load slowly:  Reduce time period: Use Day or Week instead of 3 Months Clear app cache: Settings > Advanced (if available) Update Trio: Ensure you're running the latest version Device storage: Free up space on your iPhone 

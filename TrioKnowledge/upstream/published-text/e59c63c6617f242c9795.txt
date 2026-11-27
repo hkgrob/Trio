@@ -1,0 +1,1 @@
+ Launch the Windows File Explorer  Select Log Files  Navigate to the folder containing the log files. Hold Ctrl and click log.txt. Hold Ctrl and click log_prev.txt.   Compression  Right-click one selected file Select Send to  in the contextual menu. Select Compressed (zipped) folder.     Name Archive  Type triologs.zip and press Enter.   

@@ -1,0 +1,1 @@
+In the Meal Entry section, you will enter your carbs. If you have FPU's enabled, you can also enter your fat and protein. Below this, there is a place to enter the time for future or past carbs. You can also add a note for this meal.

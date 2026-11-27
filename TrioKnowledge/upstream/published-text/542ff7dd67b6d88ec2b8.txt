@@ -1,0 +1,1 @@
+Default: ON This setting displays the upper and lower values for your glucose target range.  

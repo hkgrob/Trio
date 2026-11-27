@@ -1,0 +1,213 @@
+## Compatible Pumps
+
+The following pumps are compatible with Trio:
+
+* [Omnipod 5](#omnipod-5)
+* [Omnipod DASH](#omnipod-dash)
+* [Omnipod Eros](#omnipod-eros)
+* [Dana-i](#dana-i)
+* [DanaRS-v3](#danars)
+* [Medtrum Nano](#medtrum-nano)
+* [Older Medtronic pumps](#medtronic-pumps)
+* [Tandem Mobi (Open Beta)](#tandem-mobi)
+
+No other pumps work with Trio at this time, but other open-source closed-loop options, such as [AAPS: Android Artificial Pancreas System](https://androidaps.readthedocs.io/en/latest/index.html) and [OpenAPS](https://openaps.readthedocs.io/en/latest/), support other pumps.
+
+### Omnipod Pumps
+
+!!! note "Reminder and Disclaimer"
+    
+    The use of Omnipod pumps with Trio is not supported by Insulet, although they are aware it is happening. Do not call Insulet asking for help with your Trio build, setup, or operation. You are fully responsible for your use of Trio and do so at your own risk. Please read these documents and familiarize yourself with Trio before using the app.
+
+#### Omnipod 5
+!!! warning "Internet Required for First Use"
+    
+    Internet access is required for online authentication the very first time you pair an Omnipod 5 pod with Trio. Once authenticated, all future Omnipod 5 pods will pair offline. If you switch to a new iPhone, however, Internet access will once again be required to authenticate the first Omnipod 5 pod.
+
+The Omnipod 5 pods were launched in 2022 and use Bluetooth, so they connect directly to the phone and don't require a RileyLink or similar device. The Omnipod 5 pods are designed to be used with SmartAdjust, an automated looping algorithm that runs on the pod and connects directly to a CGM. This algorithm is only available when used with the official Omnipod 5 app or Controller. When paired with Trio, the Omnipod 5 pod will not connect to a CGM and only receive commands (automated and manual) from the Trio app running on an iPhone. If you want to use the SmartAdjust algorithm on the pod, you have to pair a brand new pod with the Omnipod 5 app or Controller. To reiterate: your Omnipod 5 pod and CGM must both be in-range of and connected to your iPhone running Trio in order for automated looping to occur.
+
+#### Omnipod DASH
+
+The DASH Pods were launched in 2019 and use Bluetooth, so they don't require a RileyLink or similar device as they connect directly to the phone. DASH Pods are easy to identify with their blue tab instead of the clear tab used on Eros and Omnipod 5.
+
+![dash](img/dash.png)
+{align=center}
+
+#### Omnipod Eros
+
+Eros pods were launched in 2013 and continue to be sold by Insulet. As of December 2023, they are no longer available in the US but are obtainable in other countries for now. Eros pods are also referred to as "Omnipod System", "Omnipod Classic", or "Gen3". The Eros uses radio waves for communication between the Pod and the PDM. The iPhone does not support these radio waves, so in order to use Eros with Trio, you need to get a separate device that can translate radio waves to Bluetooth. These devices are called RileyLink, EmaLink, etc.
+
+![eros](img/eros.png){width="250"}
+{align=center}
+
+### Sooil Dana pumps
+
+**Every Dana pump has built-in BLE communications. Therefore, no RileyLink-compatible device is needed to use Dana-i / DanaRS-v3 with the *Trio* app.**
+
+#### Dana-i
+
+The Dana-i is the latest and greatest from the Korean pump manufacturer *Sooil*, released in 2020.
+
+![Dana-i](img/dana-i.png){width="250"}
+{align="center"}
+
+#### DanaRS
+
+The DanaRS was first released in 2002, with firmware version v1, which is not supported at this time. Only firmware version v3 and onwards are supported with the *Trio* app.
+[Check here](https://loopkit.github.io/loopdocs/loop-3/add-pump/#dana-i-danars-v3) to see how to check your firmware version. If you do have v1, though, please reach out to the Trio development team if you're interested in helping v1 get supported by running some tests.
+
+![DanaRS-v3](img/danars.png){width="250"}
+{align="center"}
+
+### Medtrum Nano
+
+!!! info "Medtrum Now Supported"
+    Both the 200U (MD0201 & MD8201) and 300U (MD8301) version are supported in Trio 0.7 and later
+
+**Every Medtrum patch pump has built-in BLE communications. Therefore, no RileyLink-compatible device is needed to use Medtrum patch pump with the *Trio* app.**
+
+
+The Medtrum patch pump is the second tubeless pump option available to the *Trio* app.
+The patch pump is 13.8gram, 40.5mm X 31.5mm x 11.5mm, making it the smallest and most discreet patch pump on the market as of now.
+It uses a 90-degree steel cannula instead of the Teflon cannula of the Omnipods, with a virtually painless insertion.
+
+![Medtrum Nano](img/medtrum.png){width="250"}
+{align="center"}
+
+### Medtronic Pumps
+
+![pump](img/pump.png)
+{align=center}
+
+There are a number of Medtronic insulin pumps manufactured between 2006 – 2012 which are Trio compatible.  Compatibility has two requirements: (1) pump model and (2) firmware.
+
+* Medtronic 515 or 715 (any firmware)
+* Medtronic 522 or 722 (any firmware)
+* Medtronic 523 or 723 (firmware 2.4 or lower)
+* Medtronic Worldwide Veo 554 or 754 (firmware 2.6A or lower)
+* Medtronic Canadian/Australian Veo 554 or 754 (firmware 2.7A or lower)
+
+If you have one of the pumps listed above, you are good to go on Trio! Congrats!
+
+#### Medtronic Pump Model
+
+To determine your pump model, look at the backside of your pump.  There should be a sticker on the underside of the pump.  On the right-hand side of the sticker, it says REF MMT-XXXXXX
+
+![pump_model](img/pump-model.jpg){width="250"}
+{align=center}
+
+    * MMT ---> Pump Manufacturer Model (MiniMed Medtronic)
+    * 722 ---> Pump Model Number
+    * NA ---> Pump Region (NA=North America, CA=Canada/Australia, WW=Worldwide)
+    * S ---> Pump Color (S=Smoke, L=Clear/Lucite, B=Blue, P=Pink/Purple)
+
+Some pumps may have an “L” or “S” or "R" before the pump region, e.g., a model number like MMT-722LNAS.  This does not affect Trio compatibility.
+
+#### Medtronic Pump Firmware
+
+A pump’s firmware is the internal software that runs your pump.  Older Medtronic firmware allows Trio to act as a “remote control” to set temp basals and report back pump data.  Newer firmware has disabled that “remote control” access and, therefore, cannot be used with these DIY closed-loop systems.  There is currently no ability to downgrade a pump’s firmware or replace it with older firmware.  Before you buy a used pump, make sure you are getting one with compatible firmware. <b>You cannot change the firmware on a Medtronic pump.</b>
+
+The firmware on all 515/715 and 522/722 model Medtronic pumps is compatible with Trio. You will only need to check the firmware version for 523/723 and 554/754 model Medtronic pumps.
+
+* Medtronic 515 or 715 (any firmware)
+* Medtronic 522 or 722 (any firmware)
+* Medtronic 523 or 723 (firmware 2.4 or lower)
+* Medtronic Worldwide Veo 554 or 754 (firmware 2.6A or lower)
+* Medtronic Canadian/Australian Veo 554 or 754 (firmware 2.7A or lower)
+
+To find your pump’s firmware, you will need to power it on. If the pump has not been powered on for some time (i.e., it has been in storage without a battery for a while), it will run through a start-up count, and the firmware version will appear on the bottom right of the pump’s screen.  Don’t turn away, as the version number will only be displayed for a little while before the screen moves on to other information displays.  
+
+If the pump has been active recently or has a reservoir installed, follow these steps:
+
+1. Press the ![esc](img/esc.png) button on your pump.  
+
+2. Scroll down to the bottom of the status display by clicking the ![light](img/light-button.png) button.  
+
+3. Read the bottom line of the display.
+
+![pump_firmware](img/pump-firmware.png){width="250"}
+{align=center}
+
+#### Medtronic Pump Differences
+
+If you are in the position of being able to shop around for different pump models, there are some slight differences between the Trio-compatible Medtronic pumps.
+
+**500 vs 700**: The difference between the Medtronic 500 series and the 700 series pumps is the size of the insulin reservoirs.  The 500 series pumps use a 180-unit reservoir, and the 700 series pumps use a 300-unit reservoir (or a smaller 180-unit reservoir, if you want).
+
+**x15/x22 vs x23/x54**: The noteworthy differences between the x15 and x22 pumps versus the x23 and x54 series pumps are:
+
+* The x23/x54 pumps will allow for smaller insulin deliveries in certain situations if the smaller scroll rate is selected in the Bolus>Setup>Scroll Rate menu.  **Trio will have the insulin delivery automatically rounded by the pump to the units available in the pump model, and any smaller adjustments (to make up for the rounding) will be made through Trio’s use of temp basals.  If you want the smaller increments of basal rates, you can still enter those values in the Trio app's settings and Trio will use those values for the purposes of insulin delivery calculations.**
+
+|Pump Model  |Basal increments  |Bolus increments  |Range  |
+|---------|---------|---------|---------|
+|515/715</br>and</br>522/722     |  0.05</br>0.1       |    0.1</br>0.1     | deliveries of less than 10 units</br>greater than 10 units        |
+|523/723</br>and</br>554/754     |  0.025</br>0.05</br>0.1       |   0.025 </br>0.05 </br>0.1      | between 0.025 to 0.975 units</br>between 1 to 9.95 units</br>greater than 10 units        |
+
+* Additionally, because of the way Trio fetches information from the pump, the x23/x54 series of pumps are slightly better at conserving battery life through the use of the MySentry packets to collect information from the pump.  x22 pumps do not use MySentry.
+
+* The x23/x54 series pumps are also faster at delivering boluses greater than 10 units.  On an x23 pump, a 13-unit bolus takes 5:00 minutes to complete.  On an x22 pump, a 13-unit bolus takes 8:40 minutes to complete.
+
+#### Finding a Medtronic Pump
+
+Finding a compatible Medtronic pump is probably the most difficult part for most new Trio users. Our suggestions:
+
+* Talk to friends in the diabetic community.
+
+* Ask your endocrinologist.  
+
+* Ask at a local JDRF chapter meeting if someone has an old backup pump they'd be willing to donate to you.  
+
+* Join diabetic supply groups on Facebook, both for-trade and for-sale groups. [Looping in a time of COVID](https://www.facebook.com/groups/1087611668259945/) is a group focused on DIY looping devices and supplies. Be sure to read their rules before joining.
+
+* Check Craigslist often and be willing to expand your search area to include larger cities.
+
+* Check out the **HelpAround, NextDoor, OfferUp, and LetGo** apps for pumps.
+
+The most successful results appear to come from either one-on-one discussions with fellow diabetics/doctors or the use of apps (Craigslist, NextDoor, LetGo, HelpAround).  If you are using Craigslist, you may use an app on your iPhone to make the searching easier. There are apps to search multiple cities for pre-set keywords and set up alerts.
+
+#### Safe Purchasing
+
+If you choose to purchase from a remote or unknown seller, here are some tips for safe purchasing:
+
+* Use PayPal and purchase using the "Goods and Services" payment option. This costs nothing for the buyer, but the seller will lose 2.95% of the sale to PayPal fees. PayPal offers some protection for both buyer and seller in the event of fraud.  
+
+* Ask for photos of the pump. Check the serial number on the backside of the pump and verify it matches the pump's serial number shown in the display menu. Ask for a short video of the pump or at least a photo of the pump turned on so that you can see the pump's firmware and model number. Cracks and some wear on these pumps are expected. These pumps are not usually free of marks. Many people are successfully looping on pumps with cracks and rub marks, but you may want to ask if you are concerned about any you see in photos.
+
+* Beware if the bottom of the reservoir/motor sleeve has the drive support cap pushed out, as shown [here](https://loopkit.github.io/loopdocs/troubleshooting/pump-errors/#motor-error). Those pumps will generally not work (or only work intermittently); however, some people have successfully repaired those pumps, as shown in that link. Just to make sure you know, it should be checked in advance.
+
+* Repairs to cracks or missing bits of plastic on battery cap area and reservoir caps are possible and not very difficult in most situations. You can read more about how to repair those [here](https://loopkit.github.io/loopdocs/troubleshooting/pump-errors/#crackmissing-piece-repairs).
+
+* Ask for shipping that includes a tracking number. USPS Priority Mail's smallest box is a great option.  It's only $10.40 domestically in the US and provides tracking. Ask the seller to add some packing protection around the pump, such as bubble wrap, to keep it safe during shipping. Ensure you get a tracking number within a reasonable period after you have paid.  
+
+Red flags that may indicate a scam:
+
+* Asking for payment through "friends and family" on PayPal, especially if you don't know the person or have any solid references for them. Paying in that way offers you no buyer protection. It's just like giving the seller cash, so you had better trust the seller.  
+
+* Offering an "almost new" pump is a big red flag. These pumps were manufactured between 2006-2012. It is highly unlikely that a pump of that age is unused and sitting in shrink wrap. There are some out there, but they are scarce.  
+
+* The seller is not able to provide new pictures of the pump when requested. Sure, they posted some photos with the ad, but what if they downloaded them from other people's ads? The seller should be able to furnish a couple of "new" photos at your request. A good one to ask for is the battery and reservoir tops so you can see their condition.
+
+#### Pump Supplies
+
+Medtronic will not typically sell pump supplies directly to customers who have yet to purchase a registered Medtronic pump. Ask your insurance about purchasing pump supplies through a durable medical equipment (DME) provider. Typically, the DME provider will coordinate with your insurance and doctor's office to get the necessary insurance approval and prescriptions for the supplies. If you are brand new to Medtronic infusion sites, ask for help from friends to try a variety of infusion sets before purchasing an entire 90-day supply of any type in particular.
+
+### Tandem Pumps
+
+#### Tandem Mobi
+
+![tandem_mobi](img/tandem-mobi.png){width="250"}
+{align=center}
+
+!!! warning "*Open Beta"
+    * We encourage anyone interested in participating in the Tandem Mobi to read [these FAQs](https://nightscout.github.io/tandem-mobi/open-beta.html)
+    * Tandem Mobi is currently available in the [`feat/tandem`](https://github.com/nightscout/Trio/tree/feat/tandem) branch. See here for help on building a different branch with [Browser Build](../../browser/build-dev-with-browser.md) (substitute 'dev' for 'feat/tandem').
+    * As this is an open beta, we encourage most people to wait while experienced users test this implementation.
+    
+!!! info "Known Limitations"
+    * The Tandem Mobi pump will either vibrate or beep every 5 minutes when using Trio, Loop, or AndroidAPS. This is a hard technical limitation due to the current behavior of the pump which open-source developers cannot bypass at this time. The pump either makes an audible beep or a vibration (which you choose is user-configurable) in response to every Temp Basal, Bolus, or other insulin-delivery command. During testing, some users found the vibration motor to be more audible than the beep, which can be partially muffled through clothing and device placement. We are hopeful that a future pump software release will give users the ability to turn this off.
+
+Tandem Mobi support is now in an open beta for experienced Trioneers.
+During the open beta, the driver is still being tested and is not yet recommended for everyone.
+
+
+

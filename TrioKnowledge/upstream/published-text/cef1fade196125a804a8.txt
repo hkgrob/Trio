@@ -1,0 +1,1 @@
+Target Behavior allows you to adjust how temporary targets influence ISF, basal, and auto-targeting based on sensitivity or resistance. Below you'll find more information on the Target Behavior settings:   High Temp Target Raises Sensitivity Low Temp Target Lowers Sensitivity here Sensitivity Raises Target Resistance Lowers Target Half Basal Exercise Target 

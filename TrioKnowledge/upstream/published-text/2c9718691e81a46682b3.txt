@@ -1,0 +1,1 @@
+AndroidAPS implements the same OpenAPS algorithm with dynamic enhancements and maintains an extensive documentation for new users. Recommend if you have additional questions, you skim through its documentation for your answer.

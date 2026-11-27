@@ -1,0 +1,1 @@
+"Closed Loop" means Trio will use the settings and parameters you have inputted into the system to make automated insulin dosing decisions for you every 5 minutes. Tip Trio works best as a closed loop system. If you need to test your settings, it's best to close the loop and follow the configuration here.

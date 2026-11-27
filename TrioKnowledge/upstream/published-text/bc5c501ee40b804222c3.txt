@@ -1,0 +1,1 @@
+Default: OFF When enabled, the calendar event created will indicate where the current glucose reading is in relation to your statistical target range. 🟠 = Above Range Glucose 🟢 = In Range Glucose 🔴 = Below Range Glucose   If Display IOB and COB is also enabled, the words "IOB" and "COB" will be replaced with emojis. 💉 = IOB 🥨 = COB

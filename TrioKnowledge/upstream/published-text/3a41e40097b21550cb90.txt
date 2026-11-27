@@ -1,0 +1,1 @@
+Small differences are normal due to:  Different calculation methods (mean vs. median) Different time period boundaries Different range definitions Data filtering (Trio may exclude some invalid readings)  Large discrepancies should be investigated—verify your data is syncing correctly.

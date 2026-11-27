@@ -1,0 +1,1 @@
+ Duplicate Prevention: Won't log carbs if a newer entry already exists Limit Enforcement: Respects your Max Carbs, Max Fat, and Max Protein settings FPU Calculation: Automatically enables Fat Protein Units for low-carb, high-fat/protein meals Nightscout Logging: All remote meals are logged for audit trail 

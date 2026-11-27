@@ -1,0 +1,1 @@
+Shortcut: Tap on the CMD and spacebar to open Spotlight search and type Ter and then return to open the Terminal   On your Mac computer, go to the 'Finder' app.   Next, select 'Applications' in the navigation pane on the left of the screen.   In the 'Applications' folder, scroll to locate and open the 'Utilities' folder.   Scroll to and open the 'Terminal' application.  

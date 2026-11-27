@@ -1,0 +1,1 @@
+First, choose an appropriate Xcode version for your iOS device. Then, determine the minimum macOS version required for that Xcode version. Update to at least that minimum macOS version. 

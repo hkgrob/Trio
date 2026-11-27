@@ -1,0 +1,30 @@
+--- upstream/configuration/settings/devices/cgm.md
++++ updated/configuration/settings/devices/cgm.md
+@@ -84,8 +84,14 @@
+ 
+ ### FreeStyle Libre 3 / 3 Plus
+ 
+-!!! warning "You must build the `dev` branch to use the FreeStyle Libre 3 / 3 Plus CGM at this time"
+-    The FreeStyle Libre 3 / 3 Plus CGM is in `dev` and is in open-beta for now. In the in-app menu, it is listed as "FreeStyle Libre 3 / 3+ (Beta)".
++!!! info "Available in main / Trio 1.0.2"
++    The pinned 1.0.2 app includes the Libre 3/3+ driver; `dev` is not required solely for Libre 3 availability. Its app-menu label still includes "(Beta)".
++
++!!! warning "Upgrading to Trio 1.0.2: re-pair the sensor"
++    The official 1.0.2 release notes say the changed driver cannot retain the previous pairing. Re-pair the existing sensor after the upgrade; the release notes do not require a new sensor. Read the [official version-specific upgrade note](https://github.com/nightscout/Trio/releases/tag/v1.0.2). Initial sensor activation and recovering/re-pairing a running sensor are different workflows.
++
++!!! note "Driver-procedure validation scope"
++    The detailed procedure retained below comes from the captured docs source. Sensor startup/recovery behavior depends on the pinned LibreLoop driver and the sensor's prior state; this alignment update does not independently validate every driver-screen instruction.
+ 
+ !!! warning "Trio starts the sensor, and only one app can read it"
+     Trio starts (activates) the sensor itself while pairing, so pair a new sensor that you have not started in another app.
+@@ -246,3 +252,10 @@
+ <!-- Update with additional description of Savitzky-Golay filtering -->
+ 
+ - - -
++
++
++## 1.0.2 source references
++
++- **F07 — Libre 3 documentation still claims dev-only availability**
++    - [Trio/Sources/APS/Devices/DeviceCatalog.swift:357](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/Devices/DeviceCatalog.swift#L357)
++    - [.gitmodules:44](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/.gitmodules#L44)

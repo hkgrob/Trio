@@ -1,0 +1,503 @@
+[
+  {
+    "id": "F01",
+    "status": "current",
+    "title": "Dosing modes",
+    "keywords": [
+      "closed loop",
+      "open loop",
+      "dosing mode",
+      "low glucose suspend",
+      "basal testing"
+    ],
+    "answer": "Settings → Dosing Mode offers Closed Loop, Open Loop, Low Glucose Suspend and Basal Testing. Open Loop is the default and enacts no automated dosing. Closed Loop permits full automation subject to settings and safety checks. LGS permits predictive reductions with effective Max IOB 0 and may replenish negative IOB up to zero. Basal Testing permits low-glucose suspension. Manual bolus commands have their own controls and validation.",
+    "settings": [
+      "TrioSettings.dosingMode",
+      "Preferences.maxIOB"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/closed-loop.md",
+        "anchor": "# Dosing Modes",
+        "line": 1,
+        "local_path": "updated-docs/source/docs/configuration/settings/closed-loop.md",
+        "url": "../updated-docs/site/configuration/settings/closed-loop.html"
+      },
+      {
+        "path": "Trio/Sources/Models/DosingMode.swift",
+        "anchor": "enum DosingMode",
+        "line": 16,
+        "local_path": "knowledge/code/Trio/Sources/Models/DosingMode.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DosingMode.swift#L16"
+      },
+      {
+        "path": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+        "anchor": "label: Text(\"Dosing Mode\")",
+        "line": 218,
+        "local_path": "knowledge/code/Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L218"
+      }
+    ]
+  },
+  {
+    "id": "F02",
+    "status": "current",
+    "title": "Stored and effective settings in constrained dosing modes",
+    "keywords": [
+      "basal testing",
+      "autosens",
+      "max iob",
+      "effective settings",
+      "threshold"
+    ],
+    "answer": "Low Glucose Suspend derives effective Max IOB 0 without changing the saved preference. Basal Testing additionally derives Autosens Min and Max 100%, disables Dynamic ISF and sigmoid, and uses max(saved threshold, 72 mg/dL). Entering Basal Testing attempts to cancel an existing automatic temporary basal, subject to pump and delivery-state checks. Returning to another mode can restore the influence of saved preferences.",
+    "settings": [
+      "TrioSettings.dosingMode",
+      "Preferences.maxIOB",
+      "Preferences.autosensMin",
+      "Preferences.autosensMax",
+      "Preferences.useNewFormula",
+      "Preferences.sigmoid",
+      "Preferences.threshold_setting"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/closed-loop.md",
+        "anchor": "## Basal Testing",
+        "line": 17,
+        "local_path": "updated-docs/source/docs/configuration/settings/closed-loop.md",
+        "url": "../updated-docs/site/configuration/settings/closed-loop.html"
+      },
+      {
+        "path": "Trio/Sources/Models/Preferences+DosingMode.swift",
+        "anchor": "func clamped(for mode",
+        "line": 6,
+        "local_path": "knowledge/code/Trio/Sources/Models/Preferences+DosingMode.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6"
+      },
+      {
+        "path": "Trio/Sources/APS/OpenAPS/OpenAPS.swift",
+        "anchor": "adjustedPreferences = adjustedPreferences.clamped(for: dosingMode)",
+        "line": 559,
+        "local_path": "knowledge/code/Trio/Sources/APS/OpenAPS/OpenAPS.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559"
+      },
+      {
+        "path": "Trio/Sources/APS/APSManager.swift",
+        "anchor": "guard settings.dosingMode == .basalTesting",
+        "line": 1511,
+        "local_path": "knowledge/code/Trio/Sources/APS/APSManager.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511"
+      }
+    ]
+  },
+  {
+    "id": "F03",
+    "status": "current",
+    "title": "SMB and UAM basal-minute limits",
+    "keywords": [
+      "smb",
+      "uam",
+      "basal minutes",
+      "range",
+      "limits"
+    ],
+    "answer": "Max SMB Basal Minutes and Max UAM Basal Minutes each default to 30 minutes. Both pickers allow 15–180 minutes in steps of five. These values cap an eligible individual dose; they do not guarantee delivery frequency. Active advanced overrides can replace the minutes and scale the basal factor.",
+    "settings": [
+      "Preferences.maxSMBBasalMinutes",
+      "Preferences.maxUAMSMBBasalMinutes"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+        "anchor": "## Max SMB Basal Minutes",
+        "line": 109,
+        "local_path": "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+        "url": "../updated-docs/site/configuration/settings/algorithm/smb-settings.html"
+      },
+      {
+        "path": "Trio/Sources/Models/DecimalPickerSettings.swift",
+        "anchor": "var maxSMBBasalMinutes = PickerSetting",
+        "line": 88,
+        "local_path": "knowledge/code/Trio/Sources/Models/DecimalPickerSettings.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/DecimalPickerSettings.swift#L88"
+      }
+    ]
+  },
+  {
+    "id": "F04",
+    "status": "current",
+    "title": "Remote and Shortcut duplicate-bolus validation",
+    "keywords": [
+      "remote",
+      "bolus",
+      "duplicate",
+      "20%",
+      "six",
+      "ten",
+      "shortcuts"
+    ],
+    "answer": "The shared bolus validator rejects a request when cumulative recent boluses are greater than or equal to 20% of the requested amount. Remote bolus sums deliveries since the original command timestamp. Shortcuts uses the default six-minute lookback. Command expiry is a separate check. Max Bolus, available current IOB and Max IOB headroom are also validated.",
+    "settings": [
+      "TrioSettings.bolusShortcut",
+      "Preferences.maxIOB"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/features/remote-control.md",
+        "anchor": "**Duplicate Bolus Prevention**",
+        "line": 210,
+        "local_path": "updated-docs/source/docs/configuration/settings/features/remote-control.md",
+        "url": "../updated-docs/site/configuration/settings/features/remote-control.html"
+      },
+      {
+        "path": "Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift",
+        "anchor": "static let recentBolusThreshold",
+        "line": 43,
+        "local_path": "knowledge/code/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L43"
+      },
+      {
+        "path": "Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift",
+        "anchor": "lookbackStart: Date(timeIntervalSince1970: payload.timestamp)",
+        "line": 13,
+        "local_path": "knowledge/code/Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift#L13"
+      },
+      {
+        "path": "Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift",
+        "anchor": "bolusSafetyValidator.validate(bolusAmount: requestedAmount)",
+        "line": 16,
+        "local_path": "knowledge/code/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L16"
+      }
+    ]
+  },
+  {
+    "id": "F05",
+    "status": "current",
+    "title": "Glucose trend input in the bolus calculator",
+    "keywords": [
+      "bolus calculator",
+      "delta",
+      "glucose trend",
+      "15 minutes",
+      "20 minutes"
+    ],
+    "answer": "The bolus calculator selects readings newer than 20 minutes ago and subtracts the oldest selected glucose from the newest. The interval depends on the readings available, and delta is zero with fewer than two readings. The difference is not normalized to a fixed 15-minute interval.",
+    "settings": [],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/usage/features/bolus-calculator.md",
+        "anchor": "In Trio 1.0.2, the calculator selects glucose readings",
+        "line": 239,
+        "local_path": "updated-docs/source/docs/usage/features/bolus-calculator.md",
+        "url": "../updated-docs/site/usage/features/bolus-calculator.html"
+      },
+      {
+        "path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "anchor": "let twentyMinutesAgo",
+        "line": 216,
+        "local_path": "knowledge/code/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L216"
+      }
+    ]
+  },
+  {
+    "id": "F06",
+    "status": "current",
+    "title": "Backdated carbs and calculator safety gates",
+    "keywords": [
+      "backdated",
+      "carbs",
+      "calculator",
+      "stale",
+      "54",
+      "max bolus",
+      "max iob"
+    ],
+    "answer": "A backdated meal calculation uses simulated COB and zero new carbs. Ordinary entries use existing COB plus new carbs capped at Max COB. The recommendation is zero if current glucose or minimum predicted glucose is below 54 mg/dL, or the last successful loop is more than 15 minutes old. Otherwise the implementation applies a nonnegative clamp, Max Bolus, Max IOB minus current IOB, and pump bolus rounding, in that order. There is no second nonnegative clamp after the headroom cap.",
+    "settings": [
+      "Preferences.maxCOB",
+      "Preferences.maxIOB",
+      "PumpSettings.maxBolus"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/usage/features/bolus-calculator.md",
+        "anchor": "## Backdated carbohydrate entries",
+        "line": 368,
+        "local_path": "updated-docs/source/docs/usage/features/bolus-calculator.md",
+        "url": "../updated-docs/site/usage/features/bolus-calculator.html"
+      },
+      {
+        "path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "anchor": "let effectiveCarbs = isBackdated ? 0 : carbs",
+        "line": 344,
+        "local_path": "knowledge/code/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344"
+      },
+      {
+        "path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "anchor": "if input.currentBG < 54",
+        "line": 452,
+        "local_path": "knowledge/code/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452"
+      }
+    ]
+  },
+  {
+    "id": "F07",
+    "status": "current",
+    "title": "Libre 3 and 3+ in Trio 1.0.2",
+    "keywords": [
+      "libre",
+      "libre 3",
+      "cgm",
+      "dev",
+      "pairing",
+      "1.0.2"
+    ],
+    "answer": "Trio 1.0.2 main includes the Libre 3/3+ driver, whose app menu label includes Beta. Upgrading to 1.0.2 requires re-pairing the existing sensor because the driver cannot retain the previous pairing. The release notes do not require a new sensor. Initial activation and recovery or re-pairing of a running sensor are distinct workflows.",
+    "settings": [
+      "TrioSettings.cgm",
+      "TrioSettings.cgmPluginIdentifier"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/devices/cgm.md",
+        "anchor": "!!! info \"Available in main / Trio 1.0.2\"",
+        "line": 87,
+        "local_path": "updated-docs/source/docs/configuration/settings/devices/cgm.md",
+        "url": "../updated-docs/site/configuration/settings/devices/cgm.html"
+      },
+      {
+        "path": "Trio/Sources/APS/Devices/DeviceCatalog.swift",
+        "anchor": "FreeStyle Libre 3 / 3+ (Beta)",
+        "line": 357,
+        "local_path": "knowledge/code/Trio/Sources/APS/Devices/DeviceCatalog.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/Devices/DeviceCatalog.swift#L357"
+      },
+      {
+        "path": ".gitmodules",
+        "anchor": "LibreLoop",
+        "line": 44,
+        "local_path": "knowledge/code/.gitmodules",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/.gitmodules#L44"
+      }
+    ]
+  },
+  {
+    "id": "F08",
+    "status": "current",
+    "title": "Export Settings CSV",
+    "keywords": [
+      "export",
+      "csv",
+      "settings",
+      "stored",
+      "effective",
+      "metadata"
+    ],
+    "answer": "Settings → Export Settings saves selected configuration categories to CSV. Include Metadata, Therapy, Algorithm and Features for a useful review. English columns are Setting Category, Subcategory, Setting Name, Value and Unit. Percentages use display units while JSON factors use fractions; glucose rows use the selected display unit. Some values include stored/effective mode annotations. Export supports review and sharing, not automatic import or restoration.",
+    "settings": [
+      "TrioSettings.dosingMode"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/export-settings.md",
+        "anchor": "# Export Settings",
+        "line": 1,
+        "local_path": "updated-docs/source/docs/configuration/settings/export-settings.md",
+        "url": "../updated-docs/site/configuration/settings/export-settings.html"
+      },
+      {
+        "path": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+        "anchor": "Export Settings",
+        "line": 394,
+        "local_path": "knowledge/code/Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/Settings/View/SettingsRootView.swift#L394"
+      },
+      {
+        "path": "Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+        "anchor": "var csvContent",
+        "line": 1249,
+        "local_path": "knowledge/code/Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/SettingsExport/SettingsExportStateModel.swift#L1249"
+      }
+    ]
+  },
+  {
+    "id": "F09",
+    "status": "current",
+    "title": "Garmin configuration and data transmission",
+    "keywords": [
+      "garmin",
+      "watchface",
+      "complication",
+      "datafield",
+      "transmission"
+    ],
+    "answer": "Configure the Garmin watchface and datafield independently in Trio. Watchface choices include Complication mode for compatible faces. Primary and secondary attributes are configurable. Changing the selected watchface disables transmission: configure Trio, change the face on the watch, then resume transmission. The Disable watchface data transmission control is inverted relative to isWatchfaceDataEnabled.",
+    "settings": [
+      "TrioSettings.garminWatchface",
+      "TrioSettings.garminDatafield",
+      "TrioSettings.isWatchfaceDataEnabled",
+      "TrioSettings.primaryAttributeChoice",
+      "TrioSettings.secondaryAttributeChoice"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/devices/smart-watch.md",
+        "anchor": "## Garmin configuration in Trio 1.0.2",
+        "line": 51,
+        "local_path": "updated-docs/source/docs/configuration/settings/devices/smart-watch.md",
+        "url": "../updated-docs/site/configuration/settings/devices/smart-watch.html"
+      },
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+        "anchor": "Watchface Selection",
+        "line": 18,
+        "local_path": "knowledge/code/Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift#L18"
+      },
+      {
+        "path": "Trio/Sources/Models/GarminWatchSettings.swift",
+        "anchor": "complication",
+        "line": 54,
+        "local_path": "knowledge/code/Trio/Sources/Models/GarminWatchSettings.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/GarminWatchSettings.swift#L54"
+      }
+    ]
+  },
+  {
+    "id": "F10",
+    "status": "current",
+    "title": "Shortcut bolus permissions and safety checks",
+    "keywords": [
+      "shortcuts",
+      "bolus",
+      "permission",
+      "safety",
+      "six minutes"
+    ],
+    "answer": "Allow Bolusing with Shortcuts maps to bolusShortcut notAllowed or limitWithSafetyChecks. The enabled path validates Max Bolus, available current IOB, Max IOB headroom and cumulative boluses within the default six-minute lookback before rounding and enactment. A total at least 20% of the request causes rejection. Logging external insulin is a separate non-delivery action with a three-times-Max-Bolus bound.",
+    "settings": [
+      "TrioSettings.bolusShortcut",
+      "Preferences.maxIOB",
+      "PumpSettings.maxBolus"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/features/shortcuts.md",
+        "anchor": "### Bolus",
+        "line": 29,
+        "local_path": "updated-docs/source/docs/configuration/settings/features/shortcuts.md",
+        "url": "../updated-docs/site/configuration/settings/features/shortcuts.html"
+      },
+      {
+        "path": "Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift",
+        "anchor": "case .limitWithSafetyChecks:",
+        "line": 14,
+        "local_path": "knowledge/code/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L14"
+      },
+      {
+        "path": "Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift",
+        "anchor": "static let recentBolusWindowMinutes",
+        "line": 44,
+        "local_path": "knowledge/code/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L44"
+      }
+    ]
+  },
+  {
+    "id": "F11",
+    "status": "current",
+    "title": "The meal bolus calculator already subtracts automated insulin represented in IOB",
+    "keywords": [
+      "iob",
+      "uam",
+      "late bolus",
+      "meal",
+      "already delivered",
+      "recommended bolus percentage",
+      "overlap"
+    ],
+    "answer": "The calculator combines glucose correction, glucose trend and capped COB plus new-carbs coverage, then subtracts current IOB. Automated insulin represented in that IOB is already counted. Positive results are multiplied by Recommended Bolus Percentage and, if selected, Reduced Bolus Percentage. The optional Super Bolus component is added afterward. SMB Delivery Ratio separately scales automated SMB dosing. The respective default manual and automated percentages are 80% and 50%.",
+    "settings": [
+      "TrioSettings.overrideFactor",
+      "TrioSettings.fattyMealFactor",
+      "TrioSettings.sweetMealFactor",
+      "Preferences.smbDeliveryRatio"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/usage/features/bolus-calculator.md",
+        "anchor": "The calculator already subtracts current IOB",
+        "line": 372,
+        "local_path": "updated-docs/source/docs/usage/features/bolus-calculator.md",
+        "url": "../updated-docs/site/usage/features/bolus-calculator.html"
+      },
+      {
+        "path": "Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "anchor": "let iobInsulinReduction = (-1) * input.iob",
+        "line": 400,
+        "local_path": "knowledge/code/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400"
+      }
+    ]
+  },
+  {
+    "id": "F12",
+    "status": "current",
+    "title": "SMB permission, UAM and interval eligibility",
+    "keywords": [
+      "uam",
+      "enable smb",
+      "interval",
+      "temporary target",
+      "permissions",
+      "smb always"
+    ],
+    "answer": "UAM alone does not enable SMB. The permission function considers override and schedule blocks, high Temp Target restrictions, and enabled Always, COB, After Carbs, low Temp Target and High Glucose conditions. Guard-glucose and maximum-delta checks can still block delivery. SMB Interval is clamped to 1–10 minutes and, when last bolus age is available, requires that age to be strictly greater than the interval. It is an eligibility gate rather than a delivery timer.",
+    "settings": [
+      "Preferences.enableUAM",
+      "Preferences.enableSMBAlways",
+      "Preferences.smbInterval",
+      "Preferences.maxSMBBasalMinutes",
+      "Preferences.maxUAMSMBBasalMinutes",
+      "Preferences.maxDeltaBGthreshold"
+    ],
+    "evidence": [
+      {
+        "path": "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+        "anchor": "## Permission, UAM and dose-cap selection in 1.0.2",
+        "line": 212,
+        "local_path": "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+        "url": "../updated-docs/site/configuration/settings/algorithm/smb-settings.html"
+      },
+      {
+        "path": "Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift",
+        "anchor": "private static func isProfileSmbEnabled",
+        "line": 18,
+        "local_path": "knowledge/code/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18"
+      },
+      {
+        "path": "Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift",
+        "anchor": "if lastBolusAge > smbInterval",
+        "line": 840,
+        "local_path": "knowledge/code/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840"
+      },
+      {
+        "path": "Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift",
+        "anchor": "if currentIob > mealInsulinRequired",
+        "line": 720,
+        "local_path": "knowledge/code/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift",
+        "url": "https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720"
+      }
+    ]
+  }
+]

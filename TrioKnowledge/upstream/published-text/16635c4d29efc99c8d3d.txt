@@ -1,0 +1,1 @@
+There are multiple calculations that are used to determine the bolus recommendation in Trio.   A positive calculation will be shown in green and a negative calculation will be shown in red. 

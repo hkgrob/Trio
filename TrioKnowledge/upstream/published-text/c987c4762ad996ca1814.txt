@@ -1,0 +1,1 @@
+If your fork is not from nightscout:  Delete your Trio repository Instructions to delete a repository are found at GitHub Docs   Return to Fork Trio and follow all the instructions 

@@ -1,0 +1,1 @@
+If you see this message:  Check data source: Ensure you have CGM data (for glucose), logged carbs (for meals), etc. Verify time period: Try a shorter time period if you recently started using Trio Restart Trio: Sometimes refreshing the app resolves data loading issues 

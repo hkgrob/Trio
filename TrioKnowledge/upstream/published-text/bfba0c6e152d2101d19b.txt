@@ -1,0 +1,1 @@
+Nightscout is a cloud-based platform that allows you to store your diabetes data. Nightscout is not required and can be added at a later time under Services in the Settings menu of the app.

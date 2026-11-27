@@ -1,0 +1,1 @@
+Default: 120% Setting Limits: 50%-200% Autosens Max sets the maximum Sensitivity Ratio used by Autosens, Logarithmic Dynamic ISF, and Sigmoid Dynamic ISF.   Tip Increasing this value allows automatic adjustments of basal rates to be higher, ISF to be lower, and CR (if enabled) to be lower.

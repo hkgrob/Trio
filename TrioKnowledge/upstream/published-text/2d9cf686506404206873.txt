@@ -1,0 +1,1 @@
+Symptoms:  Frequent hypoglycemia after corrections Rollercoaster patterns (high → over-correction → low → high) Excessive SMB delivery resulting in lows  Solution:   Test your ISF Autosens or Sigmoid Dynamic ISF: Increase your profile ISF value (make it less aggressive) Logarithmic Dynamic ISF: Re-evaluate your Adjustment Factor and other Dynamic settings using the desmos graphs 

@@ -1,0 +1,522 @@
+[
+  {
+    "label": "Target Glucose",
+    "source": "Trio/Sources/Modules/Adjustments/View/TempTargets/AddTempTargetForm.swift",
+    "line": 88
+  },
+  {
+    "label": "Max Daily Safety Multiplier",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 46
+  },
+  {
+    "label": "Current Basal Safety Multiplier",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 79
+  },
+  {
+    "label": "Duration of Insulin Action",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 110
+  },
+  {
+    "label": "Use Custom Peak Time",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 143
+  },
+  {
+    "label": "Skip Neutral Temps",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 177
+  },
+  {
+    "label": "Unsuspend If No Temp",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 207
+  },
+  {
+    "label": "SMB Delivery Ratio",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 235
+  },
+  {
+    "label": "SMB Interval",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 263
+  },
+  {
+    "label": "Min 5m Carb Impact",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 287
+  },
+  {
+    "label": "Remaining Carbs Percentage",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 316
+  },
+  {
+    "label": "Remaining Carbs Cap",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 346
+  },
+  {
+    "label": "Noisy CGM Target Increase",
+    "source": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+    "line": 376
+  },
+  {
+    "label": "Autosens Max",
+    "source": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+    "line": 149
+  },
+  {
+    "label": "Autosens Min",
+    "source": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+    "line": 180
+  },
+  {
+    "label": "Rewind Resets Autosens",
+    "source": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+    "line": 210
+  },
+  {
+    "label": "Display Meal Presets",
+    "source": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+    "line": 49
+  },
+  {
+    "label": "Recommended Bolus Percentage",
+    "source": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+    "line": 70
+  },
+  {
+    "label": "Enable Reduced Bolus Option",
+    "source": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+    "line": 101
+  },
+  {
+    "label": "Enable Super Bolus Option",
+    "source": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+    "line": 137
+  },
+  {
+    "label": "Very Low Glucose Warning",
+    "source": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+    "line": 171
+  },
+  {
+    "label": "Smooth Glucose Value",
+    "source": "Trio/Sources/Modules/CGMSettings/View/CGMRootView.swift",
+    "line": 108
+  },
+  {
+    "label": "Create Events in Calendar",
+    "source": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+    "line": 34
+  },
+  {
+    "label": "Display Emojis as Labels",
+    "source": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+    "line": 77
+  },
+  {
+    "label": "Display IOB and COB",
+    "source": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+    "line": 112
+  },
+  {
+    "label": "Dynamic ISF",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 80
+  },
+  {
+    "label": "Dynamic Insulin Sensitivity",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 112
+  },
+  {
+    "label": "Dynamic ISF",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 170
+  },
+  {
+    "label": "Adjustment Factor (AF)",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 178
+  },
+  {
+    "label": "Adjustment Factor (AF)",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 182
+  },
+  {
+    "label": "Sigmoid Adjustment Factor",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 203
+  },
+  {
+    "label": "Sigmoid Adjustment Factor",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 206
+  },
+  {
+    "label": "Weighted Average of TDD",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 231
+  },
+  {
+    "label": "Weighted Average of TDD",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 234
+  },
+  {
+    "label": "Adjust Basal",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 254
+  },
+  {
+    "label": "Adjust Basal",
+    "source": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+    "line": 257
+  },
+  {
+    "label": "Maximum Insulin on Board (IOB)",
+    "source": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+    "line": 44
+  },
+  {
+    "label": "Maximum Bolus",
+    "source": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+    "line": 98
+  },
+  {
+    "label": "Maximum Basal Rate",
+    "source": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+    "line": 124
+  },
+  {
+    "label": "Maximum Carbs on Board (COB)",
+    "source": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+    "line": 148
+  },
+  {
+    "label": "Minimum Safety Threshold",
+    "source": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+    "line": 176
+  },
+  {
+    "label": "Show Glucose App Badge",
+    "source": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertsRootView.swift",
+    "line": 101
+  },
+  {
+    "label": "Connect to Apple Health",
+    "source": "Trio/Sources/Modules/HealthKit/View/AppleHealthKitRootView.swift",
+    "line": 34
+  },
+  {
+    "label": "Enable Live Activity",
+    "source": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+    "line": 63
+  },
+  {
+    "label": "Display Glucose Forecasts",
+    "source": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+    "line": 100
+  },
+  {
+    "label": "Lock Screen Widget Style",
+    "source": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+    "line": 115
+  },
+  {
+    "label": "Watch/Carplay Widget Style",
+    "source": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+    "line": 188
+  },
+  {
+    "label": "Max Meal Absorption Time",
+    "source": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+    "line": 227
+  },
+  {
+    "label": "Enable Fat and Protein Entries",
+    "source": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+    "line": 259
+  },
+  {
+    "label": "Fat and Protein Delay",
+    "source": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+    "line": 311
+  },
+  {
+    "label": "Spread Interval",
+    "source": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+    "line": 338
+  },
+  {
+    "label": "Fat and Protein Percentage",
+    "source": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+    "line": 365
+  },
+  {
+    "label": "Backfill Glucose from Nightscout",
+    "source": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutConfigRootView.swift",
+    "line": 103
+  },
+  {
+    "label": "Allow Fetching from Nightscout",
+    "source": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutFetchView.swift",
+    "line": 32
+  },
+  {
+    "label": "Allow Uploading to Nightscout",
+    "source": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+    "line": 32
+  },
+  {
+    "label": "Upload Glucose",
+    "source": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+    "line": 64
+  },
+  {
+    "label": "Upload CGM Sensor States",
+    "source": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+    "line": 86
+  },
+  {
+    "label": "High Glucose Target",
+    "source": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+    "line": 116
+  },
+  {
+    "label": "Enable Quick-Pick Treatments",
+    "source": "Trio/Sources/Modules/QuickPickTreatmentsConfig/View/QuickPickTreatmentsConfigRootView.swift",
+    "line": 34
+  },
+  {
+    "label": "Enable Remote Control",
+    "source": "Trio/Sources/Modules/RemoteControlConfig/View/RemoteControlConfig.swift",
+    "line": 37
+  },
+  {
+    "label": "Enable SMB Always",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 34
+  },
+  {
+    "label": "Enable SMB With COB",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 62
+  },
+  {
+    "label": "Enable SMB With Temptarget",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 89
+  },
+  {
+    "label": "Enable SMB After Carbs",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 118
+  },
+  {
+    "label": "Enable SMB With High Glucose",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 148
+  },
+  {
+    "label": "Allow SMB With High Temptarget",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 181
+  },
+  {
+    "label": "Enable UAM",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 217
+  },
+  {
+    "label": "Max SMB Basal Minutes",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 247
+  },
+  {
+    "label": "Max UAM Basal Minutes",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 293
+  },
+  {
+    "label": "Max Allowed Glucose Rise for SMB",
+    "source": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+    "line": 341
+  },
+  {
+    "label": "Dosing Mode",
+    "source": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+    "line": 218
+  },
+  {
+    "label": "Dosing Mode",
+    "source": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+    "line": 240
+  },
+  {
+    "label": "Dosing Mode",
+    "source": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+    "line": 268
+  },
+  {
+    "label": "Allow Bolusing with Shortcuts",
+    "source": "Trio/Sources/Modules/ShortcutsConfig/View/ShortcutsConfigView.swift",
+    "line": 56
+  },
+  {
+    "label": "High Temp Target Raises Sensitivity",
+    "source": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+    "line": 39
+  },
+  {
+    "label": "Low Temp Target Lowers Sensitivity",
+    "source": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+    "line": 78
+  },
+  {
+    "label": "Sensitivity Raises Target",
+    "source": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+    "line": 114
+  },
+  {
+    "label": "Resistance Lowers Target",
+    "source": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+    "line": 137
+  },
+  {
+    "label": "Half Basal Exercise Target",
+    "source": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+    "line": 160
+  },
+  {
+    "label": "Appearance",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 50
+  },
+  {
+    "label": "Appearance",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 101
+  },
+  {
+    "label": "Glucose Color Scheme",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 107
+  },
+  {
+    "label": "Glucose Color Scheme",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 168
+  },
+  {
+    "label": "Show X-Axis Grid Lines",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 205
+  },
+  {
+    "label": "Show Low and High Thresholds",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 220
+  },
+  {
+    "label": "Low Threshold",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 374
+  },
+  {
+    "label": "Forecast Display Type",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 381
+  },
+  {
+    "label": "Forecast Display Type",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 431
+  },
+  {
+    "label": "Bolus Display Threshold",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 437
+  },
+  {
+    "label": "Bolus Display Threshold",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 475
+  },
+  {
+    "label": "eA1c/GMI Display Unit",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 483
+  },
+  {
+    "label": "eA1c/GMI Display Unit",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 520
+  },
+  {
+    "label": "Time in Range Type",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 526
+  },
+  {
+    "label": "Time in Range Type",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 601
+  },
+  {
+    "label": "Home Statistics Panel",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 607
+  },
+  {
+    "label": "Home Statistics Panel",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 643
+  },
+  {
+    "label": "Show Carbs Required Badge",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 658
+  },
+  {
+    "label": "Require Adjustments Confirmation",
+    "source": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+    "line": 680
+  },
+  {
+    "label": "Confirm Bolus Faster",
+    "source": "Trio/Sources/Modules/WatchConfig/View/WatchConfigAppleWatchView.swift",
+    "line": 38
+  },
+  {
+    "label": "Show Forecast on Watch",
+    "source": "Trio/Sources/Modules/WatchConfig/View/WatchConfigAppleWatchView.swift",
+    "line": 59
+  },
+  {
+    "label": "Watchface Selection",
+    "source": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+    "line": 26
+  },
+  {
+    "label": "Datafield Selection",
+    "source": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+    "line": 105
+  },
+  {
+    "label": "Data Choice 1",
+    "source": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+    "line": 146
+  },
+  {
+    "label": "Data Choice 2",
+    "source": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+    "line": 178
+  }
+]

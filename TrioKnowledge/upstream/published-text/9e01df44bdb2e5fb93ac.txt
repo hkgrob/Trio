@@ -1,0 +1,1 @@
+ If you have an Apple Developer Account, skip ahead to Find TEAMID. If not, you need to purchase one ($99 annual fee). It may take a few days for the account to be enabled.  TrioDocs has an Apple Developer Program page that explains in detail how to sign up for an account This link takes you straight to Apple Developer account to sign up 

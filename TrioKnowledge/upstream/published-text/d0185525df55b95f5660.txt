@@ -1,0 +1,1 @@
+This section covers known troubleshooting issues:  Nightscout not displaying Trio data: Configure for OpenAPS Was able to select Trio Remote Control in LoopFollow but it is no longer working: Stop Nightscout access from the Loop app Cannot select Trio Remote Control in LoopFollow: Update Profile 

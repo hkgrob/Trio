@@ -1,0 +1,1 @@
+By default, Trio collects crash reports and other anonymized data related to errors, exceptions, and overall app performance. Sharing this data helps developers maintain and improve the app. This is completely anonymous and optional. Tip If you select Enable Sharing, you must also read and accept the Privacy Policy in the Onboarding Wizard before you are able to proceed.

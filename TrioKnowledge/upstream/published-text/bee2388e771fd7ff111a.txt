@@ -1,0 +1,1 @@
+Default: 70% Setting Limits: 50%-100% Autosens Min sets the minimum Sensitivity Ratio used by Autosens, Logarithmic Dynamic ISF, and Sigmoid Dynamic ISF.   Tip Decreasing this value allows automatic adjustments of basal rates to be lower, ISF to be higher, and CR (if enabled) to be higher.

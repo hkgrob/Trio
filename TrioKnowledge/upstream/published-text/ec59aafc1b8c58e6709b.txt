@@ -1,0 +1,1 @@
+Click here to view a graph depicting the sigmoid formula in mg/dL Click here to view a graph depicting the sigmoid formula in mmol/L

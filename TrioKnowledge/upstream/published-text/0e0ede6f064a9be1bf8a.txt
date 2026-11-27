@@ -1,0 +1,1 @@
+Let's check if the correct version of Xcode was installed.   Open Xcode from either Launchpad or Applications folder.    In the top left-hand corner of the window, select 'Xcode'   Next, select 'About Xcode' from the menu.   A window will open, and you can review the Xcode version installed on the computer.    

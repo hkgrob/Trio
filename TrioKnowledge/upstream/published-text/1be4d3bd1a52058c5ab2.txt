@@ -1,0 +1,1 @@
+Trio can’t determine the glucose value when under 40mg/dL (2.2 mmol/L). This is why the CGM apps from Dexcom and Libre are displaying “Low.” A “Low” reading is also sometimes due to a sensor error or a faulty sensor needing replacement. Trio can't safely make a glucose prediction without knowing the glucose value or if it’s rising or falling.

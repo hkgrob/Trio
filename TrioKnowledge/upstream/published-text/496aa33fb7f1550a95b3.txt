@@ -1,0 +1,1 @@
+Default 3 min Setting Limits: 1-10 min The minimum minutes since the last SMB or manual bolus that an automated SMB will be permitted.   Tip Keep this setting at the default of 3 minutes to help Trio enact needed SMBs without interruption

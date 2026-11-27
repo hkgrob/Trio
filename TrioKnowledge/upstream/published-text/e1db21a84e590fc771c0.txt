@@ -1,0 +1,1 @@
+Default: OFF Enabling this feature allows Trio to deliver insulin required using SMBs when a manual Temp Target above 100 mg/dL (5.5 mmol/L) is set.   Important High Temp Targets are often used to recover from lows. If you use a high temp target for that purpose, this feature should remain disabled.

@@ -1,0 +1,1 @@
+ Welcome to the Companion Applications homepage! These apps all work within the Trio ecosystem. They are separate apps that are interoperable with Trio and many other DIY AID systems.   Please use the navigation menu , search bar , or the menu below to find the section you are looking for.  Nightscout LoopFollow xDrip4iOS 

@@ -1,0 +1,1 @@
+Default: OFF  Enabling this setting adds a "Reduced Bolus" option to the bolus calculator. Once this feature is enabled, a Reduced Bolus Percentage setting will appear for you to select. The default for this setting is 70% of the full calculated bolus.

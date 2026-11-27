@@ -1,0 +1,39 @@
+--- upstream/configuration/settings/therapy/units-limits.md
++++ updated/configuration/settings/therapy/units-limits.md
+@@ -32,9 +32,9 @@
+ 
+ ## Max Bolus
+ **Default:** _10 units_  
+-**Setting Limits:** _1-30 units_  
++**Setting Limits:** _0.5-30 units_  
+ 
+-This is the maximum bolus allowed to be delivered at one time. This only limits manual boluses given on the Treatments screen.
++This is the maximum bolus allowed to be delivered at one time. The calculator caps its recommendation using this setting. Remote and Shortcut bolus commands also use it in their shared validation; it is not limited to the Treatments screen.
+ 
+ If you attempt to request a bolus larger than this, the bolus will not be accepted or proceed. So if your max bolus is set to 5U but you enter a 6U bolus, the "Enact Bolus" button will turn red and display a warning message. You will be unable to proceed until you lower your bolus to within this limit.
+ 
+@@ -139,3 +139,24 @@
+ - - -
+ 
+ Return to [New User Setup](../../new-user-setup.md)
++
++
++## Saved versus effective Max IOB
++
++Low Glucose Suspend and Basal Testing derive effective Max IOB 0 while retaining the saved preference. Basal Testing additionally changes effective sensitivity settings. These mode constraints do not establish a universal limit for every manual bolus entry path. See [Dosing Modes](../closed-loop.md) and the [calculator safety gates](../../../usage/features/bolus-calculator.md#recommendation-safety-gates).
++
++The Max Bolus picker accepts 0.5–30 U in 0.5 U steps in `DecimalPickerSettings.swift`; available pump-specific settings and rounding can impose further constraints.
++
++
++## 1.0.2 source references
++
++- **F02 — Mode overrides differ from the documented manual basal-testing recipe**
++    - [Trio/Sources/Models/Preferences+DosingMode.swift:6](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Models/Preferences+DosingMode.swift#L6)
++    - [Trio/Sources/APS/OpenAPS/OpenAPS.swift:559](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPS/OpenAPS.swift#L559)
++    - [Trio/Sources/APS/APSManager.swift:1511](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/APSManager.swift#L1511)
++- **F06 — Calculator safety gates and backdated-carb handling need explicit documentation**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344)
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452)
++- **F10 — Shortcut boluses use shared safety checks beyond the permission toggle**
++    - [Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift:14](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L14)
++    - [Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift:44](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L44)

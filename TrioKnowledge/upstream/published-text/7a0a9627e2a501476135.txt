@@ -1,0 +1,1 @@
+Default: OFF Enabling this feature causes Trio to automatically raise the targeted glucose if it detects an increase in insulin sensitivity. If Sensitivity Ratio is \(\gt 1\), target glucose will be increased.

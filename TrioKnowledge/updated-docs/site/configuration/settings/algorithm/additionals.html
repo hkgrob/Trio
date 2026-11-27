@@ -1,0 +1,161 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Additionals · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/algorithm/additionals.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/algorithm/additionals.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="additionals">Additionals</h1>
+<div class="admonition danger">
+<p class="admonition-title"><strong>Read This Before Proceeding</strong></p>
+<p>This settings in this section typically do not require <strong><em>any</em></strong> modifications. Do not alter them without a solid understanding of what you are changing and the full impact it will have on the algorithm.</p>
+</div>
+<h2 id="max-daily-safety-multiplier">Max Daily Safety Multiplier</h2>
+<p><strong>Default:</strong> <em>300%</em><br/>
+<strong>Setting Limits:</strong> <em>100%-500%</em></p>
+<p>This setting restricts the maximum automated temporary basal rate Trio can set. At the default of 300%, it caps temporary basal rates at 3 times your highest programmed basal rate of <strong><em>all your basal rates</em></strong>.</p>
+<p>This limit works in conjunction with <a href="#current-basal-safety-multiplier">Current Basal Safety Multiplier</a>. Trio will use the smaller of the two limits. It serves as a safety limit, ensuring no temporary basal rates exceed safe levels.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Increasing this setting is not advised</p>
+</div>
+<hr/>
+<h2 id="current-basal-safety-multiplier">Current Basal Safety Multiplier</h2>
+<p><strong>Default:</strong> <em>400%</em><br/>
+<strong>Setting Limits:</strong> <em>100%-500%</em></p>
+<p>This setting also restricts the maximum automated temporary basal rate Trio can set. At the default of 400%, it caps temporary basal rates to 4 times your <strong><em>current</em></strong> programmed basal rate.</p>
+<p>This limit works in conjunction with <a href="#max-daily-safety-multiplier">Max Daily Safety Multiplier</a>. Trio will use the smaller of the two limits. It serves as a safety limit, ensuring no temporary basal rates exceed safe levels.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Increasing this setting is not advised</p>
+</div>
+<hr/>
+<h2 id="duration-of-insulin-action">Duration of Insulin Action</h2>
+<p><strong>Default:</strong> <em>10 hours</em><br/>
+<strong>Setting Limits:</strong> <em>5-10 hours</em></p>
+<p>The Duration of Insulin Action (DIA) defines how long your insulin continues to lower glucose readings after it is given. This helps the system accurately track Insulin on Board (IOB), avoid over- or under- corrections by considering the tail end of insulin's effect.</p>
+<p align="center"><img alt="Bionic Wookie DIA" src="../../../../source/docs/configuration/settings/algorithm/img/burren_dia_chart.png"/></p>
+<p>Trio, as with other Oref-based systems like AndroidAPS, uses an exponential decay model for DIA. Working in collaboration with David Burren (Bionic Wookie), we found the DIA that most accurately reflects actual insulin activity in the body, is a 10 hour DIA. You can read more about insulin decay models used in Oref-based systems at <a href="https://bionicwookiee.com/2022/12/04/insulin-timings-2022/">bionicwookie.com</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Trio will not allow you to set a DIA below 5 hours. However, 5 hours is an extremely low DIA and it is not advised.</p>
+</div>
+<hr/>
+<h2 id="use-custom-peak-time">Use Custom Peak Time</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>Insulin Peak Time reflects when insulin is most effective in lowering glucose, aka the peak of insulin activity. Toggling this setting on exposes the Custom Peak Time setting and allows you to customize that peak.</p>
+<p>Typically, this setting does not need to be adjusted. The one common case for adjusting insulin peak time is for Lyumjev users, where the programmed ultra-rapid insulin peak matches Fiasp's peak time rather than Lyumjev's.</p>
+<h3 id="insulin-peak-time">Insulin Peak Time</h3>
+<p><strong>Default:</strong> <em>Determined By Insulin Selection</em><br/>
+<strong>Setting Limits:</strong> <em>35-120 min</em></p>
+<p>The default settings are determined by your insulin selection:<br/>
+    - Rapid-Acting (Humalog, Novolog/Novorapid, Apidra)
+        - Default: 75 minutes
+        - Setting Limits: 50-120 minutes
+    - Ultra-Rapid (Fiasp, Lyumjev)
+        - Default: 55 minutes
+        - Setting Limits: 35-100 minutes</p>
+<div class="admonition info">
+<p class="admonition-title">Lyumjev Users</p>
+<p>Lyumjev has a peak time of 45 minutes</p>
+</div>
+<hr/>
+<h2 id="skip-neutral-temps">Skip Neutral Temps</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>When Skip Neutral Temps is enabled, Trio will not set neutral basal rates shortly before the hour, minimizing hourly pump alerts on Medtronic pumps. This can help light sleepers avoid alerts, but will delay basal adjustments. This will also only come into effect if SMBs are <em>disabled</em>.  </p>
+<p>For most users, leaving this <em>OFF</em> is recommended to ensure consistent basal delivery and loop calculation. If this option is enabled, loops will be skipped during the last 5 minutes of the hour.</p>
+<hr/>
+<h2 id="unsuspend-if-no-temp">Unsuspend If No Temp</h2>
+<p><strong>Default:</strong> <em>OFF</em></p>
+<p>Enabling this setting allows Trio to resume your pump after a <em>manual</em> zero temp basal was set. This feature ensures insulin delivery restarts if you forget to manually unsuspend, adding a safeguard for pump reconnections.</p>
+<hr/>
+<h2 id="suspend-zeros-iob">Suspend Zeros IOB</h2>
+<p><strong>Default:</strong> <em>ON</em></p>
+<p>This is defaulted to on because it resets any active temporary basal rate to a 0 U/hr temp basal rate when you suspend your pump, either on the pump with Medtronic or on the pump screen with Omnipod. This setting ensures no undelivered temp basal insulin is recorded while insulin delivery is suspended on the pump.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This setting will be removed from Trio in the near future</p>
+</div>
+<hr/>
+<h2 id="smb-delivery-ratio">SMB Delivery Ratio</h2>
+<p><strong>Default:</strong> <em>50%</em><br/>
+<strong>Setting Limits:</strong> <em>30%-70%</em></p>
+<p>This is a safety limiter. Trio determines how much insulin is required to get you back to your target glucose. If SMB is enabled, Trio then delivers an SMB that defaults to half the required insulin.</p>
+<p>Because SMBs can occur every 5 minutes with each loop cycle, it is important to set this value to a conservative level that will allow Trio to safely decrease insulin should needs suddenly change.</p>
+<details class="question">
+<summary>Trio determines Bill needs 2.4 units to return him to his target glucose. His <code>SMB Delivery Ratio</code> is set to 50%. What amount of insulin will Trio deliver?</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2.4</mn><mi>×</mi><mn>50</mn><mi>%</mi><mo>=</mo><mn>1.2</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="question">
+<summary><em>Bonus Question</em>: Based on Bill's <code>Max SMB Basal Minutes</code> setting above, will he get an SMB of 1.2 units?</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.0</mn><mo>&lt;</mo><mn>1.2</mn></mrow></math></div>
+<p>No, Bill will only get <strong>1.0 unit</strong> because after Trio calculated his needed insulin, it reduced it by his <code>SMB Delivery Ratio</code>, and <em>then</em> Trio limited the amount to his <code>Max SMB Basal Minutes</code> because it was higher than this setting.</p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Allowed range for this setting is 30% - 70%</p>
+</div>
+<hr/>
+<h2 id="smb-interval">SMB Interval</h2>
+<p><strong>Default</strong> <em>3 min</em><br/>
+<strong>Setting Limits:</strong> <em>1-10 min</em></p>
+<p class="changed-block" data-change="added-or-revised">The elapsed-time eligibility gate after the last SMB or manual bolus. In 1.0.2, the engine clamps this setting to 1–10 minutes and, when the last bolus age is available, requires that age to be strictly greater than the interval. It does not schedule a dose or change the underlying loop cadence.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Keep this setting at the default of 3 minutes to help Trio enact needed SMBs without interruption</p>
+</div>
+<hr/>
+<h2 id="min-5m-carb-impact">Min 5m Carb Impact</h2>
+<p><strong>Default:</strong> <em>5 mg/dL</em><br/>
+<strong>Setting Limits:</strong> <em>1-20 mg/dL</em></p>
+<p>This setting is used only when carb absorption isn't reflected in glucose data.</p>
+<p>The default is an expected 8 mg/dL/5min. This affects how fast COB decays when there is little to no variation in glucose readings. The default setting correlates to a carb absorption rate of 24g/hr at a Carb Sensitivity Factor (CSF) of 4 mg/dL/g.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This setting is <strong><em>only</em></strong> used when glucose is not changing after a meal entry. When glucose <em>is</em> changing, your CSF is used to determine carb decay and this setting is ignored.</p>
+</div>
+<hr/>
+<h2 id="remaining-carbs-percentage">Remaining Carbs Percentage</h2>
+<p><strong>Default:</strong> <em>100%</em><br/>
+<strong>Setting Limits:</strong> <em>50%-100%</em></p>
+<p>Trio will reserve unabsorbed carb entries for 4 hours. This setting determines what percentage of the entered carbs will be in reserve for future glucose fluctuations.</p>
+<p>At the default of 100%, all unabsorbed carbs will remain in reserve until glucose reflects carb absorption or 4 hours has elapsed.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Trio will not dose for these carbs until glucose reflects their absorption</p>
+</div>
+<hr/>
+<h2 id="remaining-carbs-cap">Remaining Carbs Cap</h2>
+<p><strong>Default:</strong> <em>90g</em><br/>
+<strong>Setting Limits:</strong> <em>0-200g</em></p>
+<p>In combination with the previous setting, Trio will limit the number of carbs that can remain in reserve for future carb absorption. This setting is the maximum grams of carbs that can be held over the 4 hours following a meal entry.</p>
+<hr/>
+<h2 id="noisy-cgm-target-increase">Noisy CGM Target Increase</h2>
+<p><strong>Default:</strong> <em>130%</em><br/>
+<strong>Setting Limits:</strong> <em>100%-200%</em></p>
+<p>This setting raises your glucose target by this percent of your current target glucose when CGM readings are fluctuating widely.</p>
+<p>This helps reduce the risk of incorrect insulin dosing based on inaccurate sensor data, ensuring safer insulin adjustments during periods of poor CGM accuracy.</p>
+<details class="question">
+<summary>Bill has a Dexcom G7 and his CGM readings are very jumpy for the first 24 hours. His current glucose target is 110 mg/dL (6.1 mmol/L). What will Trio adjust his target glucose to in order to prevent extra, unnecessary insulin?</summary>
+<details class="info">
+<summary>Here is the formula you will need:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>G</mi><mi>l</mi><mi>u</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>e</mi><mi>×</mi><mi>N</mi><mi>o</mi><mi>i</mi><mi>s</mi><mi>y</mi><mi>C</mi><mi>G</mi><mi>M</mi><mtext> </mtext><mi>T</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mtext> </mtext><mi>I</mi><mi>n</mi><mi>c</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>e</mi></mrow></math></div>
+</details>
+<details class="note">
+<summary>Calculate Bill's new, temporary target:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>110</mn><mi>×</mi><mn>130</mn><mi>%</mi></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>143</mn><mtext> </mtext><mi>m</mi><mi>g</mi><mo>/</mo><mi>d</mi><mi>L</mi><mtext> </mtext><mo stretchy="false">(</mo><mn>7.9mm</mn><mi>o</mi><mi>l</mi><mo>/</mo><mi>L</mi><mo stretchy="false">)</mo></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Trio will increase his target glucose to <strong><em>143 mg/dL</em></strong> while a noisy CGM is indicated.</p>
+</details>
+</details>
+<h2 class="changed-block" data-change="added-or-revised" id="manual-recommendation-versus-automated-smb-percentage">Manual recommendation versus automated SMB percentage</h2>
+<p class="changed-block" data-change="added-or-revised">SMB Delivery Ratio scales automated SMB calculations. <a href="../features/bolus-calculator.html">Recommended Bolus Percentage</a> separately scales positive calculator recommendations. The defaults are 50% and 80% respectively; these controls are not interchangeable.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F11 — The meal bolus calculator already subtracts automated insulin represented in IOB</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F12 — UAM does not independently grant SMB permission; interval is not a delivery schedule</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18">Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:18</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840">Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:840</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720">Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:720</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/algorithm/additionals.md</span><span class="diff-line ">+++ updated/configuration/settings/algorithm/additionals.md</span><span class="diff-line ">@@ -129,7 +129,7 @@</span><span class="diff-line "> **Default** _3 min_  </span><span class="diff-line "> **Setting Limits:** _1-10 min_</span><span class="diff-line "> </span><span class="diff-line diff-remove">-The minimum minutes since the last SMB or manual bolus that an automated SMB will be permitted.  </span><span class="diff-line diff-add">+The elapsed-time eligibility gate after the last SMB or manual bolus. In 1.0.2, the engine clamps this setting to 1–10 minutes and, when the last bolus age is available, requires that age to be strictly greater than the interval. It does not schedule a dose or change the underlying loop cadence.  </span><span class="diff-line "> </span><span class="diff-line "> !!! tip</span><span class="diff-line "> </span><span class="diff-line ">@@ -201,3 +201,18 @@</span><span class="diff-line ">         </span><span class="diff-line ">         Trio will increase his target glucose to **_143 mg/dL_** while a noisy CGM is indicated.</span><span class="diff-line ">         </span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## Manual recommendation versus automated SMB percentage</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+SMB Delivery Ratio scales automated SMB calculations. [Recommended Bolus Percentage](../features/bolus-calculator.md) separately scales positive calculator recommendations. The defaults are 50% and 80% respectively; these controls are not interchangeable.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F11 — The meal bolus calculator already subtracts automated insulin represented in IOB**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400)</span><span class="diff-line diff-add">+- **F12 — UAM does not independently grant SMB permission; interval is not a delivery schedule**</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:18](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L18)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:840](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L840)</span><span class="diff-line diff-add">+    - [Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift:720](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/APS/OpenAPSSwift/DetermineBasal/DosingEngine.swift#L720)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

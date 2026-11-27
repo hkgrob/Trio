@@ -1,0 +1,1 @@
+Adds a carb entry into Trio.   Tip You can also add fat or protein as part of the same entry.

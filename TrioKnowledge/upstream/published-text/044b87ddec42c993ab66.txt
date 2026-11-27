@@ -1,0 +1,1 @@
+To compress the log files on a Mac, you can use either a graphical application or the terminal.

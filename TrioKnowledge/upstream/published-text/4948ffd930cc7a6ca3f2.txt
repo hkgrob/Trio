@@ -1,0 +1,1 @@
+Pump site changes can negatively impact your immediate glycemic control. Different delivery sites' ability to absorb insulin varies, impacting your perceived insulin sensitivity. Trio should be able to accommodate this change by resetting its Autosens measurements (assuming "Rewind Resets Autosens" is on) and adapting as needed.

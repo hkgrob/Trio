@@ -1,0 +1,1 @@
+If FPU conversion is enabled in settings, Trio tracks fat and protein to calculate their insulin impact for low-carb meals.

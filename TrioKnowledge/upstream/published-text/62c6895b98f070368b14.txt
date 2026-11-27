@@ -1,0 +1,1 @@
+Insulin Sensitivity Factor (ISF), also called Insulin Correction Factor (ICF), is the amount your blood glucose drops when you receive one unit of insulin. It's expressed as:  mg/dL per unit (mg/dL/U)  mmol/L per unit (mmol/L/U)  For example, an ISF of 50 mg/dL/U means that 1 unit of insulin will lower your glucose by 50 mg/dL (2.8 mmol/L).

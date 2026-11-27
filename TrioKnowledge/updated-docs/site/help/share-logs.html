@@ -1,0 +1,154 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sharing Trio Logs · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../index.html">All documents</a><a href="../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../source/docs/help/share-logs.md">Updated Markdown</a><a href="../../../upstream/source/docs/help/share-logs.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="sharing-trio-logs">Sharing Trio Logs</h1>
+<p>The "<em>Share Logs</em>" feature lets you export the app’s logs (from today and yesterday) 
+and opens the iOS share sheet so you can transmit them to support channels, developers, or storage services for troubleshooting and record-keeping.</p>
+<div class="admonition tip">
+<p class="admonition-title">Check existing solutions</p>
+<p>When you run into an issue and want to share your logs, please take a moment to check if it’s already been solved by browsing through <a href="https://facebook.triodocs.org/">Facebook</a> or <a href="https://discord.triodocs.org/">Discord</a> first.</p>
+</div>
+<p>Follow the steps below to save and share the logs.</p>
+<h2 id="export-logs">Export Logs</h2>
+<ul>
+<li>From within the <strong>Trio</strong> app,<br/>
+  tap <strong><code>⚙️ Settings › Support &amp; Communities › Share Logs</code></strong></li>
+<li>Use the standard <strong>iOS share sheet</strong> to send these files via Mail, cloud-storage apps, or any other destination available in the share sheet.</li>
+</ul>
+<p>Once you've exported the logs, you can share them where needed.</p>
+<h2 id="share-logs">Share Logs</h2>
+<p>Logs are most commonly shared in the following cases:</p>
+<ul>
+<li>
+<p><strong>Community troubleshooting</strong>:<br/>
+    Post logs to the Trio <a href="https://discord.com/channels/1020905149037813862/1239982832026255521"><code>#bug-reports</code></a> channel on <strong>Discord</strong> or relevant <strong>Facebook</strong> groups when volunteers ask for them to help diagnose an issue.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Overcoming file size limits: Compress Logs</p>
+<p>If Discord or Facebook complains about the file size when you upload the logs, <strong><a href="#compressing-logs">compress them</a></strong> into an archive before sending.</p>
+</div>
+</li>
+<li>
+<p><strong>Developer bug reports</strong>: When requested, attach logs to a <a href="https://github.com/nightscout/Trio/issues/new/choose"><strong>GitHub issue</strong></a> so that developers can use them to reproduce, investigate, and resolve the problem.</p>
+</li>
+</ul>
+<h2 id="compressing-logs">Compressing Logs</h2>
+<p><em>Discord</em> and <em>Facebook</em> will <strong>reject</strong> your <strong>file upload</strong> if it is <strong>larger than 25 MB</strong>.<br/>
+In this case, you first need to compress the log files into an archive before sending.</p>
+<p>The following sections describe how to do that on <a href="#compress-logs-on-windows">Windows</a> and <a href="#compress-logs-on-macos">macOS</a>.</p>
+<h3 id="compress-logs-on-windows">Compress Logs on Windows</h3>
+<p>To compress the log files on <em>Windows</em>, you can use either a <a href="#compress-logs-on-windows-with-a-graphical-application">graphical application</a> or the <a href="#compress-logs-on-windows-in-the-terminal">terminal</a>.</p>
+<h4 id="compress-logs-on-windows-with-a-graphical-application">Compress Logs on Windows with a Graphical Application</h4>
+<ol>
+<li>Launch the Windows <strong>File Explorer</strong> </li>
+<li><strong>Select Log Files</strong> <ul>
+<li>Navigate to the folder containing the log files.</li>
+<li>Hold ++control++ and <strong>click</strong> <code>log.txt</code>.</li>
+<li>Hold ++control++ and <strong>click</strong> <code>log_prev.txt</code>.</li>
+</ul>
+</li>
+<li><strong>Compression</strong> <ul>
+<li>Right-click one selected file</li>
+<li>Select <code>Send to</code>  in the contextual menu.<ul>
+<li>Select <code>Compressed (zipped) folder</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Name Archive</strong> <ul>
+<li>Type <code>triologs.zip</code> and press <strong>++enter++</strong>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="compress-logs-on-windows-in-the-terminal">Compress Logs on Windows in the Terminal</h4>
+<p>If you are not comfortable using the  <strong>command line in a terminal</strong> on <em>Windows</em>, consider using a <a href="#compress-logs-on-windows-with-a-graphical-application">graphical application</a> instead; otherwise, keep reading.</p>
+<p>Choose your favorite Windows Shell below <strong>PowerShell</strong> or "<strong>Command Prompt (CMD)</strong>", then follow the instructions.</p>
+<div class="grid">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">PowerShell</label><label for="__tabbed_1_2">Command Prompt (CMD)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li><strong>Open PowerShell</strong>:  <ul>
+<li>Right-click the <code>Start menu</code></li>
+<li>Select <code>Windows PowerShell</code>.</li>
+</ul>
+</li>
+<li><strong>Navigate to Log Folder</strong>:<br/>
+<pre class="highlight"><code class="language-powershell">cd $HOME\Downloads</code></pre>
+    Replace <code>$HOME/Downloads</code> with the folder where you downloaded the log files.</li>
+<li><strong>Run Compression Command</strong>:<br/>
+<pre class="highlight"><code class="language-powershell">Compress-Archive -Path log.txt, log_prev.txt -DestinationPath triologs.zip</code></pre>
+    where:<ul>
+<li><code>-Path</code> is followed by the files to compress.</li>
+<li><code>-DestinationPath</code> is followed by the name of the ZIP archive file.</li>
+</ul>
+</li>
+<li><strong>Verify Archive</strong>:<br/>
+    A new <code>triologs.zip</code> archive file appears in the same folder.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><strong>Open Command Prompt</strong>:  <ul>
+<li>Click the <code>Start menu</code></li>
+<li>Type <code>cmd</code>.</li>
+<li>Press ++enter++.</li>
+</ul>
+</li>
+<li><strong>Navigate to Log Folder</strong>:<br/>
+<pre class="highlight"><code class="language-bat">cd %USERPROFILE%\Downloads</code></pre>
+           Replace <code>%USERPROFILE%\Downloads</code> with the folder where you downloaded the log files.</li>
+<li><strong>Run Compression Command</strong>: <br/>
+<pre class="highlight"><code class="language-bat">tar -a -c -f triologs.zip log.txt log_prev.txt</code></pre>
+     where:<ul>
+<li><code>tar</code> is the archiving utility.</li>
+<li><code>-a</code> selects the archive format based on the file extension (<code>.zip</code> in this case).</li>
+<li><code>-c</code> creates a new archive.</li>
+<li><code>-f</code> is followed by the name of the archive file.</li>
+<li><code>log.txt log_prev.txt</code> are the files to include in the archive.</li>
+</ul>
+</li>
+<li><strong>Verify the Archive</strong>:<br/>
+    A new <code>triologs.zip</code> archive file appears in the same folder.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<h3 id="compress-logs-on-macos">Compress Logs on macOS</h3>
+<p>To compress the log files on a <em>Mac</em>, you can use either a <a href="#compress-logs-on-macos-with-a-graphical-application">graphical application</a> or the <a href="#compress-logs-on-macos-in-the-terminal">terminal</a>.</p>
+<h4 id="compress-logs-on-macos-with-a-graphical-application">Compress Logs on macOS with a Graphical Application</h4>
+<ol>
+<li>Launch the <strong><code>Finder</code></strong>  application</li>
+<li><strong>Select Log Files</strong>:<ul>
+<li>Hold ++command++ and <strong>click</strong> <code>log.txt</code> </li>
+<li>Hold ++command++ and <strong>click</strong> <code>log_prev.txt</code>.  </li>
+</ul>
+</li>
+<li><strong>Compression</strong>  :<ul>
+<li>Right-click the blue highlighted lines.</li>
+<li>Select <strong><code>Compress</code></strong> in the contextual menu.</li>
+</ul>
+</li>
+<li><strong>Name Archive</strong>:  <ul>
+<li>An <code>Archive.zip</code> file appears.</li>
+<li>Rename it to <code>triologs.zip</code>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="compress-logs-on-macos-in-the-terminal">Compress Logs on macOS in the Terminal</h4>
+<p>If you are not comfortable using the  <strong>command line in a terminal</strong> on your Mac, consider using a <a href="#compress-logs-on-macos-with-a-graphical-application">graphical application</a> instead; otherwise, keep reading:</p>
+<ol>
+<li><strong>Launch Terminal</strong>:<ul>
+<li>Press ++command+space++</li>
+<li>Type <strong><code>Terminal</code></strong> </li>
+<li>Press ++enter++</li>
+</ul>
+</li>
+<li><strong>Navigate to Downloads Folder</strong>:<br/>
+<pre class="highlight"><code class="language-shell">cd ~/Downloads</code></pre>
+    Replace <code>~/Downloads</code> with the folder where you downloaded the log files.</li>
+<li><strong>Create Archive</strong>:
+   To create the archive, you can use <code>zip</code> or <code>tar</code>.
+    <pre class="highlight"><code class="language-shell">zip triologs.zip log.txt log_prev.txt</code></pre>
+    If this method does not work because <code>zip</code> is not installed, you can install it like so:
+    <pre class="highlight"><code class="language-shell">xcode-select --install</code></pre>
+    You can also use the <em>tar gzip</em> <strong>alternative</strong> method to compress the log files:
+    <pre class="highlight"><code class="language-shell">tar -czf triologs.tar.gz log.txt log_prev.txt</code></pre></li>
+</ol></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

@@ -1,0 +1,1 @@
+Trio Name Setting Format  (example) Location in Trio Loop Name Setting Format  (example) Location in Loop Enable SMB Always toggle  (On/Off) Settings → Algorithm → Super Micro Bolus (SMB) → Enable SMB Always Automatic Bolus selection  (Temp Basal Only/Automatic Bolus) Settings → Dosing Strategy → Automatic Bolus

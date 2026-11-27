@@ -1,0 +1,1 @@
+Tap the Code button (upper left) and make sure the main branch in your fork is up to date.  Select main in the branch dropdown menu If the message says this branch is "behind", tap the sync fork button and then the Update branch button  

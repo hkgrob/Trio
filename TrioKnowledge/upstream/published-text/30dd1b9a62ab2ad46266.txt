@@ -1,0 +1,1 @@
+Default: 180 mg/dL Range: 100 - 400 mg/dL (5.5 - 22.2 mmol/L)  This setting determines the high value for your alert range. Set this to the high value in which you'd like to receive alerts.

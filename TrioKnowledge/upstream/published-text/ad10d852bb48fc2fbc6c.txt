@@ -1,0 +1,1 @@
+Default: OFF Enabling this feature causes Trio to automatically lower the targeted glucose if it detects resistance to insulin. If Sensitivity Ratio is \(\lt 1\), target glucose will be decreased.

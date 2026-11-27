@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bolus Calculator · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/features/bolus-calculator.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/features/bolus-calculator.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Updated text is highlighted in yellow; removals and replacements appear in the full diff below.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="bolus-calculator">Bolus Calculator</h1>
+<!-- TODO: Add a screenshot of the bolus calculator screen -->
+<h2 id="display-meal-presets">Display Meal Presets</h2>
+<p><strong>Default:</strong> <em>ON</em> </p>
+<p>Enabling this feature allows you to create and save preset meals.</p>
+<hr/>
+<h2 id="recommended-bolus-percentage">Recommended Bolus Percentage</h2>
+<p><strong>Default:</strong> <em>80%</em><br/>
+<strong>Setting Limits:</strong> <em>5%-150%</em> </p>
+<p>Recommended Bolus Percentage is a safety feature built into Trio. Trio first calculates the insulin required for your meal. That dosage is then multiplied by your Recommended Bolus Percentage. The adjusted dosage is shown in the bolus calculator as your <code>Suggested Insulin Dose</code>.</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>R</mi><mi>e</mi><mi>q</mi><mi>u</mi><mi>i</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac></mrow></math></div>
+<p>Because Trio utilizes SMBs and UAMs to help you reach your target glucose and other AID systems do not bolus for COB the same way, this is initially set below the full calculated amount at 80%. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>When SMBs and UAMs are enabled, you may find your current CR results in lows and needs to be increased before you increase this setting</li>
+<li><strong><em>New Trio Users</em>:</strong> It is not advised to set this to 100% until you have verified that your core settings (basal rates, ISF, and CR) do not need adjusting</li>
+</ul>
+</div>
+<hr/>
+<h2 id="reduced-bolus-and-super-bolus-options">Reduced Bolus and Super Bolus Options</h2>
+<!-- TODO: Add a screenshot of the Reduced Bolus and Super Bolus Option in the bolus calculator -->
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not enable these features until you have verified and optimized your carb ratio (CR) setting</p>
+</div>
+<h3 id="enable-reduced-bolus-option">Enable Reduced Bolus Option</h3>
+<p><strong>Default:</strong> <em>OFF</em> </p>
+<p>Enabling this setting adds a "Reduced Bolus" option to the bolus calculator. Once this feature is enabled, a <a href="#reduced-bolus-percentage">Reduced Bolus Percentage</a> setting will appear for you to select. The default for this setting is 70% of the full calculated bolus.</p>
+<h3 id="reduced-bolus-percentage">Reduced Bolus Percentage</h3>
+<p><strong>Default:</strong> <em>70%</em><br/>
+<strong>Setting Limits:</strong> <em>5%-100%</em> </p>
+<p>When entering a meal into the bolus calculator, select the Reduced Bolus option to utilize this lower percentage rather than your <a href="#recommended-bolus-percentage">Recommended Bolus Percentage</a> set in the setting above. This calculation is used in conjunction with your Recommended Bolus Percentage using the formula below:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>R</mi><mi>e</mi><mi>q</mi><mi>u</mi><mi>i</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac></mrow></math></div>
+<p>This setting is useful for meals that require less insulin up front and more later, like pizza.</p>
+<details class="question">
+<summary>Bill has a Recommended Bolus Percentage of 80% and sets his Reduced Bolus Percentage to 50%. Trio has calculated that his insulin required for this meal is 1.5 U. What will his insulin dose be when he uses the Reduced Bolus Option in the bolus calculator?</summary>
+<details class="info">
+<summary>Here is the formula:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>R</mi><mi>e</mi><mi>q</mi><mi>u</mi><mi>i</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac></mrow></math></div>
+</details>
+<details class="note">
+<summary>Enter Bill's numbers to calculate the actual percentage used:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.5</mn><mi>×</mi><mfrac><mrow><mn>80</mn></mrow><mrow><mn>100</mn></mrow></mfrac><mi>×</mi><mfrac><mrow><mn>50</mn></mrow><mrow><mn>100</mn></mrow></mfrac><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.5</mn><mi>×</mi><mn>0.8</mn><mi>×</mi><mn>0.5</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.5</mn><mi>×</mi><mn>0.4</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.6</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Bill will receive a reduced bolus recommendation of 0.6 units, or <strong>40%</strong> of the full bolus calculation.</p>
+</details>
+</details>
+<hr/>
+<h3 id="enable-super-bolus-option">Enable Super Bolus Option</h3>
+<p><strong>Default:</strong> <em>OFF</em> </p>
+<p>Enabling this setting adds a "Super Bolus" Option to the bolus calculator. Once this feature is enabled, a <a href="#super-bolus-percentage">Super Bolus Percentage</a> setting will appear for you to set.</p>
+<p>This option adds this set percentage of your current basal rate to your suggested bolus amount in the bolus calculator. If you want to receive all of your current basal rate in addition to your suggested meal bolus, use 100% for your Super Bolus Percentage.</p>
+<h3 id="super-bolus-percentage">Super Bolus Percentage</h3>
+<p><strong>Default:</strong> <em>100%</em><br/>
+<strong>Setting Limits:</strong> <em>5%-200%</em> </p>
+<p>When entering a meal into the bolus calculator, select the Super Bolus option to utilize this higher bolus amount rather than your <a href="#recommended-bolus-percentage">Recommended Bolus Percentage</a> set in the setting above. This calculation is used in conjunction with your Recommended Bolus Percentage and current basal rate using the formula below:</p>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">(</mo><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>R</mi><mi>e</mi><mi>q</mi><mi>u</mi><mi>i</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>×</mi><mfrac><mrow><mi>S</mi><mi>u</mi><mi>p</mi><mi>e</mi><mi>r</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac><mo stretchy="false">)</mo></mrow></math></div>
+<p>This setting is useful for meals that require more insulin up front, for example, Cinnamon Toast Crunch or candy.</p>
+<details class="question">
+<summary>Bill has a Recommended Bolus Percentage of 80% and sets his Super Bolus Percentage to 200%. His current basal rate is 0.8 U/hr. Trio has calculated that his insulin required for this meal is 1.5 U. What will his insulin dose be when he uses the Super Bolus Option in the bolus calculator?</summary>
+<details class="info">
+<summary>Here is the formula:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">(</mo><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>R</mi><mi>e</mi><mi>q</mi><mi>u</mi><mi>i</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>×</mi><mfrac><mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>C</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mtext> </mtext><mi>B</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>l</mi><mtext> </mtext><mi>R</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>×</mi><mfrac><mrow><mi>S</mi><mi>u</mi><mi>p</mi><mi>e</mi><mi>r</mi><mtext> </mtext><mi>B</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>s</mi><mtext> </mtext><mi>P</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><mrow><mn>100</mn></mrow></mfrac><mo stretchy="false">)</mo></mrow></math></div>
+</details>
+<details class="note">
+<summary>Enter Bill's numbers to calculate the insulin dose:</summary>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">(</mo><mn>1.5</mn><mi>×</mi><mfrac><mrow><mn>80</mn></mrow><mrow><mn>100</mn></mrow></mfrac><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>0.8</mn><mi>×</mi><mfrac><mrow><mn>200</mn></mrow><mrow><mn>100</mn></mrow></mfrac><mo stretchy="false">)</mo><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">(</mo><mn>1.5</mn><mi>×</mi><mn>0.8</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>0.8</mn><mi>×</mi><mn>2</mn><mo stretchy="false">)</mo><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.2</mn><mo>+</mo><mn>1.6</mn><mo>=</mo></mrow></math></div>
+<div class="arithmatex"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2.8</mn><mtext> </mtext><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow></math></div>
+</details>
+<details class="success">
+<summary>Answer</summary>
+<p>Bill will receive a super bolus recommendation of 2.8 units.</p>
+</details>
+</details>
+<hr/>
+<h2 id="very-low-glucose-warning">Very Low Glucose Warning</h2>
+<p><strong>Default:</strong> <em>Off</em></p>
+<p>This setting triggers a confirmation dialog if you attempt to bolus when glucose is &lt;54 mg/dL (3 mmol/L). It is also triggered when the lowest forecasted glucose (minPredBG) is &lt;54 mg/dL (3 mmol/L).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The forecast used for this warning does not include carbs or insulin that are entered for the current bolus calculation.</p>
+</div>
+<hr/>
+<h2 class="changed-block" data-change="added-or-revised" id="how-the-settings-affect-the-recommendation">How the settings affect the recommendation</h2>
+<p class="changed-block" data-change="added-or-revised">Recommended Bolus Percentage scales a positive calculator result after current IOB has been subtracted; it is not the automated SMB Delivery Ratio. Reduced Bolus multiplies that positive result further, while Super Bolus is added afterward. The <a href="../../../usage/features/bolus-calculator.html#recommendation-safety-gates">calculator guide</a> describes backdated COB, stale/low-glucose gates and the limit/rounding order.</p>
+<h2 class="changed-block" data-change="added-or-revised" id="102-source-references">1.0.2 source references</h2>
+<ul>
+<li class="changed-block" data-change="added-or-revised"><strong>F06 — Calculator safety gates and backdated-carb handling need explicit documentation</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344</a></li>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452</a></li>
+</ul>
+</li>
+<li class="changed-block" data-change="added-or-revised"><strong>F11 — The meal bolus calculator already subtracts automated insulin represented in IOB</strong><ul>
+<li class="changed-block" data-change="added-or-revised"><a href="https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400">Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400</a></li>
+</ul>
+</li>
+</ul></article><details><summary>Full changes: added (+) and removed (−) text</summary><pre><span class="diff-line ">--- upstream/configuration/settings/features/bolus-calculator.md</span><span class="diff-line ">+++ updated/configuration/settings/features/bolus-calculator.md</span><span class="diff-line ">@@ -141,3 +141,17 @@</span><span class="diff-line ">     The forecast used for this warning does not include carbs or insulin that are entered for the current bolus calculation.</span><span class="diff-line ">     </span><span class="diff-line "> - - -</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## How the settings affect the recommendation</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+Recommended Bolus Percentage scales a positive calculator result after current IOB has been subtracted; it is not the automated SMB Delivery Ratio. Reduced Bolus multiplies that positive result further, while Super Bolus is added afterward. The [calculator guide](../../../usage/features/bolus-calculator.md#recommendation-safety-gates) describes backdated COB, stale/low-glucose gates and the limit/rounding order.</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+## 1.0.2 source references</span><span class="diff-line diff-add">+</span><span class="diff-line diff-add">+- **F06 — Calculator safety gates and backdated-carb handling need explicit documentation**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344)</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452)</span><span class="diff-line diff-add">+- **F11 — The meal bolus calculator already subtracts automated insulin represented in IOB**</span><span class="diff-line diff-add">+    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400)</span></pre></details></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

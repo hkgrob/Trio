@@ -1,0 +1,1 @@
+If you tap on the row that says Previous Builds, highlighted by the dashed-green rectangle in the graphic above, you can view and choose an older (or lower version number) build (as long as it has not expired).   In some cases, you need to do this to see the newest build if the most recent build has a lower version number than an older build 

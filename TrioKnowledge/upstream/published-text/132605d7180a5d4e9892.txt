@@ -1,0 +1,1 @@
+In the Onboarding Wizard, you will select your Glucose Units and Pump Model, but you will not pair your pump yet. You will pair your pump and CGM after completing the Onboarding process (See Step 7).

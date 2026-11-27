@@ -1,0 +1,1 @@
+Monitoring your Total Daily Dose helps you understand:  Increasing TDD: May indicate insulin resistance, weight gain, or illness Decreasing TDD: May indicate increased sensitivity, weight loss, or more activity Stable TDD: Consistent insulin needs  Significant TDD changes should prompt review of your basal rates, ISF, carb ratios, and Dynamic ISF Settings.

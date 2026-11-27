@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visualization and Monitoring ✏️ · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../../../index.html">All documents</a><a href="../../../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../../../source/docs/configuration/settings/services/nightscout.md">Updated Markdown</a><a href="../../../../../upstream/source/docs/configuration/settings/services/nightscout.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="visualization-and-monitoring">Visualization and Monitoring ✏️</h1>
+<div class="admonition tip">
+<p class="admonition-title">Highlights</p>
+<ul>
+<li><em>Nightscout</em> is optional but encouraged</li>
+<li><em>Nightscout</em> is a useful tool for data analysis and followers</li>
+<li>Create a <em>Nightscout</em> server and input your URL and <code>API_SECRET</code> in <em>Trio</em>.<br/>
+  Test the connection and enable <code>Allow Uploading to Nightscout</code>.</li>
+</ul>
+</div>
+<h2 id="nightscout-introduction">Nightscout Introduction</h2>
+<p><a href="http://nightscout.info">Nightscout</a> (NS) is an open-source project that allows real-time access to CGM data via a personal website, smartwatch viewers, or apps and widgets available for smartphones. Setting up a <em>Nightscout</em> web app is recommended to visualize your <em>Trio</em> closed loop. </p>
+<p><em>Nightscout</em> allows a user to upload CGM data from various sources to an online database and cloud computing service. The information is then processed and displayed visually as a graph. Plugins also allow more information to be shown about <em>Trio</em>. </p>
+<p>Even if you don't choose to share your <em>Nightscout</em> site
+with another person, it will be helpful for you to visualize what the loop is doing and what it's been doing, plus generate helpful reports for understanding your data.</p>
+<p><a href="https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/nightscout-setup.html">For help making a Nightscout account, please see the OpenAPS documentation.</a></p>
+<h2 id="trio-setup">Trio Setup</h2>
+<p>To enable your <em>Nightscout</em> connection:</p>
+<ul>
+<li>input your <strong><em>Nightscout</em> URL</strong>, including the <code>https://</code> and your <strong><code>API_SECRET</code></strong>. </li>
+<li>Toggle on <strong><code>Allow Uploading to Nightscout</code></strong> so <em>Trio</em> can share its predictions and settings with <em>Nightscout</em>. </li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">A Nightscout URL starts with httpS://</p>
+<p>Your <em>Nightscout</em> URL must start with <code>https://</code>.<br/>
+ To set this up correctly, do not forget the letter <code>s</code> between <code>http</code> and <code>://</code>.</p>
+</div></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

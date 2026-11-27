@@ -1,0 +1,1 @@
+Exact Match Required The override name sent from LoopFollow must exactly match a preset name in Trio:  Case-sensitive: "Exercise" ≠ "exercise" Spacing matters: "Sick Day" ≠ "SickDay" Spelling must be exact  If no match is found, the command will fail with an error message.

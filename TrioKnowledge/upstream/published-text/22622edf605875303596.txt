@@ -1,0 +1,1 @@
+Temp Targets can be found under the Adjustments tab at the bottom of the Trio app screen. You can also find your saved Temp Targets listed here. Temp targets can be set remotely using Loop Follow or automated using Shortcuts.

@@ -1,0 +1,1 @@
+Apple frequently updates its License Agreement for the Developer Program. You need to log in to your developer account to manually check if there is a new agreement to accept. If you see a big red or orange banner atop your Developer Account announcing a new license agreement, like shown below, please read and accept it before building Trio. 

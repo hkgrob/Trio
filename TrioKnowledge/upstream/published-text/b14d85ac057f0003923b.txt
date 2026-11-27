@@ -1,0 +1,1 @@
+Default: ON Choose whether or not to display the Y-Axis (vertical) grid lines on the glucose graph.  

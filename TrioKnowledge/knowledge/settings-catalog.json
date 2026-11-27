@@ -1,0 +1,5433 @@
+[
+  {
+    "id": "Preferences.maxIOB",
+    "name": "maxIOB",
+    "json_key": "max_iob",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 4,
+    "picker": {
+      "value": 0.0,
+      "step": 1.0,
+      "min": 0.0,
+      "max": 30.0,
+      "unit_type": "insulinUnit",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 52
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          32,
+          43
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          672
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/MultiUsePanelState.swift",
+        "lines": [
+          20,
+          32
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingRootView.swift",
+        "lines": [
+          22,
+          594
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/DeliveryLimitsStepView.swift",
+        "lines": [
+          24,
+          28,
+          29,
+          125,
+          141
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          348,
+          358,
+          368,
+          378
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          810,
+          851,
+          852,
+          861,
+          883
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.maxDailySafetyMultiplier",
+    "name": "maxDailySafetyMultiplier",
+    "json_key": "max_daily_safety_multiplier",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 3,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 5,
+    "picker": {
+      "value": 3.0,
+      "step": 0.1,
+      "min": 1.0,
+      "max": 5.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 53
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          34,
+          45
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 3,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.currentBasalSafetyMultiplier",
+    "name": "currentBasalSafetyMultiplier",
+    "json_key": "current_basal_safety_multiplier",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 4,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 6,
+    "picker": {
+      "value": 4.0,
+      "step": 0.1,
+      "min": 1.0,
+      "max": 5.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 60
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          63,
+          78
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 4,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.autosensMax",
+    "name": "autosensMax",
+    "json_key": "autosens_max",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 1.2,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 7,
+    "picker": {
+      "value": 1.2,
+      "step": 0.05,
+      "min": 0.5,
+      "max": 2.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 67
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/AddTempTargetForm.swift",
+        "lines": [
+          110,
+          139
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/AdjustmentsRootView+TempTargets.swift",
+        "lines": [
+          160
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/EditTempTargetForm.swift",
+        "lines": [
+          47,
+          103,
+          206
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+        "lines": [
+          137,
+          148
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          167,
+          171,
+          174
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingRootView.swift",
+        "lines": [
+          638
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          46,
+          50,
+          51,
+          308,
+          330
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          35,
+          80,
+          103,
+          145,
+          188,
+          430,
+          469
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          210,
+          212
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 1.2,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.autosensMin",
+    "name": "autosensMin",
+    "json_key": "autosens_min",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.7,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 8,
+    "picker": {
+      "value": 0.7,
+      "step": 0.05,
+      "min": 0.5,
+      "max": 1.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 68
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+        "lines": [
+          168,
+          179
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingRootView.swift",
+        "lines": [
+          24,
+          606,
+          617,
+          746
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          37,
+          41,
+          42,
+          309,
+          331
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          34,
+          79,
+          102,
+          144,
+          175,
+          429,
+          468
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.7,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.smbDeliveryRatio",
+    "name": "smbDeliveryRatio",
+    "json_key": "smb_delivery_ratio",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.5,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 9,
+    "picker": {
+      "value": 0.5,
+      "step": 0.05,
+      "min": 0.3,
+      "max": 0.7,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 69
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          223,
+          234
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.5,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.rewindResetsAutosens",
+    "name": "rewindResetsAutosens",
+    "json_key": "rewind_resets_autosens",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 10,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+        "lines": [
+          199
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingRootView.swift",
+        "lines": [
+          637
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          55,
+          61
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/UnitSelectionStepView.swift",
+        "lines": [
+          36
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          36,
+          81,
+          104,
+          146,
+          201,
+          431,
+          470
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.highTemptargetRaisesSensitivity",
+    "name": "highTemptargetRaisesSensitivity",
+    "json_key": "high_temptarget_raises_sensitivity",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 11,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          24
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.lowTemptargetLowersSensitivity",
+    "name": "lowTemptargetLowersSensitivity",
+    "json_key": "low_temptarget_lowers_sensitivity",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 12,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          210,
+          215
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.sensitivityRaisesTarget",
+    "name": "sensitivityRaisesTarget",
+    "json_key": "sensitivity_raises_target",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 13,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          188,
+          194
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          55,
+          94,
+          136,
+          167,
+          388,
+          454,
+          483
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          103
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.resistanceLowersTarget",
+    "name": "resistanceLowersTarget",
+    "json_key": "resistance_lowers_target",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 14,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          197,
+          203
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          56,
+          95,
+          137,
+          168,
+          395,
+          455,
+          484
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          126
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.advTargetAdjustments",
+    "name": "advTargetAdjustments",
+    "json_key": "adv_target_adjustments",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 15,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.exerciseMode",
+    "name": "exerciseMode",
+    "json_key": "exercise_mode",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 16,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.halfBasalExerciseTarget",
+    "name": "halfBasalExerciseTarget",
+    "json_key": "half_basal_exercise_target",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 160,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 17,
+    "picker": {
+      "value": 160.0,
+      "step": 5.0,
+      "min": 105.0,
+      "max": 300.0,
+      "unit_type": "glucose",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 70
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          210
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          148,
+          159
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 160,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.maxCOB",
+    "name": "maxCOB",
+    "json_key": "maxCOB",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 120,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 18,
+    "picker": {
+      "value": 120.0,
+      "step": 5.0,
+      "min": 0.0,
+      "max": 300.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 77
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          136,
+          147
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/DeliveryLimitsStepView.swift",
+        "lines": [
+          46,
+          50,
+          51,
+          127,
+          143
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          351,
+          361,
+          371,
+          429
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          331
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 120,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.maxMealAbsorptionTime",
+    "name": "maxMealAbsorptionTime",
+    "json_key": "maxMealAbsorptionTime",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 6,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 19,
+    "picker": {
+      "value": 6.0,
+      "step": 1.0,
+      "min": 4.0,
+      "max": 10.0,
+      "unit_type": "hour",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 78
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          215,
+          226
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 6,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.wideBGTargetRange",
+    "name": "wideBGTargetRange",
+    "json_key": "wide_bg_target_range",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 20,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.skipNeutralTemps",
+    "name": "skipNeutralTemps",
+    "json_key": "skip_neutral_temps",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 21,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          166
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.unsuspendIfNoTemp",
+    "name": "unsuspendIfNoTemp",
+    "json_key": "unsuspend_if_no_temp",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 22,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          196
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.min5mCarbimpact",
+    "name": "min5mCarbimpact",
+    "json_key": "min_5m_carbimpact",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 8,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 23,
+    "picker": {
+      "value": 8.0,
+      "step": 1.0,
+      "min": 1.0,
+      "max": 20.0,
+      "unit_type": "glucose",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 79
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          275,
+          286
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": 8,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.remainingCarbsFraction",
+    "name": "remainingCarbsFraction",
+    "json_key": "remainingCarbsFraction",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 1.0,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 24,
+    "picker": {
+      "value": 1.0,
+      "step": 0.05,
+      "min": 0.5,
+      "max": 1.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 80
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          304,
+          315
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 1,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.remainingCarbsCap",
+    "name": "remainingCarbsCap",
+    "json_key": "remainingCarbsCap",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 90,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 25,
+    "picker": {
+      "value": 90.0,
+      "step": 5.0,
+      "min": 0.0,
+      "max": 200.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 87
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          334,
+          345
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 90,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableUAM",
+    "name": "enableUAM",
+    "json_key": "enableUAM",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 26,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          134,
+          140
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          46,
+          88,
+          120,
+          157,
+          286,
+          443,
+          477
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          206
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.a52RiskEnable",
+    "name": "a52RiskEnable",
+    "json_key": "A52_risk_enable",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 27,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableSMBWithCOB",
+    "name": "enableSMBWithCOB",
+    "json_key": "enableSMB_with_COB",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 28,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          74,
+          80
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          41,
+          83,
+          106,
+          148,
+          233,
+          438,
+          472
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          51
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableSMBWithTemptarget",
+    "name": "enableSMBWithTemptarget",
+    "json_key": "enableSMB_with_temptarget",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 29,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          78
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableSMBAlways",
+    "name": "enableSMBAlways",
+    "json_key": "enableSMB_always",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 30,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingRootView.swift",
+        "lines": [
+          25,
+          624,
+          625,
+          627,
+          628,
+          634,
+          751,
+          753,
+          754,
+          761
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          65,
+          71,
+          82,
+          92,
+          102,
+          112,
+          122
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          40,
+          82,
+          105,
+          147,
+          217,
+          437,
+          471
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          23,
+          48
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableSMBAfterCarbs",
+    "name": "enableSMBAfterCarbs",
+    "json_key": "enableSMB_after_carbs",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 31,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          94,
+          100
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          43,
+          85,
+          111,
+          152,
+          253,
+          440,
+          474
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          107
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.allowSMBWithHighTemptarget",
+    "name": "allowSMBWithHighTemptarget",
+    "json_key": "allowSMB_with_high_temptarget",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 32,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          166
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.maxSMBBasalMinutes",
+    "name": "maxSMBBasalMinutes",
+    "json_key": "maxSMBBasalMinutes",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 30,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 33,
+    "picker": {
+      "value": 30.0,
+      "step": 5.0,
+      "min": 15.0,
+      "max": 180.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 88
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          129
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          147
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          235,
+          246
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 30,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.maxUAMSMBBasalMinutes",
+    "name": "maxUAMSMBBasalMinutes",
+    "json_key": "maxUAMSMBBasalMinutes",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 30,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 34,
+    "picker": {
+      "value": 30.0,
+      "step": 5.0,
+      "min": 15.0,
+      "max": 180.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 89
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          136
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          156
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          281,
+          292
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 30,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.smbInterval",
+    "name": "smbInterval",
+    "json_key": "SMBInterval",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 3,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 35,
+    "picker": {
+      "value": 3.0,
+      "step": 1.0,
+      "min": 1.0,
+      "max": 10.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 90
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          251,
+          262
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 3,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.bolusIncrement",
+    "name": "bolusIncrement",
+    "json_key": "bolus_increment",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.1,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 36,
+    "picker": {
+      "value": 0.1,
+      "step": 0.05,
+      "min": 0.05,
+      "max": 1.0,
+      "unit_type": "insulinUnit",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 91
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          9,
+          21
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          52,
+          64
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.1,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.curve",
+    "name": "curve",
+    "json_key": "curve",
+    "model": "Preferences",
+    "type": "InsulinCurve",
+    "model_default": ".rapidActing",
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 37,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          139,
+          142,
+          221
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartLegendView.swift",
+        "lines": [
+          58
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/settings/algorithm/dynamic-settings.md",
+      "updated-docs/source/docs/usage/features/dynamic-isf.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": "rapid-acting",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.useCustomPeakTime",
+    "name": "useCustomPeakTime",
+    "json_key": "useCustomPeakTime",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 38,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          132
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.insulinPeakTime",
+    "name": "insulinPeakTime",
+    "json_key": "insulinPeakTime",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 75,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 39,
+    "picker": {
+      "value": 75.0,
+      "step": 1.0,
+      "min": 35.0,
+      "max": 120.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 98
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          131,
+          142
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 75,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.carbsReqThreshold",
+    "name": "carbsReqThreshold",
+    "json_key": "carbsReqThreshold",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 1.0,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 40,
+    "picker": {
+      "value": 1.0,
+      "step": 0.1,
+      "min": 0.0,
+      "max": 10.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 99
+    },
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 1,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.noisyCGMTargetMultiplier",
+    "name": "noisyCGMTargetMultiplier",
+    "json_key": "noisyCGMTargetMultiplier",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 1.3,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 41,
+    "picker": {
+      "value": 1.3,
+      "step": 0.05,
+      "min": 1.0,
+      "max": 2.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 100
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          364,
+          375
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 1.3,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.suspendZerosIOB",
+    "name": "suspendZerosIOB",
+    "json_key": "suspend_zeros_iob",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 42,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.timestamp",
+    "name": "timestamp",
+    "json_key": "timestamp",
+    "model": "Preferences",
+    "type": "Date?",
+    "model_default": null,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 43,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+Treatments.swift",
+        "lines": [
+          28,
+          93
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView.swift",
+        "lines": [
+          33
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/BasalChart.swift",
+        "lines": [
+          115,
+          120,
+          121,
+          153,
+          158,
+          176,
+          177,
+          182,
+          185,
+          192,
+          195,
+          205,
+          208,
+          210
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/ChartSelectionRow.swift",
+        "lines": [
+          25
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/InsulinView.swift",
+        "lines": [
+          18
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          416,
+          855
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopStatusView.swift",
+        "lines": [
+          168,
+          170,
+          177
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopView.swift",
+        "lines": [
+          58,
+          116,
+          118,
+          184,
+          215
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+        "lines": [
+          142,
+          215,
+          221
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/settings/features/remote-control.md",
+      "updated-docs/source/docs/configuration/settings/notifications/live-activity.md",
+      "updated-docs/source/docs/configuration/transition-qa.md"
+    ],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.maxDeltaBGthreshold",
+    "name": "maxDeltaBGthreshold",
+    "json_key": "maxDelta_bg_threshold",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.2,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 44,
+    "picker": {
+      "value": 0.2,
+      "step": 0.05,
+      "min": 0.1,
+      "max": 0.4,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 107
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          165
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          326,
+          340
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.2,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.adjustmentFactor",
+    "name": "adjustmentFactor",
+    "json_key": "adjustmentFactor",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.8,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 45,
+    "picker": {
+      "value": 0.8,
+      "step": 0.05,
+      "min": 0.3,
+      "max": 3.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 114
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          175,
+          181
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.8,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.adjustmentFactorSigmoid",
+    "name": "adjustmentFactorSigmoid",
+    "json_key": "adjustmentFactorSigmoid",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.5,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 46,
+    "picker": {
+      "value": 0.5,
+      "step": 0.05,
+      "min": 0.1,
+      "max": 2.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 115
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          200,
+          205
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.5,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.sigmoid",
+    "name": "sigmoid",
+    "json_key": "sigmoid",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 47,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          139,
+          142
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/iaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/loop-migration.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/autosens.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/dynamic-settings.md",
+      "updated-docs/source/docs/configuration/settings/closed-loop.md",
+      "updated-docs/source/docs/configuration/settings/therapy/basal-rates.md",
+      "updated-docs/source/docs/usage/concepts/isf.md",
+      "updated-docs/source/docs/usage/features/dynamic-isf.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.useNewFormula",
+    "name": "useNewFormula",
+    "json_key": "useNewFormula",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 48,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+        "lines": [
+          62,
+          76,
+          92,
+          97
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.useWeightedAverage",
+    "name": "useWeightedAverage",
+    "json_key": "useWeightedAverage",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 49,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.weightPercentage",
+    "name": "weightPercentage",
+    "json_key": "weightPercentage",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 0.35,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 50,
+    "picker": {
+      "value": 0.35,
+      "step": 0.05,
+      "min": 0.05,
+      "max": 1.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 122
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          228,
+          233
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.35,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.tddAdjBasal",
+    "name": "tddAdjBasal",
+    "json_key": "tddAdjBasal",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 51,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          252
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableSMB_high_bg",
+    "name": "enableSMB_high_bg",
+    "json_key": "enableSMB_high_bg",
+    "model": "Preferences",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 52,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          134
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.enableSMB_high_bg_target",
+    "name": "enableSMB_high_bg_target",
+    "json_key": "enableSMB_high_bg_target",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 110,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 53,
+    "picker": {
+      "value": 110.0,
+      "step": 1.0,
+      "min": 70.0,
+      "max": 200.0,
+      "unit_type": "glucose",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 123
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          118
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          133,
+          147
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 110,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.threshold_setting",
+    "name": "threshold_setting",
+    "json_key": "threshold_setting",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 60,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 54,
+    "picker": {
+      "value": 60.0,
+      "step": 1.0,
+      "min": 60.0,
+      "max": 120.0,
+      "unit_type": "glucose",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 130
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          164,
+          175
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/DeliveryLimitsStepView.swift",
+        "lines": [
+          57
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 60,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "Preferences.updateInterval",
+    "name": "updateInterval",
+    "json_key": "updateInterval",
+    "model": "Preferences",
+    "type": "Decimal",
+    "model_default": 20,
+    "source": "Trio/Sources/Models/Preferences.swift",
+    "line": 55,
+    "picker": {
+      "value": 20.0,
+      "step": 5.0,
+      "min": 1.0,
+      "max": 60.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 131
+    },
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 20,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/preferences.json"
+  },
+  {
+    "id": "TrioSettings.units",
+    "name": "units",
+    "json_key": "units",
+    "model": "TrioSettings",
+    "type": "GlucoseUnits",
+    "model_default": ".mgdL",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 19,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/AdjustmentsRootView.swift",
+        "lines": [
+          42,
+          43,
+          48
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/Overrides/AddOverrideForm.swift",
+        "lines": [
+          57,
+          171,
+          174,
+          456
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/Overrides/AdjustmentsRootView+Overrides.swift",
+        "lines": [
+          151,
+          154
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/Overrides/EditOverrideForm.swift",
+        "lines": [
+          239,
+          242,
+          565
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/AddTempTargetForm.swift",
+        "lines": [
+          64,
+          95,
+          98,
+          235,
+          334,
+          335,
+          339,
+          390
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/EditTempTargetForm.swift",
+        "lines": [
+          165,
+          168,
+          430,
+          446,
+          451
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/ViewElements/TargetPicker.swift",
+        "lines": [
+          7,
+          18,
+          29,
+          43,
+          45,
+          46,
+          70
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          44,
+          77,
+          108,
+          141,
+          175,
+          205,
+          233,
+          261,
+          285,
+          295,
+          314,
+          344,
+          374
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+        "lines": [
+          89,
+          100,
+          147,
+          178,
+          208
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/AutotuneConfig/View/AutotuneConfigRootView.swift",
+        "lines": [
+          55,
+          80,
+          118,
+          123
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          47,
+          68,
+          99,
+          135,
+          152,
+          169,
+          178,
+          181
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CGMRootView.swift",
+        "lines": [
+          106,
+          170,
+          177
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CustomCGMOptionsView.swift",
+        "lines": [
+          329,
+          331,
+          357,
+          359,
+          370,
+          421,
+          423
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+        "lines": [
+          32,
+          75,
+          110
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Calibrations/View/CalibrationsRootView.swift",
+        "lines": [
+          22,
+          52
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/DynamicSettings/View/DynamicSettingsRootView.swift",
+        "lines": [
+          65,
+          180,
+          204,
+          232,
+          255
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          42,
+          45,
+          48,
+          96,
+          102,
+          122,
+          146,
+          174,
+          194,
+          197,
+          201
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/Components/AlarmBGSection.swift",
+        "lines": [
+          9,
+          23,
+          25,
+          32,
+          44,
+          62
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertEditorView.swift",
+        "lines": [
+          19,
+          32,
+          39,
+          132,
+          146,
+          160,
+          174
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertsRootView.swift",
+        "lines": [
+          99,
+          134,
+          310
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/HealthKit/View/AppleHealthKitRootView.swift",
+        "lines": [
+          32
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+AddGlucose.swift",
+        "lines": [
+          7,
+          20,
+          21,
+          32,
+          35
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+Adjustments.swift",
+        "lines": [
+          97
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+Confirmations.swift",
+        "lines": [
+          13,
+          14
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+Glucose.swift",
+        "lines": [
+          31,
+          82,
+          83
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/CarbView.swift",
+        "lines": [
+          7,
+          26,
+          27
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/ChartSelectionRow.swift",
+        "lines": [
+          70,
+          78,
+          82,
+          84,
+          88,
+          89,
+          94,
+          192,
+          195
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/ForecastView.swift",
+        "lines": [
+          9,
+          37,
+          40,
+          47,
+          55,
+          57,
+          63,
+          80
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/GlucoseChartView.swift",
+        "lines": [
+          7,
+          36,
+          62,
+          91
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/InsulinView.swift",
+        "lines": [
+          8,
+          24,
+          25
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/OverrideView.swift",
+        "lines": [
+          10,
+          41,
+          56
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/TempTargets.swift",
+        "lines": [
+          9,
+          33,
+          50
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          31,
+          113,
+          147,
+          193,
+          219,
+          221,
+          298,
+          341,
+          768,
+          796,
+          809,
+          840,
+          933,
+          940,
+          947,
+          953,
+          956,
+          964,
+          972,
+          1003
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/CurrentGlucoseView.swift",
+        "lines": [
+          7,
+          40,
+          170,
+          222,
+          223,
+          241
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopStatusView.swift",
+        "lines": [
+          82,
+          91
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          28,
+          81,
+          176,
+          178,
+          555
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+Header.swift",
+        "lines": [
+          74,
+          176,
+          184,
+          185
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+MealPanel.swift",
+        "lines": [
+          34
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView.swift",
+        "lines": [
+          86,
+          301,
+          354,
+          361
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/QuickPickTreatments/QuickPickTreatmentsView.swift",
+        "lines": [
+          53
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/ISFEditor/View/ISFEditorRootView.swift",
+        "lines": [
+          19,
+          98,
+          146
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+        "lines": [
+          61,
+          98
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          80,
+          123,
+          165,
+          225,
+          257,
+          309,
+          336,
+          363
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutFetchView.swift",
+        "lines": [
+          30
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+        "lines": [
+          30,
+          62,
+          84
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/AlgorithmSettings/AlgorithmSettingsSubstepView.swift",
+        "lines": [
+          29,
+          218,
+          252,
+          264,
+          278,
+          281,
+          298,
+          299,
+          302,
+          314,
+          315,
+          325,
+          336,
+          337
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/DeliveryLimitsStepView.swift",
+        "lines": [
+          62,
+          103,
+          130,
+          131,
+          146,
+          147
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/TherapySettings/GlucoseTargetStepView.swift",
+        "lines": [
+          24,
+          61,
+          91,
+          132,
+          133
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/TherapySettings/InsulinSensitivityStepView.swift",
+        "lines": [
+          26,
+          62,
+          84,
+          86,
+          90,
+          96,
+          116,
+          118,
+          148
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/UnitSelectionStepView.swift",
+        "lines": [
+          15,
+          38
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          11,
+          12,
+          20,
+          21,
+          24,
+          25,
+          142,
+          150,
+          155,
+          162,
+          165,
+          173,
+          247,
+          277,
+          370,
+          373,
+          381,
+          384,
+          405,
+          412,
+          491,
+          492,
+          495,
+          496
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          182,
+          368,
+          376,
+          380,
+          455,
+          458,
+          462
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/TherapySettingEditorView.swift",
+        "lines": [
+          398
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/QuickPickTreatmentsConfig/View/QuickPickTreatmentsConfigRootView.swift",
+        "lines": [
+          32
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/RemoteControlConfig/View/RemoteControlConfig.swift",
+        "lines": [
+          35
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          32,
+          60,
+          87,
+          91,
+          97,
+          116,
+          146,
+          179,
+          187,
+          193,
+          215,
+          245,
+          291,
+          339
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/ShortcutsConfig/View/ShortcutsConfigView.swift",
+        "lines": [
+          54
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ChartsView.swift",
+        "lines": [
+          9,
+          18,
+          41,
+          48,
+          87,
+          99,
+          157,
+          222,
+          231,
+          240,
+          261,
+          269,
+          276
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/StatRootView.swift",
+        "lines": [
+          165,
+          175,
+          189,
+          199,
+          213,
+          222
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyDistributionChart.swift",
+        "lines": [
+          7,
+          94,
+          105,
+          196,
+          198,
+          200,
+          202,
+          204,
+          206
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyPercentileChart.swift",
+        "lines": [
+          32,
+          143,
+          155,
+          191,
+          192,
+          197,
+          198,
+          203,
+          204,
+          209,
+          210,
+          215,
+          216,
+          236,
+          245,
+          256,
+          259,
+          263,
+          266,
+          270,
+          273,
+          283,
+          309,
+          310,
+          311,
+          353,
+          371,
+          378,
+          379,
+          380,
+          388,
+          397
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDistributionChart.swift",
+        "lines": [
+          8,
+          35,
+          37,
+          41,
+          45,
+          49,
+          53,
+          56
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseMetricsView.swift",
+        "lines": [
+          8,
+          34,
+          35,
+          131,
+          132,
+          133
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucosePercentileChart.swift",
+        "lines": [
+          16,
+          17,
+          41,
+          46,
+          50,
+          64,
+          65,
+          74,
+          75,
+          85,
+          94,
+          96,
+          98,
+          100,
+          102,
+          104,
+          117,
+          126,
+          127,
+          128,
+          135,
+          136,
+          137,
+          154,
+          164,
+          197,
+          216,
+          217,
+          221,
+          222,
+          226,
+          227,
+          231,
+          232,
+          236,
+          237
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucosePercentileDetailView.swift",
+        "lines": [
+          5,
+          48
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseSectorChart.swift",
+        "lines": [
+          8,
+          70,
+          80,
+          91,
+          99,
+          111,
+          119,
+          129,
+          137,
+          151,
+          161,
+          287,
+          291,
+          294,
+          295,
+          313,
+          319,
+          323,
+          324,
+          343,
+          348,
+          351,
+          352,
+          391,
+          395
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Insulin/TotalDailyDoseChart.swift",
+        "lines": [
+          228
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          37,
+          45,
+          51,
+          54,
+          76,
+          86,
+          92,
+          95,
+          112,
+          135,
+          158,
+          165,
+          172
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetsEditor/View/TargetsEditorRootView.swift",
+        "lines": [
+          19,
+          92,
+          142,
+          183,
+          184
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Telemetry/View/TelemetryPrivacyView.swift",
+        "lines": [
+          21
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/ForecastChart.swift",
+        "lines": [
+          88,
+          106,
+          110,
+          171,
+          207,
+          209,
+          245,
+          247,
+          253,
+          258,
+          277,
+          314,
+          342,
+          345,
+          351,
+          352,
+          363,
+          364,
+          389
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          20,
+          21,
+          22,
+          213,
+          236,
+          240,
+          246,
+          258,
+          260,
+          264,
+          465,
+          469,
+          481,
+          484,
+          964
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          79,
+          90,
+          302,
+          312
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          28,
+          145,
+          218,
+          238,
+          241,
+          251,
+          252,
+          272,
+          275,
+          290,
+          293,
+          303,
+          304,
+          323,
+          326,
+          352,
+          564,
+          566,
+          568,
+          581,
+          583,
+          585,
+          656,
+          678,
+          713,
+          753
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigAppleWatchView.swift",
+        "lines": [
+          36,
+          57
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/iaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/loop-migration.md",
+      "updated-docs/source/docs/configuration/migration/trio-02x-migration.md",
+      "updated-docs/source/docs/configuration/new-user-setup.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/additionals.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+      "updated-docs/source/docs/configuration/settings/export-settings.md",
+      "updated-docs/source/docs/configuration/settings/features/bolus-calculator.md",
+      "updated-docs/source/docs/configuration/settings/features/meal-settings.md",
+      "updated-docs/source/docs/configuration/settings/features/remote-control.md",
+      "updated-docs/source/docs/configuration/settings/index.md",
+      "updated-docs/source/docs/configuration/settings/therapy/carb-ratios.md",
+      "updated-docs/source/docs/configuration/settings/therapy/index.md",
+      "updated-docs/source/docs/configuration/settings/therapy/isf.md",
+      "updated-docs/source/docs/configuration/settings/therapy/units-limits.md",
+      "updated-docs/source/docs/configuration/transition-qa.md",
+      "updated-docs/source/docs/help/faq.md",
+      "updated-docs/source/docs/install/build/requirements/devices/pump.md",
+      "updated-docs/source/docs/install/customize.md",
+      "updated-docs/source/docs/usage/concepts/basal-rates.md",
+      "updated-docs/source/docs/usage/concepts/carb-ratios.md",
+      "updated-docs/source/docs/usage/concepts/isf.md",
+      "updated-docs/source/docs/usage/features/bolus-calculator.md",
+      "updated-docs/source/docs/usage/features/dynamic-isf.md",
+      "updated-docs/source/docs/usage/features/statistics.md",
+      "updated-docs/source/docs/usage/interface.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": "mg/dL",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.dosingMode",
+    "name": "dosingMode",
+    "json_key": "dosingMode",
+    "model": "TrioSettings",
+    "type": "DosingMode",
+    "model_default": ".open",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 20,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AutosensSettings/View/AutosensSettingsRootView.swift",
+        "lines": [
+          65
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopStatusHelpView.swift",
+        "lines": [
+          22
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopStatusView.swift",
+        "lines": [
+          33,
+          151,
+          165,
+          199,
+          218
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopView.swift",
+        "lines": [
+          13,
+          72,
+          76,
+          88,
+          115,
+          134,
+          151,
+          165,
+          212
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          674
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+Header.swift",
+        "lines": [
+          151
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+Refresh.swift",
+        "lines": [
+          33
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/MultiUsePanelState.swift",
+        "lines": [
+          22,
+          29,
+          30
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Settings/View/SettingsRootView.swift",
+        "lines": [
+          217,
+          231
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/TargetBehavoir/View/TargetBehavoirRootView.swift",
+        "lines": [
+          83
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          910
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "open",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.isUploadEnabled",
+    "name": "isUploadEnabled",
+    "json_key": "isUploadEnabled",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 21,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+        "lines": [
+          20
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/Nightscout/NightscoutUploadStepView.swift",
+        "lines": [
+          16,
+          52
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.isDownloadEnabled",
+    "name": "isDownloadEnabled",
+    "json_key": "isDownloadEnabled",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 22,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutFetchView.swift",
+        "lines": [
+          21
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.useLocalGlucoseSource",
+    "name": "useLocalGlucoseSource",
+    "json_key": "useLocalGlucoseSource",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 23,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.localGlucosePort",
+    "name": "localGlucosePort",
+    "json_key": "localGlucosePort",
+    "model": "TrioSettings",
+    "type": "Int",
+    "model_default": 8080,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 24,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 8080,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.debugOptions",
+    "name": "debugOptions",
+    "json_key": "debugOptions",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 25,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.cgm",
+    "name": "cgm",
+    "json_key": "cgm",
+    "model": "TrioSettings",
+    "type": "CGMType",
+    "model_default": ".none",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 26,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CGMRootView.swift",
+        "lines": [
+          200,
+          201,
+          216
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CustomCGMOptionsView.swift",
+        "lines": [
+          94
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/CurrentGlucoseView.swift",
+        "lines": [
+          14,
+          85
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+Header.swift",
+        "lines": [
+          36
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Settings/View/Subviews/DevicesView.swift",
+        "lines": [
+          25
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucosePercentileChart.swift",
+        "lines": [
+          39
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/iaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/loop-migration.md",
+      "updated-docs/source/docs/configuration/migration/trio-02x-migration.md",
+      "updated-docs/source/docs/configuration/new-user-setup.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/additionals.md",
+      "updated-docs/source/docs/configuration/settings/closed-loop.md",
+      "updated-docs/source/docs/configuration/settings/devices/cgm.md",
+      "updated-docs/source/docs/configuration/settings/devices/index.md",
+      "updated-docs/source/docs/configuration/settings/devices/pump.md",
+      "updated-docs/source/docs/configuration/settings/devices/smart-watch.md",
+      "updated-docs/source/docs/configuration/settings/index.md",
+      "updated-docs/source/docs/configuration/settings/notifications/trio-notifications.md",
+      "updated-docs/source/docs/configuration/settings/services/nightscout.md",
+      "updated-docs/source/docs/configuration/transition-qa.md",
+      "updated-docs/source/docs/help/faq.md",
+      "updated-docs/source/docs/help/glossary.md",
+      "updated-docs/source/docs/includes/supported-cgms.md",
+      "updated-docs/source/docs/install/build/browser/browser-build-overview.md",
+      "updated-docs/source/docs/install/build/browser/install-from-testflight.md",
+      "updated-docs/source/docs/install/build/mac/iphone.md",
+      "updated-docs/source/docs/install/build/mac/overview.md",
+      "updated-docs/source/docs/install/build/mac/update.md",
+      "updated-docs/source/docs/install/build/requirements/apple-developer.md",
+      "updated-docs/source/docs/install/build/requirements/devices/cgm.md",
+      "updated-docs/source/docs/install/build/requirements/devices/index.md",
+      "updated-docs/source/docs/install/build/requirements/devices/iphone.md",
+      "updated-docs/source/docs/install/build/requirements/devices/pump.md",
+      "updated-docs/source/docs/install/ecosystem/xdrip4ios.md",
+      "updated-docs/source/docs/usage/features/statistics.md",
+      "updated-docs/source/docs/usage/interface.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": "none",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.cgmPluginIdentifier",
+    "name": "cgmPluginIdentifier",
+    "json_key": "cgmPluginIdentifier",
+    "model": "TrioSettings",
+    "type": "String",
+    "model_default": "",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 27,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.uploadGlucose",
+    "name": "uploadGlucose",
+    "json_key": "uploadGlucose",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 28,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+        "lines": [
+          52
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/Nightscout/NightscoutUploadGlucoseStepView.swift",
+        "lines": [
+          16
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.uploadCGMSensorStates",
+    "name": "uploadCGMSensorStates",
+    "json_key": "uploadCGMSensorStates",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 29,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/NightscoutConfig/View/NightscoutUploadView.swift",
+        "lines": [
+          74
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/Nightscout/NightscoutUploadStepView.swift",
+        "lines": [
+          45
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.useCalendar",
+    "name": "useCalendar",
+    "json_key": "useCalendar",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 30,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+        "lines": [
+          23,
+          53,
+          121
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.displayCalendarIOBandCOB",
+    "name": "displayCalendarIOBandCOB",
+    "json_key": "displayCalendarIOBandCOB",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 31,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+        "lines": [
+          101
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.displayCalendarEmojis",
+    "name": "displayCalendarEmojis",
+    "json_key": "displayCalendarEmojis",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 32,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/CalendarEventSettings/View/CalendarEventSettingsRootView.swift",
+        "lines": [
+          66
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.glucoseBadge",
+    "name": "glucoseBadge",
+    "json_key": "glucoseBadge",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 33,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertsRootView.swift",
+        "lines": [
+          90
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.carbsRequiredThreshold",
+    "name": "carbsRequiredThreshold",
+    "json_key": "carbsRequiredThreshold",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 10,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 34,
+    "picker": {
+      "value": 10.0,
+      "step": 1.0,
+      "min": 0.0,
+      "max": 100.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 36
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView.swift",
+        "lines": [
+          505,
+          522
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          646,
+          657
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 10,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.showCarbsRequiredBadge",
+    "name": "showCarbsRequiredBadge",
+    "json_key": "showCarbsRequiredBadge",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 35,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView.swift",
+        "lines": [
+          500,
+          517
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          647
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.useFPUconversion",
+    "name": "useFPUconversion",
+    "json_key": "useFPUconversion",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 36,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AddCarbs/View/AddCarbsRootView.swift",
+        "lines": [
+          59,
+          81,
+          86,
+          123,
+          154
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/CarbEntryEditorView.swift",
+        "lines": [
+          146
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+Meals.swift",
+        "lines": [
+          76,
+          77,
+          96,
+          97
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          90,
+          248,
+          297
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Meal/MealStatsView.swift",
+        "lines": [
+          55,
+          141,
+          186,
+          213
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/MealPreset/MealPresetView.swift",
+        "lines": [
+          90,
+          118,
+          215,
+          285,
+          321,
+          342
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          169,
+          185,
+          360
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.individualAdjustmentFactor",
+    "name": "individualAdjustmentFactor",
+    "json_key": "individualAdjustmentFactor",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 0.5,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 37,
+    "picker": {
+      "value": 0.5,
+      "step": 0.05,
+      "min": 0.1,
+      "max": 1.2,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 37
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          353,
+          364
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.5,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.minuteInterval",
+    "name": "minuteInterval",
+    "json_key": "minuteInterval",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 30,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 38,
+    "picker": {
+      "value": 30.0,
+      "step": 5.0,
+      "min": 30.0,
+      "max": 60.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 133
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          326,
+          337
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 30,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.delay",
+    "name": "delay",
+    "json_key": "delay",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 60,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 39,
+    "picker": {
+      "value": 60.0,
+      "step": 5.0,
+      "min": 15.0,
+      "max": 120.0,
+      "unit_type": "minute",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 132
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          186
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          119
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          299,
+          310,
+          320
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          179,
+          180
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/iaps-migration.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/additionals.md",
+      "updated-docs/source/docs/configuration/settings/features/meal-settings.md",
+      "updated-docs/source/docs/install/build/requirements/devices/iphone.md",
+      "updated-docs/source/docs/usage/features/statistics.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": 60,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.useAppleHealth",
+    "name": "useAppleHealth",
+    "json_key": "useAppleHealth",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 40,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/HealthKit/View/AppleHealthKitRootView.swift",
+        "lines": [
+          23
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.smoothGlucose",
+    "name": "smoothGlucose",
+    "json_key": "smoothGlucose",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 41,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CGMRootView.swift",
+        "lines": [
+          97
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/HistoryRootView+Glucose.swift",
+        "lines": [
+          28
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartLegendView.swift",
+        "lines": [
+          117,
+          132,
+          139
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+MealPanel.swift",
+        "lines": [
+          39
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.eA1cDisplayUnit",
+    "name": "eA1cDisplayUnit",
+    "json_key": "eA1cDisplayUnit",
+    "model": "TrioSettings",
+    "type": "EstimatedA1cDisplayUnit",
+    "model_default": ".percent",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 42,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          565
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/StatRootView.swift",
+        "lines": [
+          178,
+          223
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyDistributionChart.swift",
+        "lines": [
+          10,
+          106
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseMetricsView.swift",
+        "lines": [
+          10,
+          16
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          482
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "percent",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.high",
+    "name": "high",
+    "json_key": "high",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 180,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 43,
+    "picker": {
+      "value": 180.0,
+      "step": 1.0,
+      "min": 100.0,
+      "max": 400.0,
+      "unit_type": "glucose",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 44
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/TempTargetHelpView.swift",
+        "lines": [
+          16,
+          33
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          119
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CustomCGMOptionsView.swift",
+        "lines": [
+          404
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          57
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertEditorView.swift",
+        "lines": [
+          54
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertsRootView.swift",
+        "lines": [
+          299
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/GlucoseChartView.swift",
+        "lines": [
+          20
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          225,
+          227
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/CurrentGlucoseView.swift",
+        "lines": [
+          221,
+          369
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopStatusView.swift",
+        "lines": [
+          157
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivityWidgetConfiguration.swift",
+        "lines": [
+          230
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          235,
+          320
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/NotificationPermissionStepView.swift",
+        "lines": [
+          36
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+AlgorithmUtil.swift",
+        "lines": [
+          147,
+          227,
+          230,
+          290,
+          362
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          389
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/SMBSettings/View/SMBSettingsRootView.swift",
+        "lines": [
+          35,
+          39,
+          42,
+          223,
+          353
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ChartsView.swift",
+        "lines": [
+          56,
+          86,
+          98,
+          116,
+          144,
+          156,
+          168,
+          176,
+          202,
+          207
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyDistributionChart.swift",
+        "lines": [
+          144,
+          153,
+          203
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyPercentileChart.swift",
+        "lines": [
+          240
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucosePercentileChart.swift",
+        "lines": [
+          8
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseSectorChart.swift",
+        "lines": [
+          17,
+          21,
+          33,
+          34,
+          38,
+          45,
+          49,
+          61,
+          210,
+          217,
+          226,
+          230,
+          235,
+          244,
+          265,
+          274,
+          276,
+          292
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/ForecastChart.swift",
+        "lines": [
+          232,
+          280
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          290,
+          303,
+          320,
+          321,
+          336,
+          358,
+          711
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/iaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/trio-02x-migration.md",
+      "updated-docs/source/docs/configuration/new-user-setup.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/target-behavior.md",
+      "updated-docs/source/docs/configuration/settings/devices/cgm.md",
+      "updated-docs/source/docs/configuration/settings/features/meal-settings.md",
+      "updated-docs/source/docs/configuration/settings/features/remote-control.md",
+      "updated-docs/source/docs/configuration/settings/features/user-interface.md",
+      "updated-docs/source/docs/configuration/settings/notifications/calendar-events.md",
+      "updated-docs/source/docs/configuration/settings/notifications/trio-notifications.md",
+      "updated-docs/source/docs/configuration/settings/therapy/basal-rates.md",
+      "updated-docs/source/docs/configuration/settings/therapy/carb-ratios.md",
+      "updated-docs/source/docs/configuration/settings/therapy/units-limits.md",
+      "updated-docs/source/docs/configuration/transition-qa.md",
+      "updated-docs/source/docs/help/faq.md",
+      "updated-docs/source/docs/help/troubleshoot.md",
+      "updated-docs/source/docs/install/build/browser/browser-build-overview.md",
+      "updated-docs/source/docs/install/build/requirements/devices/cgm.md",
+      "updated-docs/source/docs/usage/concepts/basal-rates.md",
+      "updated-docs/source/docs/usage/concepts/carb-ratios.md",
+      "updated-docs/source/docs/usage/concepts/isf.md",
+      "updated-docs/source/docs/usage/features/dynamic-isf.md",
+      "updated-docs/source/docs/usage/features/statistics.md",
+      "updated-docs/source/docs/usage/features/temp-targets.md",
+      "updated-docs/source/docs/usage/interface.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": 180,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.low",
+    "name": "low",
+    "json_key": "low",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 70,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 44,
+    "picker": {
+      "value": 70.0,
+      "step": 1.0,
+      "min": 40.0,
+      "max": 100.0,
+      "unit_type": "glucose",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 45
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/TempTargets/TempTargetHelpView.swift",
+        "lines": [
+          16
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          173
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/CGMSettings/View/CustomCGMOptionsView.swift",
+        "lines": [
+          404
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/GlucoseAlerts/View/GlucoseAlertEditorView.swift",
+        "lines": [
+          52,
+          111,
+          183
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/GlucoseChartView.swift",
+        "lines": [
+          20
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          225,
+          227
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/GlassChrome.swift",
+        "lines": [
+          23
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/CurrentGlucoseView.swift",
+        "lines": [
+          369
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/LoopStatusView.swift",
+        "lines": [
+          159
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/PumpView.swift",
+        "lines": [
+          200,
+          209,
+          211,
+          223,
+          225
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivityWidgetConfiguration.swift",
+        "lines": [
+          232
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/NotificationPermissionStepView.swift",
+        "lines": [
+          36
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          257
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ChartsView.swift",
+        "lines": [
+          55,
+          85,
+          97,
+          107,
+          138,
+          155,
+          164,
+          168,
+          201,
+          202
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyDistributionChart.swift",
+        "lines": [
+          141,
+          150,
+          197
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucosePercentileChart.swift",
+        "lines": [
+          8
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseSectorChart.swift",
+        "lines": [
+          19,
+          23,
+          35,
+          41,
+          42,
+          43,
+          47,
+          58,
+          210,
+          217,
+          228,
+          230,
+          237,
+          244,
+          265,
+          329,
+          331,
+          345
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/ForecastChart.swift",
+        "lines": [
+          232,
+          280
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          805,
+          840,
+          843
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          555,
+          556
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          238,
+          251,
+          268,
+          270,
+          336,
+          358,
+          662,
+          711
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/migration/aaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/iaps-migration.md",
+      "updated-docs/source/docs/configuration/migration/trio-02x-migration.md",
+      "updated-docs/source/docs/configuration/new-user-setup.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/additionals.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/autosens.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/dynamic-settings.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/smb-settings.md",
+      "updated-docs/source/docs/configuration/settings/algorithm/target-behavior.md",
+      "updated-docs/source/docs/configuration/settings/closed-loop.md",
+      "updated-docs/source/docs/configuration/settings/devices/cgm.md",
+      "updated-docs/source/docs/configuration/settings/devices/pump.md",
+      "updated-docs/source/docs/configuration/settings/features/bolus-calculator.md",
+      "updated-docs/source/docs/configuration/settings/features/remote-control.md",
+      "updated-docs/source/docs/configuration/settings/features/user-interface.md",
+      "updated-docs/source/docs/configuration/settings/notifications/calendar-events.md",
+      "updated-docs/source/docs/configuration/settings/notifications/trio-notifications.md",
+      "updated-docs/source/docs/configuration/settings/therapy/basal-rates.md",
+      "updated-docs/source/docs/configuration/settings/therapy/carb-ratios.md",
+      "updated-docs/source/docs/configuration/settings/therapy/units-limits.md",
+      "updated-docs/source/docs/configuration/transition-qa.md",
+      "updated-docs/source/docs/help/faq.md",
+      "updated-docs/source/docs/help/glossary.md",
+      "updated-docs/source/docs/help/troubleshoot.md",
+      "updated-docs/source/docs/install/build/requirements/devices/cgm.md",
+      "updated-docs/source/docs/install/build/requirements/devices/iphone.md",
+      "updated-docs/source/docs/usage/concepts/basal-rates.md",
+      "updated-docs/source/docs/usage/concepts/carb-ratios.md",
+      "updated-docs/source/docs/usage/concepts/isf.md",
+      "updated-docs/source/docs/usage/features/bolus-calculator.md",
+      "updated-docs/source/docs/usage/features/dynamic-isf.md",
+      "updated-docs/source/docs/usage/features/statistics.md",
+      "updated-docs/source/docs/usage/features/temp-targets.md",
+      "updated-docs/source/docs/usage/interface.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": 70,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.glucoseColorScheme",
+    "name": "glucoseColorScheme",
+    "json_key": "glucoseColorScheme",
+    "model": "TrioSettings",
+    "type": "GlucoseColorScheme",
+    "model_default": ".dynamicColor",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 45,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/ChartSelectionRow.swift",
+        "lines": [
+          10,
+          14,
+          21,
+          74,
+          103
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/GlucoseChartView.swift",
+        "lines": [
+          12,
+          23,
+          30,
+          96
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          35,
+          117,
+          397,
+          813,
+          977,
+          1007
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Header/CurrentGlucoseView.swift",
+        "lines": [
+          13,
+          372,
+          381
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+Header.swift",
+        "lines": [
+          80
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+MealPanel.swift",
+        "lines": [
+          38
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView.swift",
+        "lines": [
+          90
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivityWidgetConfiguration.swift",
+        "lines": [
+          229,
+          231,
+          234
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/ForecastChart.swift",
+        "lines": [
+          235,
+          242,
+          283,
+          290
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          106,
+          740
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "staticColor",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.xGridLines",
+    "name": "xGridLines",
+    "json_key": "xGridLines",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 46,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          174
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.yGridLines",
+    "name": "yGridLines",
+    "json_key": "yGridLines",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 47,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          175
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.hideInsulinBadge",
+    "name": "hideInsulinBadge",
+    "json_key": "hideInsulinBadge",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 48,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.allowDilution",
+    "name": "allowDilution",
+    "json_key": "allowDilution",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 49,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.insulinConcentration",
+    "name": "insulinConcentration",
+    "json_key": "insulinConcentration",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 1,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 50,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.showCobIobChart",
+    "name": "showCobIobChart",
+    "json_key": "showCobIobChart",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 51,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.rulerMarks",
+    "name": "rulerMarks",
+    "json_key": "rulerMarks",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 52,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          209,
+          228
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.bolusDisplayThreshold",
+    "name": "bolusDisplayThreshold",
+    "json_key": "bolusDisplayThreshold",
+    "model": "TrioSettings",
+    "type": "BolusDisplayThreshold",
+    "model_default": ".allUnits",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 53,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/InsulinView.swift",
+        "lines": [
+          9,
+          42
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          948
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          436
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.01,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.forecastDisplayType",
+    "name": "forecastDisplayType",
+    "json_key": "forecastDisplayType",
+    "model": "TrioSettings",
+    "type": "ForecastDisplayType",
+    "model_default": ".cone",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 54,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/ForecastView.swift",
+        "lines": [
+          11,
+          15
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartLegendView.swift",
+        "lines": [
+          76
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/MainChartView.swift",
+        "lines": [
+          966
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/ForecastChart.swift",
+        "lines": [
+          16,
+          126,
+          173
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          380
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "cone",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.maxCarbs",
+    "name": "maxCarbs",
+    "json_key": "maxCarbs",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 250,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 55,
+    "picker": {
+      "value": 250.0,
+      "step": 5.0,
+      "min": 0.0,
+      "max": 300.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 46
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AddCarbs/View/AddCarbsRootView.swift",
+        "lines": [
+          51,
+          53,
+          141,
+          148
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/CarbEntryEditorView.swift",
+        "lines": [
+          52,
+          73
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          56,
+          69,
+          77,
+          78
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          708,
+          752
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 250,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.maxFat",
+    "name": "maxFat",
+    "json_key": "maxFat",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 250,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 56,
+    "picker": {
+      "value": 250.0,
+      "step": 5.0,
+      "min": 0.0,
+      "max": 300.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 47
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AddCarbs/View/AddCarbsRootView.swift",
+        "lines": [
+          142,
+          148,
+          287,
+          289
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/CarbEntryEditorView.swift",
+        "lines": [
+          56,
+          75
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          98,
+          111,
+          120,
+          121
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          710,
+          756
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 250,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.maxProtein",
+    "name": "maxProtein",
+    "json_key": "maxProtein",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 250,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 57,
+    "picker": {
+      "value": 250.0,
+      "step": 5.0,
+      "min": 0.0,
+      "max": 300.0,
+      "unit_type": "gram",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 48
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AddCarbs/View/AddCarbsRootView.swift",
+        "lines": [
+          143,
+          149,
+          298,
+          300
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/History/View/CarbEntryEditorView.swift",
+        "lines": [
+          60,
+          77
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/MealSettings/View/MealSettingsRootView.swift",
+        "lines": [
+          140,
+          153,
+          162,
+          163
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          712,
+          760
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 250,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.confirmBolusFaster",
+    "name": "confirmBolusFaster",
+    "json_key": "confirmBolusFaster",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 58,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigAppleWatchView.swift",
+        "lines": [
+          27
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.showForecastWatch",
+    "name": "showForecastWatch",
+    "json_key": "showForecastWatch",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 59,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigAppleWatchView.swift",
+        "lines": [
+          48
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.overrideFactor",
+    "name": "overrideFactor",
+    "json_key": "overrideFactor",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 0.8,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 60,
+    "picker": {
+      "value": 0.8,
+      "step": 0.05,
+      "min": 0.05,
+      "max": 1.5,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 49
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          58,
+          69
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.8,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.fattyMeals",
+    "name": "fattyMeals",
+    "json_key": "fattyMeals",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 61,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          90
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          241,
+          243
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.fattyMealFactor",
+    "name": "fattyMealFactor",
+    "json_key": "fattyMealFactor",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 0.7,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 62,
+    "picker": {
+      "value": 0.7,
+      "step": 0.05,
+      "min": 0.05,
+      "max": 1.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 50
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          89,
+          100
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          679
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 0.7,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.sweetMeals",
+    "name": "sweetMeals",
+    "json_key": "sweetMeals",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 63,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          126
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          241,
+          258
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": false,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.sweetMealFactor",
+    "name": "sweetMealFactor",
+    "json_key": "sweetMealFactor",
+    "model": "TrioSettings",
+    "type": "Decimal",
+    "model_default": 1,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 64,
+    "picker": {
+      "value": 1.0,
+      "step": 0.05,
+      "min": 0.05,
+      "max": 2.0,
+      "unit_type": "factor",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 51
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          125,
+          136
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          590
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 1,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.displayPresets",
+    "name": "displayPresets",
+    "json_key": "displayPresets",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": true,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 65,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/BolusCalculatorConfig/View/BolusCalculatorConfigRootView.swift",
+        "lines": [
+          38
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          482
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.confirmBolus",
+    "name": "confirmBolus",
+    "json_key": "confirmBolus",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 66,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          561
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.enableQuickPickTreatments",
+    "name": "enableQuickPickTreatments",
+    "json_key": "enableQuickPickTreatments",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 67,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView.swift",
+        "lines": [
+          467,
+          486
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/QuickPickTreatmentsConfig/View/QuickPickTreatmentsConfigRootView.swift",
+        "lines": [
+          23
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.useLiveActivity",
+    "name": "useLiveActivity",
+    "json_key": "useLiveActivity",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 68,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+        "lines": [
+          52,
+          86
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.lockScreenView",
+    "name": "lockScreenView",
+    "json_key": "lockScreenView",
+    "model": "TrioSettings",
+    "type": "LockScreenView",
+    "model_default": ".simple",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 69,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+        "lines": [
+          114,
+          171
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "simple",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.smartStackView",
+    "name": "smartStackView",
+    "json_key": "smartStackView",
+    "model": "TrioSettings",
+    "type": "LockScreenView",
+    "model_default": ".simple",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 70,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+        "lines": [
+          187
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.displayGlucoseForecasts",
+    "name": "displayGlucoseForecasts",
+    "json_key": "displayGlucoseForecasts",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 71,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/LiveActivitySettings/View/LiveActivitySettingsRootView.swift",
+        "lines": [
+          89
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.bolusShortcut",
+    "name": "bolusShortcut",
+    "json_key": "bolusShortcut",
+    "model": "TrioSettings",
+    "type": "BolusShortcutLimit",
+    "model_default": ".notAllowed",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 72,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/settings/features/shortcuts.md"
+    ],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.timeInRangeType",
+    "name": "timeInRangeType",
+    "json_key": "timeInRangeType",
+    "model": "TrioSettings",
+    "type": "TimeInRangeType",
+    "model_default": ".timeInTightRange",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 73,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Stat/View/StatRootView.swift",
+        "lines": [
+          166,
+          176,
+          188,
+          201,
+          215
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyDistributionChart.swift",
+        "lines": [
+          8,
+          96,
+          198,
+          200,
+          202
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDailyPercentileChart.swift",
+        "lines": [
+          33,
+          256,
+          259,
+          263,
+          266,
+          309,
+          310
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseDistributionChart.swift",
+        "lines": [
+          10,
+          26,
+          27,
+          28,
+          37,
+          41,
+          45
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucosePercentileChart.swift",
+        "lines": [
+          15,
+          94,
+          96,
+          98,
+          100,
+          126,
+          127,
+          135,
+          136
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Stat/View/ViewElements/Glucose/GlucoseSectorChart.swift",
+        "lines": [
+          10,
+          37,
+          39,
+          42,
+          70,
+          80,
+          99,
+          229,
+          302,
+          303,
+          313,
+          319,
+          331,
+          333,
+          343
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          525
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "timeInTightRange",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.homeStatsPanelFace",
+    "name": "homeStatsPanelFace",
+    "json_key": "homeStatsPanelFace",
+    "model": "TrioSettings",
+    "type": "HomeStatsPanelFace",
+    "model_default": ".timeInRange",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 74,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Home/View/HomeRootView+BottomControls.swift",
+        "lines": [
+          573
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          606
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.requireAdjustmentsConfirmation",
+    "name": "requireAdjustmentsConfirmation",
+    "json_key": "requireAdjustmentsConfirmation",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 75,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/Adjustments/View/AdjustmentsRootView.swift",
+        "lines": [
+          369,
+          383
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/UserInterfaceSettings/View/UserInterfaceSettingsRootView.swift",
+        "lines": [
+          669
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": false,
+    "bundled_default": null,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.garminWatchface",
+    "name": "garminWatchface",
+    "json_key": "garminWatchface",
+    "model": "TrioSettings",
+    "type": "GarminWatchface",
+    "model_default": ".trio",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 78,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "trio",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.garminDatafield",
+    "name": "garminDatafield",
+    "json_key": "garminDatafield",
+    "model": "TrioSettings",
+    "type": "GarminDatafield",
+    "model_default": ".none",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 79,
+    "picker": null,
+    "ui_references": [],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "none",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.primaryAttributeChoice",
+    "name": "primaryAttributeChoice",
+    "json_key": "primaryAttributeChoice",
+    "model": "TrioSettings",
+    "type": "GarminPrimaryAttributeChoice",
+    "model_default": ".cob",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 82,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+        "lines": [
+          145
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "cob",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.secondaryAttributeChoice",
+    "name": "secondaryAttributeChoice",
+    "json_key": "secondaryAttributeChoice",
+    "model": "TrioSettings",
+    "type": "GarminSecondaryAttributeChoice",
+    "model_default": ".tbr",
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 85,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+        "lines": [
+          177
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": "tbr",
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "TrioSettings.isWatchfaceDataEnabled",
+    "name": "isWatchfaceDataEnabled",
+    "json_key": "isWatchfaceDataEnabled",
+    "model": "TrioSettings",
+    "type": "Bool",
+    "model_default": false,
+    "source": "Trio/Sources/Models/TrioSettings.swift",
+    "line": 88,
+    "picker": null,
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/WatchConfig/View/WatchConfigGarminAppConfigView.swift",
+        "lines": [
+          68,
+          69
+        ]
+      }
+    ],
+    "docs_candidates": [
+      "updated-docs/source/docs/configuration/settings/devices/smart-watch.md"
+    ],
+    "bundled_default_present": true,
+    "bundled_default": true,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/freeaps/freeaps_settings.json"
+  },
+  {
+    "id": "PumpSettings.insulinActionCurve",
+    "name": "insulinActionCurve",
+    "json_key": "insulin_action_curve",
+    "model": "PumpSettings",
+    "type": "Decimal",
+    "model_default": null,
+    "source": "Trio/Sources/Models/PumpSettings.swift",
+    "line": 4,
+    "picker": {
+      "value": 10.0,
+      "step": 0.5,
+      "min": 5.0,
+      "max": 10.0,
+      "unit_type": "hour",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 135
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/AlgorithmAdvancedSettings/View/AlgorithmAdvancedSettingsRootView.swift",
+        "lines": [
+          98
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 10,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/settings/settings.json"
+  },
+  {
+    "id": "PumpSettings.maxBolus",
+    "name": "maxBolus",
+    "json_key": "maxBolus",
+    "model": "PumpSettings",
+    "type": "Decimal",
+    "model_default": null,
+    "source": "Trio/Sources/Models/PumpSettings.swift",
+    "line": 5,
+    "picker": {
+      "value": 10.0,
+      "step": 0.5,
+      "min": 0.5,
+      "max": 30.0,
+      "unit_type": "insulinUnit",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 136
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          86,
+          97
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/DeliveryLimitsStepView.swift",
+        "lines": [
+          32,
+          36,
+          37,
+          124,
+          140
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          349,
+          359,
+          369,
+          415
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/PopupView.swift",
+        "lines": [
+          845,
+          846
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Treatments/View/TreatmentsRootView.swift",
+        "lines": [
+          704,
+          744
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 10,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/settings/settings.json"
+  },
+  {
+    "id": "PumpSettings.maxBasal",
+    "name": "maxBasal",
+    "json_key": "maxBasal",
+    "model": "PumpSettings",
+    "type": "Decimal",
+    "model_default": null,
+    "source": "Trio/Sources/Models/PumpSettings.swift",
+    "line": 6,
+    "picker": {
+      "value": 10.0,
+      "step": 0.5,
+      "min": 0.5,
+      "max": 30.0,
+      "unit_type": "insulinUnitPerHour",
+      "source": "Trio/Sources/Models/DecimalPickerSettings.swift",
+      "line": 137
+    },
+    "ui_references": [
+      {
+        "path": "Trio/Sources/Modules/GeneralSettings/View/UnitsLimitsSettingsRootView.swift",
+        "lines": [
+          112,
+          123
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Home/View/Chart/ChartElements/BasalChart.swift",
+        "lines": [
+          30
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingSteps/DeliveryLimitsStepView.swift",
+        "lines": [
+          39,
+          43,
+          44,
+          122,
+          138
+        ]
+      },
+      {
+        "path": "Trio/Sources/Modules/Onboarding/View/OnboardingView+Util.swift",
+        "lines": [
+          350,
+          360,
+          370,
+          423
+        ]
+      }
+    ],
+    "docs_candidates": [],
+    "bundled_default_present": true,
+    "bundled_default": 2,
+    "bundled_defaults_source": "Trio/Resources/json/defaults/settings/settings.json"
+  }
+]

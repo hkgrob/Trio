@@ -1,0 +1,1 @@
+If you get an error in an Action, examine the display and scroll down to view the annotation. Some errors have a clear annotation telling you what to do. If the annotation is not clear to you, please ask a mentor for help.

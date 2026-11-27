@@ -1,0 +1,27 @@
+test_all_disabled_smb_conditions_are_distinct_from_missing (__main__.KnowledgeTests.test_all_disabled_smb_conditions_are_distinct_from_missing) ... ok
+test_basal_testing_effective_values_preserve_stored (__main__.KnowledgeTests.test_basal_testing_effective_values_preserve_stored) ... ok
+test_basal_testing_keeps_higher_threshold (__main__.KnowledgeTests.test_basal_testing_keeps_higher_threshold) ... ok
+test_catalog_contains_only_properties_of_its_declared_model (__main__.KnowledgeTests.test_catalog_contains_only_properties_of_its_declared_model) ... ok
+test_code_snapshot_hashes (__main__.KnowledgeTests.test_code_snapshot_hashes) ... ok
+test_database_integrity (__main__.KnowledgeTests.test_database_integrity) ... ok
+test_duplicate_alias_is_reported (__main__.KnowledgeTests.test_duplicate_alias_is_reported) ... ok
+test_empty_question_is_handled (__main__.KnowledgeTests.test_empty_question_is_handled) ... ok
+test_english_csv_units_annotations_and_unassessed_rows (__main__.KnowledgeTests.test_english_csv_units_annotations_and_unassessed_rows) ... ok
+test_fact_evidence_lines_match_anchors (__main__.KnowledgeTests.test_fact_evidence_lines_match_anchors) ... ok
+test_factor_uses_stored_fraction_not_display_percent (__main__.KnowledgeTests.test_factor_uses_stored_fraction_not_display_percent) ... ok
+test_graph_has_no_dangling_edges (__main__.KnowledgeTests.test_graph_has_no_dangling_edges) ... ok
+test_iob_question_finds_verified_answer (__main__.KnowledgeTests.test_iob_question_finds_verified_answer) ... ok
+test_missing_values_are_not_defaulted (__main__.KnowledgeTests.test_missing_values_are_not_defaulted) ... ok
+test_new_dosing_mode_takes_precedence_over_legacy (__main__.KnowledgeTests.test_new_dosing_mode_takes_precedence_over_legacy) ... ok
+test_persisted_aliases_and_model_qualified_keys (__main__.KnowledgeTests.test_persisted_aliases_and_model_qualified_keys) ... ok
+test_picker_minimum_and_step (__main__.KnowledgeTests.test_picker_minimum_and_step) ... ok
+test_query_punctuation_cannot_break_fts (__main__.KnowledgeTests.test_query_punctuation_cannot_break_fts) ... ok
+test_retrieved_passage_line_numbers_are_real (__main__.KnowledgeTests.test_retrieved_passage_line_numbers_are_real) ... ok
+test_snapshot_coverage_and_hashes (__main__.KnowledgeTests.test_snapshot_coverage_and_hashes) ... ok
+test_types_and_nonfinite_values_are_rejected (__main__.KnowledgeTests.test_types_and_nonfinite_values_are_rejected) ... ok
+test_unknown_input_is_explicitly_unassessed (__main__.KnowledgeTests.test_unknown_input_is_explicitly_unassessed) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.175s
+
+OK

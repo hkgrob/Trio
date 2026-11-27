@@ -1,0 +1,1 @@
+If Allow Bolusing with Shortcuts is enabled, you will be able to use shortcuts to deliver a bolus.

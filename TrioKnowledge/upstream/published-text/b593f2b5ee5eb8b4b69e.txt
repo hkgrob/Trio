@@ -1,0 +1,1 @@
+Trio Name Setting Format  (example) Location in Trio iAPS Name Setting Format  (example) Location in iAPS Temp Target: Sensitivity Adjustment selection/percentage  (Standard/Custom)  (100%) Adjustments → Add Temp Target → Sensitivity Adjustment Temp Target: Experimental toggle/percentage  (On/Off)  (100%) Temp Target → Experimental (ON)

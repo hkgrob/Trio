@@ -1,0 +1,1 @@
+Box plot showing daily glucose distribution:   Each day shows a box-and-whisker plot Box represents 25th-75th percentile Whiskers extend to 10th and 90th percentiles Center line is the median Compare day-to-day variability 

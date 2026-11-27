@@ -1,0 +1,1 @@
+The watch face will not display information after another has been used. In that case, you have to uninstall the Trio watch face and reinstall it. No similar side effects occur with the data field. If your watch is not listed in the Release section, please ask about it in the Garmin channel on Discord.

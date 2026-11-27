@@ -1,0 +1,1 @@
+If you've spent any time in the Desmos Graphs, you may have noticed certain adjustments do not have the impact you'd expect. Below are a few that you should know about:

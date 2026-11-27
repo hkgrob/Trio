@@ -1,0 +1,1 @@
+Stacked bar chart showing the percentage of time in each range per day:  See which days had optimal control Identify patterns across multiple days Useful for reviewing weekly trends  Distribution by Day uses the same color chart as the Distribution by Time chart.

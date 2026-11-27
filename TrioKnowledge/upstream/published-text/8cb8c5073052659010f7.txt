@@ -1,0 +1,1 @@
+ Open LoopFollow and tap the Remote Control button Select "Temp Target" from the command options Enter the temp target details: Target: Desired glucose target in mg/dL (or mmol/L) Duration: How long the target should be active (in minutes)   Tap "Send" to transmit the command 

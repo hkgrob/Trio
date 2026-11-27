@@ -1,0 +1,1 @@
+Highlights  Max IOB = Increase above 0 before closing the loop Max Bolus = Max bolus you give for a meal Max Basal = 4x highest hourly basal Max COB = Maximum carbs active at any given time 

@@ -1,0 +1,1 @@
+All 3 pod types are compatible with Trio. You can use Eros, DASH, or Omnipod 5 pods. Note that Omnipod 5 requires building a feature branch at this time.

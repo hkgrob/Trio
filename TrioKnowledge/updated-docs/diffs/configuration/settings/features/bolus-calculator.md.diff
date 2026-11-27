@@ -1,0 +1,20 @@
+--- upstream/configuration/settings/features/bolus-calculator.md
++++ updated/configuration/settings/features/bolus-calculator.md
+@@ -141,3 +141,17 @@
+     The forecast used for this warning does not include carbs or insulin that are entered for the current bolus calculation.
+     
+ - - -
++
++
++## How the settings affect the recommendation
++
++Recommended Bolus Percentage scales a positive calculator result after current IOB has been subtracted; it is not the automated SMB Delivery Ratio. Reduced Bolus multiplies that positive result further, while Super Bolus is added afterward. The [calculator guide](../../../usage/features/bolus-calculator.md#recommendation-safety-gates) describes backdated COB, stale/low-glucose gates and the limit/rounding order.
++
++
++## 1.0.2 source references
++
++- **F06 — Calculator safety gates and backdated-carb handling need explicit documentation**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:344](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L344)
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:452](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L452)
++- **F11 — The meal bolus calculator already subtracts automated insulin represented in IOB**
++    - [Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift:400](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusCalculator/BolusCalculationManager.swift#L400)

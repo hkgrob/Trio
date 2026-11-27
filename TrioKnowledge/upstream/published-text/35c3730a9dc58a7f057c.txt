@@ -1,0 +1,1 @@
+All devices using Trio must have 'Developer Mode' activated. This change came with iOS 16 and watchOS 9. This feature must be activated to allow Trio to install on the device. To learn more, click on this link: Apple Developer Mode.

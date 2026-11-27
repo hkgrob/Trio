@@ -1,0 +1,1 @@
+Default: OFF  Enabling this setting allows the iOS Shortcuts App to send bolus commands to Trio. Tip Disabling this setting will still allow other Shortcut commands, like Temp Targets, Add Carbs, and Start/End Overrides.

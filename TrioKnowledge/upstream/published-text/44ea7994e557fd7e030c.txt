@@ -1,0 +1,1 @@
+ Open LoopFollow and tap the Remote Control button Select "Bolus" from the command options Enter the bolus amount in units (U) Tap "Send" to transmit the command 

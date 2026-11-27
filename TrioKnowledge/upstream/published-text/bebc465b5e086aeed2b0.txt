@@ -1,0 +1,1 @@
+Default: 250 g Setting Limits: 0-300 g  The maximum value of protein in grams allowed per meal entry in the bolus calculator.   Tip This will only be visible if Enable Fat and Protein Entries is turned on.

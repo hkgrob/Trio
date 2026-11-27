@@ -1,0 +1,153 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Frequently Asked Questions · Trio 1.0.2 local edition</title><style>body{font:16px/1.65 system-ui;margin:0;color:#232035;background:#f7f6fa}header,main{max-width:1000px;margin:auto;padding:22px}header{border-bottom:1px solid #dcd7e8}article{background:white;padding:28px;border-radius:12px}a{color:#51338e;overflow-wrap:anywhere}img,video{max-width:100%;height:auto}pre{white-space:pre-wrap;background:#f3f0f8;padding:14px;overflow-wrap:anywhere}code{overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}th,td{border:1px solid #dcd7e8;padding:8px;text-align:left}.changed-block,ins{background:#fff1a8;box-shadow:-4px 0 #b48700;padding-left:6px;text-decoration:none}.new-page article{border-left:5px solid #b48700}.removed{background:#ffe5e5}del{background:#ffd1d1;color:#822}.diff-line{display:block;white-space:pre-wrap}.diff-add{background:#dcf4df}.diff-remove{background:#ffe1e1}.admonition,details{padding:12px 16px;background:#f1edf8;margin:16px 0}.admonition-title{font-weight:600}.tabbed-set input{display:none}.tabbed-labels{display:flex;flex-wrap:wrap;gap:12px;font-weight:600}.tabbed-block{border-left:2px solid #ccc;padding-left:14px}.note{font-size:14px;color:#5b5469}.toolbar{display:flex;gap:15px;flex-wrap:wrap}button,input{font:inherit;padding:9px;border:1px solid #aaa;border-radius:7px}.hide-highlights .changed-block{background:transparent;box-shadow:none;padding-left:0}h1,h2,h3,h4{line-height:1.3;scroll-margin-top:15px}h2{margin-top:32px}#doc-list li{margin:7px 0}summary{cursor:pointer}@media(max-width:600px){header,main{padding:14px}article{padding:16px}}@media print{header button,.toolbar{display:none}article{padding:0}body{background:white}.changed-block{print-color-adjust:exact}details{break-inside:avoid}}</style><header><nav class="toolbar"><a href="../../index.html">All documents</a><a href="../../../knowledge/explorer.html">Ask questions / evaluate settings</a><a href="../../source/docs/help/faq.md">Updated Markdown</a><a href="../../../upstream/source/docs/help/faq.md">Original Markdown</a></nav><p class="note">Local alignment draft · main / 1.0.2 · 0b29cd53415e. Upstream authorship and licensing retained.</p><p>Unchanged from the captured source. Inherited content has not all been revalidated against 1.0.2.</p><button id="toggle" type="button" aria-pressed="true">Hide change highlighting</button></header><main><article><h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+<p>Various resources, including <a href="https://facebook.triodocs.org">Facebook</a>, and <a href="https://discord.triodocs.org">Discord</a>, are available to assist you with setting up, maintaining, and succeeding in your Trio journey. Below is a series of questions we see asked daily. We hope it helps. </p>
+<h2 id="trio-faqs">Trio FAQs</h2>
+<h3 id="what-is-trio">What is Trio?</h3>
+<p>Trio is an open-source artificial pancreas system based on the OpenAPS (Oref0) algorithm. It uses your entered settings, carbohydrates, and historical data to automate insulin delivery and reduce the time spent managing your diabetes. </p>
+<p>!!! important "Important"
+    <em>Trio is a DIY, open-source community project. As such, the user must build and maintain their app with the support of the Trio community. Trio has not undergone evaluation by any regulatory agency and is for use at your own risk.</em></p>
+<h3 id="trio-history">Trio History</h3>
+<p>The project started with Ivan Valkou's FreeAPS X implementation of the OpenAPS algorithm for iPhone and was later forked and rebranded as iAPS. Since then, many developers have contributed substantial work, leading to new features and enhancements.</p>
+<p>There were differing views on development, open source, and peer review that led to the separation from the iAPS repository and the birth of Trio as a distinct entity. This transition marks the project's new phase, symbolizing its evolution and the collaborative development's dynamic nature.</p>
+<p>Trio continues to leverage a variety of frameworks from the DIY looping community and remains at the forefront of DIY diabetes management solutions, constantly evolving with valuable contributions from its community.</p>
+<h3 id="can-i-download-trio-from-the-app-store">Can I download Trio from the App Store?</h3>
+<p>Trio is not available to download from the App Store. Trio is an open-source, do-it-yourself automated insulin delivery application. Community members who wish to utilize Trio must build it themselves. </p>
+<p>While building your application may initially seem daunting, information and support are abundant and available to help you progress down this pathway. Each step required to build Trio can be found within this documentation. Additional support can be found on the Trio <a href="https://www.facebook.com/groups/diytrio">Facebook</a> group and <a href="https://discord.com/invite/FnwFEFUwXE">Discord</a> group. </p>
+<h3 id="do-i-have-to-be-tech-smart-to-build-trio">Do I have to be "tech-smart" to build Trio?</h3>
+<p>No. You do not need any experience in code or computers to build Trio. If you own a computer or tablet and an iPhone, you already have the required experience. Beyond that, read the directions slowly and diligently. All the information you will need is in these documents.</p>
+<p>Often, the non-tech people do better than the tech people in building Trio. Why? Because the non-tech people take the time to read slowly and look at the screenshots in the directions. The tech people often skim and miss steps, which then leads to build errors that have to be retraced and fixed.</p>
+<h3 id="how-long-does-it-take-to-build-trio">How long does it take to build Trio?</h3>
+<p>The answer to this question is very user-dependent. If you are new to building and need to immerse yourself in the documentation, then a few hours. However, some users like to break this down into smaller, more manageable chunks and complete the task over 24 hours. If you are a repeat builder familiar with the documentation, build, and update process, then 10 - 15 minutes. 
+There are two options for building at present:</p>
+<ul>
+<li>The <a href="../install/build/browser/browser-build-overview.html">Browser Build</a> method using GitHub.</li>
+<li>The <a href="../install/build/mac/overview.html">Mac Build</a> method using Xcode.</li>
+</ul>
+<h3 id="do-i-need-to-own-an-apple-computer">Do I need to own an Apple computer?</h3>
+<p>No, you do not need to own an Apple computer. The "Browser Build" method can be completed on any computer with access to the Internet and GitHub. However, if you chose the "Mac Build" method, while you do not necessarily need to own an Apple computer, you must at least borrow one. </p>
+<h3 id="how-often-will-i-need-to-access-the-computer-to-maintain-trio">How often will I need to access the computer to maintain Trio?</h3>
+<p>When you use the "Browser Build" method, you must access a browser at least once every 90 days to update with the Browser. This is simple enough to do the steps on your phone in just a few minutes. </p>
+<p>When you use Build with Mac: 1. When you first build. 2. Once per year, at the minimum, after that. However, if you decide to use a free Apple Developer account, you must rebuild every 7 days. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><em>Periodically, developers will release updates to Trio. These updates may include new features or important safety updates. It is recommended that as updates are released, users update their Trio app.</em></p>
+</div>
+<h3 id="do-i-have-to-rebuild-trio-if-i-change-insulin-pumps-or-cgms">Do I have to rebuild Trio if I change insulin pumps or CGMs?</h3>
+<p>No. Trio lets you move between different pumps and CGM configurations within the app. </p>
+<h3 id="i-am-moving-from-another-closed-loop-system-will-my-settings-transfer-over">I am moving from another closed-loop system. Will my settings transfer over?</h3>
+<p>If you've been using other closed-loop solutions, it's essential to understand the differences between the one you're used to and Trio. Before making the transition, we recommend that you take the time to read through the documentation to build a basic understanding of Trio. Detailed information on transitioning from other closed-loop systems can be found <a href="../configuration/transition-qa.html">here</a></p>
+<p>Depending on which system you are transitioning from, whether DIY or commercial, some settings may directly transfer across, and others may not. Before commencing on Trio, it is crucial that users test and refine their basals, carb ratios, and insulin sensitivity factors... Thats right... Take a minute and read that again... Before commencing on Trio, it is crucial that users test and refine their basals, carb ratios, and insulin sensitivity factors. </p>
+<p>Why? Trio is only as good as the information you give it. Basal, carb ratios, and insulin sensitivity factors form the basis for all computing by Trio's algorithms. If you have given Trio poor-quality information, you will see poor-quality output. This will likely present as unexpected behavior to the everyday user and result in a poor user experience.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><em>Before commencing on Trio, users must test and refine their basals, carb ratios, and insulin sensitivity factors.</em></p>
+</div>
+<h3 id="what-about-other-pumps-when-can-i-use-them-with-trio">What about other pumps? When can I use them with Trio?</h3>
+<p>Cracking of pumps for use with the Trio app is a significant undertaking. At the same time, developers are constantly monitoring pumps that could be integrated into Trio. Ultimately, cracking and creating drivers for these pumps requires multiple developers to devote significant amounts of their time. Realistically, it can take upwards of 12 months for new pump integration. Information on supported pumps can be found under <a href="../install/build/requirements/devices/pump.html#compatible-pumps">Compatible Pumps</a>.</p>
+<h3 id="i-regularly-go-places-without-phone-service-or-an-internet-connection-will-trio-work-without-these">I regularly go places without phone service or an internet connection. Will Trio work without these?</h3>
+<p>Yes. Trio does not require internet or cell coverage to work. So long as the Trio user has Bluetooth enabled on the iPhone, the CGM and insulin pump will continue working in conjunction with Trio. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><em>If you have chosen a CGM source that requires the internet (i.e., Nightscout or Dexcom Share), users must maintain an internet connection. If you enter an area without internet, you will lose your CGM readings and Trio will stop looping.</em></p>
+</div>
+<h3 id="can-i-have-someone-follow-my-trio-app">Can I have someone follow my Trio app?</h3>
+<p>There are multiple options available for someone to follow your loop data.</p>
+<p><strong>Nightscout</strong><br/>
+Nightscout is an open-source cloud application used by people with diabetes and parents of kids with diabetes to visualize, store, and share the data from their Continuous Glucose Monitors in real-time. Once set up, Nightscout acts as a central repository of blood glucose and insulin dosing/treatment data for a single person, allowing you to view the CGM graph and treatment data anywhere using just a Web browser connected to the internet.</p>
+<p>Details of Trio's <strong>integration</strong> with Nightscout can be found <a href="../configuration/settings/services/nightscout.html">here</a>.<br/>
+Information on <strong>creating</strong> your Nightscout <strong>site</strong> can be found <a href="https://nightscout.github.io/">here</a>.</p>
+<p><strong>LoopFollow</strong><br/>
+LoopFollow is an open-source, do-it-yourself iPhone app that combines your T1D's display information and alerts into a single, easy-to-use interface. LoopFollow pulls data from your Nightscout or Dexcom Share server. You can set up more than one app on a phone if you follow more than one person with diabetes. Information on creating and using your LoopFollow app can be found <a href="https://loopfollowdocs.org">LoopFollowDocs</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><em>All options for following your Trio app rely on an active internet connection. If you or the person you are following loses connection to the internet, your LoopFollow app will stop receiving data.</em></p>
+</div>
+<h2 id="algorithm-faqs">Algorithm FAQs</h2>
+<h3 id="what-algorithm-does-trio-use">What algorithm does Trio use?</h3>
+<p>Trio is an open-source artificial pancreas system based on the OpenAPS (Oref0) algorithm. </p>
+<h3 id="where-can-i-learn-more-about-the-oref-algorithm">Where can I learn more about the Oref algorithm?</h3>
+<p>The first place to start if you want to learn more about the underlying algorithm is the extensive <a href="https://openaps.readthedocs.io/">OpenAPS documentation</a>. OpenAPS is the underlying algorithm Trio implements, with minor modifications mostly pertaining to the Dynamic settings.</p>
+<h3 id="why-does-the-recommended-bolus-percentage-default-to-80">Why does the <code>Recommended Bolus Percentage</code> default to 80%?</h3>
+<p><code>Recommended Bolus Percentage</code> is a safety feature built into Trio. By default, Trio first calculates an "insulin recommended" value when bolusing for carbs, which is the total dosage. That dosage is multiplied by your <code>Recommended Bolus Percentage</code> to display your suggested insulin dose. Trio then delivers the remaining insulin via Temp Basals and/or SMBs as the blood sugar rises.</p>
+<p><code>Recommended Bolus Percentage</code> is a setting that allows the user to alter the amount initially delivered. By default 80% of the required meal bolus is delivered before the meal. You can increase or decrease this to alter the insulin delivered before the meal.</p>
+<h3 id="how-does-the-max-iob-limit-impact-trios-insulin-dosing">How does the <code>Max IOB</code> limit impact Trio's insulin dosing?</h3>
+<p>The maximum amount of insulin on board (i.e., in the body). Including insulin from all sources (basal and bolus) automatically delivered by Trio. </p>
+<p>The default is zero, meaning Trio can only set temporary basal rates lower than your profile basal rate. It cannot set temporary basal rates that exceed your profile basal rate in cases of high blood sugar, and it cannot use super micro boluses to control blood sugar.</p>
+<p>You will need to increase this value to allow Trio to start automating your insulin delivery. If you are nervous, you can start by setting this value to your average meal bolus. Then, over time, you can begin to increase the value. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>The default recommendation is “average meal bolus + 3 x max hourly basal” when using super micro boluses.</em></p>
+</div>
+<h3 id="how-does-the-max-cob-limit-impact-trios-algorithm">How does the <code>Max COB</code> limit impact Trio's algorithm?</h3>
+<p>The maximum amount of carbs that Trio is allowed to bolus or set high-temp targets for. This safety feature protects against erroneous carbohydrate entries that could lead to hypoglycemia episodes.</p>
+<h3 id="what-is-autosens-how-do-autosens-max-and-autosens-min-impact-trios-decision-making">What is <code>Autosens</code>? How do <code>Autosens Max</code> and <code>Autosens Min</code> impact Trio's decision-making?</h3>
+<p>Autosens allows the system to analyze historical data on the go and make adjustments if it recognizes that you are reacting more sensitively or resistant to insulin than usual. Autosens will then make temporary adjustments to the basal, ISF, and targets used for calculating temp basals in order to keep BG closer to your configured target. </p>
+<p><code>Autosens Max</code> and <code>Autosens Min</code> are the safety limiters the algorithm places on Autosens.<code>Autosens Max</code> determines the maximum ratio autosens can use for its adjustments. Increasing this value allows autosens to increase insulin through your basal profile, ISF, and target blood glucose. Conversely, <code>Autosens Min</code> determines the minimum ratio autosens can use for adjustments. Decreasing this value allows autosens to reduce insulin given through your basal profile, ISF, and target blood glucose.</p>
+<p>Various blog posts have been written over the years regarding Autosens, and links to some can be found below: </p>
+<ul>
+<li>Dana Lewis, <a href="https://diyps.org/2016/12/02/autosensitivity-automatically-adjusting-insulin-sensitivity-factor-for-insulin-dosing-with-openaps/">Autosensitivity</a>.</li>
+<li>Tim Street, <a href="https://www.diabettech.com/artificial-pancreas/understanding-autosens/">Understanding Autosens</a>.</li>
+</ul>
+<h3 id="what-are-smbs">What are SMBs?</h3>
+<p>Super micro bolus, or SMB, is designed to give you reasonable amounts of bolus insulin upfront and use reduced temporary basal rates to balance out the peak insulin timing safely. Why? The reason for using SMB over a higher temporary basal rate is that it allows insulin to be delivered sooner. Thus, avoiding glucose spikes by front-loading insulin delivery. </p>
+<p>Various blog posts have been written over the years regarding SMBs, and links to some can be found below:</p>
+<ul>
+<li>Dana Lewis, <a href="https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/">Introducing oref1 and super-microboluses</a></li>
+<li>Tim Street, <a href="https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/">Understanding SMB and oref1</a>.</li>
+</ul>
+<h3 id="how-does-max-smb-basal-minutes-limit-smbs">How does <code>Max SMB Basal Minutes</code> limit SMBs?</h3>
+<p><code>Max SMB Basal Minutes</code> is one of the major limits on how much insulin a single SMB can deliver. The amount of insulin an SMB can deliver is related to the amount of scheduled basal insulin in your "Basal Profile" settings.</p>
+<p>Example: Bill is using Trio and has SMBs turned on in the settings. Bill's current basal rate is 1 unit per hour. Bill has <code>Max SMB Basal minutes</code> set to the default of 30. Therefore, a single SMB can deliver no more insulin than would be delivered by your basal in 30 minutes, i.e., 0.5 units. </p>
+<h3 id="what-is-uam">What is UAM?</h3>
+<p>UAM  is a way for the algorithm to recognize that either there is carb absorption or an unaccounted-for increase in glucose levels as a result of more carbs being onboard than entered or as a result of hormonal variation and then dose with it effectively.</p>
+<p>To understand the logic behind UAM, have a read of Time Streets blog post <a href="https://diyps.org/2017/04/30/introducing-oref1-and-super-microboluses-smb-and-what-it-means-compared-to-oref0-the-original-openaps-algorithm/">Understanding SMB and oref1</a>.</p>
+<h3 id="how-does-max-uam-smb-basal-minutes-limit-smbs">How does <code>Max UAM SMB Basal Minutes</code> limit SMBs?</h3>
+<p><code>Max UAM SMB Basal Minutes</code> limits the size of SMBs that Trio can deliver when it detects an unannounced meal (UAM). The amount of insulin a UAM SMB can deliver is related to the amount of scheduled basal insulin in your "Basal Profile" settings. You can configure this setting to make UAM more or less aggressive in correcting meal spikes.</p>
+<p>Example: Bill has SMBs and UAM turned on in the settings. The algorithm has detected unexpected carb absorption and would like to deliver an SMB in response. Bill's current basal rate is 1 unit per hour. Bill has <code>Max UAM SMB Basal minutes</code> set to the default of 30. Therefore, a single SMB can deliver no more insulin than would be delivered by your basal in 30 minutes, i.e., 0.5 units. </p>
+<h3 id="ive-turned-on-smbs-but-every-time-i-receive-an-smb-trio-cuts-back-or-zero-temps-my-basal-is-that-normal">I've turned on SMBs, but every time I receive an SMB, Trio cuts back or zero-temps my basal. Is that normal?</h3>
+<p>Yes. SMBs effectively borrow insulin from the future to front load insulin delivery to assist in avoiding glucose spikes. Long, low, or zero temporary basal rates are expected to be observed with SMBs activated. This allows the algorithm to balance out the peak insulin timing and avoid hypoglycemia secondary to the increased insulin on board. </p>
+<h3 id="how-do-i-make-smbs-more-responsive">How do I make SMBs more responsive?</h3>
+<p>SMBs are limited by your Max <code>Max SMB Basal Minutes</code> and <code>Max UAM SMB Basal Minutes</code>. The default for both of these settings is 30 minutes. This default is conservative for most users, and it is suggested that this value be increased while monitoring the effect gradually. Raising this value will allow for bigger SMBs, thus making the dosing stronger. You need to decide how much you want to limit (or not limit) your SMBs.</p>
+<h3 id="why-isnt-trio-looping-when-cgm-glucose-is-40-mgdl-22-mmoll-or-lower">Why isn't Trio looping when CGM glucose is 40 mg/dL (2.2 mmol/L) or lower?</h3>
+<p>Trio can’t determine the glucose value when under 40mg/dL (2.2 mmol/L). This is why the CGM apps from Dexcom and Libre are displaying “Low.” A “Low” reading is also sometimes due to a sensor error or a faulty sensor needing replacement. Trio can't safely make a glucose prediction without knowing the glucose value or if it’s rising or falling.</p>
+<h3 id="why-isnt-trio-looping-or-delivering-insulin-when-cgm-glucose-is-400-mgdl-222-mmoll-or-higher">Why isn't Trio looping or delivering insulin when CGM glucose is 400 mg/dL (22.2 mmol/L) or higher?</h3>
+<p>Trio can’t determine the glucose value when over 400mg/dL (22.2 mmol/L). This is why the CGM apps from Dexcom and Libre display “High.” A “High” reading is also sometimes due to a sensor error or a faulty sensor needing replacement. Trio can't safely make a glucose prediction without knowing the glucose value or if it’s rising or falling.  </p>
+<h2 id="omnipod-faqs">Omnipod FAQs</h2>
+<h3 id="what-pods-work-with-trio">What pods work with Trio?</h3>
+<p>All 3 pod types are compatible with Trio. You can use Eros, DASH, or Omnipod 5 pods. Note that Omnipod 5 requires building a <a href="../install/build/requirements/devices/pump.html#omnipod-5">feature branch</a> at this time.</p>
+<h3 id="do-i-still-need-a-pdmcontroller-with-trio">Do I still need a PDM/Controller with Trio?</h3>
+<p>You do not need the Omnipod Personal Diabetes Manager (PDM) or Omnipod 5 Controller; you need the pod supplies. They will pair with only one device at a time. So, a pod is either paired with a PDM/Controller or your Trio app on your iPhone. </p>
+<p>In other words, your PDM/Controller can stay in the diabetes closet while you are Looping. You cannot use the PDM/Controller for a pod activated with the Trio app. That doesn't mean you should get rid of your PDM/Controller if you have one. Instead, keep it for backup situations if you lose your phone. </p>
+<h3 id="does-trio-cause-an-increase-in-pod-failures">Does Trio cause an increase in pod failures?</h3>
+<p>There is more communication between your phone and the pod than the PDM/Controller, which increases the load on the pod's battery. Most people have no increase in pod failures. However, it does occasionally happen.</p>
+<h2 id="cgm-faqs">CGM FAQs</h2>
+<h3 id="what-cgms-are-supported-by-trio">What CGMs are supported by Trio?</h3>
+<p>The following CGM can be used with Trio:</p>
+<ul>
+<li>Dexcom G5</li>
+<li>Dexcom G6 / ONE</li>
+<li>Dexcom G7 / ONE+</li>
+<li>FreeStyle Libre 1 / 2 / 2 Plus (limited Models)<ul>
+<li>US Libre 1 10-day sensors via Transmitters</li>
+<li>US Libre 1 14-day sensors via Transmitters</li>
+<li>International Libre 1 sensors via Transmitters</li>
+<li>European Libre 2 / 2 Plus sensors via Transmitters</li>
+<li>European Libre 2 / 2 Plus sensors directly via Bluetooth</li>
+</ul>
+</li>
+<li>Freestyle Libre 3 / 3 Plus, all models, directly via Bluetooth (open beta, <code>dev</code> branch only)</li>
+<li>Eversense E3 / 365 (open beta, <code>dev</code> branch only)</li>
+<li>Accu-Chek SmartGuide (open beta, <code>dev</code> branch only)</li>
+</ul>
+<h3 id="what-cgm-apps-can-be-used-with-trio">What CGM apps can be used with Trio?</h3>
+<p><strong>xDrip4iOS</strong><br/>
+To use xDrip4iOS as a CGM source, you must build it yourself with the same Apple Developer account you used to build your Trio app. Please see the following for instructions on how to build xDrip4iOS yourself <a href="../install/ecosystem/xdrip4ios.html">here</a>.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>If you use xDrip4iOS with the Dexcom G6/ONE, in Trio select <code>Dexcom G6</code> as the CGM source. Trio will intercept glucose readings directly from the transmitter.</em></p>
+</div>
+<p><strong>Nightscout</strong><br/>
+Yes. Nightscout can be used as a remote CGM source in Trio. However, this option should be avoided because it does not keep Trio running in the background like other CGM options. You will have to open Trio manually to make it run loop cycles.  </p>
+<div class="admonition note">
+<p class="admonition-title">Credit</p>
+<p>Much of the information in this FAQ has been adapted from Trio Docs, Loop Docs, and OpenAPS Docs, and I would like to acknowledge their contribution to this page's success.</p>
+</div></article></main><script>document.getElementById('toggle').onclick=function(){const hidden=document.body.classList.toggle('hide-highlights');this.textContent=hidden?'Show change highlighting':'Hide change highlighting';this.setAttribute('aria-pressed',String(!hidden));};</script></html>

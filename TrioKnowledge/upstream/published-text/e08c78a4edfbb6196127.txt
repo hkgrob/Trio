@@ -1,0 +1,1 @@
+Trio is an open-source artificial pancreas system based on the OpenAPS (Oref0) algorithm. 

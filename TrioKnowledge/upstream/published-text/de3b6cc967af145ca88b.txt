@@ -1,0 +1,1 @@
+ISF is used in the bolus calculator formula: \[ Total\ Insulin = \frac{Current\ BG - Target\ BG}{ISF} + \frac{Carbs}{CR} + Trend\ Correction - IOB \]

@@ -1,0 +1,1 @@
+ Fetch Active Overrides: Trio retrieves all currently active overrides Create End Records: For each active override, Trio creates an OverrideRunStored record marking it as ended Disable All: All active overrides are marked as disabled Sync to Nightscout: Changes are uploaded UI Update: Trio returns to normal settings 

@@ -1,0 +1,1 @@
+Activates a chosen preset temp target.   Tip You must first save the Preset Temp Target on the Adjustments screen before you can activate a temp target using Shortcuts.

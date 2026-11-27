@@ -1,0 +1,5 @@
+To determine your pump model, look at the backside of your pump.  There should be a sticker on the underside of the pump.  On the right-hand side of the sticker, it says REF MMT-XXXXXX  * MMT ---> Pump Manufacturer Model (MiniMed Medtronic)
+* 722 ---> Pump Model Number
+* NA ---> Pump Region (NA=North America, CA=Canada/Australia, WW=Worldwide)
+* S ---> Pump Color (S=Smoke, L=Clear/Lucite, B=Blue, P=Pink/Purple)
+ Some pumps may have an “L” or “S” or "R" before the pump region, e.g., a model number like MMT-722LNAS.  This does not affect Trio compatibility.

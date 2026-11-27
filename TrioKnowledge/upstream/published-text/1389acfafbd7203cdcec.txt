@@ -1,0 +1,1 @@
+Select from five time period options:  Today: From midnight to current time Day (D): Last 24 hours Week (W): Last 7 days Month (M): Last 30 days 3 Months (3M): Last 90 days 

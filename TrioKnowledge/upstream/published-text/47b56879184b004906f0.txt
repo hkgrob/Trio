@@ -1,0 +1,1 @@
+Default: OFF Turning this on will show the grams of carbs needed to prevent a low as a notification badge on the Trio home screen, located above the main icon.  

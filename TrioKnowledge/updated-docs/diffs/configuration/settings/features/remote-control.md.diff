@@ -1,0 +1,54 @@
+--- upstream/configuration/settings/features/remote-control.md
++++ updated/configuration/settings/features/remote-control.md
+@@ -173,7 +173,7 @@
+     - Bolus amount doesn't exceed your Max Bolus setting
+     - Current IOB (Insulin on Board) is calculable
+     - Current IOB + bolus amount doesn't exceed Max IOB
+-    - No recent bolus >20% of the requested amount in the last 10 minutes
++    - Boluses delivered since the command was sent total less than 20% of the requested amount (equality is rejected)
+     - APSManager is available and functioning
+ 
+ 2. **Insulin Delivery**: If all checks pass:
+@@ -208,15 +208,12 @@
+ - Result: REJECTED (8 + 5 = 13 U, which exceeds 12 U limit)
+ 
+ **Duplicate Bolus Prevention**
+-Trio checks for recent boluses in the last 10 minutes. If a bolus greater than 20% of the requested amount was recently delivered, the remote command is rejected.
+-
+-**Example**:
+-- Remote request: 5 U
+-- Recent bolus (8 minutes ago): 4.5 U
+-- 20% of 5 U = 1 U
+-- Since 4.5 U > 1 U, the request is REJECTED as a likely duplicate
+-
+-**Purpose**: Prevents accidental double-dosing if LoopFollow doesn't immediately reflect a bolus you just delivered manually.
++
++Remote bolus validation sums delivered boluses since the original command timestamp. It rejects a request when that total is **greater than or equal to 20%** of the requested bolus. It does not use an individual-bolus comparison or a fixed ten-minute lookback.
++
++For a synthetic 5 U command, the threshold is 1 U. Two boluses delivered after the command was sent, totaling exactly 1 U, trigger rejection. A bolus delivered before the command timestamp is outside this particular lookback. This example explains the validation rule, not a suggested dose.
++
++The same validator is used by Shortcuts, whose caller instead uses the default six-minute lookback. Command age/expiry validation is a separate check.
+ 
+ **Time Window Validation**
+ All remote commands include a timestamp. Trio rejects commands that are:
+@@ -231,7 +228,7 @@
+ |-------|---------|--------|
+ | "Bolus amount exceeds max bolus" | Requested bolus > Max Bolus setting | Reduce bolus amount or increase Max Bolus in settings |
+ | "IOB would exceed max IOB" | Current IOB + bolus > Max IOB | Wait for IOB to decrease, or increase Max IOB |
+-| "Recent bolus detected" | Similar bolus in last 10 minutes | Wait 10 minutes or verify this isn't a duplicate |
++| "Recent bolus detected" | Boluses since the command timestamp total at least 20% of the request | Inspect delivered doses and command timing; do not resend based only on a timer |
+ | "APSManager unavailable" | Trio can't access pump | Check Trio app is running and pump is connected |
+ | "Command too old" | Timestamp > 10 minutes ago | Check phone clocks are synchronized; resend command |
+ 
+@@ -511,3 +508,11 @@
+ The *LoopFollowDocs* have complete build instructions:
+ 
+ * [LoopFollowDocs: Build Options](https://loopfollowdocs.org/build/build-options/)
++
++
++## 1.0.2 source references
++
++- **F04 — Remote duplicate-bolus guard uses command time and a cumulative inclusive threshold**
++    - [Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift:43](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/BolusSafety/BolusSafetyValidator.swift#L43)
++    - [Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift:13](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Services/RemoteControl/TrioRemoteControl+Bolus.swift#L13)
++    - [Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift:16](https://github.com/nightscout/Trio/blob/0b29cd53415e7f0e668677749cad8daf81c68c2f/Trio/Sources/Shortcuts/Bolus/BolusIntentRequest.swift#L16)
